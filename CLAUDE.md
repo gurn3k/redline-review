@@ -43,6 +43,10 @@ flag.
 - Secrets live in `.env.local` (gitignored). Never commit a key — it's
   public the moment it's pushed and has to be rotated.
 - Ask before adding a dependency.
+- Every piece of copy a user reads — landing page, UI labels, error
+  messages, empty states — must go through the `humanizer` skill before it
+  gets committed. Text that reads like a model wrote it is a defect, not a
+  taste call.
 
 ## Where to look
 

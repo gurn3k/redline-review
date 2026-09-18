@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T16:22:47Z",
+  "title": "Design System: Redline",
+  "extensions": {
+    "colorMeta": {
+      "ledger-cream": {
+        "role": "neutral",
+        "displayName": "Ledger Cream",
+        "canonical": "#f2ede1",
+        "tonalRamp": ["#241f16", "#4a4030", "#6f6249", "#948263", "#b8a780", "#d9cdb8", "#ece5d5", "#f2ede1"]
+      },
+      "ledger-cream-deep": {
+        "role": "neutral",
+        "displayName": "Ledger Cream Deep",
+        "canonical": "#e7ded0",
+        "tonalRamp": ["#221d13", "#463c29", "#6b5c3e", "#8f7c54", "#b3a071", "#cdbe9f", "#ddd1bc", "#e7ded0"]
+      },
+      "ledger-paper-edge": {
+        "role": "neutral",
+        "displayName": "Ledger Paper Edge",
+        "canonical": "#d9cdb8",
+        "tonalRamp": ["#231e14", "#463c29", "#6a5c3c", "#8e7c52", "#b19f6c", "#c7b895", "#d3c4ac", "#d9cdb8"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Charcoal Ink",
+        "canonical": "#242220",
+        "tonalRamp": ["#0e0d0c", "#242220", "#403c37", "#5c564e", "#787066", "#948a7e", "#b5ada4", "#dad6d1"]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#524c43",
+        "tonalRamp": ["#161412", "#2e2b25", "#524c43", "#6f675b", "#8c8375", "#a9a091", "#c6bfb3", "#e3ddd5"]
+      },
+      "confirm-green": {
+        "role": "primary",
+        "displayName": "Confirmation Green",
+        "canonical": "#1f5c3f",
+        "tonalRamp": ["#08150e", "#0f3120", "#17462f", "#1f5c3f", "#2d7d55", "#5fa583", "#9dcab3", "#dfeee5"]
+      },
+      "confirm-green-soft": {
+        "role": "primary",
+        "displayName": "Confirmation Green Soft (declared, unused)",
+        "canonical": "#dfeee5",
+        "tonalRamp": ["#1f5c3f", "#3a7a5c", "#5c987a", "#82b39a", "#a8cdb9", "#c4dfd0", "#dfeee5", "#f2f8f4"]
+      },
+      "danger-red": {
+        "role": "secondary",
+        "displayName": "Stamp Red",
+        "canonical": "#9b1c1c",
+        "tonalRamp": ["#2c0808", "#511010", "#761515", "#9b1c1c", "#bc3838", "#d4716f", "#e8aaa8", "#f6dcda"]
+      },
+      "danger-red-soft": {
+        "role": "secondary",
+        "displayName": "Stamp Red Soft (declared, unused)",
+        "canonical": "#f6dcda",
+        "tonalRamp": ["#9b1c1c", "#b64c4a", "#cc7573", "#dd9c9a", "#eabbb9", "#f2ccca", "#f6dcda", "#fbeeed"]
+      },
+      "unusual-amber": {
+        "role": "secondary",
+        "displayName": "Unusual Amber-Brown",
+        "canonical": "#8a5a2b",
+        "tonalRamp": ["#241708", "#452c11", "#66401a", "#8a5a2b", "#ac7943", "#c69c6c", "#dcbe9a", "#f0e3cd"]
+      },
+      "unusual-amber-soft": {
+        "role": "secondary",
+        "displayName": "Unusual Amber-Brown Soft (declared, unused)",
+        "canonical": "#f0e3cd",
+        "tonalRamp": ["#8a5a2b", "#a1774a", "#b6926a", "#c9ab8b", "#dac2ac", "#e6d5c3", "#f0e3cd", "#f8f1e4"]
+      },
+      "rule-line": {
+        "role": "neutral",
+        "displayName": "Rule Line",
+        "canonical": "rgba(36, 34, 32, 0.22)",
+        "tonalRamp": ["rgba(36,34,32,0.9)", "rgba(36,34,32,0.75)", "rgba(36,34,32,0.6)", "rgba(36,34,32,0.45)", "rgba(36,34,32,0.32)", "rgba(36,34,32,0.22)", "rgba(36,34,32,0.15)", "rgba(36,34,32,0.08)"]
+      },
+      "rule-line-soft": {
+        "role": "neutral",
+        "displayName": "Rule Line Soft",
+        "canonical": "rgba(36, 34, 32, 0.12)",
+        "tonalRamp": ["rgba(36,34,32,0.5)", "rgba(36,34,32,0.4)", "rgba(36,34,32,0.3)", "rgba(36,34,32,0.22)", "rgba(36,34,32,0.16)", "rgba(36,34,32,0.12)", "rgba(36,34,32,0.08)", "rgba(36,34,32,0.04)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero H1 only." },
+      "headline": { "displayName": "Headline", "purpose": "The lead confirmation card's title — the only confirmation title set at display-adjacent scale." },
+      "title": { "displayName": "Title", "purpose": "Section headings below the hero (Mechanism, Clause Index, Constraints, Final CTA)." },
+      "body": { "displayName": "Body", "purpose": "Readable prose: hero subhead, section copy, footer, counter-offer text." },
+      "label": { "displayName": "Label / Mono", "purpose": "Citations, §-reference tags, stamp labels, tabular figures — anything functioning as evidence." }
+    },
+    "shadows": [
+      { "name": "confirmation-lift", "value": "0 8px 20px rgba(36, 34, 32, 0.1)", "purpose": "Default confirmation card ambient lift, applied on stamp-in." },
+      { "name": "lead-lift", "value": "0 20px 44px rgba(155, 28, 28, 0.18)", "purpose": "The lead (most severe) confirmation card only; red-tinted, larger radius." },
+      { "name": "cta-lift", "value": "0 6px 14px rgba(31, 92, 63, 0.28)", "purpose": "Primary CTA button at rest." },
+      { "name": "cta-lift-hover", "value": "0 9px 18px rgba(31, 92, 63, 0.34)", "purpose": "Primary CTA button on hover." }
+    ],
+    "motion": [
+      { "name": "stamp-in", "value": "480ms cubic-bezier(0.16, 1, 0.3, 1); translateY(10px) scale(1.04) rotate(-0.6deg) -> translateY(0) scale(1) rotate(0deg)", "purpose": "Staggered entrance for each confirmation card (animation-delay = index * 140ms); the build's one authored signature motion moment. Respects prefers-reduced-motion." },
+      { "name": "cta-transition", "value": "transform 160ms ease, box-shadow 160ms ease, background 160ms ease", "purpose": "CTA hover: rotation straightens, lifts 1px, shadow deepens." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "tether-desktop", "value": "900px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary CTA Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Stamp-styled primary action, anchored in the nav and the final section. Uppercase mono label, resting counter-rotation that straightens on hover.",
+      "html": "<a class=\"ds-cta\" href=\"#\">Try it on a document</a>",
+      "css": ".ds-cta { display: inline-flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; background: #1f5c3f; color: #f2ede1; border: 1px solid #1f5c3f; border-radius: 3px; padding: 0.95rem 1.9rem; font-size: 0.95rem; transform: rotate(-1.1deg); box-shadow: 0 6px 14px rgba(31, 92, 63, 0.28); transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease; } .ds-cta:hover { transform: rotate(0deg) translateY(-1px); box-shadow: 0 9px 18px rgba(31, 92, 63, 0.34); background: #17462f; } .ds-cta:focus-visible { outline: 2px solid #1f5c3f; outline-offset: 3px; }"
+    },
+    {
+      "name": "Wire Confirmation Card (default)",
+      "kind": "card",
+      "refersTo": null,
+      "description": "The core signature unit: a severity stamp, §-reference tag, title, mono-set quoted citation, a perforated divider, and a proposed-edit counter line.",
+      "html": "<div class=\"ds-confirmation ds-confirmation-dangerous\"><div class=\"ds-confirmation-head\"><span class=\"ds-stamp\">DANGEROUS</span><span class=\"ds-ref\">§6.7</span></div><p class=\"ds-title\">Indemnification</p><p class=\"ds-citation\">“Client shall indemnify … against any and all claims … whether or not arising from Vendor's own acts or omissions”</p><hr class=\"ds-perf\" /><p class=\"ds-counter\"><span class=\"ds-counter-label\">Proposed edit</span> Limit indemnification to claims caused by Client, capped at the contract value.</p></div>",
+      "css": ".ds-confirmation { background: #e7ded0; border: 1px solid rgba(36,34,32,0.22); border-radius: 4px; padding: 0.7rem 0.95rem 0.85rem; box-shadow: 0 8px 20px rgba(36, 34, 32, 0.1); font-family: 'IBM Plex Sans', ui-sans-serif, sans-serif; } .ds-confirmation-dangerous { border-color: #9b1c1c; } .ds-confirmation-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.65rem; } .ds-stamp { display: inline-block; background: #9b1c1c; color: #f2ede1; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase; padding: 0.32rem 0.8rem; border-radius: 3px; transform: rotate(-2deg); } .ds-ref { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.75rem; color: #524c43; } .ds-title { font-family: 'Space Grotesk', ui-sans-serif, sans-serif; font-weight: 500; font-size: 0.95rem; margin: 0 0 0.5rem; } .ds-citation { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.78rem; line-height: 1.6; background: rgba(36,34,32,0.12); border-radius: 3px; padding: 0.55rem 0.7rem; margin: 0 0 0.65rem; } .ds-perf { border: none; height: 7px; margin: 0.9rem 0; background: radial-gradient(circle, rgba(36,34,32,0.22) 2.1px, transparent 2.1px) repeat-x; background-size: 13px 7px; } .ds-counter { font-size: 0.82rem; line-height: 1.55; color: #524c43; margin: 0; } .ds-counter-label { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: 600; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #242220; }"
+    },
+    {
+      "name": "Wire Confirmation Card (lead)",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "The first/most severe confirmation, rendered dominant rather than as a card among cards: 30rem min-height, headline-scale title and citation, wider red-tinted border and shadow.",
+      "html": "<div class=\"ds-confirmation ds-confirmation-lead\"><div class=\"ds-confirmation-head\"><span class=\"ds-stamp ds-stamp-lg\">DANGEROUS</span><span class=\"ds-ref\">§6.3</span></div><p class=\"ds-title-lead\">Personal guarantee</p><p class=\"ds-citation-lead\">“the individual executing this Agreement personally and unconditionally guarantees full payment of all amounts owed — without limitation as to amount or duration”</p><hr class=\"ds-perf\" /><p class=\"ds-counter-lead\"><span class=\"ds-counter-label\">Proposed edit</span> Cap personal liability at a stated amount, or remove the personal guarantee.</p></div>",
+      "css": ".ds-confirmation-lead { border-color: #9b1c1c; border-width: 3px; padding: 3rem 3rem 3.25rem; min-height: 30rem; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 20px 44px rgba(155, 28, 28, 0.18); background: #e7ded0; border-radius: 4px; font-family: 'IBM Plex Sans', ui-sans-serif, sans-serif; } .ds-stamp-lg { padding: 0.5rem 1.1rem; font-size: 0.95rem; transform: rotate(-2.4deg); } .ds-title-lead { font-family: 'Space Grotesk', ui-sans-serif, sans-serif; font-weight: 500; font-size: 2.5rem; line-height: 1.1; margin: 0 0 1rem; } .ds-citation-lead { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 1.35rem; line-height: 1.6; background: rgba(36,34,32,0.12); border-radius: 3px; padding: 1.5rem 1.75rem; margin: 0 0 0.65rem; } .ds-counter-lead { font-size: 1.1rem; line-height: 1.55; color: #524c43; margin: 0; }"
+    },
+    {
+      "name": "Source Tape",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "The left-column ledger of real contract prose in tabular mono, each cited line prefixed with a §-reference chip that a confirmation card's tether or shared tag points back to.",
+      "html": "<div class=\"ds-tape\"><p class=\"ds-tape-label\">Sample contract — not a real filing</p><pre class=\"ds-tape-body\"><span class=\"ds-tape-ref\">§6.3</span>6.3 Personal Guarantee. By signing below, the individual executing\nthis Agreement on behalf of Client personally and unconditionally\nguarantees full payment of all amounts owed under this Agreement.</pre></div>",
+      "css": ".ds-tape { background: #e7ded0; border: 1px solid rgba(36,34,32,0.22); border-radius: 4px; padding: 1.25rem 1.25rem 1.5rem; } .ds-tape-label { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: #524c43; margin: 0 0 0.9rem; } .ds-tape-body { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.78rem; line-height: 1.7; color: #242220; white-space: pre-wrap; margin: 0; } .ds-tape-ref { display: inline-block; font-weight: 600; font-size: 0.68rem; background: rgba(36,34,32,0.12); border-radius: 2px; padding: 0 4px; margin-right: 0.4em; color: #242220; }"
+    },
+    {
+      "name": "Clause Index Row",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "§-reference-tagged list row used for the 'What gets checked' index; replaces sequential numbering site-wide.",
+      "html": "<div class=\"ds-ledger-row\"><span class=\"ds-ledger-ref\">§ PG</span><span class=\"ds-ledger-name\">Personal guarantee</span><span class=\"ds-ledger-note\">checked for uncapped personal exposure — with a drafted counter-offer</span></div>",
+      "css": ".ds-ledger-row { display: grid; grid-template-columns: 3.4rem minmax(0, 14rem) 1fr; gap: 1rem; align-items: baseline; padding: 0.9rem 0; border-bottom: 1px solid rgba(36,34,32,0.12); font-family: 'IBM Plex Sans', ui-sans-serif, sans-serif; } .ds-ledger-ref { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.85rem; color: #524c43; } .ds-ledger-name { font-family: 'Space Grotesk', ui-sans-serif, sans-serif; font-weight: 500; font-size: 1rem; color: #242220; } .ds-ledger-note { font-size: 0.92rem; color: #524c43; line-height: 1.5; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Wire Confirmation",
+    "overview": "Redline's landing page renders each contract risk flag as a stamped, verified confirmation clipped to the exact sentence it names — the visual grammar of a bank-wire teleprinter ledger, not a dashboard. A vertical source tape of real contract prose feeds down the left column in tabular mono; on the right, stamped confirmation slips punch out one at a time, each tethered by a perforated tear-line and a dashed SVG path to its exact source citation. The lead flag (first, most severe) is rendered enormous — min-height 30rem, oversized type — filling real vertical space rather than sitting as a card among cards. This refuses the category's dashboard-card-with-a-score default: nothing here is a floating score: every claim sits next to its own cited proof.\n\nThe palette stays warm and paper-toned at rest (ledger cream, soft charcoal ink) and reserves color strictly for verdicts: confirmation green for Clear, stamp red for Dangerous, amber-brown for Unusual — never used decoratively elsewhere. Texture (ink-stamp grain, perforation punch-holes) is generated live via SVG filter chains (feTurbulence + feDisplacementMap + feComponentTransfer), not pre-rendered raster imagery — there are no shipped rasters in this build, so no image-provenance concerns apply.",
+    "keyCharacteristics": [
+      "Ledger-cream ground with a charcoal-ink body voice; verdict color (green/red/amber) appears only inside stamps, borders, and shadows tied to a severity tier.",
+      "Tabular monospace (IBM Plex Mono) for every citation, reference tag, and label; Space Grotesk for display/headline weight; IBM Plex Sans for readable prose.",
+      "Rubber-stamp ink texture and punch-hole perforations are both generated at runtime through inline SVG filters — no raster assets anywhere in the build.",
+      "The lead confirmation dominates the viewport rather than joining a grid of equal cards.",
+      "§-style reference tags replace sequential numbering throughout, echoing the source tape's own citation chips."
+    ],
+    "rules": [
+      { "name": "The Reserved Verdict Rule", "body": "Stamp red, confirmation green, and unusual amber-brown are used exclusively inside severity-tier stamps, card borders, and their matching shadow tints. None of the three appears as a decorative or structural color anywhere else on the page — the CTA's use of confirmation green is the single exception, and it is legible as a \"Clear to proceed\" cue rather than decoration.", "section": "colors" },
+      { "name": "The Cited-in-Mono Rule", "body": "Anything that functions as evidence — a citation, a §-reference tag, a tabular figure — is set in IBM Plex Mono with tabular-nums. Prose that makes a claim, rather than showing proof, is set in IBM Plex Sans or Space Grotesk. Mixing the two inside a single line is how the tape and the confirmation cards visually agree they're citing the same fact.", "section": "typography" },
+      { "name": "The Soft-Stamp Rule", "body": "Every shadow in this world is diffuse and centered, never a hard unblurred offset. Depth reads as ink lifting off paper, not as a cutout block.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do set every citation, §-reference tag, and tabular figure in IBM Plex Mono with tabular-nums — evidence is always mono-set.",
+      "Do reserve stamp red exclusively for the Dangerous tier (stamp fill, lead-card border, lead-card shadow tint); never use it decoratively elsewhere.",
+      "Do pair every flag with its exact cited source sentence inside the same card — a claim never floats without its citation beside it.",
+      "Do render the lead (most severe) confirmation dominant — larger padding, larger type, real vertical space — rather than as a card among equal cards.",
+      "Do build stamp texture and perforation punch-holes from inline SVG filter chains (feTurbulence/feDisplacementMap/feComponentTransfer), not raster images — this build ships zero rasters, all texture is code-generated.",
+      "Do use §-style reference tags for section/clause indexing instead of sequential numbers.",
+      "Do keep shadows soft and diffuse (ambient lift), never a hard unblurred offset.",
+      "Do show an explicit \"Clear\" confirmation card (naming what was checked) when nothing trips a flag — never an empty state or silence, per PRODUCT.md's brand commitment."
+    ],
+    "donts": [
+      "Don't use stamp red, confirmation green, or unusual amber-brown as general decoration — each is a reserved verdict color, and confirmation green's CTA use is the one confirmed exception, not a precedent for the other two.",
+      "Don't introduce hard-offset \"brutalist\" box-shadows — this world's depth vocabulary is exclusively soft and diffuse.",
+      "Don't add a kicker, eyebrow, glyph icon, or system display face — none exist in the built system; the §-reference tag is the sole index/label device, and Space Grotesk/IBM Plex are the only faces in use.",
+      "Don't invent a numeric risk score or a hedged middle severity tier — copy stays binary (Dangerous / Unusual / Clear), per PRODUCT.md.",
+      "Don't rename the established severity terms (\"Dangerous\", \"Unusual\", \"Clear\") or substitute \"No issues found\" / \"all clear\" language, per PRODUCT.md's Brand Commitments."
+    ]
+  }
+}
