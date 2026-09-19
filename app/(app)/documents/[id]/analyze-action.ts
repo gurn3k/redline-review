@@ -18,11 +18,17 @@ export type AnalyzeDocumentActionResult =
 
 /**
  * Runs `analyzeDocument` for a document the signed-in user owns and returns
- * the result to the client. Does NOT persist to `documents.analysis_result`
- * — ticket 11 owns writing that column. Re-checks auth and ownership
- * server-side rather than trusting the caller, per Next.js's Server Actions
- * security guidance (every action is an untrusted, directly reachable
- * entry point).
+ * the result to the client. Re-checks auth and ownership server-side rather
+ * than trusting the caller, per Next.js's Server Actions security guidance
+ * (every action is an untrusted, directly reachable entry point).
+ *
+ * On success, also persists the result to `documents.analysis_result`
+ * (scoped to this id AND this user_id) so the document's page can show it
+ * again later without re-running analysis. A save failure is logged
+ * server-side but doesn't fail the action — the user already has a correct
+ * answer in hand, and surfacing a "the analysis failed" message when it
+ * actually succeeded would be worse than a library entry that just doesn't
+ * pick up the saved copy this one time.
  */
 export async function analyzeDocumentAction(documentId: string): Promise<AnalyzeDocumentActionResult> {
   const supabase = await createClient();
@@ -61,12 +67,27 @@ export async function analyzeDocumentAction(documentId: string): Promise<Analyze
 
   const redLines = (redLineRows ?? []).map((row: { text: string }) => row.text);
 
+  let result: AnalysisResult;
   try {
-    const result = await analyzeDocument(document.extracted_text, redLines);
-    return { ok: true, result };
+    result = await analyzeDocument(document.extracted_text, redLines);
   } catch {
     // Covers AnalysisError (malformed model response) and any other
     // failure from the seam alike — the user never sees a raw stack trace.
     return { ok: false, message: MODEL_FAILED_MESSAGE };
   }
+
+  const { error: saveError } = await supabase
+    .from("documents")
+    .update({ analysis_result: result })
+    .eq("id", document.id)
+    .eq("user_id", user.id);
+
+  if (saveError) {
+    // The analysis itself succeeded — the user still gets their answer.
+    // Only the "load it again later without re-running" behavior is lost
+    // for this document, so this is a server log, not a user-facing error.
+    console.error(`Failed to save analysis result for document ${document.id}:`, saveError);
+  }
+
+  return { ok: true, result };
 }
