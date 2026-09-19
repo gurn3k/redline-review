@@ -25,8 +25,8 @@ done.
 | 07 | Auto-renewal detection | done |
 | 08 | Unilateral termination detection | done |
 | 09 | Generic detection (arbitration, liability cap) | done |
-| 10 | Q&A box | not started |
-| 11 | Document library | not started |
+| 10 | Q&A box | done |
+| 11 | Document library | done |
 | 12 | Positioning copy audit | not started |
 
 ## Decisions made in the operator's absence
