@@ -858,3 +858,255 @@ main {
   color: var(--ink-soft);
   margin: 0;
 }
+
+.register-card-link {
+  display: block;
+  text-decoration: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.register-card-link:hover {
+  border-color: var(--ink-soft);
+  box-shadow: 0 8px 20px rgba(36, 34, 32, 0.1);
+}
+
+.register-cta {
+  display: inline-block;
+  margin-top: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--confirm-green);
+}
+
+/* ---------- red lines ---------- */
+
+.redlines-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 42rem;
+}
+
+.redlines-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.redlines-sub {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: -0.75rem 0 0;
+}
+
+.redline-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: var(--ledger-cream-deep);
+  border: 1px solid var(--rule-line);
+  border-radius: 4px;
+  padding: 1.25rem 1.25rem 1.4rem;
+}
+
+.redline-textarea {
+  font-family: var(--font-body);
+  resize: vertical;
+  min-height: 3.2rem;
+}
+
+.redline-submit {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+.redlines-list-wrap {
+  min-height: 2rem;
+}
+
+.redlines-empty {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  background: var(--ledger-cream-deep);
+  border: 1px solid var(--rule-line);
+  border-radius: 4px;
+  padding: 1.25rem 1.4rem;
+  margin: 0;
+}
+
+.redlines-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.redline-row {
+  background: var(--ledger-cream-deep);
+  border: 1px solid var(--rule-line);
+  border-radius: 4px;
+  padding: 0.95rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.redline-row-editing {
+  border-color: var(--ink-soft);
+}
+
+.redline-text {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.redline-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.redline-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.redline-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.redline-link:hover:not(:disabled) {
+  color: var(--ink);
+}
+
+.redline-link:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.redline-link-danger {
+  color: var(--danger-red);
+}
+
+.redline-link-danger:hover:not(:disabled) {
+  color: #7a1616;
+}
+
+.redlines-back {
+  align-self: flex-start;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.redlines-back:hover {
+  color: var(--ink);
+}
+
+/* ---------- document intake (ticket 02) ---------- */
+
+.intake-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 34rem;
+}
+
+.intake-file-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.intake-file-label {
+  cursor: pointer;
+}
+
+.intake-file-label:has(+ input:disabled) {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.intake-file-name {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.intake-hint {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.intake-submit {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+/* ---------- document detail (ticket 02) ---------- */
+
+.document-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.document-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  line-height: 1.15;
+  margin: 0;
+  word-break: break-word;
+}
+
+.document-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin: 0.4rem 0 0;
+}
+
+.document-tape-body {
+  max-height: 32rem;
+  overflow-y: auto;
+}
+
+.document-panels {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+}
+
+@media (min-width: 640px) {
+  .document-panels {
+    grid-template-columns: 1fr 1fr;
+  }
+}

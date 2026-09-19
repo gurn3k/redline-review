@@ -122,6 +122,18 @@ verified against a real database since no project exists yet; the live
 OpenRouter smoke run only happens if `OPENROUTER_API_KEY` is set when this
 report is finalized.)
 
+### Ticket 02 (upload and text extraction)
+No live Supabase project exists in this environment, so the actual
+`documents` insert and the `/documents/[id]` read-by-owner query
+(`supabase/migrations/0001_documents.sql`) were never exercised against a
+real database — only typechecked and manually reasoned through. What was
+verified: `npm run typecheck`, `npm run build`, and `npm test` (including
+new unit coverage of the extraction quality gate and a render-smoke test
+for the intake card) all pass; a running `next dev` server was manually
+hit with `curl` and confirmed `/home`, `/documents/[id]`, and `/login`
+all redirect or render cleanly with no Supabase configured, rather than
+crashing or blank-screening.
+
 ## Commands to run first
 
 (filled in at the end.)
