@@ -17,14 +17,14 @@ done.
 |---|--------|--------|
 | — | Fixtures (`tests/fixtures/`) | done |
 | 01 | Auth and app shell | done |
-| 02 | Upload and text extraction | not started |
-| 03 | Red-lines CRUD | not started |
+| 02 | Upload and text extraction | done |
+| 03 | Red-lines CRUD | done |
 | 04 | analyzeDocument seam + Clear baseline | done |
-| 05 | Personal guarantee detection | not started |
-| 06 | Indemnification detection | not started |
-| 07 | Auto-renewal detection | not started |
-| 08 | Unilateral termination detection | not started |
-| 09 | Generic detection (arbitration, liability cap) | not started |
+| 05 | Personal guarantee detection | done |
+| 06 | Indemnification detection | done |
+| 07 | Auto-renewal detection | done |
+| 08 | Unilateral termination detection | done |
+| 09 | Generic detection (arbitration, liability cap) | done |
 | 10 | Q&A box | not started |
 | 11 | Document library | not started |
 | 12 | Positioning copy audit | not started |
