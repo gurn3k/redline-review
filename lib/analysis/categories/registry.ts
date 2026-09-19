@@ -12,6 +12,14 @@ export interface CandidateFlag {
   explanation: string;
   counterOffer: string;
   redLineText?: string;
+  /**
+   * Optional category-specific structured fields the model was asked to
+   * supply (in that category's `promptInstructions`), for categories whose
+   * `computeSeverity` needs more than the model's own severity call — e.g.
+   * auto-renewal's price-escalation/cancellation-window Dangerous test.
+   * Absent for categories that don't need it.
+   */
+  attributes?: Record<string, unknown>;
 }
 
 /**
