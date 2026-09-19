@@ -15,8 +15,8 @@ done.
 
 | # | Ticket | Status |
 |---|--------|--------|
-| — | Fixtures (`tests/fixtures/`) | in progress |
-| 01 | Auth and app shell | in progress |
+| — | Fixtures (`tests/fixtures/`) | done |
+| 01 | Auth and app shell | done |
 | 02 | Upload and text extraction | not started |
 | 03 | Red-lines CRUD | not started |
 | 04 | analyzeDocument seam + Clear baseline | not started |

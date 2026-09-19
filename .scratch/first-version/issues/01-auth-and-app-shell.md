@@ -8,16 +8,28 @@ inherit it rather than each having to add it from scratch.
 
 **Blocked by:** None (can start immediately)
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] User can sign up and log in via Supabase auth.
-- [ ] Unauthenticated visitors are redirected to login; authenticated users
+- [x] User can sign up and log in via Supabase auth.
+- [x] Unauthenticated visitors are redirected to login; authenticated users
       land on a home screen.
-- [ ] A session persists across reloads (Supabase session handling wired
+- [x] A session persists across reloads (Supabase session handling wired
       correctly).
-- [ ] Every page (including this bare shell) renders a footer stating
+- [x] Every page (including this bare shell) renders a footer stating
       Redline explains document text and patterns, not legal advice or
       enforceability — this copy is reused, not re-authored, by later
       tickets.
-- [ ] No document, red-line, or analysis functionality yet — this ticket is
+- [x] No document, red-line, or analysis functionality yet — this ticket is
       the shell only.
+
+## Comments
+
+Built: browser/server Supabase client factories at `lib/supabase/client.ts`
+/ `lib/supabase/server.ts`; session refresh + auth gating at `proxy.ts`
+(Next.js 16 renamed the `middleware.ts` convention to `proxy.ts` — same
+behavior, see the file's header comment); `/login` (sign up + log in, one
+form, mode toggle); authenticated home at `/home` under the `app/(app)/`
+route group; shared `<DisclaimerFooter>` wired into the root layout. No live
+Supabase project exists, so sign-up/log-in is unverified against a real
+database — `npm run typecheck` and `npm run build` both pass. Full detail in
+the implementing agent's report to the orchestrator.

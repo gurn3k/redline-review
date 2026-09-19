@@ -39,7 +39,7 @@ export default function Home() {
     <div className="page">
       <header className="nav">
         <span className="wordmark">REDLINE</span>
-        <Link href="/app" className="cta cta-small">
+        <Link href="/login" className="cta cta-small">
           Try it on a document
         </Link>
       </header>
@@ -102,18 +102,11 @@ export default function Home() {
 
         <section className="final-cta measure">
           <h2>Read it before you sign it.</h2>
-          <Link href="/app" className="cta cta-large">
+          <Link href="/login" className="cta cta-large">
             Try it on a document
           </Link>
         </section>
       </main>
-
-      <footer className="footer">
-        <p>
-          Redline explains what&rsquo;s in your document and how it compares to typical terms.
-          It is not a lawyer, and it does not tell you whether to sign.
-        </p>
-      </footer>
     </div>
   );
 }

@@ -154,6 +154,7 @@ main {
   font-weight: 700;
   font-size: 1.15rem;
   letter-spacing: 0.06em;
+  text-decoration: none;
 }
 
 /* ---------- CTA ---------- */
@@ -646,4 +647,214 @@ main {
   font-size: 0.85rem;
   line-height: 1.6;
   color: var(--ink-soft);
+}
+
+/* ---------- shared: disabled cta (placeholder actions) ---------- */
+
+.cta:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: rotate(0deg);
+  box-shadow: none;
+}
+
+.cta:disabled:hover {
+  transform: rotate(0deg);
+  box-shadow: none;
+  background: var(--confirm-green);
+}
+
+/* ---------- auth (login / sign up) ---------- */
+
+.auth-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 26rem;
+  background: var(--ledger-cream-deep);
+  border: 1px solid var(--rule-line);
+  border-radius: 4px;
+  padding: 2.25rem 2rem 2.5rem;
+  box-shadow: 0 8px 20px rgba(36, 34, 32, 0.1);
+}
+
+.auth-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.75rem;
+}
+
+.auth-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.8vw, 1.85rem);
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+
+.auth-sub {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0 0 1.75rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.auth-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 0.75rem;
+}
+
+.auth-input {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--ledger-cream);
+  border: 1px solid var(--rule-line);
+  border-radius: 3px;
+  padding: 0.65rem 0.75rem;
+}
+
+.auth-input:focus-visible {
+  outline: 2px solid var(--confirm-green);
+  outline-offset: 2px;
+}
+
+.auth-message {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0.9rem 0 0;
+  padding: 0.65rem 0.8rem;
+  border-radius: 3px;
+}
+
+.auth-message-error {
+  color: var(--danger-red);
+  background: var(--danger-red-soft);
+}
+
+.auth-message-notice {
+  color: var(--confirm-green);
+  background: var(--confirm-green-soft);
+}
+
+.auth-submit {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.auth-toggle {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5rem;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.auth-toggle:hover {
+  color: var(--ink);
+}
+
+/* ---------- authenticated app shell ---------- */
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  padding: 2.5rem 0 3.5rem;
+}
+
+.home-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.intake-card {
+  background: var(--ledger-cream-deep);
+  border: 1px solid var(--rule-line);
+  border-radius: 4px;
+  padding: 3rem 2.5rem;
+  min-height: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.intake-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  line-height: 1.15;
+  margin: 0 0 0.4rem;
+  max-width: 24ch;
+}
+
+.intake-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 48ch;
+  margin: 0 0 1.5rem;
+}
+
+.registers {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+}
+
+@media (min-width: 640px) {
+  .registers {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.register-card {
+  background: var(--ledger-cream-deep);
+  border: 1px solid var(--rule-line);
+  border-radius: 4px;
+  padding: 1.5rem 1.5rem 1.65rem;
+}
+
+.register-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.15rem;
+  margin: 0.5rem 0 0.5rem;
+}
+
+.register-body {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
 }

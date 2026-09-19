@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { DisclaimerFooter } from "./components/disclaimer-footer";
 import "./globals.css";
 
 const display = Space_Grotesk({
@@ -32,7 +33,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${display.variable} ${mono.variable} ${body.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <DisclaimerFooter />
+      </body>
     </html>
   );
 }
