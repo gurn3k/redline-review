@@ -1110,3 +1110,57 @@ main {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ---------- document analysis panel (ticket 04) ---------- */
+
+.analysis-cta {
+  margin-top: 1rem;
+}
+
+.analysis-result {
+  position: relative;
+}
+
+.analysis-label {
+  display: block;
+  margin: 0 0 0.4rem;
+}
+
+.analysis-summary {
+  margin: 0 0 1.25rem;
+}
+
+.analysis-confirmations {
+  margin-top: 0;
+}
+
+.analysis-explanation {
+  margin: 0.5rem 0 0;
+}
+
+.analysis-clear .analysis-label {
+  margin-top: 1rem;
+}
+
+.analysis-clear-note {
+  margin: 0.5rem 0 0;
+}
+
+.analysis-clear-list {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.analysis-clear-list li {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--rule-line-soft);
+  border-radius: 3px;
+  padding: 0.5rem 0.7rem;
+}
