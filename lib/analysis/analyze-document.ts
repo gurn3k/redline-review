@@ -1,6 +1,10 @@
 import { createModelClient, type ModelClient } from "@/lib/model/client";
 import { containsDenyListedWord } from "@/lib/analysis/deny-list";
-import { CATEGORY_REGISTRY, type CandidateFlag } from "@/lib/analysis/categories/registry";
+import {
+  CATEGORY_REGISTRY,
+  type CandidateFlag,
+  type CategoryDefinition,
+} from "@/lib/analysis/categories/registry";
 import type { AnalysisResult, ClauseCategory, Flag, Severity } from "@/lib/analysis/types";
 
 const VALID_CATEGORIES: ClauseCategory[] = [
@@ -35,8 +39,8 @@ function isValidSeverity(value: unknown): value is Severity {
   return typeof value === "string" && (VALID_SEVERITIES as string[]).includes(value);
 }
 
-function buildSystemPrompt(): string {
-  const categoryInstructions = CATEGORY_REGISTRY.map((def) => def.promptInstructions)
+function buildSystemPrompt(categoryRegistry: CategoryDefinition[]): string {
+  const categoryInstructions = categoryRegistry.map((def) => def.promptInstructions)
     .filter((instructions) => instructions.trim().length > 0)
     .join("\n\n");
 
@@ -113,8 +117,9 @@ export async function analyzeDocument(
   documentText: string,
   redLines: string[],
   modelClient: ModelClient = createModelClient(),
+  categoryRegistry: CategoryDefinition[] = CATEGORY_REGISTRY,
 ): Promise<AnalysisResult> {
-  const system = buildSystemPrompt();
+  const system = buildSystemPrompt(categoryRegistry);
   const user = buildUserMessage(documentText, redLines);
 
   let raw: RawModelResponse;
@@ -137,7 +142,7 @@ export async function analyzeDocument(
     throw new AnalysisError("The model response's flags field wasn't an array.");
   }
 
-  const categoryByName = new Map(CATEGORY_REGISTRY.map((def) => [def.category, def]));
+  const categoryByName = new Map(categoryRegistry.map((def) => [def.category, def]));
 
   const survivingFlags: Flag[] = [];
 
@@ -195,7 +200,7 @@ export async function analyzeDocument(
   const clear =
     flags.length === 0
       ? {
-          checkedStandardCategories: CATEGORY_REGISTRY.map((def) => def.category),
+          checkedStandardCategories: categoryRegistry.map((def) => def.category),
           checkedRedLines: redLines,
         }
       : null;
