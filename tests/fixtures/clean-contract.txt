@@ -1,0 +1,111 @@
+MASTER SERVICES AGREEMENT
+
+This Master Services Agreement (this "Agreement") is entered into as of the Effective Date set forth on the signature page below, by and between Riverstone Marketing Solutions LLC, a Colorado limited liability company with its principal place of business at 1180 Larimer Street, Suite 400, Denver, Colorado ("Provider"), and the customer identified on the signature page ("Customer"). Provider and Customer are each referred to individually as a "Party" and collectively as the "Parties."
+
+RECITALS
+
+WHEREAS, Provider offers digital marketing, website maintenance, and related consulting services (collectively, the "Services"); and
+
+WHEREAS, Customer desires to purchase, and Provider desires to provide, the Services on the terms and subject to the conditions set forth in this Agreement;
+
+NOW, THEREFORE, in consideration of the mutual covenants contained herein, the Parties agree as follows:
+
+1. SERVICES
+
+1.1 Scope. Provider shall perform the Services described in one or more statements of work executed by the Parties from time to time (each, a "Statement of Work"), each of which is incorporated into and governed by this Agreement. Provider shall perform the Services in a professional and workmanlike manner consistent with generally accepted industry standards.
+
+1.2 Changes. Any change to the scope of Services described in a Statement of Work must be documented in a written change order signed by both Parties before the change takes effect.
+
+1.3 Personnel. Provider shall assign qualified personnel to perform the Services and may, in its discretion, use qualified subcontractors, provided that Provider remains responsible for the subcontractors' performance.
+
+2. TERM
+
+2.1 Initial Term. This Agreement commences on the Effective Date and continues for an initial term of twelve (12) months (the "Initial Term"), unless earlier terminated as provided in Section 5.
+
+2.2 Renewal Terms. Following the Initial Term, this Agreement will automatically renew for successive one (1) year terms (each, a "Renewal Term," and together with the Initial Term, the "Term") at the same fees then in effect, unless either Party provides written notice of non-renewal at least sixty (60) days before the end of the then-current Term. Provider will send Customer a written renewal reminder no later than seventy-five (75) days before each renewal date.
+
+3. FEES AND PAYMENT
+
+3.1 Fees. Customer shall pay the fees set forth in the applicable Statement of Work. Fees are exclusive of applicable taxes, which Customer is responsible for paying.
+
+3.2 Invoicing. Provider shall invoice Customer monthly in arrears. Payment is due within thirty (30) days of the invoice date. Undisputed late payments accrue interest at one percent (1%) per month or the maximum rate permitted by law, whichever is lower.
+
+3.3 Suspension for Nonpayment. Provider may suspend performance of the Services if any undisputed invoice remains unpaid more than thirty (30) days after Provider's written notice of delinquency, provided Provider gives Customer at least ten (10) additional days to cure before suspension takes effect.
+
+4. CUSTOMER OBLIGATIONS
+
+4.1 Acceptable Use. Customer shall use the Services only for lawful business purposes.
+
+4.2 Content and Materials. Customer is responsible for the accuracy and legality of any content, trademarks, or materials it provides to Provider for use in the Services, and represents that it holds the rights necessary to authorize Provider's use of such materials as contemplated by this Agreement.
+
+4.3 Cooperation. Customer shall provide timely feedback, approvals, and access to information reasonably necessary for Provider to perform the Services.
+
+5. TERM AND TERMINATION
+
+5.1 Termination for Cause. Either Party may terminate this Agreement if the other Party materially breaches this Agreement and fails to cure such breach within thirty (30) days after receiving written notice describing the breach in reasonable detail.
+
+5.2 Termination for Convenience. Either Party may terminate this Agreement for any reason upon ninety (90) days' prior written notice to the other Party. Customer remains responsible for fees earned for Services performed through the effective date of termination, and Provider shall refund any prepaid fees for Services not yet performed.
+
+5.3 Effect of Termination. Upon termination or expiration of this Agreement for any reason, each Party shall return or destroy the other Party's Confidential Information in accordance with Section 9, and Provider shall deliver to Customer all completed and in-progress work product for which Customer has paid.
+
+6. INDEMNIFICATION
+
+6.1 Mutual Indemnification. Each Party shall indemnify, defend, and hold harmless the other Party from third-party claims arising from the indemnifying Party's negligence, willful misconduct, or breach of this Agreement, provided that the indemnified Party gives prompt written notice of the claim and reasonable cooperation, at the indemnifying Party's expense.
+
+6.2 Cap on Indemnification. Except for claims arising from a Party's gross negligence or willful misconduct, each Party's indemnification obligations under this Section 6 are capped at the total fees paid or payable by Customer under this Agreement during the twelve (12) months preceding the claim.
+
+7. LIMITATION OF LIABILITY
+
+7.1 Disclaimer of Certain Damages. Except for breaches of Section 8 (Confidentiality), in no event shall either Party be liable for any indirect, incidental, special, or consequential damages, including lost profits, arising out of or related to this Agreement, even if advised of the possibility of such damages.
+
+7.2 Liability Cap. Except for a Party's indemnification obligations, gross negligence, or willful misconduct, each Party's total cumulative liability arising out of or relating to this Agreement shall not exceed the total fees paid by Customer to Provider under this Agreement during the twelve (12) months preceding the event giving rise to the claim.
+
+8. CONFIDENTIALITY
+
+8.1 Definition. "Confidential Information" means any non-public information disclosed by one Party to the other that is designated as confidential or that reasonably should be understood to be confidential given the nature of the information and the circumstances of disclosure.
+
+8.2 Obligations. Each Party shall use the other Party's Confidential Information solely to perform its obligations under this Agreement and shall protect it using at least the same degree of care it uses to protect its own confidential information of similar importance, but in no event less than reasonable care.
+
+9. ENTITY OBLIGATIONS
+
+9.1 Corporate Obligation Only. All payment and performance obligations under this Agreement are obligations of Customer as a business entity. No individual signing this Agreement on Customer's behalf assumes personal liability for Customer's obligations by virtue of signing in a representative capacity.
+
+10. INSURANCE
+
+10.1 Coverage. During the Term, Provider shall maintain commercial general liability insurance with limits of not less than $1,000,000 per occurrence, and professional liability (errors and omissions) coverage of not less than $1,000,000 per claim, and shall provide Customer with a certificate of insurance upon request.
+
+11. DISPUTE RESOLUTION
+
+11.1 Negotiation and Mediation. In the event of a dispute arising out of or relating to this Agreement, the Parties shall first attempt in good faith to resolve the dispute through direct negotiation between designated representatives, and, if unresolved after thirty (30) days, through non-binding mediation before either Party initiates litigation.
+
+11.2 Venue. Any litigation arising out of or relating to this Agreement shall be brought in the state or federal courts located in Denver, Colorado, and each Party consents to the jurisdiction of such courts. Nothing in this Agreement limits either Party's right to a jury trial or to bring a claim on behalf of a class where permitted by law.
+
+11.3 Governing Law. This Agreement is governed by the laws of the State of Colorado, without regard to its conflict-of-laws principles.
+
+12. GENERAL PROVISIONS
+
+12.1 Assignment. Neither Party may assign this Agreement without the prior written consent of the other Party, except that either Party may assign this Agreement in connection with a merger, acquisition, or sale of substantially all of its assets.
+
+12.2 Notices. All notices under this Agreement must be in writing and delivered by email with confirmation of receipt, or by certified mail, to the addresses set forth on the signature page.
+
+12.3 Entire Agreement. This Agreement, together with all Statements of Work, constitutes the entire agreement between the Parties with respect to its subject matter and supersedes all prior or contemporaneous agreements, understandings, and communications, whether written or oral.
+
+12.4 Severability. If any provision of this Agreement is held unenforceable, the remaining provisions will continue in full force and effect, and the unenforceable provision will be modified to the minimum extent necessary to make it enforceable.
+
+12.5 Force Majeure. Neither Party shall be liable for any delay or failure to perform resulting from causes outside its reasonable control, including acts of God, labor disputes, or failures of third-party infrastructure.
+
+12.6 Counterparts. This Agreement may be executed in counterparts, including by electronic signature, each of which is deemed an original.
+
+IN WITNESS WHEREOF, the Parties have executed this Agreement as of the Effective Date.
+
+RIVERSTONE MARKETING SOLUTIONS LLC
+
+By: _______________________________
+Name: Devon Marsh
+Title: Director of Client Services
+
+CUSTOMER:
+
+By: _______________________________
+Name: _______________________________
+Title: Owner

@@ -1,0 +1,35 @@
+{
+  "description": "A vendor SaaS master services agreement (Northbridge Data Systems, Inc.) with six planted risky clauses spanning both first-class and generic-detection-only categories.",
+  "plantedClauses": [
+    {
+      "category": "personal-guarantee",
+      "expectedSeverity": "Dangerous",
+      "sentence": "In consideration of Provider entering into this Agreement with Customer, the individual signing this Agreement on behalf of Customer in the signature block below, in his or her individual capacity, personally and unconditionally guarantees the full and prompt payment and performance of all of Customer's obligations under this Agreement, and this guarantee shall remain in full force and effect until all such obligations have been satisfied in full, regardless of any extension, renewal, or modification of this Agreement."
+    },
+    {
+      "category": "indemnification",
+      "expectedSeverity": "Dangerous",
+      "sentence": "Customer shall indemnify, defend, and hold harmless Provider from and against any and all claims, damages, losses, and expenses, including reasonable attorneys' fees, arising out of or in any way related to Customer's use of the Services, Customer's breach of this Agreement, or Customer's violation of any applicable law."
+    },
+    {
+      "category": "auto-renewal",
+      "expectedSeverity": "Dangerous",
+      "sentence": "Following the Initial Term, this Agreement will automatically renew for successive one (1) year terms (each, a \"Renewal Term,\" and together with the Initial Term, the \"Term\") unless either Party provides written notice of non-renewal, provided that Customer's written notice of non-renewal must be received by Provider no later than five (5) days prior to the expiration of the then-current Term, and further provided that the fees payable by Customer for each Renewal Term shall increase by fifteen percent (15%) over the fees in effect during the immediately preceding Term."
+    },
+    {
+      "category": "unilateral-termination",
+      "expectedSeverity": "Dangerous",
+      "sentence": "Provider may terminate this Agreement at any time, for any reason or for no reason, immediately upon written notice to Customer, without any obligation to afford Customer an opportunity to cure and without further liability to Customer of any kind."
+    },
+    {
+      "category": "arbitration-class-action-waiver",
+      "expectedSeverity": "Unusual",
+      "sentence": "Any dispute arising out of or relating to this Agreement shall be resolved exclusively through binding arbitration administered by the American Arbitration Association under its Commercial Arbitration Rules, conducted on an individual basis, and Customer hereby waives any right to participate in a class action, class arbitration, or representative proceeding against Provider, whether as a plaintiff or a class member."
+    },
+    {
+      "category": "liability-cap-fee-escalator",
+      "expectedSeverity": "Unusual",
+      "sentence": "Provider's total cumulative liability arising out of or relating to this Agreement, whether in contract, tort, or otherwise, shall not exceed the total fees paid by Customer to Provider during the one (1) month period immediately preceding the event giving rise to the claim."
+    }
+  ]
+}
