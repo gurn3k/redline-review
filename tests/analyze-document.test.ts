@@ -123,12 +123,14 @@ describe("analyzeDocument", () => {
       flags: [],
     });
 
-    const result = await analyzeDocument(cleanContractText, redLines, stub);
+    // Isolated from the real global registry (which now has six categories
+    // registered, per tickets 05-09) so this test keeps verifying the Clear
+    // baseline mechanism itself, not any particular registry state.
+    const result = await analyzeDocument(cleanContractText, redLines, stub, []);
 
     expect(result.flags).toEqual([]);
     expect(result.clear).not.toBeNull();
     expect(result.clear?.checkedRedLines).toEqual(redLines);
-    // No category is registered yet in this ticket — accurate, not a bug.
     expect(result.clear?.checkedStandardCategories).toEqual([]);
   });
 

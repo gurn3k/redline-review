@@ -1,4 +1,10 @@
 import type { ClauseCategory, Severity } from "@/lib/analysis/types";
+import { personalGuaranteeCategory } from "@/lib/analysis/categories/definitions/personal-guarantee";
+import { indemnificationCategory } from "@/lib/analysis/categories/definitions/indemnification";
+import { autoRenewalCategory } from "@/lib/analysis/categories/definitions/auto-renewal";
+import { unilateralTerminationCategory } from "@/lib/analysis/categories/definitions/unilateral-termination";
+import { arbitrationClassActionWaiverCategory } from "@/lib/analysis/categories/definitions/arbitration-class-action-waiver";
+import { liabilityCapFeeEscalatorCategory } from "@/lib/analysis/categories/definitions/liability-cap-fee-escalator";
 
 /**
  * What the model proposes for one clause, before the gates in
@@ -44,15 +50,18 @@ export interface CategoryDefinition {
 }
 
 /**
- * Empty in this ticket (04) — the mechanism and the pipeline that consumes
- * it are what's being built here, not any entries. Tickets 05-09 each
- * `push` one `CategoryDefinition` in here later:
- *   05: personal-guarantee, computeSeverity always "Dangerous"
- *   06: indemnification, computeSeverity always "Dangerous"
- *   07: auto-renewal, computeSeverity reads model-supplied structured
- *       attributes to decide the Dangerous-escalation test
- *   08: unilateral-termination, computeSeverity always "Dangerous"
- *   09: arbitration-class-action-waiver / liability-cap-fee-escalator,
- *       computeSeverity always "Unusual", isGenericDetection: true
+ * Every standard (non-red-line) clause type Redline currently detects.
+ * Each entry was built and tested independently (tickets 05-09) against a
+ * locally-scoped registry array passed through `analyzeDocument`'s 4th
+ * parameter, then wired in here in one pass — this file is the only place
+ * that assembles them into the real, live registry `analyzeDocument` uses
+ * by default.
  */
-export const CATEGORY_REGISTRY: CategoryDefinition[] = [];
+export const CATEGORY_REGISTRY: CategoryDefinition[] = [
+  personalGuaranteeCategory,
+  indemnificationCategory,
+  autoRenewalCategory,
+  unilateralTerminationCategory,
+  arbitrationClassActionWaiverCategory,
+  liabilityCapFeeEscalatorCategory,
+];
