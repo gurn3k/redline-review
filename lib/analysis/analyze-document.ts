@@ -1,5 +1,5 @@
 import { createModelClient, type ModelClient } from "@/lib/model/client";
-import { containsDenyListedWord } from "@/lib/analysis/deny-list";
+import { containsDenyListedWord, PERSONAL_GUARANTEE_CLAUSE_WORDS } from "@/lib/analysis/deny-list";
 import {
   CATEGORY_REGISTRY,
   type CandidateFlag,
@@ -172,7 +172,12 @@ export async function analyzeDocument(
     }
 
     // Step 7: counter-offer banned-word gate.
-    if (typeof candidate.counterOffer !== "string" || containsDenyListedWord(candidate.counterOffer)) {
+    const allowedWords =
+      candidate.category === "personal-guarantee" ? PERSONAL_GUARANTEE_CLAUSE_WORDS : [];
+    if (
+      typeof candidate.counterOffer !== "string" ||
+      containsDenyListedWord(candidate.counterOffer, allowedWords)
+    ) {
       continue;
     }
 

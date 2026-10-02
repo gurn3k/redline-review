@@ -49,6 +49,47 @@ describe("personalGuaranteeCategory", () => {
     expect(adhesionContractText.includes(result.flags[0].citation)).toBe(true);
   });
 
+  it("keeps a flag whose counter-offer names the guarantee it renegotiates", async () => {
+    const stub = createStubModelClient({
+      summary: "A vendor SaaS master services agreement.",
+      flags: [
+        {
+          category: "personal-guarantee",
+          citation: PLANTED_CITATION,
+          severity: "Dangerous",
+          explanation:
+            "The individual signing on behalf of Customer is personally liable for all of Customer's obligations, with no stated dollar cap.",
+          counterOffer:
+            "Propose capping the personal guarantee at $25,000, or removing the guarantee entirely so liability stays with the Customer entity.",
+        },
+      ],
+    });
+
+    const result = await analyzeDocument(adhesionContractText, [], stub, [personalGuaranteeCategory]);
+
+    expect(result.flags).toHaveLength(1);
+    expect(result.flags[0].category).toBe("personal-guarantee");
+  });
+
+  it("still drops a personal-guarantee counter-offer that promises an outcome", async () => {
+    const stub = createStubModelClient({
+      summary: "A vendor SaaS master services agreement.",
+      flags: [
+        {
+          category: "personal-guarantee",
+          citation: PLANTED_CITATION,
+          severity: "Dangerous",
+          explanation: "The signer is personally liable with no cap.",
+          counterOffer: "Cap the personal guarantee at $25,000 so you are protected.",
+        },
+      ],
+    });
+
+    const result = await analyzeDocument(adhesionContractText, [], stub, [personalGuaranteeCategory]);
+
+    expect(result.flags).toHaveLength(0);
+  });
+
   it("computeSeverity always returns Dangerous regardless of the candidate's own severity or shape", () => {
     expect(
       personalGuaranteeCategory.computeSeverity?.({
