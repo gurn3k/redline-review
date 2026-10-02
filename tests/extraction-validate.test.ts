@@ -19,6 +19,12 @@ describe("evaluateExtractedText", () => {
     expect(result).toEqual({ ok: false, reason: "unreliable" });
   });
 
+  it("calls a short but readable sentence too short, not an extraction failure", () => {
+    const text = "Tenant pays rent.";
+    const result = evaluateExtractedText({ text, fileSizeBytes: text.length, hasPages: false });
+    expect(result).toEqual({ ok: false, reason: "too-short" });
+  });
+
   it("treats a PDF with pages but ~no extracted text as no-text-layer, not generic unreliable", () => {
     const result = evaluateExtractedText({
       text: "  ",

@@ -141,6 +141,9 @@ Seriousness: stops a reader.
 
 ### 5. A short real sentence is rejected as an extraction failure
 
+Status: fixed. Readable text under 20 characters now says the file is too short to review,
+and `tests/extraction-validate.test.ts` checks it.
+
 Steps:
 1. Open https://redline-review-nine.vercel.app/home.
 2. Choose a .txt containing only "Tenant pays rent." and click "Extract and save".

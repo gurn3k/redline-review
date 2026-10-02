@@ -12,6 +12,8 @@ const UNSUPPORTED_TYPE_MESSAGE =
   "Redline only reads PDF and .txt files right now. Save the document in one of those formats and try again.";
 const GENERIC_EXTRACTION_ERROR =
   "We couldn't reliably extract text from this file. Try exporting it again, or upload a different copy.";
+const TOO_SHORT_ERROR =
+  "This file is too short to review. Upload the full document.";
 const NO_TEXT_LAYER_ERROR =
   "This looks like a scanned document with no text layer, so there's no text to pull out. You'll need a proper digital copy: a PDF with selectable text, not a photo or scan.";
 
@@ -72,7 +74,13 @@ export function DocumentIntakeCard() {
       });
 
       if (!outcome.ok) {
-        setError(outcome.reason === "no-text-layer" ? NO_TEXT_LAYER_ERROR : GENERIC_EXTRACTION_ERROR);
+        setError(
+          outcome.reason === "no-text-layer"
+            ? NO_TEXT_LAYER_ERROR
+            : outcome.reason === "too-short"
+              ? TOO_SHORT_ERROR
+              : GENERIC_EXTRACTION_ERROR,
+        );
         setStage("idle");
         return;
       }
