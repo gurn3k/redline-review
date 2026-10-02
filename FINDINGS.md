@@ -118,6 +118,11 @@ Seriousness: stops a reader.
 
 ### 4. Text that isn't a contract fails with "Couldn't complete the analysis. Try again."
 
+Status: not fixed. It didn't reproduce locally: a 750-character recipe, run three times
+through the real pipeline, returned a Clear result each time. The action used to discard
+the error, so the live cause is unknown. It now logs the failure's message and cause
+(never document text), so the next occurrence shows the cause in the Vercel logs.
+
 Steps:
 1. Open https://redline-review-nine.vercel.app/home.
 2. Submit a .txt containing a banana bread recipe (about 750 characters of plain prose)
