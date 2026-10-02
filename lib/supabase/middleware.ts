@@ -62,5 +62,14 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
+  // A signed-in reader has nothing to do on the sign-in form, and the
+  // landing page's "Try it on a document" buttons point here. Carry over
+  // any refreshed session cookies so the redirect doesn't drop them.
+  if (user && pathname.startsWith("/login")) {
+    const redirect = NextResponse.redirect(new URL("/home", request.url));
+    response.cookies.getAll().forEach((cookie) => redirect.cookies.set(cookie));
+    return redirect;
+  }
+
   return response;
 }

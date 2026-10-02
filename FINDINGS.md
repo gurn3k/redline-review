@@ -99,6 +99,9 @@ breaks it.
 
 ### 3. A signed-in reader who clicks "Try it on a document" gets the sign-in form
 
+Status: fixed. The proxy now sends a signed-in reader from /login to /home, and
+`tests/supabase-middleware.test.ts` checks it.
+
 Steps:
 1. While signed in, open https://redline-review-nine.vercel.app.
 2. Click either "Try it on a document" button, or go straight to /login.
