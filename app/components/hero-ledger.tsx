@@ -14,13 +14,13 @@ type Confirmation = {
   lead?: boolean;
 };
 
-const CONFIRMATIONS: Confirmation[] = [
+export const CONFIRMATIONS: Confirmation[] = [
   {
     ref: "§6.3",
     severity: "dangerous",
     title: "Personal guarantee",
     citation:
-      "the individual executing this Agreement personally and unconditionally guarantees full payment of all amounts owed — without limitation as to amount or duration",
+      "the individual executing this Agreement on behalf of Client personally and unconditionally guarantees full payment of all amounts owed under this Agreement, without limitation as to amount or duration",
     counter: "Cap personal liability at a stated amount, or remove the personal guarantee.",
     lead: true,
   },
@@ -29,14 +29,15 @@ const CONFIRMATIONS: Confirmation[] = [
     severity: "dangerous",
     title: "Indemnification",
     citation:
-      "Client shall indemnify … against any and all claims … whether or not arising from Vendor's own acts or omissions",
+      "Client shall indemnify, defend, and hold harmless Vendor, its officers, and affiliates from and against any and all claims, damages, losses, and expenses of any kind whatsoever, whether or not arising from Vendor's own acts or omissions",
     counter: "Limit indemnification to claims caused by Client, capped at the contract value.",
   },
   {
     ref: "§9.2",
     severity: "dangerous",
     title: "Termination",
-    citation: "Vendor may terminate this Agreement at any time, with or without cause … effective immediately",
+    citation:
+      "Vendor may terminate this Agreement at any time, with or without cause, upon written notice to Client, effective immediately",
     counter: "Add a cause requirement and a cure period before termination.",
   },
   {
@@ -44,12 +45,12 @@ const CONFIRMATIONS: Confirmation[] = [
     severity: "unusual",
     title: "Auto-renewal",
     citation:
-      "this Agreement shall automatically renew … Vendor may adjust the Service Fee for each renewal term upon notice",
+      "this Agreement shall automatically renew for successive twelve (12) month terms unless either party provides written notice of non-renewal at least ninety (90) days prior to the end of the then-current term. Vendor may adjust the Service Fee for each renewal term upon notice",
     counter: "Require 60 days' notice of any fee increase and a longer cancellation window.",
   },
 ];
 
-const SOURCE_LINES: { ref?: string; text: string }[] = [
+export const SOURCE_LINES: { ref?: string; text: string }[] = [
   { text: "VENDOR SERVICES AGREEMENT — excerpt" },
   { text: "" },
   { text: "4.1 Term and Renewal. This Agreement shall commence on the" },

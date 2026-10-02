@@ -72,6 +72,9 @@ problem. In the injected runs they're also assured the review wasn't manipulated
 
 ### 2. The landing page's sample flags don't quote the sample contract word for word
 
+Status: fixed. Each sample quote is now an unbroken stretch of the sample contract, and
+`tests/hero-ledger.test.ts` checks every one.
+
 Steps:
 1. Open https://redline-review-nine.vercel.app.
 2. Compare each sample flag's quote with the sample contract shown above it.
