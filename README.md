@@ -1,5 +1,14 @@
 Live: [redline-review-nine.vercel.app](https://redline-review-nine.vercel.app)
 
+## Production settings
+
+Each of these is set on Vercel (production) and in `.env.local`:
+
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `OPENROUTER_API_KEY`
+- `OPENROUTER_MODEL`
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
