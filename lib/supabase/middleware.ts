@@ -2,11 +2,12 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 /**
- * Routes reachable without a session. Everything else sits behind the
+ * Routes reachable without a session: the landing page, the public sample
+ * analysis, and sign-in. Everything else sits behind the
  * `app/(app)/` route group and requires a signed-in user.
  */
 function isPublicRoute(pathname: string): boolean {
-  return pathname === "/" || pathname.startsWith("/login");
+  return pathname === "/" || pathname === "/sample" || pathname.startsWith("/login");
 }
 
 /**

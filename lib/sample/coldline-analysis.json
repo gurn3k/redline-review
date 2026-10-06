@@ -1,0 +1,69 @@
+{
+  "fileName": "Coldline equipment service agreement.txt",
+  "generatedAt": "2026-10-06T18:43:08.636Z",
+  "model": "z-ai/glm-5.3-flash",
+  "redLines": [
+    "No late-payment interest above 1% per month."
+  ],
+  "documentText": "EQUIPMENT SERVICE AGREEMENT\n\nThis Equipment Service Agreement (the \"Agreement\") is entered into by Coldline Refrigeration Services, Inc. (\"Provider\") and the business identified on the signature page (\"Customer\").\n\n1. Services. Provider shall inspect, maintain, and repair Customer's commercial refrigeration equipment once per calendar quarter and respond to emergency service calls within twenty-four (24) hours.\n\n2. Fees. Customer shall pay a monthly service fee of $640, invoiced on the first day of each month. Payment is due within fifteen (15) days of the invoice date. Late payments accrue interest at two percent (2%) per month.\n\n3. Term and Renewal. This Agreement has an initial term of twenty-four (24) months and renews automatically for successive twenty-four (24) month terms unless Customer gives written notice of non-renewal at least one hundred twenty (120) days before the end of the then-current term. The monthly service fee for each renewal term will increase by twelve percent (12%).\n\n4. Termination. Provider may terminate this Agreement at any time, for any reason, upon written notice to Customer, effective immediately. Customer may terminate only for Provider's uncured material breach.\n\n5. Indemnification. Customer shall indemnify, defend, and hold harmless Provider and its affiliates from and against any and all claims, losses, damages, and expenses of any kind, including those arising from Provider's own negligence.\n\n6. Personal Guarantee. The individual signing this Agreement on behalf of Customer personally and unconditionally guarantees the full payment of all amounts owed by Customer under this Agreement, without limit as to amount or time.\n\n7. Governing Law. This Agreement is governed by the laws of the State of Ohio.\n",
+  "analysis": {
+    "summary": "This is an Equipment Service Agreement between your business and Coldline Refrigeration Services, Inc. The Provider will inspect, maintain, and repair your commercial refrigeration equipment quarterly and respond to emergency calls within 24 hours. You pay $640 per month, due within 15 days, with 2% monthly interest on late payments. The contract runs for an initial 24-month term and automatically renews for successive 24-month terms unless you give written notice of non-renewal at least 120 days before the end of the current term, with the monthly fee increasing 12% at each renewal. The Provider can terminate the agreement at any time, for any reason, effective immediately, while you can only terminate for the Provider's uncured material breach. You must indemnify the Provider for essentially all claims — including those arising from the Provider's own negligence. The individual signing on behalf of your business personally and unconditionally guarantees all amounts owed, without limit as to amount or time. The agreement is governed by Ohio law.",
+    "flags": [
+      {
+        "category": "unilateral-termination",
+        "severity": "Dangerous",
+        "citation": "Provider may terminate this Agreement at any time, for any reason, upon written notice to Customer, effective immediately.",
+        "explanation": "The Provider can end this agreement immediately, for any reason or no reason, with no cure period and no opportunity for you to fix anything first — while you can only terminate for the Provider's uncured material breach. This is a one-sided exit right that could end your refrigeration service relationship at any moment, which is a serious operational risk for a business that depends on working refrigeration equipment.",
+        "counterOffer": "You could propose replacing the termination section with: \"Either party may terminate this Agreement for material breach upon thirty (30) days' written notice specifying the breach, provided the breaching party fails to cure the breach within that thirty (30) day period. Either party may also terminate without cause upon ninety (90) days' written notice to the other party.\"",
+        "isGenericDetection": false
+      },
+      {
+        "category": "indemnification",
+        "severity": "Dangerous",
+        "citation": "Customer shall indemnify, defend, and hold harmless Provider and its affiliates from and against any and all claims, losses, damages, and expenses of any kind, including those arising from Provider's own negligence.",
+        "explanation": "This clause requires you to cover the Provider and its affiliates for all claims, losses, damages, and expenses of any kind — with no dollar cap, no carve-out, and it explicitly includes losses arising from the Provider's own negligence. It also runs one way only: you indemnify the Provider, but the Provider has no reciprocal obligation to you. If the Provider's own carelessness causes a loss, this clause still makes your business cover it.",
+        "counterOffer": "You could propose replacing the indemnification section with: \"Each party shall indemnify, defend, and hold harmless the other party from and against claims, losses, damages, and expenses to the extent arising from the indemnifying party's own negligence or willful misconduct. Neither party's indemnification obligation shall exceed the total fees paid or payable under this Agreement during the twelve (12) months preceding the claim.\"",
+        "isGenericDetection": false
+      },
+      {
+        "category": "personal-guarantee",
+        "severity": "Dangerous",
+        "citation": "The individual signing this Agreement on behalf of Customer personally and unconditionally guarantees the full payment of all amounts owed by Customer under this Agreement, without limit as to amount or time.",
+        "explanation": "The individual signing on behalf of your business agrees to be personally liable for the business's payment obligations under this contract — unlimited in both amount and duration. This means the signer's personal assets are on the line for all amounts the business owes, not just the business entity itself, and there is no stated dollar cap or expiration on that personal exposure.",
+        "counterOffer": "You could propose deleting the Personal Guarantee section entirely so that liability stays with the business entity, or alternatively propose: \"The personal guarantee provided in this Agreement shall be capped at $25,000 and shall expire twelve (12) months after the effective date of this Agreement, provided Customer has not been in payment default during that period.\"",
+        "isGenericDetection": false
+      },
+      {
+        "category": "auto-renewal",
+        "severity": "Dangerous",
+        "citation": "This Agreement has an initial term of twenty-four (24) months and renews automatically for successive twenty-four (24) month terms unless Customer gives written notice of non-renewal at least one hundred twenty (120) days before the end of the then-current term. The monthly service fee for each renewal term will increase by twelve percent (12%).",
+        "explanation": "This agreement automatically renews for another 24-month term unless you affirmatively send written notice of non-renewal at least 120 days before the current term ends — a long commitment period that locks in by default. The fee also increases by 12% each renewal term. The increase is stated in the contract itself, but there is no separate advance-notice mechanism alerting you as the renewal date approaches, so the 120-day cancellation deadline is easy to miss.",
+        "counterOffer": "You could propose: \"This Agreement renews for successive twenty-four (24) month terms only upon Customer's affirmative written acceptance of renewal, which Provider shall request no less than sixty (60) days before the end of the then-current term. Provider shall provide written notice of any fee increase for a renewal term at least ninety (90) days before the renewal takes effect, and Customer may cancel without penalty by written notice given at least thirty (30) days before renewal.\"",
+        "isGenericDetection": false
+      },
+      {
+        "category": "red-line",
+        "severity": "Unusual",
+        "citation": "Late payments accrue interest at two percent (2%) per month.",
+        "explanation": "Your red line is no late-payment interest above 1% per month. This contract charges 2% per month on late payments — double your stated limit.",
+        "counterOffer": "You could propose revising the sentence to: \"Late payments accrue interest at one percent (1%) per month.\"",
+        "redLineText": "No late-payment interest above 1% per month.",
+        "isGenericDetection": false
+      }
+    ],
+    "clear": null
+  },
+  "qa": [
+    {
+      "question": "How do I stop this agreement from renewing?",
+      "answer": "To stop the agreement from renewing, you must give written notice of non-renewal at least 120 days before the end of the current term. Since the initial term is 24 months and it renews automatically for successive 24-month terms, you would need to send that written notice at least 120 days before the end of the initial 24-month term (or before the end of any renewal term).",
+      "grounded": true,
+      "supportingQuote": "This Agreement has an initial term of twenty-four (24) months and renews automatically for successive twenty-four (24) month terms unless Customer gives written notice of non-renewal at least one hundred twenty (120) days before the end of the then-current term."
+    },
+    {
+      "question": "Does the monthly fee cover replacement parts?",
+      "answer": "The document doesn't say whether the monthly fee covers replacement parts. It only states the monthly service fee amount and payment terms, without specifying what the fee includes or excludes.",
+      "grounded": false
+    }
+  ]
+}
