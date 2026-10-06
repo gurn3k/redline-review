@@ -10,8 +10,8 @@ import { DocumentIntakeCard } from "@/app/(app)/home/document-intake-card";
 describe("DocumentIntakeCard", () => {
   it("renders the upload screen without crashing", () => {
     const markup = renderToStaticMarkup(<DocumentIntakeCard />);
-    expect(markup).toContain("Upload a document to begin");
-    expect(markup).toContain("Choose file");
-    expect(markup).toContain("No file chosen");
+    expect(markup).toContain("Upload a contract");
+    expect(markup).toContain("Choose a PDF or .txt file");
+    expect(markup).toContain("Save and continue");
   });
 });

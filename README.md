@@ -2,9 +2,9 @@
 
 **Read it before you sign it.** Redline reviews a contract someone hands a small business owner, before they sign it. It returns a plain-English summary, risk flags ranked Dangerous or Unusual, a drafted counter-offer for each flag, and a Q&A box that answers only from the uploaded document.
 
-**Live:** [redline-review-nine.vercel.app](https://redline-review-nine.vercel.app)
+**Live:** [redline-review-nine.vercel.app](https://redline-review-nine.vercel.app) · **[Sample analysis, no sign-up](https://redline-review-nine.vercel.app/sample)**
 
-![Redline's landing page: a sample contract beside a Dangerous personal-guarantee flag that quotes its source sentence](docs/images/screenshot.png)
+![Redline's analysis view: an open Dangerous flag beside the contract, with every cited sentence highlighted in place](docs/images/screenshot.png)
 
 The rule it's built around: **if Redline can't point to the exact sentence, it doesn't show the flag.** Every flag's quote is checked in code against the document's text, and a flag whose quote isn't an exact match is dropped before the reader sees it ([ADR 0001](docs/adr/0001-every-flag-cites-its-source.md)).
 
@@ -17,7 +17,9 @@ Built by Gurnek Khaira with AI coding agents (Claude Code), working from market 
 - **Says "Clear" out loud.** A contract with nothing to flag gets a Clear result that names what was checked, instead of an empty list ([ADR 0009](docs/adr/0009-explicit-clear-result.md)).
 - **Uses your own red lines.** Write rules like "No late-payment interest above 1% per month," and any clause that breaks one is flagged as yours.
 - **Answers questions from the document only.** If the answer isn't in the document, it says so. It doesn't give legal advice.
+- **Shows each flag in place.** Flags sit beside the contract with every cited sentence highlighted; selecting a flag scrolls to its sentence, and selecting a sentence opens its flag.
 - **Keeps a library** of saved documents and analyses, behind sign-in.
+- **Has a public sample.** [`/sample`](https://redline-review-nine.vercel.app/sample) shows a real, unedited review of a refrigeration service contract, generated once by the live pipeline and checked by a test that every quote is word for word.
 
 ## How it was built
 
@@ -26,6 +28,8 @@ Built by Gurnek Khaira with AI coding agents (Claude Code), working from market 
 3. **Twelve scoped tickets**, built by AI coding agents against test fixtures with planted clauses and known answers. [BUILD-REPORT.md](BUILD-REPORT.md) records what was built, every decision made along the way, and what couldn't be verified.
 4. **A live smoke test** against the real model caught 5 of 6 planted risky clauses with the correct severity and exact citations. It also raised 1 borderline Unusual flag on a contract designed to be clean. Both results are reported as they came out, not tuned away on one run.
 5. **An adversarial test of the deployed site** ([FINDINGS.md](FINDINGS.md)). All 24 flags it saw quoted their document word for word, including Spanish text and a clause near the end of a 75,000-character contract. A hidden "don't flag this" instruction inside a contract didn't change the flags. Q&A refused a request for legal advice. The test found 5 issues. Four are fixed, each with a test, starting with the most serious: an English personal guarantee was never flagged ([PR #1](https://github.com/gurn3k/redline-review/pull/1)). A security review of the whole codebase, using Anthropic's method, found nothing that met its bar for an exploitable problem.
+
+6. **A design revamp** for the people who actually visit: hiring managers first, small business owners close behind. A before-review, three visual directions, an after-review and a new design system are in [`.impeccable/review/`](.impeccable/review/) and [DESIGN.md](DESIGN.md).
 
 ## Limits
 
@@ -46,7 +50,7 @@ Requires Node 22 or later and a Supabase project (schema in [supabase/migrations
 ```bash
 npm install
 npm run dev     # http://localhost:3000
-npm test        # 58 tests
+npm test        # 69 tests
 npm run smoke   # runs the fixture contracts through the full pipeline; uses a stub model if no API key is set
 ```
 

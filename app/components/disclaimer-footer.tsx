@@ -5,7 +5,7 @@
 export function DisclaimerFooter() {
   return (
     <footer className="footer">
-      <p>
+      <p className="container">
         Redline explains what your document says and points out patterns, each
         tied to the sentence it came from. It isn&rsquo;t legal advice, it
         isn&rsquo;t a lawyer, and it doesn&rsquo;t decide whether a clause is

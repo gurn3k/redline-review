@@ -103,10 +103,9 @@ export function DocumentIntakeCard() {
   }
 
   return (
-    <section className="intake-card">
-      <p className="ledger-ref tabular">§ INTAKE</p>
-      <h1 className="intake-heading">Upload a document to begin</h1>
-      <p className="intake-body">
+    <section className="panel intake">
+      <h1 className="page-title">Upload a contract</h1>
+      <p className="panel-intro">
         Upload the contract, lease, or agreement you&rsquo;re about to sign. Redline reads it in
         your browser, so the file itself never reaches our servers: only the text does.
       </p>
@@ -123,22 +122,22 @@ export function DocumentIntakeCard() {
             onChange={handleFileChange}
             disabled={busy}
           />
-          <label htmlFor="document-file" className="cta cta-small intake-file-label">
-            Choose file
+          <label htmlFor="document-file" className="dropzone">
+            <span className="dropzone-title">{file ? file.name : "Choose a PDF or .txt file"}</span>
+            <span className="dropzone-hint">
+              {file ? "Click to choose a different file" : "The file stays in your browser. Only its text is saved."}
+            </span>
           </label>
-          <span className="intake-file-name tabular">{file ? file.name : "No file chosen"}</span>
         </div>
 
-        <p className="intake-hint">Accepts PDF and .txt files.</p>
-
         {error ? (
-          <p className="auth-message auth-message-error" role="alert">
+          <p className="message message-error" role="alert">
             {error}
           </p>
         ) : null}
 
-        <button type="submit" className="cta cta-large intake-submit" disabled={busy || !file}>
-          {stage === "reading" ? "Reading document…" : busy ? "Saving…" : "Extract and save"}
+        <button type="submit" className="btn btn-primary btn-large" disabled={busy || !file}>
+          {stage === "reading" ? "Reading document…" : busy ? "Saving…" : "Save and continue"}
         </button>
       </form>
     </section>

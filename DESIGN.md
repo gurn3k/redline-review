@@ -1,197 +1,110 @@
 ---
 name: Redline
-description: A bank-wire confirmation ledger for contract risk — every flag stamped, cited, and clipped to the exact sentence it names.
+description: Counsel Memo. Warm paper, ink and one oxblood accent; every flag sits beside the sentence it came from.
 colors:
-  ledger-cream: "#f2ede1"
-  ledger-cream-deep: "#e7ded0"
-  ledger-paper-edge: "#d9cdb8"
-  ink: "#242220"
-  ink-soft: "#524c43"
-  confirm-green: "#1f5c3f"
-  confirm-green-soft: "#dfeee5"
-  danger-red: "#9b1c1c"
-  danger-red-soft: "#f6dcda"
-  unusual-amber: "#8a5a2b"
-  unusual-amber-soft: "#f0e3cd"
-  rule-line: "rgba(36, 34, 32, 0.22)"
-  rule-line-soft: "rgba(36, 34, 32, 0.12)"
+  bg: "#f7f4ee"
+  bg-alt: "#f1ece2"
+  surface: "#fffdf9"
+  paper: "#ffffff"
+  ink: "#1c1917"
+  ink-soft: "#44403c"
+  muted: "#78716c"
+  line: "#e7e1d6"
+  line-strong: "#d6cfc2"
+  brand: "#8f1d22"
+  brand-hover: "#761419"
+  danger: "#8f1d22"
+  danger-bg: "#f6e3e1"
+  unusual: "#8a5410"
+  unusual-bg: "#f6ead2"
+  clear: "#2f6b4a"
+  clear-bg: "#e6f0e9"
 typography:
   display:
-    fontFamily: "Space Grotesk, ui-sans-serif, sans-serif"
-    fontSize: "clamp(2.1rem, 5vw, 4.2rem)"
-    fontWeight: 700
-    lineHeight: 1.05
-    letterSpacing: "-0.015em"
-  headline:
-    fontFamily: "Space Grotesk, ui-sans-serif, sans-serif"
-    fontSize: "2.5rem"
-    fontWeight: 500
-    lineHeight: 1.1
-    letterSpacing: "normal"
-  title:
-    fontFamily: "Space Grotesk, ui-sans-serif, sans-serif"
-    fontSize: "clamp(1.5rem, 2.8vw, 2rem)"
-    fontWeight: 700
-    lineHeight: 1.2
-    letterSpacing: "normal"
-  body:
-    fontFamily: "IBM Plex Sans, ui-sans-serif, sans-serif"
-    fontSize: "1.02rem"
-    fontWeight: 400
-    lineHeight: 1.6
-    letterSpacing: "normal"
-  label:
-    fontFamily: "IBM Plex Mono, ui-monospace, monospace"
-    fontSize: "0.72rem"
+    fontFamily: "Newsreader, Georgia, serif"
+    fontSize: "clamp(2.5rem, 6.4vw, 4.6rem)"
     fontWeight: 600
-    lineHeight: 1.4
-    letterSpacing: "0.08em"
+    lineHeight: 1.02
+    letterSpacing: "-0.025em"
+  heading:
+    fontFamily: "Newsreader, Georgia, serif"
+    fontSize: "clamp(1.7rem, 3vw, 2.4rem)"
+    fontWeight: 600
+    lineHeight: 1.12
+  contract:
+    fontFamily: "Newsreader, Georgia, serif"
+    fontSize: "16.5px"
+    fontWeight: 400
+    lineHeight: 1.75
+  body:
+    fontFamily: "Instrument Sans, system-ui, sans-serif"
+    fontSize: "16px"
+    fontWeight: 400
+    lineHeight: 1.55
+  label:
+    fontFamily: "Instrument Sans, system-ui, sans-serif"
+    fontSize: "12px"
+    fontWeight: 600
+    letterSpacing: "0.06em"
+    textTransform: "uppercase"
 rounded:
-  xs: "2px"
-  sm: "3px"
-  md: "4px"
-  pill: "50%"
-spacing:
-  xs: "0.5rem"
-  sm: "0.9rem"
-  md: "1.5rem"
-  lg: "2.5rem"
-  xl: "3rem"
-  2xl: "4rem"
-components:
-  button-primary:
-    backgroundColor: "{colors.confirm-green}"
-    textColor: "{colors.ledger-cream}"
-    typography: "{typography.label}"
-    rounded: "{rounded.sm}"
-    padding: "0.95rem 1.9rem"
-  button-primary-hover:
-    backgroundColor: "#17462f"
-    textColor: "{colors.ledger-cream}"
+  sm: "4px"
+  md: "6px"
+  lg: "10px"
 ---
 
 # Design System: Redline
 
+Chosen 2026-10-06 from three directions (`.impeccable/review/2026-10-06-directions/`, option B). Replaces "The Wire Confirmation" (2026-09-18), which read as plain and scrambled (`.impeccable/review/2026-10-06-before.md`). The 2026-09-18 version is in git history.
+
 ## Overview
 
-**Creative North Star: "The Wire Confirmation"**
+**North star: "Counsel Memo."** Redline should look like a careful memo from someone on the reader's side: warm paper, confident serif headings, plain sans for the interface, and one oxblood accent. It's built for two readers at once (PRODUCT.md, "Visitors"): a small business owner with a contract on their desk, and a hiring manager deciding in 30 seconds whether the product is real.
 
-Redline's landing page renders each contract risk flag as a stamped, verified confirmation clipped to the exact sentence it names — the visual grammar of a bank-wire teleprinter ledger, not a dashboard. A vertical source tape of real contract prose feeds down the left column in tabular mono; on the right, stamped confirmation slips punch out one at a time, each tethered by a perforated tear-line and a dashed SVG path to its exact source citation. The lead flag (first, most severe) is rendered enormous — min-height 30rem, oversized type — filling real vertical space rather than sitting as a card among cards. This refuses the category's dashboard-card-with-a-score default: nothing here is a floating score: every claim sits next to its own cited proof.
+The signature is the **analysis workspace**: flags in one column, the contract in the other, every cited sentence highlighted in place. Selecting either side selects the other. The same component renders the signed-in document page, the public `/sample` page and the landing page's proof section, so the public demo can never look better than the product.
 
-The palette stays warm and paper-toned at rest (ledger cream, soft charcoal ink) and reserves color strictly for verdicts: confirmation green for Clear, stamp red for Dangerous, amber-brown for Unusual — never used decoratively elsewhere. Texture (ink-stamp grain, perforation punch-holes) is generated live via SVG filter chains (`feTurbulence` + `feDisplacementMap` + `feComponentTransfer`), not pre-rendered raster imagery — there are no shipped rasters in this build, so no image-provenance concerns apply.
+## Color
 
-**Key Characteristics:**
-- Ledger-cream ground with a charcoal-ink body voice; verdict color (green/red/amber) appears only inside stamps, borders, and shadows tied to a severity tier.
-- Tabular monospace (IBM Plex Mono) for every citation, reference tag, and label; Space Grotesk for display/headline weight; IBM Plex Sans for readable prose.
-- Rubber-stamp ink texture and punch-hole perforations are both generated at runtime through inline SVG filters — no raster assets anywhere in the build.
-- The lead confirmation dominates the viewport rather than joining a grid of equal cards.
-- §-style reference tags replace sequential numbering throughout, echoing the source tape's own citation chips.
-
-## Colors
-
-Warm, paper-toned neutrals at rest; saturated ink is spent only on verdicts.
-
-### Primary
-- **Confirmation Green** (`#1f5c3f`): the Clear-tier stamp/border color, and — doubling as the site's only accent — the primary CTA button background. A soft mint variant (`#dfeee5`) is declared alongside it but not yet consumed by any rendered surface.
-
-### Secondary
-- **Stamp Red** (`#9b1c1c`): the Dangerous-tier stamp fill, lead-card border, and lead-card ambient shadow tint. Reserved — it appears nowhere else on the page (not in nav, links, or the CTA). A soft blush variant (`#f6dcda`) is declared but unused in the current build.
-- **Unusual Amber-Brown** (`#8a5a2b`): the Unusual-tier stamp fill and card border. A soft tan variant (`#f0e3cd`) is declared but unused in the current build.
-
-### Neutral
-- **Ledger Cream** (`#f2ede1`): the page ground.
-- **Ledger Cream Deep** (`#e7ded0`): the tape panel, confirmation card, and hero-gradient surface — one step darker than the ground to read as a distinct "paper" layer.
-- **Ledger Paper Edge** (`#d9cdb8`): scrollbar thumb and paper-edge tinting.
-- **Charcoal Ink** (`#242220`): body prose, headings, and default text color.
-- **Soft Ink** (`#524c43`): secondary/supporting text (sub-headlines, captions, footnotes).
-- **Rule Line** (`rgba(36,34,32,0.22)`) / **Rule Line Soft** (`rgba(36,34,32,0.12)`): card borders, section-divider rules, and citation-block backgrounds — the "continuous-feed ledger rule" motif.
-
-### Named Rules
-**The Reserved Verdict Rule.** Stamp red, confirmation green, and unusual amber-brown are used exclusively inside severity-tier stamps, card borders, and their matching shadow tints. None of the three appears as a decorative or structural color anywhere else on the page — the CTA's use of confirmation green is the single exception, and it is legible as a "Clear to proceed" cue rather than decoration.
+- **Ground:** warm paper `bg`, with `bg-alt` for alternating landing sections. Panels sit on `surface`; the contract itself sits on pure white `paper`, so it reads as the document.
+- **Ink:** `ink` for headings and contract text, `ink-soft` for body copy, `muted` for metadata.
+- **Brand:** oxblood `brand` for primary buttons, the wordmark rule, eyebrows and active navigation.
+- **Severity:** `danger` (the same oxblood), `unusual` (amber-brown) and `clear` (green), each with a pale background for chips, counts and highlights. Severity color is the only strong color inside the workspace.
+- **Rule:** never beige on beige. If two adjacent surfaces are the same family, separate them with a `line` border or a white `paper`.
 
 ## Typography
 
-**Display Font:** Space Grotesk (with ui-sans-serif, sans-serif fallback)
-**Body Font:** IBM Plex Sans (with ui-sans-serif, sans-serif fallback)
-**Label/Mono Font:** IBM Plex Mono (with ui-monospace, monospace fallback)
+Two families, no monospace.
 
-**Character:** A confident geometric display face paired with a plain, legible sans for prose and a tabular teleprinter mono for anything that functions as evidence — citation, reference tag, or label. The pairing reads as instrument-panel precision rather than editorial warmth.
-
-### Hierarchy
-- **Display** (700, `clamp(2.1rem, 5vw, 4.2rem)`, line-height 1.05, letter-spacing -0.015em): the hero H1 only.
-- **Headline** (500, 2.5rem, line-height 1.1): the lead confirmation's title — the single place a confirmation title is treated at display scale.
-- **Title** (700, `clamp(1.5rem, 2.8vw, 2rem)`): section headings (Mechanism, Clause Index, Final CTA).
-- **Body** (400/500/600, ~1–1.15rem, line-height 1.55–1.65, max ~62–65ch): hero subhead, section prose, footer.
-- **Label** (600, 0.68–0.72rem, letter-spacing 0.05–0.09em, uppercase): tape label, counter label, stamp label — all IBM Plex Mono.
-
-### Named Rules
-**The Cited-in-Mono Rule.** Anything that functions as evidence — a citation, a §-reference tag, a tabular figure — is set in IBM Plex Mono with `tabular-nums`. Prose that makes a claim, rather than showing proof, is set in IBM Plex Sans or Space Grotesk. Mixing the two inside a single line is how the tape and the confirmation cards visually agree they're citing the same fact.
+- **Newsreader (serif):** headings, flag titles, counts, and all contract text, including quoted citations. The contract's voice is always serif, so a quote in a flag card visibly matches its highlighted sentence.
+- **Instrument Sans:** everything else: body copy, buttons, navigation, labels, forms.
+- **Labels:** small uppercase sans (`typography.label`), used sparingly: section eyebrows, "The contract," "Language you could propose," table headers. No "§" prefixes.
 
 ## Layout
 
-Every section below the hero uses `.measure`: a centered column capped at 72rem with 1.5rem gutters (2.5rem at ≥640px). The hero is the deliberate exception — full-bleed with its own gutter padding and a tinted cream gradient background, its inner `.hero-ledger` grid capped at 100rem so the two-column ledger can run wider than the prose measure.
-
-`.hero-ledger` stacks to a single column by default and splits to a 0.85fr/1.15fr two-column grid at ≥900px (source tape narrower than the confirmation stack, 2.5rem gap). Below 900px the cross-column dashed tether is suppressed entirely — the shared §-reference tag on both the tape chip and the confirmation card becomes the sole visual link on mobile, not a compressed version of the desktop tether.
-
-Section rhythm below the hero: 3–5rem vertical padding per section, each opening with a 1px `rule-line-soft` top border — the "continuous-feed ledger rule" that stitches sections together instead of a card grid or alternating background bands. Internal rhythm is tighter: confirmation cards stack with a 1.1rem gap; ledger-list rows are 0.9rem tall with a `rule-line-soft` bottom rule per row.
-
-## Elevation & Depth
-
-Flat by default: cards and the tape panel sit on a 1px `rule-line` border at their `ledger-cream-deep` tone, with no ambient shadow at rest. Depth is introduced only for elements that are meant to read as freshly "stamped" or physically lifted: confirmation cards carry a soft diffuse shadow (`0 8px 20px rgba(36,34,32,0.1)`), the lead card a larger, red-tinted diffuse shadow (`0 20px 44px rgba(155,28,28,0.18)`), and the CTA button a green-tinted diffuse shadow (`0 6px 14px rgba(31,92,63,0.28)`, deepening on hover). All shadows in the build are soft and centered/diffuse — there is no hard-offset, unblurred "brutalist" shadow anywhere in this world.
-
-### Shadow Vocabulary
-- **Confirmation lift** (`box-shadow: 0 8px 20px rgba(36, 34, 32, 0.1)`): default confirmation card, on stamp-in.
-- **Lead lift** (`box-shadow: 0 20px 44px rgba(155, 28, 28, 0.18)`): the lead (most severe) confirmation only.
-- **CTA lift** (`box-shadow: 0 6px 14px rgba(31, 92, 63, 0.28)`, hover `0 9px 18px rgba(31, 92, 63, 0.34)`): the primary stamp-styled action button.
-
-### Named Rules
-**The Soft-Stamp Rule.** Every shadow in this world is diffuse and centered, never a hard unblurred offset. Depth reads as ink lifting off paper, not as a cutout block.
-
-## Shapes
-
-Corners stay small and consistent: 2–4px on cards, chips, and the CTA button — barely-rounded rectangles, not pills or sharp brutalist squares. The signature form devices are generative rather than geometric: a rubber-stamp ink-grain texture (`feTurbulence` + `feDisplacementMap` + `feComponentTransfer`, filter `#ink-grain`) gives severity stamps uneven density and bled edges instead of a flat color fill; a tiled punch-hole pattern (`#perf-v` / `#perf-h`, run through a gentler `#perf-rough` turbulence filter for irregular hole edges) forms the perforated tear-line between a cited source line and its confirmation. Stamps and the CTA carry a small intentional rotation (stamp badges −2° to −2.4°, CTA −1.1° at rest, straightening on hover) — the only place the layout departs from strict rectilinearity, read as an analog imprint rather than decoration.
+- One container: 1200px max, 24px gutters on phones and 40px from 900px.
+- Landing sections alternate `bg` and `bg-alt`, separated by a hairline, each with the same container.
+- The workspace is 5:7 (flags : contract) from 960px. The contract column is sticky and scrolls on its own; below 960px, flags come first and each open flag has "Show in contract ↓".
+- App pages use the full container; red lines uses a 760px reading width.
 
 ## Components
 
-### Buttons
-- **Shape:** small rounded corners (3px), no pill shapes.
-- **Primary:** confirmation-green background (`#1f5c3f`), ledger-cream text, IBM Plex Mono uppercase label (600, 0.04em tracking), −1.1° resting rotation, soft green ambient shadow. Two sizes: `cta-small` (0.55rem/1rem padding, nav) and `cta-large` (0.95rem/1.9rem padding, final CTA).
-- **Hover / Focus:** rotation straightens to 0°, lifts 1px, shadow deepens, background darkens to `#17462f`. Focus-visible uses a 2px confirmation-green outline with 3px offset site-wide (not button-specific).
+- **Buttons:** primary is oxblood with white text; ghost is a hairline border. 6px radius, never rotated. A disabled primary turns neutral (`line` background, `muted` text), not faded pink.
+- **Severity chip:** uppercase label on its pale tint.
+- **Flag:** collapsed shows chip and title (plus the red line's own wording for red-line flags); open adds the cited sentence (serif, left rule in the severity color), the explanation, and the counter-offer in a green box with Copy. An open flag gets a severity-colored border and a soft ring.
+- **Highlight:** pale severity tint with a 2px underline; the selected flag's sentence darkens. Clicking a highlight opens its flag.
+- **Overview:** title, metadata with the date in words, the summary, and big serif counts (Dangerous, Unusual), or a single Clear count naming that nothing cleared the bar.
+- **Navigation:** public pages show Sample analysis, How it was built and Try it. Signed-in pages show Upload, Library and Red lines with an oxblood underline on the current page, plus Log out.
+- **Library:** a real table with document, date in words and result, colored by severity.
 
-### Cards / Containers
-- **Corner Style:** 4px radius.
-- **Background:** `ledger-cream-deep`, one step off the page ground.
-- **Border:** 1px `rule-line` at rest; the lead confirmation widens this to 3px and swaps color to its severity tier (red for Dangerous).
-- **Shadow Strategy:** see Elevation & Depth — soft diffuse lift on stamp-in, none at rest for the tape panel.
-- **Internal Padding:** compact cards 0.7rem/0.95rem/0.85rem; the lead card 3rem/3.25rem.
+## Do
 
-### Wire Confirmation Card (signature)
-The core unit of the page. Each card pairs a `StampBadge` (severity tier, rotated, ink-grain textured) with a §-reference tag, a title, a mono-set quoted citation block (exact substring of the source tape, background `rule-line-soft`), a horizontal `Perforation` divider, and a "Proposed edit" counter-offer line. The first/most severe card is rendered as `.lead`: substantially larger padding, a 30rem min-height, and headline-scale title/citation/counter type, so it reads as dominant rather than one card among equals. Cards animate in with a staggered `stamp-in` keyframe (translateY + scale + slight rotation snap, exponential ease-out, per-card `animation-delay`), respecting `prefers-reduced-motion`.
+- Show the contract's own words in serif wherever they appear.
+- Keep the public sample real: it renders `lib/sample/coldline-analysis.json`, generated by `scripts/generate-sample.ts`, and `tests/sample-analysis.test.ts` checks every quote.
+- Name the reader ("small business owners") and their paper (vendor and service agreements, equipment contracts, commercial leases).
 
-### Source Tape (signature)
-A `ledger-cream-deep` panel of tabular-mono contract prose (`white-space: pre-wrap`), each cited line prefixed with a `tape-ref` chip matching a confirmation card's §-tag. A vertical `Perforation` marks its outer edge. On desktop (≥900px), `HeroLedger` measures each ref chip's and each card's DOM position live (`getBoundingClientRect`, recomputed on resize/`ResizeObserver`) and draws a dashed SVG path between them, colored by severity tier; below 900px the tether is suppressed and the shared §-tag is the only link.
+## Don't
 
-### Perforation (signature)
-A tiled SVG circle pattern (`#perf-v` vertical / `#perf-h` horizontal) run through a gentle `feTurbulence` + `feDisplacementMap` filter (`#perf-rough`) for slightly irregular punch-hole edges. Used only as a tear-line divider: the tape's outer edge, and the horizontal rule between each card's citation and its counter-offer.
-
-### Navigation
-Sticky top bar, translucent ledger-cream (`rgba(242,237,225,0.92)`) with backdrop-blur and a 1px `rule-line-soft` bottom border. Wordmark in Space Grotesk 700, small-caps tracking. A single `cta-small` action, always in view.
-
-## Do's and Don'ts
-
-### Do:
-- **Do** set every citation, §-reference tag, and tabular figure in IBM Plex Mono with `tabular-nums` — evidence is always mono-set.
-- **Do** reserve stamp red exclusively for the Dangerous tier (stamp fill, lead-card border, lead-card shadow tint); never use it decoratively elsewhere.
-- **Do** pair every flag with its exact cited source sentence inside the same card — a claim never floats without its citation beside it.
-- **Do** render the lead (most severe) confirmation dominant — larger padding, larger type, real vertical space — rather than as a card among equal cards.
-- **Do** build stamp texture and perforation punch-holes from inline SVG filter chains (`feTurbulence`/`feDisplacementMap`/`feComponentTransfer`), not raster images — this build ships zero rasters, all texture is code-generated.
-- **Do** use §-style reference tags for section/clause indexing instead of sequential numbers.
-- **Do** keep shadows soft and diffuse (ambient lift), never a hard unblurred offset.
-- **Do** show an explicit "Clear" confirmation card (naming what was checked) when nothing trips a flag — never an empty state or silence, per PRODUCT.md's brand commitment.
-
-### Don't:
-- **Don't** use stamp red, confirmation green, or unusual amber-brown as general decoration — each is a reserved verdict color, and confirmation green's CTA use is the one confirmed exception, not a precedent for the other two.
-- **Don't** introduce hard-offset "brutalist" box-shadows — this world's depth vocabulary is exclusively soft and diffuse.
-- **Don't** add a kicker, eyebrow, glyph icon, or system display face — none exist in the built system; the §-reference tag is the sole index/label device, and Space Grotesk/IBM Plex are the only faces in use.
-- **Don't** invent a numeric risk score or a hedged middle severity tier — copy stays binary (Dangerous / Unusual / Clear), per PRODUCT.md.
-- **Don't** rename the established severity terms ("Dangerous", "Unusual", "Clear") or substitute "No issues found" / "all clear" language, per PRODUCT.md's Brand Commitments.
+- Add a third typeface or bring back monospace labels.
+- Tilt, stamp or texture controls.
+- Hand-write sample flags or invent customers, logos, prices or usage numbers.
+- Let a section change content width mid-page.

@@ -36,6 +36,18 @@ describe("updateSession", () => {
     expect(response.headers.get("location")).toBeNull();
   });
 
+  it("shows the public sample analysis to a signed-out visitor", async () => {
+    getUser.mockResolvedValue({ data: { user: null } });
+    const response = await updateSession(requestFor("/sample"));
+    expect(response.headers.get("location")).toBeNull();
+  });
+
+  it("still sends a signed-out visitor from a real document to /login", async () => {
+    getUser.mockResolvedValue({ data: { user: null } });
+    const response = await updateSession(requestFor("/documents/abc"));
+    expect(response.headers.get("location")).toBe("https://redline.test/login");
+  });
+
   it("sends a signed-out visitor from /home to /login", async () => {
     getUser.mockResolvedValue({ data: { user: null } });
     const response = await updateSession(requestFor("/home"));

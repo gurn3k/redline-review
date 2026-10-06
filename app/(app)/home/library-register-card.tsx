@@ -12,11 +12,10 @@ export async function LibraryRegisterCard() {
   const count = await getDocumentCount();
 
   return (
-    <Link href="/library" className="register-card register-card-link">
-      <p className="ledger-ref tabular">§ LIBRARY</p>
-      <h2 className="register-heading">Library</h2>
-      <p className="register-body">{describeCount(count)}</p>
-      <span className="register-cta">Open your library →</span>
+    <Link href="/library" className="side-link">
+      <h2 className="side-link-title">Library</h2>
+      <p className="side-link-body">{describeCount(count)}</p>
+      <span className="side-link-cta">Open your library →</span>
     </Link>
   );
 }

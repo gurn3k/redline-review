@@ -1,37 +1,32 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { Instrument_Sans, Newsreader } from "next/font/google";
 import { DisclaimerFooter } from "./components/disclaimer-footer";
 import "./globals.css";
 
-const display = Space_Grotesk({
-  variable: "--font-display",
+// Two voices: a serif for headings and contract text, a sans for the
+// interface. No monospace (see DESIGN.md).
+const serif = Newsreader({
+  variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["500", "700"],
+  axes: ["opsz"],
 });
 
-const mono = IBM_Plex_Mono({
-  variable: "--font-mono",
+const sans = Instrument_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
-
-const body = IBM_Plex_Sans({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
   title: "Redline — know what you're about to sign",
   description:
-    "Upload a contract before you sign it. Redline shows you the risky clauses, ranked, each tied to the exact sentence it came from.",
+    "Contract review for small business owners. Redline flags the risky clauses in a contract before you sign it, each tied to the exact sentence it came from.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${display.variable} ${mono.variable} ${body.variable}`}
+      className={`${serif.variable} ${sans.variable}`}
     >
       <body>
         {children}

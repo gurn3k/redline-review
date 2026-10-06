@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { SiteHeader } from "@/app/components/site-header";
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import { createClient } from "@/lib/supabase/client";
@@ -67,22 +67,17 @@ export default function LoginPage() {
 
   return (
     <div className="page">
-      <header className="nav">
-        <Link href="/" className="wordmark">
-          REDLINE
-        </Link>
-      </header>
+      <SiteHeader minimal />
 
-      <main className="auth-main measure">
-        <div className="auth-card">
-          <p className="auth-eyebrow tabular">§ SIGN IN</p>
-          <h1 className="auth-heading">
+      <main className="container auth-main">
+        <div className="panel auth-card">
+          <h1 className="page-title">
             {isSignup ? "Create your Redline account" : "Log in to Redline"}
           </h1>
-          <p className="auth-sub">Review a contract before you sign it.</p>
+          <p className="panel-intro">Know what you&rsquo;re signing before you sign it.</p>
 
           <form className="auth-form" onSubmit={handleSubmit}>
-            <label className="auth-label" htmlFor="email">
+            <label className="field-label" htmlFor="email">
               Email
             </label>
             <input
@@ -93,10 +88,10 @@ export default function LoginPage() {
               required
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              className="auth-input"
+              className="input"
             />
 
-            <label className="auth-label" htmlFor="password">
+            <label className="field-label" htmlFor="password">
               Password
             </label>
             <input
@@ -108,21 +103,21 @@ export default function LoginPage() {
               minLength={6}
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              className="auth-input"
+              className="input"
             />
 
             {error ? (
-              <p className="auth-message auth-message-error" role="alert">
+              <p className="message message-error" role="alert">
                 {error}
               </p>
             ) : null}
             {notice ? (
-              <p className="auth-message auth-message-notice" role="status">
+              <p className="message message-notice" role="status">
                 {notice}
               </p>
             ) : null}
 
-            <button type="submit" className="cta cta-large auth-submit" disabled={pending}>
+            <button type="submit" className="btn btn-primary btn-large btn-block" disabled={pending}>
               {isSignup
                 ? pending
                   ? "Creating account…"
@@ -135,7 +130,7 @@ export default function LoginPage() {
 
           <button
             type="button"
-            className="auth-toggle"
+            className="text-button auth-toggle"
             onClick={() => {
               setMode(isSignup ? "login" : "signup");
               setError(null);

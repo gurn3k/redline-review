@@ -22,7 +22,7 @@ export function LogoutButton() {
   }
 
   return (
-    <button type="button" className="cta cta-small" onClick={handleLogout} disabled={pending}>
+    <button type="button" className="btn btn-small btn-ghost" onClick={handleLogout} disabled={pending}>
       {pending ? "Logging out…" : "Log out"}
     </button>
   );

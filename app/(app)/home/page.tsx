@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 // can each own one file without touching this layout or each other's work.
 export default function HomePage() {
   return (
-    <div className="home-shell">
+    <div className="home-grid">
       <DocumentIntakeCard />
 
-      <div className="registers">
+      <div className="side-links">
         <RedLinesRegisterCard />
         <LibraryRegisterCard />
       </div>
