@@ -70,9 +70,16 @@ export async function analyzeDocumentAction(documentId: string): Promise<Analyze
   let result: AnalysisResult;
   try {
     result = await analyzeDocument(document.extracted_text, redLines);
-  } catch {
+  } catch (error) {
     // Covers AnalysisError (malformed model response) and any other
     // failure from the seam alike — the user never sees a raw stack trace.
+    // The server log keeps which failure it was: error messages only, never
+    // document text.
+    const cause = error instanceof Error ? error.cause : undefined;
+    console.error(
+      `Analysis failed for document ${document.id}: ${error instanceof Error ? error.message : String(error)}`,
+      cause instanceof Error ? `Cause: ${cause.message}` : "",
+    );
     return { ok: false, message: MODEL_FAILED_MESSAGE };
   }
 

@@ -9,6 +9,8 @@
  * - "no-text-layer": the file has pages (it's a real PDF) but pdf.js pulled
  *   out ~nothing — the classic signature of a scanned image with no text
  *   layer, not a parsing bug.
+ * - "too-short": real text came out, but under MIN_TRIMMED_LENGTH characters —
+ *   extraction worked, there just isn't enough document to review.
  * - "unreliable": empty, far too short for the file's size, or mostly
  *   control/replacement characters (garbled).
  */
@@ -26,6 +28,7 @@ const MIN_CHARS_PER_BYTE = 0.002;
 export type ExtractionOutcome =
   | { ok: true; text: string }
   | { ok: false; reason: "no-text-layer" }
+  | { ok: false; reason: "too-short" }
   | { ok: false; reason: "unreliable" };
 
 export function evaluateExtractedText(params: {
@@ -40,7 +43,7 @@ export function evaluateExtractedText(params: {
     return { ok: false, reason: "no-text-layer" };
   }
 
-  if (trimmed.length < MIN_TRIMMED_LENGTH) {
+  if (trimmed.length === 0) {
     return { ok: false, reason: "unreliable" };
   }
 
@@ -54,6 +57,10 @@ export function evaluateExtractedText(params: {
   }
   if (badChars / trimmed.length > GARBLED_CHAR_RATIO) {
     return { ok: false, reason: "unreliable" };
+  }
+
+  if (trimmed.length < MIN_TRIMMED_LENGTH) {
+    return { ok: false, reason: "too-short" };
   }
 
   if (
