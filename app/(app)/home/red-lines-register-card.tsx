@@ -9,11 +9,10 @@ export async function RedLinesRegisterCard() {
   const count = await getRedLineCount();
 
   return (
-    <Link href="/red-lines" className="register-card register-card-link">
-      <p className="ledger-ref tabular">§ RED LINES</p>
-      <h2 className="register-heading">Your red lines</h2>
-      <p className="register-body">{describeCount(count)}</p>
-      <span className="register-cta">Manage red lines →</span>
+    <Link href="/red-lines" className="side-link">
+      <h2 className="side-link-title">Your red lines</h2>
+      <p className="side-link-body">{describeCount(count)}</p>
+      <span className="side-link-cta">Manage red lines →</span>
     </Link>
   );
 }

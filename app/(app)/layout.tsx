@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import type { ReactNode } from "react";
 import { createClient } from "@/lib/supabase/server";
+import { AppNav } from "./app-nav";
 import { LogoutButton } from "./logout-button";
 
 // The proxy (proxy.ts) already redirects unauthenticated requests away from
@@ -23,14 +24,20 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="page">
-      <header className="nav">
-        <Link href="/home" className="wordmark">
-          REDLINE
-        </Link>
-        <LogoutButton />
+      <header className="site-header">
+        <div className="container header-row">
+          <Link href="/home" className="wordmark">
+            <span className="wordmark-rule" aria-hidden="true" />
+            Redline
+          </Link>
+          <div className="header-right">
+            <AppNav />
+            <LogoutButton />
+          </div>
+        </div>
       </header>
 
-      <main className="app-main measure">{children}</main>
+      <main className="container app-main">{children}</main>
     </div>
   );
 }

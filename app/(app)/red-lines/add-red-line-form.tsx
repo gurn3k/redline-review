@@ -21,8 +21,8 @@ export function AddRedLineForm() {
   }
 
   return (
-    <form ref={formRef} action={handleSubmit} className="redline-form">
-      <label className="auth-label" htmlFor="new-red-line">
+    <form ref={formRef} action={handleSubmit} className="panel redline-form">
+      <label className="field-label" htmlFor="new-red-line">
         Add a red line
       </label>
       <textarea
@@ -30,15 +30,15 @@ export function AddRedLineForm() {
         name="text"
         required
         rows={2}
-        className="auth-input redline-textarea"
+        className="input textarea"
         placeholder="e.g. No personal guarantee, under any circumstances."
       />
       {error ? (
-        <p className="auth-message auth-message-error" role="alert">
+        <p className="message message-error" role="alert">
           {error}
         </p>
       ) : null}
-      <button type="submit" className="cta cta-small redline-submit" disabled={isPending}>
+      <button type="submit" className="btn btn-primary" disabled={isPending}>
         {isPending ? "Adding…" : "Add red line"}
       </button>
     </form>

@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { AnalysisPanel } from "./analysis-panel";
 import { QABox } from "./qa-box";
+import { formatDate } from "@/lib/analysis/labels";
 
 export const metadata: Metadata = {
   title: "Document — Redline",
@@ -16,9 +17,8 @@ type DocumentRow = {
   created_at: string;
 };
 
-// Shell page for a single stored document (ticket 02). Shows the file name
-// and the extracted source text read-only, plus two placeholder panels that
-// later tickets (04: analysis, 10: Q&A) replace without touching this file.
+// One stored document: its analysis (or a button to run one) beside the
+// contract text, then the Q&A box.
 export default async function DocumentPage({
   params,
 }: {
@@ -49,25 +49,16 @@ export default async function DocumentPage({
     notFound();
   }
 
-  const uploadedAt = new Date(document.created_at).toLocaleString();
-
   return (
-    <div className="document-shell">
-      <div>
-        <p className="ledger-ref tabular">§ DOCUMENT</p>
-        <h1 className="document-title">{document.file_name}</h1>
-        <p className="document-meta">Uploaded {uploadedAt}</p>
-      </div>
-
-      <section className="tape">
-        <p className="tape-label">SOURCE TEXT</p>
-        <div className="tape-body document-tape-body">{document.extracted_text}</div>
-      </section>
-
-      <div className="document-panels">
-        <AnalysisPanel documentId={document.id} analysisResult={document.analysis_result} />
-        <QABox documentId={document.id} />
-      </div>
+    <div className="document-page">
+      <AnalysisPanel
+        documentId={document.id}
+        fileName={document.file_name}
+        uploadedLabel={formatDate(document.created_at)}
+        documentText={document.extracted_text}
+        analysisResult={document.analysis_result}
+      />
+      <QABox documentId={document.id} />
     </div>
   );
 }

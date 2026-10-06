@@ -41,24 +41,24 @@ export function RedLineItem({ redLine }: { redLine: RedLine }) {
         <form action={handleSave} className="redline-edit-form">
           <textarea
             name="text"
-            className="auth-input redline-textarea"
+            className="input textarea"
             defaultValue={redLine.text}
             required
             rows={2}
             autoFocus
           />
           {error ? (
-            <p className="auth-message auth-message-error" role="alert">
+            <p className="message message-error" role="alert">
               {error}
             </p>
           ) : null}
           <div className="redline-actions">
-            <button type="submit" className="cta cta-small" disabled={isPending}>
+            <button type="submit" className="btn btn-primary btn-small" disabled={isPending}>
               {isPending ? "Saving…" : "Save"}
             </button>
             <button
               type="button"
-              className="redline-link"
+              className="text-button"
               disabled={isPending}
               onClick={() => {
                 setIsEditing(false);
@@ -77,14 +77,14 @@ export function RedLineItem({ redLine }: { redLine: RedLine }) {
     <li className="redline-row">
       <p className="redline-text">{redLine.text}</p>
       {error ? (
-        <p className="auth-message auth-message-error" role="alert">
+        <p className="message message-error" role="alert">
           {error}
         </p>
       ) : null}
       <div className="redline-actions">
         <button
           type="button"
-          className="redline-link"
+          className="text-button"
           disabled={isPending}
           onClick={() => setIsEditing(true)}
         >
@@ -92,7 +92,7 @@ export function RedLineItem({ redLine }: { redLine: RedLine }) {
         </button>
         <button
           type="button"
-          className="redline-link redline-link-danger"
+          className="text-button text-button-danger"
           disabled={isPending}
           onClick={handleDelete}
         >

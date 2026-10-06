@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { formatDate } from "@/lib/analysis/labels";
 
 export const metadata: Metadata = {
   title: "Library — Redline",
@@ -12,7 +13,7 @@ const NOT_CONFIGURED_MESSAGE =
   "Sign-in isn't set up on this deployment yet. Ask whoever runs Redline to add the Supabase credentials.";
 const LOAD_ERROR_MESSAGE = "Couldn't load your library. Try refreshing the page.";
 const SUB_COPY =
-  "Every document you've analyzed lives here, so you can pull it back up without re-running the check.";
+  "Every contract you've uploaded, newest first. A reviewed contract reopens as it was, without running again.";
 
 type DocumentRow = {
   id: string;
@@ -31,10 +32,9 @@ export default async function LibraryPage() {
 
   if (!supabase) {
     return (
-      <div className="redlines-page">
-        <p className="ledger-ref tabular">§ LIBRARY</p>
-        <h1 className="redlines-heading">Your library</h1>
-        <p className="redlines-sub">{NOT_CONFIGURED_MESSAGE}</p>
+      <div className="page-section">
+        <h1 className="page-title">Library</h1>
+        <p className="page-intro">{NOT_CONFIGURED_MESSAGE}</p>
       </div>
     );
   }
@@ -55,68 +55,73 @@ export default async function LibraryPage() {
     .returns<DocumentRow[]>();
 
   return (
-    <div className="redlines-page">
-      <p className="ledger-ref tabular">§ LIBRARY</p>
-      <h1 className="redlines-heading">Your library</h1>
-      <p className="redlines-sub">{SUB_COPY}</p>
-
-      <div className="redlines-list-wrap">
-        {error ? (
-          <p className="auth-message auth-message-error" role="alert">
-            {LOAD_ERROR_MESSAGE}
-          </p>
-        ) : documents && documents.length > 0 ? (
-          <ol className="ledger-list">
-            {documents.map((document) => (
-              <li key={document.id}>
-                <Link href={`/documents/${document.id}`} className="ledger-row">
-                  <span className="ledger-ref tabular">{formatRef(document.created_at)}</span>
-                  <span className="ledger-name">{document.file_name}</span>
-                  <span className="ledger-note">{describeStatus(document.analysis_result)}</span>
-                </Link>
-              </li>
-            ))}
-          </ol>
-        ) : (
-          <p className="redlines-empty">
-            No documents yet.{" "}
-            <Link href="/home" className="register-cta">
-              Upload one from home
-            </Link>{" "}
-            and it&rsquo;ll land here once Redline&rsquo;s reviewed it.
-          </p>
-        )}
+    <div className="page-section">
+      <div className="page-head">
+        <div>
+          <h1 className="page-title">Library</h1>
+          <p className="page-intro">{SUB_COPY}</p>
+        </div>
+        <Link href="/home" className="btn btn-primary">
+          Upload a contract
+        </Link>
       </div>
 
-      <Link href="/home" className="redlines-back">
-        ← Back to home
-      </Link>
+      {error ? (
+        <p className="message message-error" role="alert">
+          {LOAD_ERROR_MESSAGE}
+        </p>
+      ) : documents && documents.length > 0 ? (
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Document</th>
+              <th scope="col">Uploaded</th>
+              <th scope="col">Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            {documents.map((document) => {
+              const status = describeStatus(document.analysis_result);
+              return (
+                <tr key={document.id}>
+                  <td>
+                    <Link href={`/documents/${document.id}`} className="table-link">
+                      {document.file_name}
+                    </Link>
+                  </td>
+                  <td className="table-muted">{formatDate(document.created_at)}</td>
+                  <td>
+                    <span className={`status status-${status.tone}`}>{status.label}</span>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      ) : (
+        <div className="empty-state">
+          <p>No contracts yet. Upload one and it&rsquo;ll be saved here once Redline has reviewed it.</p>
+          <Link href="/home" className="btn btn-primary">
+            Upload a contract
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
 
-function formatRef(createdAt: string): string {
-  const date = new Date(createdAt);
-  if (Number.isNaN(date.getTime())) {
-    return "—";
-  }
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${month}.${day}`;
-}
-
-function describeStatus(analysisResult: unknown): string {
+function describeStatus(analysisResult: unknown): { label: string; tone: "none" | "clear" | "dangerous" | "unusual" } {
   if (!analysisResult || typeof analysisResult !== "object") {
-    return "Not yet analyzed";
+    return { label: "Not reviewed yet", tone: "none" };
   }
 
   const record = analysisResult as { flags?: unknown };
   if (!Array.isArray(record.flags)) {
-    return "Not yet analyzed";
+    return { label: "Not reviewed yet", tone: "none" };
   }
 
   if (record.flags.length === 0) {
-    return "Clear";
+    return { label: "Clear", tone: "clear" };
   }
 
   let dangerous = 0;
@@ -129,13 +134,13 @@ function describeStatus(analysisResult: unknown): string {
   }
 
   if (dangerous > 0 && unusual > 0) {
-    return `${dangerous} Dangerous, ${unusual} Unusual`;
+    return { label: `${dangerous} Dangerous · ${unusual} Unusual`, tone: "dangerous" };
   }
   if (dangerous > 0) {
-    return `${dangerous} Dangerous`;
+    return { label: `${dangerous} Dangerous`, tone: "dangerous" };
   }
   if (unusual > 0) {
-    return `${unusual} Unusual`;
+    return { label: `${unusual} Unusual`, tone: "unusual" };
   }
-  return "Clear";
+  return { label: "Clear", tone: "clear" };
 }

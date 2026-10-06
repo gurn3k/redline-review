@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { AddRedLineForm } from "./add-red-line-form";
@@ -20,10 +19,9 @@ export default async function RedLinesPage() {
 
   if (!supabase) {
     return (
-      <div className="redlines-page">
-        <p className="ledger-ref tabular">§ RED LINES</p>
-        <h1 className="redlines-heading">Your red lines</h1>
-        <p className="redlines-sub">{NOT_CONFIGURED_MESSAGE}</p>
+      <div className="page-section narrow">
+        <h1 className="page-title">Red lines</h1>
+        <p className="page-intro">{NOT_CONFIGURED_MESSAGE}</p>
       </div>
     );
   }
@@ -43,34 +41,28 @@ export default async function RedLinesPage() {
     .order("created_at", { ascending: true });
 
   return (
-    <div className="redlines-page">
-      <p className="ledger-ref tabular">§ RED LINES</p>
-      <h1 className="redlines-heading">Your red lines</h1>
-      <p className="redlines-sub">
-        Terms you personally won&rsquo;t accept, on top of Redline&rsquo;s standard checks.
+    <div className="page-section narrow">
+      <h1 className="page-title">Red lines</h1>
+      <p className="page-intro">
+        Terms you won&rsquo;t accept, written in your own words. Redline checks every contract
+        against them, on top of its standard checks.
       </p>
 
       <AddRedLineForm />
 
-      <div className="redlines-list-wrap">
-        {error ? (
-          <p className="auth-message auth-message-error" role="alert">
-            {LOAD_ERROR_MESSAGE}
-          </p>
-        ) : redLines && redLines.length > 0 ? (
-          <ul className="redlines-list">
-            {redLines.map((redLine) => (
-              <RedLineItem key={redLine.id} redLine={redLine} />
-            ))}
-          </ul>
-        ) : (
-          <p className="redlines-empty">{EMPTY_STATE_MESSAGE}</p>
-        )}
-      </div>
-
-      <Link href="/home" className="redlines-back">
-        ← Back to home
-      </Link>
+      {error ? (
+        <p className="message message-error" role="alert">
+          {LOAD_ERROR_MESSAGE}
+        </p>
+      ) : redLines && redLines.length > 0 ? (
+        <ul className="redline-list">
+          {redLines.map((redLine) => (
+            <RedLineItem key={redLine.id} redLine={redLine} />
+          ))}
+        </ul>
+      ) : (
+        <p className="empty-state">{EMPTY_STATE_MESSAGE}</p>
+      )}
     </div>
   );
 }
