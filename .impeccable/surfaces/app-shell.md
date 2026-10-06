@@ -31,7 +31,7 @@ Operate, behind sign-in: home (upload), the analysis view for one document, libr
 
 ## Direction contract
 
-Inherits the direction chosen in the 2026-10-06 round for `landing-page`, in its restrained, task-first form.
+"Counsel Memo" (DESIGN.md), shared with `landing-page`, in its restrained, task-first form.
 
 ## Memorable moment
 
@@ -39,5 +39,4 @@ Selecting a Dangerous flag and watching the contract scroll to the exact sentenc
 
 ## Unresolved decisions
 
-- Visual direction (shared with `landing-page`).
-- Whether the document column shows the whole text or collapses unflagged sections. Default: the whole text, since hiding text weakens "check it yourself."
+- Whether the document column shows the whole text or collapses unflagged sections. Built with the whole text, since hiding text weakens "check it yourself."

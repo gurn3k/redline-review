@@ -34,7 +34,7 @@ Persuade. Public, unauthenticated landing page at `/`.
 
 ## Direction contract
 
-Pending the 2026-10-06 direction round. Must satisfy PRODUCT.md "Design goals."
+"Counsel Memo" (option B of three, chosen by the owner 2026-10-06). See DESIGN.md.
 
 ## Memorable moment
 
@@ -42,4 +42,4 @@ Hovering or tapping a flag lights up the exact sentence it came from in the cont
 
 ## Unresolved decisions
 
-Visual direction (one of three, chosen by the owner).
+None. Direction chosen 2026-10-06.

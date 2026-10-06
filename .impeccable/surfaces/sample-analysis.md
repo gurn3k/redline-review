@@ -31,4 +31,4 @@ Same as the analysis view: selecting a flag scrolls the document to its sentence
 
 ## Unresolved decisions
 
-- The stored analysis predates the personal-guarantee fix (FINDINGS #1), so it must be regenerated once on current code before use. That is one paid model call, estimated well under US$0.01, announced before running.
+None. The sample was regenerated on current code 2026-10-06 (`scripts/generate-sample.ts`, three paid calls: one analysis, two questions) and includes the personal-guarantee flag.

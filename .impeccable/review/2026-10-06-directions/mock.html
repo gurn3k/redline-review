@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redline direction mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.mocknote{position:fixed;right:12px;bottom:12px;font:500 11px/1 Inter,sans-serif;background:#000;color:#fff;padding:6px 8px;border-radius:4px;opacity:.7;z-index:9}
+/* header */
+header{border-bottom:1px solid var(--line);background:var(--head-bg)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:700 19px/1 var(--display);letter-spacing:-.01em;color:var(--head-ink);display:flex;align-items:center;gap:10px}
+.logo i{width:18px;height:3px;background:var(--danger);display:inline-block}
+nav{display:flex;gap:28px;font-size:14px;color:var(--head-muted)}
+nav b{color:var(--head-ink);font-weight:600}
+/* hero */
+.hero{background:var(--hero-bg);color:var(--hero-ink);padding:84px 0 72px}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:20px}
+h1{font:var(--h1-weight) var(--h1-size)/1.04 var(--display);letter-spacing:-.025em;max-width:880px}
+h1 em{font-style:normal;color:var(--h1-em)}
+.lede{font-size:20px;line-height:1.55;max-width:680px;margin-top:24px;color:var(--hero-muted)}
+.ctas{display:flex;gap:12px;margin-top:36px}
+.btn{font:600 15px/1 var(--body);padding:15px 22px;border-radius:var(--radius);border:1px solid transparent}
+.btn.primary{background:var(--btn);color:var(--btn-ink)}
+.btn.ghost{border-color:var(--ghost-line);color:var(--hero-ink)}
+.byline{margin-top:28px;font-size:14px;color:var(--hero-muted)}
+.byline u{color:var(--hero-ink);text-underline-offset:3px}
+/* app view */
+.app{padding:48px 0 80px;background:var(--bg)}
+.section-label{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.overview{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;padding:28px 32px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow)}
+.overview h2{font:600 28px/1.15 var(--display);letter-spacing:-.015em}
+.meta{font-size:14px;color:var(--muted);margin-top:6px}
+.summary{margin-top:16px;font-size:15px;line-height:1.6;color:var(--ink-soft)}
+.summary li{margin-left:18px;margin-top:4px}
+.counts{display:flex;gap:12px;align-items:stretch}
+.count{flex:1;padding:18px;border-radius:var(--radius);background:var(--count-bg)}
+.count strong{display:block;font:700 40px/1 var(--display);letter-spacing:-.02em}
+.count span{font-size:13px;font-weight:600;color:var(--muted)}
+.count.d strong{color:var(--danger)} .count.u strong{color:var(--unusual)} .count.c strong{color:var(--clear)}
+.work{display:grid;grid-template-columns:440px 1fr;gap:28px;margin-top:28px;align-items:start}
+.flag{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:20px 22px;margin-bottom:12px;position:relative}
+.flag.sel{border-color:var(--danger);box-shadow:0 0 0 3px var(--danger-ring)}
+.flag .top{display:flex;justify-content:space-between;align-items:center}
+.chip{font:700 11px/1 var(--body);letter-spacing:.07em;text-transform:uppercase;padding:6px 8px;border-radius:var(--chip-radius)}
+.chip.d{background:var(--danger-bg);color:var(--danger)} .chip.u{background:var(--unusual-bg);color:var(--unusual)}
+.ref{font:500 12px/1 var(--mono);color:var(--muted)}
+.flag h3{font:600 18px/1.25 var(--display);margin-top:12px}
+.flag p{font-size:14.5px;line-height:1.55;color:var(--ink-soft);margin-top:8px}
+.quote{font:400 13.5px/1.6 var(--mono);background:var(--quote-bg);border-left:3px solid var(--danger);padding:10px 12px;margin-top:12px;color:var(--ink)}
+.counter{margin-top:14px;padding:12px 14px;border-radius:var(--radius);background:var(--counter-bg);font-size:14px;line-height:1.5}
+.counter b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--clear);margin-bottom:4px}
+.flag.mini h3{margin-top:10px;font-size:16px}
+.doc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg);padding:36px 44px;box-shadow:var(--shadow);font:400 15px/1.75 var(--doc-font);color:var(--ink)}
+.doc h4{font:600 13px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.doc p{margin-bottom:14px}
+.doc mark{background:var(--hl);color:inherit;padding:1px 0;border-bottom:2px solid var(--hl-line)}
+.doc mark.sel{background:var(--hl-sel);border-bottom-color:var(--danger)}
+.doc mark.u{background:var(--hl-u);border-bottom-color:var(--unusual)}
+
+/* ---------- A: Ledger Bank (crisp white, navy, fintech) ---------- */
+body.a{--body:Inter,sans-serif;--display:Inter,sans-serif;--mono:"IBM Plex Mono",monospace;--doc-font:Inter,sans-serif;
+--bg:#f6f7f9;--card:#fff;--paper:#fff;--ink:#0f172a;--ink-soft:#334155;--muted:#64748b;--line:#e2e8f0;
+--head-bg:#fff;--head-ink:#0f172a;--head-muted:#64748b;
+--hero-bg:#fff;--hero-ink:#0f172a;--hero-muted:#475569;--h1-size:64px;--h1-weight:800;--h1-em:#b42318;--accent-ink:#1d4ed8;
+--btn:#0f172a;--btn-ink:#fff;--ghost-line:#cbd5e1;--radius:8px;--radius-lg:12px;--chip-radius:5px;--shadow:0 1px 2px rgba(15,23,42,.06);
+--danger:#b42318;--danger-bg:#fee4e2;--danger-ring:rgba(180,35,24,.15);--unusual:#b54708;--unusual-bg:#fef0c7;--clear:#067647;
+--count-bg:#f8fafc;--quote-bg:#f8fafc;--counter-bg:#ecfdf3;--hl:#fee4e2;--hl-sel:#fecdca;--hl-line:#fda29b;--hl-u:#fef0c7}
+/* ---------- B: Counsel Memo (editorial serif, warm paper, oxblood) ---------- */
+body.b{--body:"Instrument Sans",sans-serif;--display:Newsreader,serif;--mono:"IBM Plex Mono",monospace;--doc-font:Newsreader,serif;
+--bg:#f7f4ee;--card:#fffdf9;--paper:#fffdf9;--ink:#1c1917;--ink-soft:#44403c;--muted:#78716c;--line:#e7e1d6;
+--head-bg:#f7f4ee;--head-ink:#1c1917;--head-muted:#78716c;
+--hero-bg:#f7f4ee;--hero-ink:#1c1917;--hero-muted:#57534e;--h1-size:68px;--h1-weight:600;--h1-em:#8f1d22;--accent-ink:#8f1d22;
+--btn:#8f1d22;--btn-ink:#fff;--ghost-line:#d6cfc2;--radius:6px;--radius-lg:8px;--chip-radius:3px;--shadow:0 1px 0 rgba(28,25,23,.04);
+--danger:#8f1d22;--danger-bg:#f6e3e1;--danger-ring:rgba(143,29,34,.14);--unusual:#92590e;--unusual-bg:#f6ead2;--clear:#2f6b4a;
+--count-bg:#f3eee5;--quote-bg:#f6f1e8;--counter-bg:#eaf2ec;--hl:#f6e3e1;--hl-sel:#efc9c5;--hl-line:#d99a94;--hl-u:#f6ead2}
+/* ---------- C: Night Shift (bold dark hero, high contrast, signal red) ---------- */
+body.c{--body:Inter,sans-serif;--display:"Instrument Sans",sans-serif;--mono:"IBM Plex Mono",monospace;--doc-font:Inter,sans-serif;
+--bg:#eef0f3;--card:#fff;--paper:#fff;--ink:#0b0d12;--ink-soft:#3a4150;--muted:#6b7280;--line:#dde1e7;
+--head-bg:#0b0d12;--head-ink:#fff;--head-muted:#9aa3b2;
+--hero-bg:#0b0d12;--hero-ink:#fff;--hero-muted:#aab2c0;--h1-size:76px;--h1-weight:700;--h1-em:#ff5a4e;--accent-ink:#ff5a4e;
+--btn:#ff5a4e;--btn-ink:#0b0d12;--ghost-line:#3a4150;--radius:10px;--radius-lg:14px;--chip-radius:999px;--shadow:0 8px 24px rgba(11,13,18,.06);
+--danger:#d92d20;--danger-bg:#fee4e2;--danger-ring:rgba(217,45,32,.18);--unusual:#c4320a;--unusual-bg:#ffead5;--clear:#027a48;
+--count-bg:#f4f5f7;--quote-bg:#f4f5f7;--counter-bg:#ecfdf3;--hl:#ffe1de;--hl-sel:#ffc3bd;--hl-line:#ff8a80;--hl-u:#ffead5}
+</style>
+</head>
+<body>
+<div class="mocknote">Direction mockup · flag wording illustrative</div>
+<header><div class="wrap"><div class="logo"><i></i>Redline</div><nav><span>Sample analysis</span><span>How it works</span><b>Try it</b></nav></div></header>
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">Contract review for small business owners</div>
+  <h1>Know what you're signing <em>before</em> you sign it.</h1>
+  <p class="lede">Redline reads the vendor agreements, equipment contracts and commercial leases you get handed, ranks what's risky, and shows the exact sentence behind every flag. If it can't point to the sentence, it doesn't show the flag.</p>
+  <div class="ctas"><span class="btn primary">See a sample analysis</span><span class="btn ghost">Try it on your contract</span></div>
+  <p class="byline">Built by Gurnek Khaira with AI coding agents · <u>Source on GitHub</u></p>
+</div></section>
+<section class="app"><div class="wrap">
+  <div class="section-label">Sample analysis</div>
+  <div class="overview">
+    <div><h2>Equipment Service Agreement</h2><div class="meta">Coldline Refrigeration Services, Inc. · analyzed 6 October 2026</div>
+      <ul class="summary"><li>Two-year refrigeration service contract at $640 a month.</li><li>Renews for two more years unless you cancel 120 days ahead, at 12% more.</li><li>You personally guarantee every dollar, with no limit.</li></ul></div>
+    <div class="counts"><div class="count d"><strong>4</strong><span>Dangerous</span></div><div class="count u"><strong>1</strong><span>Unusual</span></div><div class="count c"><strong>2</strong><span>Checks clear</span></div></div>
+  </div>
+  <div class="work">
+    <div>
+      <div class="flag sel"><div class="top"><span class="chip d">Dangerous</span><span class="ref">§6</span></div>
+        <h3>Personal guarantee</h3>
+        <div class="quote">The individual signing this Agreement on behalf of Customer personally and unconditionally guarantees the full payment of all amounts owed by Customer under this Agreement, without limit as to amount or time.</div>
+        <p>If the business can't pay, you owe it yourself, with no cap and no end date.</p>
+        <div class="counter"><b>Counter-offer</b>Cap the guarantee at three months of fees and end it after the first 12 months.</div></div>
+      <div class="flag mini"><div class="top"><span class="chip d">Dangerous</span><span class="ref">§4</span></div><h3>Provider can end it any day</h3></div>
+      <div class="flag mini"><div class="top"><span class="chip d">Dangerous</span><span class="ref">§5</span></div><h3>You cover their negligence</h3></div>
+      <div class="flag mini"><div class="top"><span class="chip d">Dangerous</span><span class="ref">§3</span></div><h3>Renews for 2 years at 12% more</h3></div>
+      <div class="flag mini"><div class="top"><span class="chip u">Unusual</span><span class="ref">§2</span></div><h3>2% monthly late interest</h3></div>
+    </div>
+    <div class="doc"><h4>The contract</h4>
+      <p>2. Fees. Customer shall pay a monthly service fee of $640, invoiced on the first day of each month. Payment is due within fifteen (15) days of the invoice date. <mark class="u">Late payments accrue interest at two percent (2%) per month.</mark></p>
+      <p>3. Term and Renewal. <mark>This Agreement has an initial term of twenty-four (24) months and renews automatically for successive twenty-four (24) month terms unless Customer gives written notice of non-renewal at least one hundred twenty (120) days before the end of the then-current term.</mark> The monthly service fee for each renewal term will increase by twelve percent (12%).</p>
+      <p>4. Termination. <mark>Provider may terminate this Agreement at any time, for any reason, upon written notice to Customer, effective immediately.</mark> Customer may terminate only for Provider's uncured material breach.</p>
+      <p>5. Indemnification. <mark>Customer shall indemnify, defend, and hold harmless Provider and its affiliates from and against any and all claims, losses, damages, and expenses of any kind, including those arising from Provider's own negligence.</mark></p>
+      <p>6. Personal Guarantee. <mark class="sel">The individual signing this Agreement on behalf of Customer personally and unconditionally guarantees the full payment of all amounts owed by Customer under this Agreement, without limit as to amount or time.</mark></p>
+      <p>7. Governing Law. This Agreement is governed by the laws of the State of Ohio.</p>
+    </div>
+  </div>
+</div></section>
+<script>document.body.className=(location.hash||'#a').slice(1)</script>
+</body>
+</html>
