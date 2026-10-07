@@ -68,7 +68,7 @@ export default function Home() {
               </Link>
             </div>
             <p className="byline">
-              Built by Gurnek Khaira with AI coding agents · <a href={REPO}>Source on GitHub</a>
+              Built by Gurnek Khaira · <a href={REPO}>Source on GitHub</a>
             </p>
           </div>
         </section>
@@ -133,7 +133,7 @@ export default function Home() {
             <div className="section-head">
               <h2 className="section-title">How it was built</h2>
               <p className="section-lede">
-                Built by AI coding agents, directed from a product spec. Every step is written up
+                Built from a product spec, decision records and tickets. Every step is written up
                 in the repository.
               </p>
             </div>
