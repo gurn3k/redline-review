@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Wordmark } from "./wordmark";
 
 // Header for the public pages (landing, sample, sign-in). Signed-in readers
 // who click "Try it" are sent on to /home by the proxy.
@@ -6,10 +7,7 @@ export function SiteHeader({ minimal = false }: { minimal?: boolean }) {
   return (
     <header className="site-header">
       <div className="container header-row">
-        <Link href="/" className="wordmark">
-          <span className="wordmark-rule" aria-hidden="true" />
-          Redline
-        </Link>
+        <Wordmark href="/" />
         {minimal ? null : (
           <nav className="header-nav" aria-label="Main">
             <Link href="/sample">Sample analysis</Link>
