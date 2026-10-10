@@ -1383,6 +1383,15 @@ a {
   flex-shrink: 0;
 }
 
+.footer-credit a {
+  display: block;
+  transition: opacity 0.15s ease;
+}
+
+.footer-credit a:hover {
+  opacity: 0.8;
+}
+
 @media (max-width: 640px) {
   .footer-brand {
     flex-direction: column;
