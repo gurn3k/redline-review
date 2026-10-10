@@ -85,7 +85,22 @@ a {
   z-index: 10;
 }
 
+/* The red line runs edge to edge through the middle of the header. The
+   wordmark and nav sit on the header colour, so the line breaks around them
+   instead of striking through. */
+.site-header::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  background: var(--brand);
+}
+
 .header-row {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -102,18 +117,23 @@ a {
   font-weight: 600;
   letter-spacing: -0.01em;
   text-decoration: none;
+  background: var(--bg);
+  padding: 4px 14px;
+  margin-left: -14px;
 }
 
-.wordmark-rule {
-  width: 18px;
-  height: 3px;
-  background: var(--brand);
+.wordmark-mark {
+  flex-shrink: 0;
+  display: block;
 }
 
 .header-right {
   display: flex;
   align-items: center;
   gap: 20px;
+  background: var(--bg);
+  padding: 4px 14px;
+  margin-right: -14px;
 }
 
 .header-nav {
@@ -121,6 +141,14 @@ a {
   align-items: center;
   gap: 22px;
   font-size: 15px;
+  background: var(--bg);
+  padding: 4px 14px;
+  margin-right: -14px;
+}
+
+.header-right .header-nav {
+  padding: 0;
+  margin-right: 0;
 }
 
 .header-nav a {
@@ -1259,9 +1287,136 @@ a {
 
 /* ---------- Footer ---------- */
 
+/* An oxblood band that answers the header: the same rule through the middle,
+   in cream this time, with an inverted mark. Cream text on brand is ~9:1. */
 .footer {
-  border-top: 1px solid var(--line);
-  padding: 28px 0 36px;
+  --footer-ink: #fffdf9;
+  --footer-ink-soft: rgba(255, 253, 249, 0.82);
+  background: var(--brand);
+  color: var(--footer-ink-soft);
   font-size: 14px;
-  color: var(--muted);
+  padding: 0 0 40px;
+  position: relative;
+}
+
+.footer a {
+  color: var(--footer-ink);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer :focus-visible {
+  outline-color: var(--footer-ink);
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 88px;
+}
+
+/* Edge-to-edge rule through the middle of the brand row (88px tall). */
+.footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 43px;
+  height: 2px;
+  background: rgba(255, 253, 249, 0.55);
+}
+
+.footer .wordmark {
+  position: relative;
+  background: var(--brand);
+  color: var(--footer-ink);
+}
+
+.footer-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background: var(--brand);
+  padding: 4px 14px;
+  margin-right: -14px;
+  font-size: 15px;
+}
+
+.footer-body {
+  display: grid;
+  gap: 20px;
+  padding-top: 8px;
+}
+
+.footer-disclaimer {
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 253, 249, 0.2);
+  font-size: 13px;
+}
+
+@media (max-width: 640px) {
+  .footer-brand {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 14px;
+    padding: 28px 0 16px;
+  }
+  /* 28px top padding + half the 36px wordmark */
+  .footer::before {
+    top: 45px;
+  }
+  .footer-nav {
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    padding: 0;
+    margin-right: 0;
+    font-size: 14px;
+  }
+}
+
+/* Signed-in pages: a slim band with the disclaimer and credit only. */
+body:has(.app-shell) .footer {
+  padding: 18px 0;
+  font-size: 13px;
+}
+
+body:has(.app-shell) .footer-brand,
+body:has(.app-shell) .footer::before {
+  display: none;
+}
+
+body:has(.app-shell) .footer-body {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px 32px;
+  padding-top: 0;
+}
+
+body:has(.app-shell) .footer-meta {
+  padding-top: 0;
+  border-top: 0;
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  body:has(.app-shell) .footer-body {
+    grid-template-columns: 1fr;
+  }
 }

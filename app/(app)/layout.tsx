@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import type { ReactNode } from "react";
+import { Wordmark } from "@/app/components/wordmark";
 import { createClient } from "@/lib/supabase/server";
 import { AppNav } from "./app-nav";
 import { LogoutButton } from "./logout-button";
@@ -23,13 +23,10 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="page">
+    <div className="page app-shell">
       <header className="site-header">
         <div className="container header-row">
-          <Link href="/home" className="wordmark">
-            <span className="wordmark-rule" aria-hidden="true" />
-            Redline
-          </Link>
+          <Wordmark href="/home" />
           <div className="header-right">
             <AppNav />
             <LogoutButton />
