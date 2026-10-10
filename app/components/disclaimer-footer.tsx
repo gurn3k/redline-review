@@ -1,8 +1,11 @@
 import Link from "next/link";
+import { MakerMark } from "./maker-mark";
 import { Wordmark } from "./wordmark";
 
-// Who built Redline. One place to change it.
-const CREDIT = { label: "Built by gurn3k", href: "https://github.com/gurn3k" };
+// Who built Redline. One place to change it. The copyright holder matches
+// LICENSE.
+const OWNER = "Gurnek Khaira";
+const CREDIT = { label: "gurn3k", href: "https://www.gurn3k.com" };
 
 // Positioning copy per docs/adr/0010-upl-disclaimer-and-positioning.md — Redline
 // is document literacy, not legal advice. Rendered once here, in the root
@@ -31,10 +34,18 @@ export function DisclaimerFooter() {
             clause is enforceable or whether you should sign.
           </p>
           <p className="footer-meta">
-            <span>&copy; 2026 Redline</span>
-            <a href={CREDIT.href} target="_blank" rel="noopener noreferrer">
-              {CREDIT.label}
-            </a>
+            <span>&copy; 2026 {OWNER}</span>
+            <span className="footer-credit">
+              Built by
+              <a
+                href={CREDIT.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={CREDIT.label}
+              >
+                <MakerMark />
+              </a>
+            </span>
           </p>
         </div>
       </div>

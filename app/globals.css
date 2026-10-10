@@ -1363,11 +1363,33 @@ a {
 .footer-meta {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
   gap: 8px 20px;
   padding-top: 20px;
   border-top: 1px solid rgba(255, 253, 249, 0.2);
   font-size: 13px;
+}
+
+/* The maker's signature: name, then the gurn3k wordmark in footer cream. */
+.footer-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.maker-mark {
+  display: block;
+  flex-shrink: 0;
+}
+
+.footer-credit a {
+  display: block;
+  transition: opacity 0.15s ease;
+}
+
+.footer-credit a:hover {
+  opacity: 0.8;
 }
 
 @media (max-width: 640px) {
