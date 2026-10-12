@@ -5,7 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { formatDate } from "@/lib/analysis/labels";
 
 export const metadata: Metadata = {
-  title: "Library — Redline",
+  title: "Library · Redline",
 };
 
 // Copy in this file has been run through the humanizer skill.

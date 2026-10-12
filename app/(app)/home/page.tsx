@@ -4,7 +4,7 @@ import { RedLinesRegisterCard } from "./red-lines-register-card";
 import { LibraryRegisterCard } from "./library-register-card";
 
 export const metadata: Metadata = {
-  title: "Home — Redline",
+  title: "Home · Redline",
 };
 
 // Per .impeccable/surfaces/app-shell.md: the authenticated home is a

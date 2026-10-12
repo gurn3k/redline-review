@@ -5,7 +5,7 @@ import { AddRedLineForm } from "./add-red-line-form";
 import { RedLineItem } from "./red-line-item";
 
 export const metadata: Metadata = {
-  title: "Red lines — Redline",
+  title: "Red lines · Redline",
 };
 
 const NOT_CONFIGURED_MESSAGE =
