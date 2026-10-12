@@ -6,7 +6,7 @@ import { QABox } from "./qa-box";
 import { formatDate } from "@/lib/analysis/labels";
 
 export const metadata: Metadata = {
-  title: "Document — Redline",
+  title: "Document · Redline",
 };
 
 type DocumentRow = {

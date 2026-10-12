@@ -8,7 +8,7 @@ import { formatDate } from "@/lib/analysis/labels";
 import { SAMPLE } from "@/lib/sample";
 
 export const metadata: Metadata = {
-  title: "Sample analysis — Redline",
+  title: "Sample analysis · Redline",
   description:
     "A real, unedited Redline review of a small business's refrigeration service contract: every risky clause tied to the exact sentence it came from.",
 };
