@@ -42,6 +42,12 @@ describe("updateSession", () => {
     expect(response.headers.get("location")).toBeNull();
   });
 
+  it("shows the privacy page to a signed-out visitor", async () => {
+    getUser.mockResolvedValue({ data: { user: null } });
+    const response = await updateSession(requestFor("/privacy"));
+    expect(response.headers.get("location")).toBeNull();
+  });
+
   it("still sends a signed-out visitor from a real document to /login", async () => {
     getUser.mockResolvedValue({ data: { user: null } });
     const response = await updateSession(requestFor("/documents/abc"));
