@@ -42,10 +42,22 @@ describe("updateSession", () => {
     expect(response.headers.get("location")).toBeNull();
   });
 
+  it("lets a signed-out visitor reach the OAuth callback", async () => {
+    getUser.mockResolvedValue({ data: { user: null } });
+    const response = await updateSession(requestFor("/auth/callback?code=abc"));
+    expect(response.headers.get("location")).toBeNull();
+  });
+
   it("shows the privacy page to a signed-out visitor", async () => {
     getUser.mockResolvedValue({ data: { user: null } });
     const response = await updateSession(requestFor("/privacy"));
     expect(response.headers.get("location")).toBeNull();
+  });
+
+  it("does not open other /auth paths to signed-out visitors", async () => {
+    getUser.mockResolvedValue({ data: { user: null } });
+    const response = await updateSession(requestFor("/auth/anything-else"));
+    expect(response.headers.get("location")).toBe("https://redline.test/login");
   });
 
   it("still sends a signed-out visitor from a real document to /login", async () => {

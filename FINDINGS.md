@@ -284,16 +284,26 @@ What was checked, and why each one held up:
     to the new row as well. A reader cannot move a row to another user's id.
   - The `anon` role is subject to the same policies. With no signed-in user,
     `auth.uid()` is null, so a visitor sees no rows.
-- **Sign-in and sign-out** (`app/login/page.tsx`, `app/(app)/logout-button.tsx`):
+- **Sign-in and sign-out** (`app/login/login-form.tsx`, `app/(app)/logout-button.tsx`):
   - Both run in the browser through Supabase Auth, using the publishable key, which is
     meant to be public.
-  - There is no server-side auth callback, and no redirect target an attacker could
-    control.
+- **OAuth callback** (`app/auth/callback/route.ts`, added 2026-10-12 for Google and
+  LinkedIn sign-in, see ADR 0011):
+  - It always redirects to `/home` on success and `/login?error=oauth` on failure. It
+    reads no redirect target from the query string, so it cannot be used as an open
+    redirect. A test passes `next=` and `redirect_to=` values and checks they are ignored.
+  - Sign-in uses PKCE. The verifier stays in the reader's browser cookie, so an
+    intercepted `code` cannot be exchanged by anyone else.
+  - The `redirectTo` sent to Supabase must match its redirect allow-list, which holds
+    only the production domain and localhost.
+  - Provider error text is never shown. The login page maps the one fixed flag to a
+    fixed message.
 - **Route gating** (`proxy.ts`, `lib/supabase/middleware.ts`, `app/(app)/layout.tsx`):
   - The proxy calls `auth.getUser()`, which checks the token with Supabase, and sends
     signed-out visitors to /login.
   - The app layout checks again before rendering.
-  - Only `/`, `/sample`, `/privacy` and `/login` are public.
+  - Only `/`, `/sample`, `/privacy`, `/login` and `/auth/callback` are public. Other
+    `/auth/*` paths stay gated, and a test checks this.
 - **Server actions and pages that read or write the database**:
   - The actions are `documents/actions.ts`, `documents/[id]/analyze-action.ts`,
     `documents/[id]/answer-question-action.ts` and `red-lines/actions.ts`. The pages are

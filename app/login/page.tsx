@@ -1,146 +1,16 @@
-"use client";
+import type { Metadata } from "next";
+import { LoginForm } from "./login-form";
 
-import { SiteHeader } from "@/app/components/site-header";
-import { useRouter } from "next/navigation";
-import { useState, type FormEvent } from "react";
-import { createClient } from "@/lib/supabase/client";
+export const metadata: Metadata = { title: "Log in · Redline" };
 
-type Mode = "login" | "signup";
-
-const NOT_CONFIGURED_MESSAGE =
-  "Sign-in isn't set up on this deployment yet. Ask whoever runs Redline to add the Supabase credentials.";
-
-export default function LoginPage() {
-  const router = useRouter();
-  const [mode, setMode] = useState<Mode>("login");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [pending, setPending] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [notice, setNotice] = useState<string | null>(null);
-
-  const isSignup = mode === "signup";
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setError(null);
-    setNotice(null);
-
-    const supabase = createClient();
-    if (!supabase) {
-      setError(NOT_CONFIGURED_MESSAGE);
-      return;
-    }
-
-    setPending(true);
-    try {
-      if (isSignup) {
-        const { data, error: signUpError } = await supabase.auth.signUp({
-          email,
-          password,
-        });
-        if (signUpError) {
-          setError(signUpError.message);
-          return;
-        }
-        if (!data.session) {
-          setNotice("Check your inbox to confirm your account, then log in.");
-          setMode("login");
-          return;
-        }
-      } else {
-        const { error: signInError } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
-        if (signInError) {
-          setError(signInError.message);
-          return;
-        }
-      }
-      router.push("/home");
-      router.refresh();
-    } finally {
-      setPending(false);
-    }
-  }
-
-  return (
-    <div className="page">
-      <SiteHeader minimal />
-
-      <main className="container auth-main">
-        <div className="panel auth-card">
-          <h1 className="page-title">
-            {isSignup ? "Create your Redline account" : "Log in to Redline"}
-          </h1>
-          <p className="panel-intro">Know what you&rsquo;re signing before you sign it.</p>
-
-          <form className="auth-form" onSubmit={handleSubmit}>
-            <label className="field-label" htmlFor="email">
-              Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              required
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              className="input"
-            />
-
-            <label className="field-label" htmlFor="password">
-              Password
-            </label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              autoComplete={isSignup ? "new-password" : "current-password"}
-              required
-              minLength={6}
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              className="input"
-            />
-
-            {error ? (
-              <p className="message message-error" role="alert">
-                {error}
-              </p>
-            ) : null}
-            {notice ? (
-              <p className="message message-notice" role="status">
-                {notice}
-              </p>
-            ) : null}
-
-            <button type="submit" className="btn btn-primary btn-large btn-block" disabled={pending}>
-              {isSignup
-                ? pending
-                  ? "Creating account…"
-                  : "Create account"
-                : pending
-                  ? "Logging in…"
-                  : "Log in"}
-            </button>
-          </form>
-
-          <button
-            type="button"
-            className="text-button auth-toggle"
-            onClick={() => {
-              setMode(isSignup ? "login" : "signup");
-              setError(null);
-              setNotice(null);
-            }}
-          >
-            {isSignup ? "Already have an account? Log in" : "New here? Create an account"}
-          </button>
-        </div>
-      </main>
-    </div>
-  );
+// Reads the query string on the server so the form doesn't need a Suspense
+// boundary for useSearchParams. Only the fixed `error=oauth` flag set by
+// app/auth/callback/route.ts is recognised; any other value is ignored.
+export default async function LoginPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ error?: string | string[] }>;
+}) {
+  const { error } = await searchParams;
+  return <LoginForm oauthFailed={error === "oauth"} />;
 }
