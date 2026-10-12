@@ -896,8 +896,30 @@ a {
   max-width: 420px;
 }
 
-.auth-form {
+.auth-providers {
   margin-top: 24px;
+  display: grid;
+  gap: 10px;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid var(--line);
+}
+
+.auth-form {
+  margin-top: 16px;
   display: grid;
   gap: 4px;
 }

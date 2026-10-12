@@ -3,7 +3,8 @@ import { NextResponse, type NextRequest } from "next/server";
 
 /**
  * Routes reachable without a session: the landing page, the public sample
- * analysis, the privacy page, and sign-in. Everything else sits behind the
+ * analysis, the privacy page, sign-in, and the OAuth callback (which has no session yet
+ * because creating one is its job). Everything else sits behind the
  * `app/(app)/` route group and requires a signed-in user.
  */
 function isPublicRoute(pathname: string): boolean {
@@ -11,7 +12,8 @@ function isPublicRoute(pathname: string): boolean {
     pathname === "/" ||
     pathname === "/sample" ||
     pathname === "/privacy" ||
-    pathname.startsWith("/login")
+    pathname.startsWith("/login") ||
+    pathname === "/auth/callback"
   );
 }
 
