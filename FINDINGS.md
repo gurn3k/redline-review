@@ -293,7 +293,7 @@ What was checked, and why each one held up:
   - The proxy calls `auth.getUser()`, which checks the token with Supabase, and sends
     signed-out visitors to /login.
   - The app layout checks again before rendering.
-  - Only `/` and `/login` are public.
+  - Only `/`, `/sample`, `/privacy` and `/login` are public.
 - **Server actions and pages that read or write the database**:
   - The actions are `documents/actions.ts`, `documents/[id]/analyze-action.ts`,
     `documents/[id]/answer-question-action.ts` and `red-lines/actions.ts`. The pages are

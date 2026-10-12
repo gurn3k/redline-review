@@ -24,6 +24,7 @@ export function DisclaimerFooter() {
             <Link href="/sample">Sample analysis</Link>
             <Link href="/#how-it-was-built">How it was built</Link>
             <Link href="/login">Try it</Link>
+            <Link href="/privacy">Privacy</Link>
           </nav>
         </div>
         <div className="footer-body">

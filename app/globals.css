@@ -867,6 +867,21 @@ a {
   gap: 8px;
 }
 
+.legal h2 {
+  margin: 32px 0 8px;
+  font-size: 20px;
+}
+
+.legal p {
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+
+.legal a {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 /* Login */
 
 .auth-main {
