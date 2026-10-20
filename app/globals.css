@@ -1397,6 +1397,17 @@ a {
   line-height: 1.6;
 }
 
+.footer-analytics {
+  max-width: 680px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* Signed-in pages send nothing to analytics, so they don't mention it. */
+body:has(.app-shell) .footer-analytics {
+  display: none;
+}
+
 .footer-meta {
   display: flex;
   flex-wrap: wrap;

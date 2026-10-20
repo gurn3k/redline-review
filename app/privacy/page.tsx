@@ -16,7 +16,7 @@ export default function PrivacyPage() {
       <main className="container app-main">
         <div className="page-section narrow legal">
           <h1 className="page-title">Privacy</h1>
-          <p className="page-intro">Last updated October 12, 2026.</p>
+          <p className="page-intro">Last updated October 20, 2026.</p>
 
           <h2>What Redline stores</h2>
           <p>
@@ -39,9 +39,18 @@ export default function PrivacyPage() {
           </p>
 
           <h2>What Redline doesn&rsquo;t do</h2>
+          <p>Redline shows no ads and doesn&rsquo;t sell or share your data with anyone else.</p>
+
+          <h2>Visit counts</h2>
           <p>
-            No ads, no analytics trackers, and no selling or sharing your data with anyone else.
-            The only cookies are the ones that keep you signed in.
+            The public pages (home, sample, sign-in and this one) count visits with Google
+            Analytics, with Google&rsquo;s ad features turned off. For visitors in the EU, the UK
+            and Switzerland, it sets no cookies. Elsewhere, it sets its own cookies on those pages.
+          </p>
+          <p>
+            Pages you see after signing in send nothing to Google, so your documents, their file
+            names and your red lines never reach it. Apart from that, the only cookies are the ones
+            that keep you signed in.
           </p>
 
           <h2>Deleting your data</h2>

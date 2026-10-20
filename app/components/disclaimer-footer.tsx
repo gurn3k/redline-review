@@ -34,6 +34,11 @@ export function DisclaimerFooter() {
             it isn&rsquo;t a lawyer, and it doesn&rsquo;t decide whether a
             clause is enforceable or whether you should sign.
           </p>
+          <p className="footer-analytics">
+            Public pages count visits with Google Analytics, with ad features
+            off and no analytics cookies for visitors in the EU or UK. Nothing
+            is sent after you sign in.
+          </p>
           <p className="footer-meta">
             <span>&copy; 2026 {OWNER}</span>
             <span className="footer-credit">
