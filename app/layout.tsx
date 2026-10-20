@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, Newsreader } from "next/font/google";
+import { Analytics } from "./components/analytics";
 import { DisclaimerFooter } from "./components/disclaimer-footer";
 import "./globals.css";
 
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         {children}
         <DisclaimerFooter />
+        <Analytics />
       </body>
     </html>
   );
