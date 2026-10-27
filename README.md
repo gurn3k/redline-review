@@ -50,7 +50,7 @@ Requires Node 22 or later and a Supabase project (schema in [supabase/migrations
 ```bash
 npm install
 npm run dev     # http://localhost:3000
-npm test        # 69 tests
+npm test        # 81 tests
 npm run smoke   # runs the fixture contracts through the full pipeline; uses a stub model if no API key is set
 ```
 
