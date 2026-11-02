@@ -1,0 +1,1066 @@
+{
+  "set": "gold",
+  "startedAt": "2026-11-02T16:51:51.999Z",
+  "model": "z-ai/glm-5.3-flash",
+  "documentsInManifest": 9,
+  "documentsLeftOut": [],
+  "summary": {
+    "documentsScored": 9,
+    "documentsLeftOut": [],
+    "recall": {
+      "count": 24,
+      "of": 30
+    },
+    "recallRightType": {
+      "count": 24,
+      "of": 24
+    },
+    "severity": {
+      "overall": {
+        "count": 0,
+        "of": 0
+      },
+      "expectedDangerous": {
+        "count": 0,
+        "of": 0
+      },
+      "expectedUnusual": {
+        "count": 0,
+        "of": 0
+      }
+    },
+    "recallByType": [
+      {
+        "goldType": "arbitration-and-class-action-waiver",
+        "recall": {
+          "count": 5,
+          "of": 5
+        },
+        "rightType": {
+          "count": 5,
+          "of": 5
+        }
+      },
+      {
+        "goldType": "auto-renewal",
+        "recall": {
+          "count": 4,
+          "of": 6
+        },
+        "rightType": {
+          "count": 4,
+          "of": 4
+        }
+      },
+      {
+        "goldType": "indemnification",
+        "recall": {
+          "count": 5,
+          "of": 6
+        },
+        "rightType": {
+          "count": 5,
+          "of": 5
+        }
+      },
+      {
+        "goldType": "limitation-of-liability",
+        "recall": {
+          "count": 3,
+          "of": 4
+        },
+        "rightType": {
+          "count": 3,
+          "of": 3
+        }
+      },
+      {
+        "goldType": "fee-escalators-and-late-fees",
+        "recall": {
+          "count": 7,
+          "of": 9
+        },
+        "rightType": {
+          "count": 7,
+          "of": 7
+        }
+      }
+    ],
+    "recallByCharacters": [
+      {
+        "label": "sentence carries at least one of the five",
+        "recall": {
+          "count": 6,
+          "of": 9
+        }
+      },
+      {
+        "label": "sentence carries none of them",
+        "recall": {
+          "count": 18,
+          "of": 21
+        }
+      },
+      {
+        "label": "  curly quote or apostrophe",
+        "recall": {
+          "count": 2,
+          "of": 3
+        }
+      },
+      {
+        "label": "  non-breaking space",
+        "recall": {
+          "count": 0,
+          "of": 2
+        }
+      },
+      {
+        "label": "  fi or fl ligature",
+        "recall": {
+          "count": 3,
+          "of": 4
+        }
+      },
+      {
+        "label": "  em dash",
+        "recall": {
+          "count": 1,
+          "of": 2
+        }
+      },
+      {
+        "label": "  two spaces in a row",
+        "recall": {
+          "count": 1,
+          "of": 1
+        }
+      }
+    ],
+    "outOfScope": [
+      {
+        "goldType": "unilateral-modification",
+        "planted": 6,
+        "reason": "PRD.md names unilateral termination and no-cause deactivation, not a right to rewrite the terms. The product has no type for it."
+      },
+      {
+        "goldType": "non-compete",
+        "planted": 4,
+        "reason": "PRD.md: non-compete clauses are explicitly not evaluated in v1 (employment context, segment excluded)."
+      }
+    ],
+    "precision": {
+      "shown": {
+        "count": 24,
+        "of": 25
+      },
+      "returned": {
+        "count": 24,
+        "of": 28
+      }
+    },
+    "groundedness": {
+      "count": 25,
+      "of": 28
+    },
+    "shownGroundedness": {
+      "count": 25,
+      "of": 25
+    },
+    "cleanDocuments": {
+      "documents": 3,
+      "returnedClear": {
+        "count": 3,
+        "of": 3
+      },
+      "flagsShown": 0,
+      "flagsRaw": 0
+    },
+    "flagsOnLoadedDocuments": {
+      "total": 25,
+      "onInScopePlanted": 24,
+      "onOutOfScopePlanted": 0,
+      "onUnusualButHarmless": 0,
+      "onNothingPlanted": 1
+    }
+  },
+  "flags": [
+    {
+      "document": "adhesion-contract",
+      "clauseType": "auto-renewal",
+      "severity": "Dangerous",
+      "quotedSentence": "At the end of the initial term, and at the end of each term thereafter, your membership renews automatically for a further twelve (12) month term at the then-current rate.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-01"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "adhesion-contract",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "You will indemnify, defend and hold harmless Meridian and its ofﬁcers, employees, instructors and contractors against any claim, demand, loss, liability or expense, including reasonable legal fees, that is brought by a third party and arises out of your use of the facilities, your conduct on club premises, the conduct of a guest you bring, or any service you provide to another member.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-06"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "adhesion-contract",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Meridian's total liability to you for any claim arising out of or relating to this Agreement, your membership or your use of any facility — whether the claim is framed in contract, in negligence or otherwise — will not exceed the total dues and fees you paid to Meridian in the twelve (12) months immediately before the event giving rise to the claim.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "adhesion-contract",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Meridian may adjust dues once in any twelve (12) month period by the greater of six percent (6%)  or the increase in the Consumer Price Index for All Urban Consumers over the preceding twelve months, on thirty (30) days notice to the email address on your account.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "adhesion-contract",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Dues not received within ten (10) days of the draw date incur the late charge set out in the Schedule of Fees then in effect, which is posted at the Member Services desk and on the Meridian website and forms part of this Agreement.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-03"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "adhesion-contract",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "Any dispute, claim or controversy between you and Meridian arising out of or relating to this Agreement, your membership or the Program will be resolved by ﬁnal and binding arbitration administered by a nationally recognised arbitration provider under its consumer arbitration rules, and you and Meridian each waive any right to a trial by jury and any right to bring or participate in a class, collective or representative action.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-09"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "saas-subscription",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Northwind’s aggregate liability to you for every claim relating to the service, whether framed in contract, in tort, in warranty or otherwise — and including any claim arising from lost work, lost revenue or a failed export — will not exceed the amount you actually paid us under Section 2 for the Billing Period in which the claim arose.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-06"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "saas-subscription",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "We may revise the fee for any plan, and a revised fee applies to you from the start of the first Billing Period that begins more than thirty (30) days after we send notice of the revision to the email address on your account.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "saas-subscription",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Where a payment is not collected on its due date, interest accrues on the unpaid amount at one and one half percent (1.5%) per month from the due date until payment is received, and an account suspended for non-payment is subject to the reactivation charge published in the Fee Schedule on the Northwind support site.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "saas-subscription",
+      "clauseType": "auto-renewal",
+      "severity": "Unusual",
+      "quotedSentence": "On an annual plan the deadline to cancel is the day that falls thirty (30) days before the anniversary of the date you first subscribed, and where no cancellation is received by that day the term extends by a further twelve (12) months at the annual fee then in effect.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-04"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "saas-subscription",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "Any dispute between you and Northwind arising out of these terms or out of your use of the service will be settled by binding arbitration before a single arbitrator under the consumer rules of a recognised arbitration body, and you agree to bring any claim only in your individual capacity and not as a plaintiff or class member in any purported class, collective or representative proceeding.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-08"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "offer-letter",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "You will indemnify Ardent and hold it harmless against any claim, loss, liability or expense, including reasonable attorney fees, that arises out of a breach by you of Section 4 or Section 5 of this letter, or out of a claim by a former employer that your employment with Ardent breaches an obligation you owe to them.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-04"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "offer-letter",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "You and Ardent each agree that any claim arising out of or relating to your employment, its terms, or its end, including any statutory claim, will be resolved by final and binding arbitration administered under the employment rules of a nationally recognised arbitration provider, on an individual basis only, and each of us waives any right to a jury trial and any right to participate in a class, collective or representative action.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-05"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "storage-unit-rental",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "The Occupant will indemnify, defend and hold the Operator harmless from every claim, demand, loss, cost and expense, including reasonable attorney fees, brought by any person and arising out of the Occupant's use of the unit or the premises, the property stored in the unit, or the acts of anyone the Occupant allows on to the premises.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-05"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "storage-unit-rental",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "The Operator's total liability to the Occupant for any loss of or damage to stored property, however caused, including loss or damage caused by the Operator's own negligence, is limited to five thousand dollars ($5,000) unless the Occupant has declared a higher value on the Unit Schedule and paid the corresponding value protection fee.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-04"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "storage-unit-rental",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "The Operator may increase the monthly rent on not less than thirty (30) days written notice to the Occupant, and the increased rent is due on the first rent day falling after the notice period ends.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "storage-unit-rental",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Rent not received by the sixth day of the month incurs the late charge shown in the Schedule of Charges posted in the ofﬁce and on the Harbour Road website, and each further notice the Operator is required to send about an unpaid balance incurs the administration charge shown in the same schedule.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-03"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "storage-unit-rental",
+      "clauseType": "auto-renewal",
+      "severity": "Unusual",
+      "quotedSentence": "After the initial term this Agreement continues on a month to month basis, each month renewing on the first day of the month without notice from either party, until it is ended as Section 8 describes.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-01"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "phone-plan-terms",
+      "clauseType": "auto-renewal",
+      "severity": "Dangerous",
+      "quotedSentence": "Service on a twelve month promotional plan renews for a further twelve month term at the end of the term then running, at the standard rate for the plan rather than at the promotional rate, unless you tell us to stop the renewal before the last day of the current term.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-03"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "phone-plan-terms",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "You will indemnify and hold Cascade harmless from any claim, loss or expense, including reasonable legal fees, arising out of your use of the service, out of anything sent from or stored on your device, out of the use of your line by anyone you allow to use it, and out of any charge incurred on your account.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-06"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "phone-plan-terms",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "You and Cascade agree that any dispute arising out of or relating to this Agreement, the service or any device will be resolved by individual binding arbitration administered by a nationally recognised arbitration provider under its consumer rules, and both of us give up the right to a jury trial and the right to bring or join a class, collective or representative action.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-07"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "phone-plan-terms",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Cascade’s entire liability to you for any claim relating to the service, a device, or this Agreement, whether the claim is made in contract, in negligence, in warranty or under any statute, is limited to the service charges applied to the affected line during the bill period in which the claim arose, and Cascade is not liable for lost profits, lost data, or any indirect or consequential loss.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-05"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "phone-plan-terms",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Your bill includes a Regulatory Cost Recovery Charge and an Administrative Charge, neither of which is a tax or a charge required by any government, and Cascade may introduce, increase or remove either charge on notice given with the bill in which the change first appears.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "phone-plan-terms",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "An amount not paid by the due date shown on the bill incurs a late payment charge of the greater of five dollars ($5.00) or one and one half percent of the unpaid balance, applied each bill period until the balance is paid, and a restored line incurs the restoral charge shown in the Rate and Charge Guide.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "internship-agreement",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "The Firm may end the Programme early for any reason on one week written notice.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "internship-agreement",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "The Analyst will indemnify the Firm and hold it harmless against any claim, loss or expense, including reasonable legal costs, arising out of a breach by the Analyst of Section 4 or Section 5, or out of anything the Analyst publishes about the Firm or a client of the Firm.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-04"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "internship-agreement",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "Any dispute between the Analyst and the Firm arising out of the Programme or out of this Agreement will be resolved by final and binding arbitration on an individual basis, administered under the employment rules of a nationally recognised provider, and the Analyst gives up any right to a jury trial and any right to bring or join a class or collective action.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-05"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "internship-agreement",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Where the Analyst takes the optional housing advance, it is repaid in six equal instalments deducted from the stipend, and any instalment not recovered within ten (10) days of its due date carries the late charge set out in the Programme Handbook until it is repaid in full.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-01"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    }
+  ],
+  "plantedClauses": [
+    {
+      "severityAgrees": null,
+      "document": "adhesion-contract",
+      "id": "P-01",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "At the end of the initial term, and at the end of each term thereafter, your membership renews automatically for a further twelve (12) month term at the then-current rate.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "adhesion-contract",
+      "id": "P-02",
+      "goldType": "fee-escalators-and-late-fees",
+      "inScope": true,
+      "sentence": "Meridian may adjust dues once in any twelve (12) month period by the greater of six percent (6%)  or the increase in the Consumer Price Index for All Urban Consumers over the preceding twelve months, on thirty (30) days notice to the email address on your account.",
+      "characterClasses": [
+        "two spaces in a row"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "adhesion-contract",
+      "id": "P-03",
+      "goldType": "fee-escalators-and-late-fees",
+      "inScope": true,
+      "sentence": "Dues not received within ten (10) days of the draw date incur the late charge set out in the Schedule of Fees then in effect, which is posted at the Member Services desk and on the Meridian website and forms part of this Agreement.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "adhesion-contract",
+      "id": "P-04",
+      "goldType": "unilateral-modification",
+      "inScope": false,
+      "sentence": "Meridian may amend the Club Rules, the Schedule of Fees, the hours of operation, the class timetable and the terms of this Agreement at any time by posting the amended version at the club or on the Meridian website, and the amended version applies to you from the date it is posted.",
+      "characterClasses": [],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "adhesion-contract",
+      "id": "P-05",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "Meridian’s total liability to you for any claim arising out of or relating to this Agreement, your membership or your use of any facility — whether the claim is framed in contract, in negligence or otherwise — will not exceed the total dues and fees you paid to Meridian in the twelve (12) months immediately before the event giving rise to the claim.",
+      "characterClasses": [
+        "curly quote or apostrophe",
+        "non-breaking space",
+        "em dash"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "adhesion-contract",
+      "id": "P-06",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "You will indemnify, defend and hold harmless Meridian and its ofﬁcers, employees, instructors and contractors against any claim, demand, loss, liability or expense, including reasonable legal fees, that is brought by a third party and arises out of your use of the facilities, your conduct on club premises, the conduct of a guest you bring, or any service you provide to another member.",
+      "characterClasses": [
+        "fi or fl ligature"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "adhesion-contract",
+      "id": "P-07",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "Program enrolment renews on each anniversary of your Program start date at the then-current tuition.",
+      "characterClasses": [],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "adhesion-contract",
+      "id": "P-08",
+      "goldType": "non-compete",
+      "inScope": false,
+      "sentence": "For twelve (12) months after your Program candidacy ends for any reason, you will not teach, coach or deliver group ﬁtness instruction or personal training, whether as an employee, as a contractor or on your own account, at any facility within ﬁfteen (15) miles of a Meridian location at which you taught or trained.",
+      "characterClasses": [
+        "fi or fl ligature"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "adhesion-contract",
+      "id": "P-09",
+      "goldType": "arbitration-and-class-action-waiver",
+      "inScope": true,
+      "sentence": "Any dispute, claim or controversy between you and Meridian arising out of or relating to this Agreement, your membership or the Program will be resolved by ﬁnal and binding arbitration administered by a nationally recognised arbitration provider under its consumer arbitration rules, and you and Meridian each waive any right to a trial by jury and any right to bring or participate in a class, collective or representative action.",
+      "characterClasses": [
+        "fi or fl ligature"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "saas-subscription",
+      "id": "P-01",
+      "goldType": "fee-escalators-and-late-fees",
+      "inScope": true,
+      "sentence": "We may revise the fee for any plan, and a revised fee applies to you from the start of the first Billing Period that begins more than thirty (30) days after we send notice of the revision to the email address on your account.",
+      "characterClasses": [
+        "non-breaking space"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "saas-subscription",
+      "id": "P-02",
+      "goldType": "fee-escalators-and-late-fees",
+      "inScope": true,
+      "sentence": "Where a payment is not collected on its due date, interest accrues on the unpaid amount at one and one half percent (1.5%) per month from the due date until payment is received, and an account suspended for non-payment is subject to the reactivation charge published in the Fee Schedule on the Northwind support site.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "saas-subscription",
+      "id": "P-03",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "Your subscription continues from one Billing Period into the next without further action by either of us, and we bill the plan fee then in effect on the first day of each new Billing Period.",
+      "characterClasses": [],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "saas-subscription",
+      "id": "P-04",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "On an annual plan the deadline to cancel is the day that falls thirty (30) days before the anniversary of the date you first subscribed, and where no cancellation is received by that day the term extends by a further twelve (12) months at the annual fee then in effect.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "saas-subscription",
+      "id": "P-05",
+      "goldType": "unilateral-modification",
+      "inScope": false,
+      "sentence": "We may amend these terms, the pricing page and the Fee Schedule at any time, an amended version takes effect when we post it at northwindstudio.example/terms, and your continued use of the service after it is posted is your acceptance of the amended version.",
+      "characterClasses": [],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "saas-subscription",
+      "id": "P-06",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "Northwind’s aggregate liability to you for every claim relating to the service, whether framed in contract, in tort, in warranty or otherwise — and including any claim arising from lost work, lost revenue or a failed export — will not exceed the amount you actually paid us under Section 2 for the Billing Period in which the claim arose.",
+      "characterClasses": [
+        "curly quote or apostrophe",
+        "em dash"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "saas-subscription",
+      "id": "P-07",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "You will indemnify and hold Northwind harmless from any claim brought by a third party that relates to content you uploaded, exported or published through the service, including a claim that the content infringes a copyright, a trade mark or a right of privacy, and you will pay our reasonable legal costs of defending such a claim.",
+      "characterClasses": [],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "saas-subscription",
+      "id": "P-08",
+      "goldType": "arbitration-and-class-action-waiver",
+      "inScope": true,
+      "sentence": "Any dispute between you and Northwind arising out of these terms or out of your use of the service will be settled by binding arbitration before a single arbitrator under the consumer rules of a recognised arbitration body, and you agree to bring any claim only in your individual capacity and not as a plaintiff or class member in any purported class, collective or representative proceeding.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "offer-letter",
+      "id": "P-01",
+      "goldType": "unilateral-modification",
+      "inScope": false,
+      "sentence": "Ardent may introduce, withdraw, interpret or amend any policy, handbook provision, benefit plan or term of employment described in this letter at any time and without your agreement, and the version in force on the Ardent intranet governs from the date it is published there.",
+      "characterClasses": [],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "offer-letter",
+      "id": "P-02",
+      "goldType": "non-compete",
+      "inScope": false,
+      "sentence": "For a period of twelve (12) months following the last day of your employment, whether that employment ends at your choice or at ours, you will not provide services that are the same as or substantially similar to those you provided to Ardent, whether as an employee, a consultant, a contractor, an adviser or a principal, to any business that develops, manufactures or sells a product within the Restricted Field as that term is defined in Exhibit B to this letter.",
+      "characterClasses": [],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "offer-letter",
+      "id": "P-03",
+      "goldType": "non-compete",
+      "inScope": false,
+      "sentence": "For the same period you will not solicit, or assist anyone else in soliciting, any employee of Ardent with whom you worked in your final twelve months, and you will not approach any customer, distributor or contract manufacturer of Ardent that you dealt with in that period for the purpose of providing a product or service in the Restricted Field.",
+      "characterClasses": [],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "offer-letter",
+      "id": "P-04",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "You will indemnify Ardent and hold it harmless against any claim, loss, liability or expense, including reasonable attorney fees, that arises out of a breach by you of Section 4 or Section 5 of this letter, or out of a claim by a former employer that your employment with Ardent breaches an obligation you owe to them.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "offer-letter",
+      "id": "P-05",
+      "goldType": "arbitration-and-class-action-waiver",
+      "inScope": true,
+      "sentence": "You and Ardent each agree that any claim arising out of or relating to your employment, its terms, or its end, including any statutory claim, will be resolved by final and binding arbitration administered under the employment rules of a nationally recognised arbitration provider, on an individual basis only, and each of us waives any right to a jury trial and any right to participate in a class, collective or representative action.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "storage-unit-rental",
+      "id": "P-01",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "After the initial term this Agreement continues on a month to month basis, each month renewing on the first day of the month without notice from either party, until it is ended as Section 8 describes.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "storage-unit-rental",
+      "id": "P-02",
+      "goldType": "fee-escalators-and-late-fees",
+      "inScope": true,
+      "sentence": "The Operator may increase the monthly rent on not less than thirty (30) days written notice to the Occupant, and the increased rent is due on the first rent day falling after the notice period ends.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "storage-unit-rental",
+      "id": "P-03",
+      "goldType": "fee-escalators-and-late-fees",
+      "inScope": true,
+      "sentence": "Rent not received by the sixth day of the month incurs the late charge shown in the Schedule of Charges posted in the ofﬁce and on the Harbour Road website, and each further notice the Operator is required to send about an unpaid balance incurs the administration charge shown in the same schedule.",
+      "characterClasses": [
+        "fi or fl ligature"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "storage-unit-rental",
+      "id": "P-04",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "The Operator's total liability to the Occupant for any loss of or damage to stored property, however caused, including loss or damage caused by the Operator's own negligence, is limited to five thousand dollars ($5,000) unless the Occupant has declared a higher value on the Unit Schedule and paid the corresponding value protection fee.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "storage-unit-rental",
+      "id": "P-05",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "The Occupant will indemnify, defend and hold the Operator harmless from every claim, demand, loss, cost and expense, including reasonable attorney fees, brought by any person and arising out of the Occupant's use of the unit or the premises, the property stored in the unit, or the acts of anyone the Occupant allows on to the premises.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "storage-unit-rental",
+      "id": "P-06",
+      "goldType": "unilateral-modification",
+      "inScope": false,
+      "sentence": "Gate hours, the rules posted in the office, and the terms of this Agreement may be changed by the Operator on notice posted at the facility and sent to the Occupant's last known email address, and the changed version applies to the Occupant from the first day of the month after it is posted.",
+      "characterClasses": [],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "phone-plan-terms",
+      "id": "P-01",
+      "goldType": "fee-escalators-and-late-fees",
+      "inScope": true,
+      "sentence": "Your bill includes a Regulatory Cost Recovery Charge and an Administrative Charge, neither of which is a tax or a charge required by any government, and Cascade may introduce, increase or remove either charge on notice given with the bill in which the change ﬁrst appears.",
+      "characterClasses": [
+        "fi or fl ligature"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "phone-plan-terms",
+      "id": "P-02",
+      "goldType": "fee-escalators-and-late-fees",
+      "inScope": true,
+      "sentence": "An amount not paid by the due date shown on the bill incurs a late payment charge of the greater of five dollars ($5.00) or one and one half percent of the unpaid balance, applied each bill period until the balance is paid, and a restored line incurs the restoral charge shown in the Rate and Charge Guide.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "phone-plan-terms",
+      "id": "P-03",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "Service on a twelve month promotional plan renews for a further twelve month term at the end of the term then running, at the standard rate for the plan rather than at the promotional rate, unless you tell us to stop the renewal before the last day of the current term.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "phone-plan-terms",
+      "id": "P-04",
+      "goldType": "unilateral-modification",
+      "inScope": false,
+      "sentence": "Cascade may change any term of this Agreement, any charge, and any feature of your rate plan, and the change takes effect on the date stated in the notice we give you, which may be given on a bill, by message to your device, or by email.",
+      "characterClasses": [],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "phone-plan-terms",
+      "id": "P-05",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "Cascade’s entire liability to you for any claim relating to the service, a device, or this Agreement, whether the claim is made in contract, in negligence, in warranty or under any statute, is limited to the service charges applied to the affected line during the bill period in which the claim arose, and Cascade is not liable for lost profits, lost data, or any indirect or consequential loss.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "phone-plan-terms",
+      "id": "P-06",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "You will indemnify and hold Cascade harmless from any claim, loss or expense, including reasonable legal fees, arising out of your use of the service, out of anything sent from or stored on your device, out of the use of your line by anyone you allow to use it, and out of any charge incurred on your account.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "phone-plan-terms",
+      "id": "P-07",
+      "goldType": "arbitration-and-class-action-waiver",
+      "inScope": true,
+      "sentence": "You and Cascade agree that any dispute arising out of or relating to this Agreement, the service or any device will be resolved by individual binding arbitration administered by a nationally recognised arbitration provider under its consumer rules, and both of us give up the right to a jury trial and the right to bring or join a class, collective or representative action.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "internship-agreement",
+      "id": "P-01",
+      "goldType": "fee-escalators-and-late-fees",
+      "inScope": true,
+      "sentence": "Where the Analyst takes the optional housing advance, it is repaid in six equal instalments deducted from the stipend, and any instalment not recovered within ten (10) days of its due date carries the late charge set out in the Programme Handbook until it is repaid in full.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "internship-agreement",
+      "id": "P-02",
+      "goldType": "unilateral-modification",
+      "inScope": false,
+      "sentence": "The Firm may amend the Programme Handbook, the assessment structure, the teaching schedule and the terms of this Agreement at any time by issuing a revised version to the Analyst by email, and the revised version applies from the date of that email.",
+      "characterClasses": [],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "internship-agreement",
+      "id": "P-03",
+      "goldType": "non-compete",
+      "inScope": false,
+      "sentence": "For six (6) months after the Programme ends, the Analyst will not accept an engagement, whether paid or unpaid and whether as an employee, a contractor or an intern, with any firm on the Restricted List issued to the Analyst in week one of the Programme, and will not approach any client of the Firm whose file the Analyst worked on.",
+      "characterClasses": [],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "internship-agreement",
+      "id": "P-04",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "The Analyst will indemnify the Firm and hold it harmless against any claim, loss or expense, including reasonable legal costs, arising out of a breach by the Analyst of Section 4 or Section 5, or out of anything the Analyst publishes about the Firm or a client of the Firm.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "internship-agreement",
+      "id": "P-05",
+      "goldType": "arbitration-and-class-action-waiver",
+      "inScope": true,
+      "sentence": "Any dispute between the Analyst and the Firm arising out of the Programme or out of this Agreement will be resolved by final and binding arbitration on an individual basis, administered under the employment rules of a nationally recognised provider, and the Analyst gives up any right to a jury trial and any right to bring or join a class or collective action.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    }
+  ]
+}
