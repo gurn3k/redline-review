@@ -1,0 +1,32 @@
+@kind: Commercial lease, landlord's form
+RETAIL LEASE AGREEMENT
+Harbor Point Plaza, Unit 14
+
+This Retail Lease Agreement (the “Lease”) is made between Harbor Point Holdings, LLC (“Landlord”) and Brightside Bakery, LLC (“Tenant”) for approximately 1,850 rentable square feet at Unit 14, Harbor Point Plaza (the “Premises”).
+
+1. Term and Rent
+The initial term is five (5) years from the Commencement Date. Base Rent for the first lease year is $4,625 per month, payable on the first day of each month without demand or set-off. Tenant also pays its pro rata share of the Plaza’s operating costs and a monthly Common Area Maintenance charge.
+«P|fee-escalator|Unusual»Landlord may adjust the Common Area Maintenance charge and the Administrative Fee at any time, and an adjusted amount is payable from the date stated on Landlord’s next invoice.«/P»
+
+2. Use and Operations
+Tenant will operate a retail bakery and for no other purpose. «H»Tenant may not install exterior signage without Landlord’s prior written approval, which Landlord will not unreasonably withhold.«/H» Tenant must keep the Premises open for business during the hours posted for the Plaza.
+
+3. Renewal
+«P|auto-renewal|Dangerous»Unless Tenant delivers written notice of non-renewal at least ten (10) days before the term ends, this Lease renews for a further five (5) year term at a Base Rent set by Landlord, which Landlord need not announce before the renewal begins.«/P»
+
+4. Insurance and Risk
+«H»Tenant must carry commercial general liability insurance of not less than $1,000,000 per occurrence and name Landlord as an additional insured.«/H»
+«P|indemnification|Dangerous»Tenant will indemnify, defend and hold Landlord harmless from any and all claims, damages, losses and expenses of every kind arising out of or connected with the Premises or Tenant’s use of them, including claims caused in whole or in part by Landlord’s own negligence.«/P»
+«P|limitation-of-liability|Unusual»Landlord’s liability under this Lease is limited to Landlord’s interest in the Plaza, and no member, of{fi}cer or affiliate of Landlord has any personal liability.«/P»
+
+5. Redevelopment
+«P|unilateral-termination|Dangerous»Landlord may terminate this Lease at any time on sixty (60){nbsp}days written notice if Landlord decides to redevelop or sell the Plaza, and Tenant has no right to terminate this Lease before the end of the term except for Landlord’s uncured default.«/P»
+
+6. Additional Covenants
+Tenant will keep the Premises in good repair and will surrender them in the condition received, ordinary wear excepted. Notices must be in writing and delivered to the addresses on the signature page.
+«P|personal-guarantee|Dangerous»The individuals who sign this Lease below under the heading “Guarantor” each guarantee, jointly and severally, the full and punctual payment of all rent and other sums due under this Lease and the performance of every Tenant obligation, for the entire term and any renewal, without limit as to amount.«/P»
+
+Signed on the date first written above.
+HARBOR POINT HOLDINGS, LLC, Landlord
+BRIGHTSIDE BAKERY, LLC, Tenant
+Guarantor: ______________________

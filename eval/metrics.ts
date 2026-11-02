@@ -43,6 +43,37 @@ export const TYPE_MAP: TypeMapping[] = [
     reason:
       "PRD.md red lines: fee escalators are flagged generically. Late and reactivation charges are the edge of that definition; this row is reported on its own.",
   },
+  // Types the business set plants (eval/business-set). They use this product's own names.
+  {
+    goldType: "personal-guarantee",
+    inScope: true,
+    productTypes: ["personal-guarantee"],
+    reason: "PRD.md red lines: personal guarantee is a first-class Dangerous type.",
+  },
+  {
+    goldType: "unilateral-termination",
+    inScope: true,
+    productTypes: ["unilateral-termination"],
+    reason: "PRD.md red lines: unilateral termination / no-cause deactivation is a first-class Dangerous type.",
+  },
+  {
+    goldType: "fee-escalator",
+    inScope: true,
+    productTypes: ["liability-cap-fee-escalator"],
+    reason: "PRD.md red lines: fee escalators are flagged generically. This is a price rise at the provider's discretion, not a late charge.",
+  },
+  {
+    goldType: "ip-assignment",
+    inScope: false,
+    productTypes: [],
+    reason: "PRD.md: IP assignment clauses are explicitly not evaluated in v1 (freelance context, segment excluded).",
+  },
+  {
+    goldType: "data-privacy-overreach",
+    inScope: false,
+    productTypes: [],
+    reason: "PRD.md: data and privacy overreach in terms of service is explicitly not evaluated in v1.",
+  },
   {
     goldType: "unilateral-modification",
     inScope: false,
@@ -143,6 +174,10 @@ export interface PlantedRecord {
   characterClasses: string[];
   found: boolean;
   foundWithRightType: boolean;
+  /** What the sidecar says the product should call it, when it says. */
+  expectedSeverity?: string;
+  /** For a clause found with the right type and an expected severity: did a right-type flag carry that severity? Null otherwise. */
+  severityAgrees: boolean | null;
 }
 
 export interface DocumentScore {
@@ -198,7 +233,11 @@ export function scoreDocument(doc: GoldDocument, raw: RawCandidate[], shown: Sho
   const planted: PlantedRecord[] = doc.plantedClauses.map((p: PlantedClause) => {
     const mapping = mappingFor(p.clauseType);
     const overlapping = flags.filter((f) => f.shown && f.matchedPlanted.includes(p.id));
+    const rightType = overlapping.filter((f) => mapping?.productTypes.includes(f.clauseType));
+    const expected = p.expectedSeverity === "Dangerous" || p.expectedSeverity === "Unusual" ? p.expectedSeverity : undefined;
     return {
+      expectedSeverity: expected,
+      severityAgrees: expected && rightType.length > 0 ? rightType.some((f) => f.severity === expected) : null,
       document: doc.id,
       id: p.id,
       goldType: p.clauseType,
@@ -242,6 +281,8 @@ export interface Summary {
   documentsLeftOut: string[];
   recall: Rate;
   recallRightType: Rate;
+  /** Right-type finds whose flag carried the severity the sidecar expects. Rate is n/a for sets with no expected severities. */
+  severity: { overall: Rate; expectedDangerous: Rate; expectedUnusual: Rate };
   recallByType: { goldType: string; recall: Rate; rightType: Rate }[];
   recallByCharacters: { label: string; recall: Rate }[];
   outOfScope: { goldType: string; planted: number; reason: string }[];
@@ -263,14 +304,30 @@ export function summarize(scores: DocumentScore[], leftOut: string[]): Summary {
   const foundCount = (list: PlantedRecord[]) => list.filter((p) => p.found).length;
   const rightCount = (list: PlantedRecord[]) => list.filter((p) => p.foundWithRightType).length;
 
-  const recallByType = TYPE_MAP.filter((m) => m.inScope).map((m) => {
-    const list = inScope.filter((p) => p.goldType === m.goldType);
-    return {
-      goldType: m.goldType,
-      recall: rate(foundCount(list), list.length),
-      rightType: rate(rightCount(list), foundCount(list)),
-    };
-  });
+  const recallByType = TYPE_MAP.filter((m) => m.inScope)
+    .map((m) => {
+      const list = inScope.filter((p) => p.goldType === m.goldType);
+      return {
+        goldType: m.goldType,
+        recall: rate(foundCount(list), list.length),
+        rightType: rate(rightCount(list), foundCount(list)),
+      };
+    })
+    .filter((row) => row.recall.of > 0);
+
+  const judged = inScope.filter((p) => p.severityAgrees !== null);
+  const agreeing = (list: PlantedRecord[]) => list.filter((p) => p.severityAgrees === true).length;
+  const severity = {
+    overall: rate(agreeing(judged), judged.length),
+    expectedDangerous: rate(
+      agreeing(judged.filter((p) => p.expectedSeverity === "Dangerous")),
+      judged.filter((p) => p.expectedSeverity === "Dangerous").length,
+    ),
+    expectedUnusual: rate(
+      agreeing(judged.filter((p) => p.expectedSeverity === "Unusual")),
+      judged.filter((p) => p.expectedSeverity === "Unusual").length,
+    ),
+  };
 
   const withChars = inScope.filter((p) => p.characterClasses.length > 0);
   const withoutChars = inScope.filter((p) => p.characterClasses.length === 0);
@@ -283,11 +340,13 @@ export function summarize(scores: DocumentScore[], leftOut: string[]): Summary {
     }),
   ];
 
-  const outOfScope = TYPE_MAP.filter((m) => !m.inScope).map((m) => ({
-    goldType: m.goldType,
-    planted: planted.filter((p) => p.goldType === m.goldType).length,
-    reason: m.reason,
-  }));
+  const outOfScope = TYPE_MAP.filter((m) => !m.inScope)
+    .map((m) => ({
+      goldType: m.goldType,
+      planted: planted.filter((p) => p.goldType === m.goldType).length,
+      reason: m.reason,
+    }))
+    .filter((row) => row.planted > 0);
 
   const allFlags = scores.flatMap((s) => s.flags);
   const clean = scores.filter((s) => s.benign);
@@ -298,6 +357,7 @@ export function summarize(scores: DocumentScore[], leftOut: string[]): Summary {
     documentsLeftOut: leftOut,
     recall: rate(foundCount(inScope), inScope.length),
     recallRightType: rate(rightCount(inScope), foundCount(inScope)),
+    severity,
     recallByType,
     recallByCharacters,
     outOfScope,

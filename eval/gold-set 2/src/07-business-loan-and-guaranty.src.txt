@@ -1,0 +1,28 @@
+@kind: Small business loan, promissory note and guaranty
+PROMISSORY NOTE AND LOAN AGREEMENT
+Lakeshore Community Bank
+
+This Promissory Note and Loan Agreement (the “Note”) is between Lakeshore Community Bank (“Lender”) and the borrower named below (“Borrower”). Lender is making a revolving working-capital line of credit of $150,000 (the “Loan”).
+
+1. Interest and Fees
+Interest accrues on the unpaid principal at the Prime Rate plus the Margin shown on the cover page. «H»Borrower must deliver its annual financial statements to Lender within one hundred twenty (120) days after each fiscal year end.«/H»
+«P|fee-escalator|Unusual»Lender may change the Margin and the fees described in the Fee Schedule at any time on notice mailed to Borrower’s address of record, and the change applies to the unpaid balance from the date of the notice.«/P»
+
+2. Renewal of the Line
+«P|auto-renewal|Dangerous»The line of credit renews automatically each year unless Lender receives written notice of non-renewal at least five (5) days before the anniversary date, and an annual renewal fee of one percent (1%) of the commitment is added to the balance.«/P»
+
+3. Demand and Default
+«P|unilateral-termination|Dangerous»Lender may cancel any unused commitment and demand payment in full at any time, with or without a default, and no cure period applies.«/P»
+Borrower must keep its collateral insured and in good repair. «H»Borrower must keep its principal operating account at Lender for the life of the Loan.«/H»
+
+4. Guaranty
+«P|personal-guarantee|Dangerous»Each Guarantor unconditionally and personally guarantees payment of the Loan and all other amounts owed under the Loan Documents, and Lender may collect from any Guarantor first,{2sp}without suing Borrower or enforcing its collateral.«/P»
+This guaranty continues until the Loan is paid in full{2sp}and every other amount owed to Lender has been paid.
+
+5. Costs and Claims
+«P|indemnification|Dangerous»Borrower and each Guarantor will indemnify Lender against any and all claims, losses and expenses, including attorneys’ fees, arising from the Loan, the Collateral or the use of the proceeds.«/P»
+
+6. Disputes
+«P|arbitration-and-class-action-waiver|Unusual»Borrower and each Guarantor agree to resolve any dispute with Lender through binding arbitration on an individual basis and waive the right to bring or join a class, collective or representative action.«/P»
+
+Signed by Borrower and each Guarantor.

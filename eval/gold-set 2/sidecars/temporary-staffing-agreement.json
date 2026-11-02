@@ -1,0 +1,50 @@
+{
+  "document": "temporary-staffing-agreement.txt",
+  "title": "STAFFING SERVICES AGREEMENT",
+  "kind": "Temporary staffing services agreement (client side)",
+  "sourceKind": "pasted",
+  "plantedClauses": [
+    {
+      "id": "P-01",
+      "clauseType": "fee-escalator",
+      "sourceSentence": "Agency may increase the bill rate for any Associate at any time by notice to Client’s supervisor, and the increase applies to all hours worked after the date of the notice.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-02",
+      "clauseType": "auto-renewal",
+      "sourceSentence": "This Agreement renews for successive one (1) year terms unless Client gives Agency written notice of non-renewal at least forty-five (45) days before the term ends.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-03",
+      "clauseType": "non-compete",
+      "sourceSentence": "If Client hires an Associate, or engages one through another agency, during the term or within twelve (12) months afterwards, Client will pay Agency a conversion fee of thirty percent (30%) of the Associate’s first-year compensation.",
+      "expectedSeverity": "n/a",
+      "exit": null
+    },
+    {
+      "id": "P-04",
+      "clauseType": "indemnification",
+      "sourceSentence": "Client will indemnify, defend and hold Agency harmless from any and all claims by Associates, including claims for wages, overtime, discrimination and injury, whether or not caused by Client and without regard to who was at fault.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-05",
+      "clauseType": "limitation-of-liability",
+      "sourceSentence": "Agency’s total liability to Client, including liability for an Associate’s theft, damage or errors, is limited to the fees Client paid for that Associate in the week of the event.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-06",
+      "clauseType": "unilateral-termination",
+      "sourceSentence": "Agency may end this Agreement or withdraw any Associate at any time without notice or cause, while Client may end an assignment only on fourteen (14) days’ notice and remains liable for all hours through the end of that notice period.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    }
+  ]
+}

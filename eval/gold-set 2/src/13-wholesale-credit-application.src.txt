@@ -1,0 +1,25 @@
+@kind: Supplier credit application and personal guaranty
+COMMERCIAL CREDIT APPLICATION AND GUARANTY
+Reliable Restaurant Supply Co.
+
+The business named below (the “Company”) applies to Reliable Restaurant Supply Co. (“Seller”) for open-account credit. By signing, the Company agrees to the terms on this form for all purchases it makes on credit.
+
+1. Credit Terms
+Seller will review the trade references listed and set a credit limit. «H»Standard terms are net thirty (30) days from the invoice date, and Seller may require prepayment for the first order.«/H»
+«P|fee-escalator|Unusual»Unpaid balances bear a service charge of two percent (2%) per month, and Seller may change the service charge rate or add other charges at any time by printing the change on an invoice.«/P»
+
+2. Changes to Credit
+«P|unilateral-termination|Dangerous»Seller may withdraw credit, change terms or cancel any open order at any time without notice, and all open balances then become immediately due.«/P»
+
+3. Remedies
+«P|limitation-of-liability|Unusual»Seller’s liability for any claim relating to goods sold, whatever the cause, is limited to the purchase price of the specific goods in dispute, and Seller is not liable for resulting losses.«/P»
+The Company will pay Seller’s costs of collection on any overdue account.
+
+4. Personal Guaranty
+«P|personal-guarantee|Dangerous»The undersigned, individually, personally guarantees payment of all present and future purchases by the Company on credit, including interest, collection costs and attorneys’{nbsp}fees, and this guaranty continues until Seller receives written notice of revocation and then still applies to every purchase made before that notice.«/P»
+The undersigned waives notice of acceptance, presentment and demand.{2sp}«H»References: the Company authorizes Seller to contact its banks and trade suppliers to verify the information in this application.«/H»
+
+5. Disputes
+«P|arbitration-and-class-action-waiver|Unusual»The Company and each guarantor agree to resolve any dispute with Seller by binding arbitration on an individual basis, and waive any right to a jury trial or to participate in a class action.«/P»
+
+Signed by an authorized officer of the Company and by each individual guarantor.

@@ -1,0 +1,50 @@
+{
+  "document": "freight-logistics-agreement.txt",
+  "title": "TRANSPORTATION SERVICES AGREEMENT",
+  "kind": "Freight / logistics transportation services agreement",
+  "sourceKind": "pasted",
+  "plantedClauses": [
+    {
+      "id": "P-01",
+      "clauseType": "fee-escalator",
+      "sourceSentence": "Carrier may adjust the fuel surcharge and its accessorial charges at any time without notice to Shipper, and the adjusted charge applies to every shipment tendered after the adjustment.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-02",
+      "clauseType": "auto-renewal",
+      "sourceSentence": "At the end of the initial term this Agreement renews for successive one (1) year terms unless Shipper gives written notice of non-renewal at least sixty (60) days before the term ends.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-03",
+      "clauseType": "limitation-of-liability",
+      "sourceSentence": "Carrier's liability for loss of or damage to cargo is limited to fifty cents ($0.50) per pound per package, regardless of the value of the goods or the cause of the loss.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-04",
+      "clauseType": "indemnification",
+      "sourceSentence": "Shipper will indemnify and hold Carrier harmless from any and all claims, fines and expenses arising from the freight or its handling, including claims that arise from Carrier's own negligence or the acts of its drivers.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-05",
+      "clauseType": "unilateral-termination",
+      "sourceSentence": "Carrier may terminate this Agreement and refuse any shipment at any time, for any reason, without notice, and Shipper must pay for all freight already in transit and all charges accrued.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-06",
+      "clauseType": "arbitration-and-class-action-waiver",
+      "sourceSentence": "Any dispute between Shipper and Carrier will be settled by binding arbitration in the county where Carrier has its headquarters, on an individual basis, with no right to proceed as a class.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    }
+  ]
+}

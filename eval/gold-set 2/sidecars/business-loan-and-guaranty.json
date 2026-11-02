@@ -1,0 +1,50 @@
+{
+  "document": "business-loan-and-guaranty.txt",
+  "title": "PROMISSORY NOTE AND LOAN AGREEMENT",
+  "kind": "Small business loan, promissory note and guaranty",
+  "sourceKind": "pasted",
+  "plantedClauses": [
+    {
+      "id": "P-01",
+      "clauseType": "fee-escalator",
+      "sourceSentence": "Lender may change the Margin and the fees described in the Fee Schedule at any time on notice mailed to Borrower’s address of record, and the change applies to the unpaid balance from the date of the notice.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-02",
+      "clauseType": "auto-renewal",
+      "sourceSentence": "The line of credit renews automatically each year unless Lender receives written notice of non-renewal at least five (5) days before the anniversary date, and an annual renewal fee of one percent (1%) of the commitment is added to the balance.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-03",
+      "clauseType": "unilateral-termination",
+      "sourceSentence": "Lender may cancel any unused commitment and demand payment in full at any time, with or without a default, and no cure period applies.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-04",
+      "clauseType": "personal-guarantee",
+      "sourceSentence": "Each Guarantor unconditionally and personally guarantees payment of the Loan and all other amounts owed under the Loan Documents, and Lender may collect from any Guarantor first,  without suing Borrower or enforcing its collateral.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-05",
+      "clauseType": "indemnification",
+      "sourceSentence": "Borrower and each Guarantor will indemnify Lender against any and all claims, losses and expenses, including attorneys’ fees, arising from the Loan, the Collateral or the use of the proceeds.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-06",
+      "clauseType": "arbitration-and-class-action-waiver",
+      "sourceSentence": "Borrower and each Guarantor agree to resolve any dispute with Lender through binding arbitration on an individual basis and waive the right to bring or join a class, collective or representative action.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    }
+  ]
+}

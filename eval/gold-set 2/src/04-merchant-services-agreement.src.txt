@@ -1,0 +1,28 @@
+@kind: Merchant services (card processing) agreement
+MERCHANT PROCESSING AGREEMENT
+Keystone Payment Solutions
+
+This Merchant Processing Agreement (the "Agreement") is between Keystone Payment Solutions, LLC ("Processor") and the business named on the Merchant Application ("Customer"). Processor provides card acceptance and settlement services through its sponsor bank.
+
+1. Services and Fees
+Processor will process Customer's card transactions and settle the proceeds to Customer's bank account. Customer pays the fees listed in the Fee Schedule. «H»Customer must comply with the Payment Card Industry Data Security Standard and complete the annual self-assessment questionnaire.«/H»
+«P|fee-escalator|Unusual»Processor may change any fee, add new fees and adjust interchange markups on thirty (30){nbsp}days notice posted on its website, and Customer's continued processing is acceptance of the change.«/P»
+
+2. Term
+The initial term is three (3) years from the date Customer's account is approved.
+«P|auto-renewal|Unusual»After the initial term this Agreement renews for successive one (1) year terms unless Customer gives written notice at least ninety (90) days but not more than one hundred twenty (120) days before the term ends.«/P»
+
+3. Termination and Holds
+«P|unilateral-termination|Dangerous»Processor may terminate this Agreement or hold Customer's settlement funds at any time, for any reason, without prior notice, while Customer remains liable for the early termination fee of $495 plus the minimum monthly fees for the rest of the term.«/P»
+
+4. Chargebacks and Losses
+«P|indemnification|Dangerous»Customer will indemnify Processor for any and all losses, chargebacks, fines and assessments of every kind imposed by any card network or bank, without limit and whether or not Customer caused them.«/P»
+«P|limitation-of-liability|Unusual»Processor's liability is limited to the fees Customer paid in the three (3) months before the event, and Processor is not liable for lost profits regardless of cause.«/P»
+
+5. Owner Obligations
+«P|personal-guarantee|Dangerous»The individual owners who sign this Application each personally guarantee all of Customer's obligations to Processor under this Agreement, including chargebacks, fees, fines and early termination charges, whether they arise before or after the Agreement ends.«/P»
+
+6. Disputes
+«P|arbitration-and-class-action-waiver|Unusual»Any claim relating to this Agreement must be brought in individual arbitration, and Customer gives up the right to participate in any class or representative action.«/P»
+
+Merchant Application signed by the owner(s) of Customer.

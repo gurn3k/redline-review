@@ -1,0 +1,25 @@
+@kind: Freight / logistics transportation services agreement
+TRANSPORTATION SERVICES AGREEMENT
+Interstate Freight & Logistics Co.
+
+This Transportation Services Agreement (the "Agreement") is between Interstate Freight & Logistics Co. ("Carrier") and the business named on the Rate Schedule ("Shipper"). Carrier will transport Shipper's freight on the lanes and at the rates listed.
+
+1. Shipments
+Shipper must tender freight properly packed and labeled, with an accurate bill of lading. «H»Carrier will pick up within the window agreed with Shipper and will provide tracking information on request.«/H»
+«P|fee-escalator|Unusual»Carrier may adjust the fuel surcharge and its accessorial charges at any time without notice to Shipper, and the adjusted charge applies to every shipment tendered after the adjustment.«/P»
+
+2. Term
+This Agreement is for an initial term of one (1) year.
+«P|auto-renewal|Unusual»At the end of the initial term this Agreement renews for successive one (1) year terms unless Shipper gives written notice of non-renewal at least sixty (60){nbsp}days before the term ends.«/P»
+
+3. Cargo Liability
+«P|limitation-of-liability|Unusual»Carrier's liability for loss of or damage to cargo is limited to fifty cents ($0.50) per pound per package, regardless of the value of the goods or the cause of the loss.«/P»
+«P|indemnification|Dangerous»Shipper will indemnify and hold Carrier harmless from any and all claims, fines and expenses arising from the freight or its handling, including claims that arise from Carrier's own negligence or the acts of its drivers.«/P»
+
+4. Termination
+«P|unilateral-termination|Dangerous»Carrier may terminate this Agreement and refuse any shipment at any time, for any reason, without notice, and Shipper must pay for all freight already in transit and all charges accrued.«/P»
+
+5. Disputes
+«P|arbitration-and-class-action-waiver|Unusual»Any dispute between Shipper and Carrier will be settled by binding arbitration in the county where Carrier has its headquarters, on an individual basis, with no right to proceed as a class.«/P»
+
+Signed by Shipper and Carrier.

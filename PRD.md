@@ -166,7 +166,13 @@ every output.
   every count above and the number removed is printed. A failed call is never a miss.
 
 Every rate is printed as a count over a count and as a percentage, and every run is saved with
-every flag in it.
+every flag in it. Where the planted sentences say what severity the product should give them, the
+run also reports how often a found clause carried that severity.
+
+Two document sets feed these numbers. One is an outside set of mostly consumer documents. The
+other is twenty business documents (leases, service and software agreements, loans with a
+personal guarantee, and five clean contracts) written for the segment this product serves. Only
+the second can say anything about personal guarantees and one-sided termination.
 
 **The limit.** A model wrote the gold set, and it wrote the clauses the way a model expects them
 to read. The numbers are therefore an upper bound on what the product catches in real contracts,

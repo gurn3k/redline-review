@@ -1,0 +1,43 @@
+{
+  "document": "wholesale-credit-application.txt",
+  "title": "COMMERCIAL CREDIT APPLICATION AND GUARANTY",
+  "kind": "Supplier credit application and personal guaranty",
+  "sourceKind": "pasted",
+  "plantedClauses": [
+    {
+      "id": "P-01",
+      "clauseType": "fee-escalator",
+      "sourceSentence": "Unpaid balances bear a service charge of two percent (2%) per month, and Seller may change the service charge rate or add other charges at any time by printing the change on an invoice.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-02",
+      "clauseType": "unilateral-termination",
+      "sourceSentence": "Seller may withdraw credit, change terms or cancel any open order at any time without notice, and all open balances then become immediately due.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-03",
+      "clauseType": "limitation-of-liability",
+      "sourceSentence": "Seller’s liability for any claim relating to goods sold, whatever the cause, is limited to the purchase price of the specific goods in dispute, and Seller is not liable for resulting losses.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-04",
+      "clauseType": "personal-guarantee",
+      "sourceSentence": "The undersigned, individually, personally guarantees payment of all present and future purchases by the Company on credit, including interest, collection costs and attorneys’ fees, and this guaranty continues until Seller receives written notice of revocation and then still applies to every purchase made before that notice.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-05",
+      "clauseType": "arbitration-and-class-action-waiver",
+      "sourceSentence": "The Company and each guarantor agree to resolve any dispute with Seller by binding arbitration on an individual basis, and waive any right to a jury trial or to participate in a class action.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    }
+  ]
+}

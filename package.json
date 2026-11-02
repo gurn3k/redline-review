@@ -10,7 +10,8 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "smoke": "tsx scripts/smoke.ts",
-    "eval": "tsx eval/run.ts"
+    "eval": "tsx eval/run.ts",
+    "eval:build-gold-set-2": "tsx \"eval/gold-set 2/build.ts\""
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

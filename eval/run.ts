@@ -9,7 +9,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { analyzeDocument } from "../lib/analysis/analyze-document";
 import { createModelClient, type ModelClient } from "../lib/model/client";
-import { findSentenceProblems, loadGoldSet } from "./corpus";
+import { CORPUS_DIRS, findSentenceProblems, loadGoldSet } from "./corpus";
 import {
   formatRate,
   scoreDocument,
@@ -26,13 +26,20 @@ const RUNS_DIR = path.join(process.cwd(), "eval-runs");
 const CALL_TIMEOUT_MS = 240_000;
 
 async function main() {
+  const setName = parseSetName();
+  const corpusDir = CORPUS_DIRS[setName];
+  if (!corpusDir) {
+    console.error(`Unknown set "${setName}". Use one of: ${Object.keys(CORPUS_DIRS).join(", ")}.`);
+    process.exitCode = 1;
+    return;
+  }
   if (!process.env.OPENROUTER_API_KEY || !process.env.OPENROUTER_MODEL) {
     console.error("OPENROUTER_API_KEY and OPENROUTER_MODEL must be set in .env.local. The eval has no stub mode: a stub would only score itself.");
     process.exitCode = 1;
     return;
   }
 
-  const problems = findSentenceProblems();
+  const problems = findSentenceProblems(corpusDir);
   if (problems.length > 0) {
     console.error("The gold set has sentences that are not in their documents exactly once:\n" + problems.join("\n"));
     process.exitCode = 1;
@@ -40,11 +47,11 @@ async function main() {
   }
 
   const startedAt = new Date();
-  const docs = loadGoldSet();
+  const docs = loadGoldSet(corpusDir);
   const scores: DocumentScore[] = [];
   const leftOut: { document: string; reason: string }[] = [];
 
-  console.log(`Running ${docs.length} documents against ${process.env.OPENROUTER_MODEL} via OpenRouter.\n`);
+  console.log(`Set: ${setName}. Running ${docs.length} documents against ${process.env.OPENROUTER_MODEL} via OpenRouter.\n`);
 
   for (const doc of docs) {
     const captured: { raw: RawCandidate[] } = { raw: [] };
@@ -66,16 +73,18 @@ async function main() {
   }
 
   const summary = summarize(scores, leftOut.map((l) => l.document));
-  const report = renderReport(startedAt, docs.length, summary, scores, leftOut);
+  const report = renderReport(setName, startedAt, docs.length, summary, scores, leftOut);
   console.log("\n" + report);
 
   mkdirSync(RUNS_DIR, { recursive: true });
-  const stamp = startedAt.toISOString().replace(/\.\d+Z$/, "Z").replace(/:/g, "-");
+  const stamp =
+    startedAt.toISOString().replace(/\.\d+Z$/, "Z").replace(/:/g, "-") + (setName === "gold" ? "" : `-${setName}`);
   writeFileSync(path.join(RUNS_DIR, `${stamp}.txt`), report + "\n");
   writeFileSync(
     path.join(RUNS_DIR, `${stamp}.json`),
     JSON.stringify(
       {
+        set: setName,
         startedAt: startedAt.toISOString(),
         model: process.env.OPENROUTER_MODEL,
         documentsInManifest: docs.length,
@@ -138,6 +147,7 @@ function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
 }
 
 function renderReport(
+  setName: string,
   startedAt: Date,
   documentsInManifest: number,
   s: Summary,
@@ -145,7 +155,7 @@ function renderReport(
   leftOut: { document: string; reason: string }[],
 ): string {
   const L: string[] = [];
-  L.push(`Redline eval, started ${startedAt.toISOString()}`);
+  L.push(`Redline eval, set "${setName}", started ${startedAt.toISOString()}`);
   L.push(`Model: ${process.env.OPENROUTER_MODEL}`);
   L.push("");
   L.push("These numbers are an upper bound. A model wrote the gold set, so they are not a promise to a reader.");
@@ -157,7 +167,11 @@ function renderReport(
   L.push("RECALL (planted clauses of in-scope types that a shown flag overlaps)");
   L.push(`  Found:               ${formatRate(s.recall)}`);
   L.push(`  Found, right type:   ${formatRate(s.recallRightType)} of those found`);
-  L.push("  By gold-set type (found / planted; right type / found):");
+  if (s.severity.overall.of > 0) {
+    L.push(`  Severity as expected: ${formatRate(s.severity.overall)} of those found with the right type`);
+    L.push(`    expected Dangerous: ${formatRate(s.severity.expectedDangerous)}   expected Unusual: ${formatRate(s.severity.expectedUnusual)}`);
+  }
+  L.push("  By clause type (found / planted; right type / found):");
   for (const t of s.recallByType) {
     L.push(`    ${t.goldType.padEnd(38)} ${formatRate(t.recall).padEnd(16)} right type ${formatRate(t.rightType)}`);
   }
@@ -202,6 +216,11 @@ function renderReport(
     }
   }
   return L.join("\n");
+}
+
+function parseSetName(): string {
+  const i = process.argv.indexOf("--set");
+  return i === -1 ? "gold" : (process.argv[i + 1] ?? "");
 }
 
 // Same loader scripts/smoke.ts uses; smoke.ts runs main() on import, so it cannot be shared.

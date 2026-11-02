@@ -1,0 +1,57 @@
+{
+  "document": "payroll-peo-services.txt",
+  "title": "PAYROLL AND CLIENT SERVICES AGREEMENT",
+  "kind": "Payroll and PEO (co-employment) services agreement",
+  "sourceKind": "pasted",
+  "plantedClauses": [
+    {
+      "id": "P-01",
+      "clauseType": "fee-escalator",
+      "sourceSentence": "PayRight may increase its processing fees, add new service fees and change its percentage charge at any time by posting the change in the client portal, effective on the date of the posting.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-02",
+      "clauseType": "auto-renewal",
+      "sourceSentence": "This Agreement renews automatically for successive twelve (12) month terms unless Client delivers written notice of non-renewal at least five (5) business days before the anniversary of the Effective Date.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-03",
+      "clauseType": "unilateral-termination",
+      "sourceSentence": "PayRight may terminate this Agreement or stop processing payroll at any time, immediately and without cause, and Client remains responsible for all fees through the end of the then-current term.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-04",
+      "clauseType": "indemnification",
+      "sourceSentence": "Client will indemnify PayRight against any and all employment claims, tax liabilities, penalties and interest, whether or not caused by PayRight, and without any limit on amount.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-05",
+      "clauseType": "limitation-of-liability",
+      "sourceSentence": "PayRight’s total liability for any claim, including penalties from late or incorrect tax filings made by PayRight, is limited to the fees Client paid for the one (1) month before the claim.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-06",
+      "clauseType": "data-privacy-overreach",
+      "sourceSentence": "PayRight may use, sell and disclose Client’s employee data, including Social Security numbers and bank details, to third parties for marketing and analytics purposes.",
+      "expectedSeverity": "n/a",
+      "exit": null
+    },
+    {
+      "id": "P-07",
+      "clauseType": "arbitration-and-class-action-waiver",
+      "sourceSentence": "All disputes will be resolved by conﬁdential binding arbitration, and Client waives any right to bring or take part in a class or representative action against PayRight.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    }
+  ]
+}

@@ -53,3 +53,17 @@ reactivation charges, which the product's prompt does not describe. The rest are
 the prompt does describe, and those were missed too, so scope alone does not explain the row.
 
 These are upper bounds, per `PRD.md`.
+
+Second set added: `eval/gold-set 2`, twenty business documents (15 with 90 planted clauses, 5
+clean), run with `npm run eval -- --set gold2`. First run, 2026-11-02, 20 of 20 scored:
+
+- Recall 63/84 (75.0%); all 63 named the right type. Personal guarantee 4/7, unilateral
+  termination 12/15, liability cap 6/13, indemnification 10/13, auto-renewal 10/12, fee escalator
+  11/14, arbitration 10/10.
+- Severity as expected on 51/63 found (81.0%): Dangerous 29/30, Unusual 22/33.
+- Groundedness 64/86 (74.4%) of everything returned.
+- Clean documents: 5/5 Clear, 0 flags. Shown flags on the loaded documents that matched nothing
+  planted or only a harmless sentence: 0.
+- By typography: sentences carrying a curly quote, non-breaking space, ligature, em dash or double
+  space were found 10/31 (32.3%); sentences carrying none were found 53/53 (100%). Retyped
+  characters are costing most of the misses.

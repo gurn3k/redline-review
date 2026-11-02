@@ -1,0 +1,31 @@
+@kind: Master services agreement, managed IT provider's form
+MASTER SERVICES AGREEMENT
+Northgate Managed Technology Inc.
+
+This Master Services Agreement (the "Agreement") is between Northgate Managed Technology Inc. ("Provider") and the customer named on the Service Order ("Customer"). It covers managed IT support, monitoring and backup services (the "Services").
+
+1. Services and Fees
+Provider will perform the Services described in each Service Order. Customer pays the monthly fee in the Service Order plus hourly charges for work outside its scope. «H»Invoices are payable within thirty (30) days of receipt.«/H»
+«P|fee-escalator|Unusual»Provider may increase its hourly rates and monthly fees at any time by updating its published rate card, and the new rates apply to all Services performed after the update.«/P»
+
+2. Term
+The initial term is twelve (12) months from the Service Order date.
+«P|auto-renewal|Dangerous»This Agreement renews automatically for successive twelve (12) month terms unless Customer gives written notice of non-renewal no later than ten (10){nbsp}days before the end of the then-current term.«/P»
+
+3. Customer Data
+«H»Provider will keep Customer Data confidential and will use it only to deliver the Services.«/H» Customer remains responsible for the accuracy of the information it provides.
+
+4. Termination
+«P|unilateral-termination|Dangerous»Provider may suspend or terminate the Services at any time, for any reason or no reason, effective on delivery of notice, and Customer may terminate only for Provider’s uncured material breach.«/P»
+
+5. Risk Allocation
+«P|limitation-of-liability|Unusual»Provider’s total liability for all claims arising out of this Agreement is limited to the fees paid for the one (1) month of Services immediately preceding the claim, including claims for lost or corrupted data.«/P»
+«P|indemnification|Dangerous»Customer will defend and indemnify Provider against any and all claims arising out of Customer’s use of the Services or the Deliverables, and this obligation is not subject to any cap or exclusion.«/P»
+
+6. Disputes
+«P|arbitration-and-class-action-waiver|Unusual»All disputes will be resolved by binding arbitration in Provider's home county under rules Provider selects, and Customer waives any right to a jury trial or to join or bring a class action.«/P»
+
+7. General
+This Agreement is governed by the laws of the state in which Provider has its principal office. Any amendment must be in writing.
+
+Accepted by Provider and Customer on the Service Order date.

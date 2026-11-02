@@ -1,0 +1,43 @@
+{
+  "document": "construction-subcontract.txt",
+  "title": "SUBCONTRACT AGREEMENT",
+  "kind": "Construction subcontract, general contractor's form",
+  "sourceKind": "pasted",
+  "plantedClauses": [
+    {
+      "id": "P-01",
+      "clauseType": "limitation-of-liability",
+      "sourceSentence": "Contractor's liability for delay, disruption or acceleration is limited to an extension of time,  and Subcontractor waives any claim for money damages arising from them.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-02",
+      "clauseType": "unilateral-termination",
+      "sourceSentence": "Contractor may terminate this Subcontract for its convenience at any time and for any reason, in which case Subcontractor is paid only for work in place and receives nothing for materials ordered, demobilization or lost profit.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-03",
+      "clauseType": "indemnification",
+      "sourceSentence": "Subcontractor will indemnify and hold harmless Contractor, the Owner and their agents from any and all claims, damages and expenses arising out of the Work, even where caused in part by the negligence of the indemnified parties.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-04",
+      "clauseType": "arbitration-and-class-action-waiver",
+      "sourceSentence": "Any dispute under this Subcontract will be decided by binding arbitration in the county of Contractor's principal office, and Subcontractor waives any right to join its claim with those of other parties or to bring a class or representative claim.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-05",
+      "clauseType": "personal-guarantee",
+      "sourceSentence": "The principals of Subcontractor who sign this Subcontract below also sign as individual sureties and are personally liable, without limit, for the completion of the Work and for every claim Contractor makes under this Subcontract.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    }
+  ]
+}

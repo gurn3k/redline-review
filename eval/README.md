@@ -1,5 +1,9 @@
 # Eval
 
+There are two sets. `npm run eval` runs the instructor's (`eval/gold-set`, nine mostly consumer
+documents). `npm run eval -- --set gold2` runs ours (`eval/gold-set 2`, twenty business
+documents). See "Gold set 2" below.
+
 `npm run eval` runs every document in `eval/gold-set/corpus/manifest.json` through the same call
 `npm run smoke` uses (`analyzeDocument(text, [], client)` with the default OpenRouter client and
 the settings in `.env.local`), scores what comes back, and saves the run to `eval-runs/` as a
@@ -15,6 +19,7 @@ a model wrote the gold set, so none of it is a promise to a reader and none of i
 
 | Path | What it is |
 |---|---|
+| `gold-set 2/` | The twenty business documents: `src/` (edit these), `documents/`, `sidecars/`, `manifest.json` and `build.ts` (generated). |
 | `gold-set/corpus`, `gold-set/fixtures` | The instructor's gold set, copied byte for byte from `tests/corpus` and `tests/fixtures` of `github.com/ankitvirmani/redline`. Relative paths in `manifest.json` (`../fixtures/...`) work because both folders sit side by side. Its own README is `gold-set/corpus/README.md`. |
 | `corpus.ts` | Loads the manifest, the documents and the sidecars. Checks that every sentence is in its document exactly once. |
 | `metrics.ts` | The type mapping and all the scoring. No file or network access. |
@@ -22,9 +27,62 @@ a model wrote the gold set, so none of it is a promise to a reader and none of i
 | `../tests/eval-gold-set.test.ts` | Part of `npm test`. No network. Checks the sentences and the scoring. |
 | `../eval-runs/` | One `.txt` and one `.json` per run. |
 
+## Gold set 2: business documents
+
+`eval/gold-set 2` holds twenty documents written for a small business owner reviewing paper someone
+else presented, which is what `PRD.md` says the product is for. The instructor's set is mostly
+consumer and employment paper, which the PRD excludes, and it plants no personal guarantee and no
+unilateral termination.
+
+| Kind | Documents |
+|---|---|
+| With planted clauses (15, 90 planted) | retail lease, IT services MSA, B2B software subscription, merchant processing, equipment lease, franchise agreement, business loan and guaranty, business internet service, janitorial services, marketing agency, payroll/PEO, freight and logistics, supplier credit application and guaranty, construction subcontract, temporary staffing |
+| Clean (5, nothing planted) | mutual NDA, short-term office lease, one-time purchase order terms, event venue rental, bookkeeping engagement letter |
+
+Every loaded document plants three to seven clauses, hidden under ordinary headings. 84 of the 90
+are of types the product flags; 6 are out of scope on purpose (3 non-compete or no-hire, 2 data
+and privacy overreach, 1 IP assignment) so the harness proves it does not count them. Each
+document also carries one or two **unusual-but-harmless** sentences (an insurance requirement, a
+reporting deadline, a retainage hold) so over-flagging has something to show up against. The clean
+documents have real obligations on both sides, fixed terms and mutual notice, and no renewal.
+
+Each planted sentence has an expected severity (Dangerous or Unusual) taken from the PRD's rules:
+personal guarantee, broad indemnification and one-sided termination are Dangerous; auto-renewal is
+Unusual unless the cancellation window is under 14 days or the renewal price is set without
+telling the customer, which makes it Dangerous; arbitration, liability caps and fee escalators are
+Unusual. The run reports how often a found clause carried the expected severity.
+
+About a third of the planted sentences carry a curly quote or apostrophe, a non-breaking space, a
+ligature, an em dash or a double space, so the typography split has something to measure.
+
+**How it is built.** The documents are written in `src/*.src.txt` with the planted sentences marked
+in place. `npm run eval:build-gold-set-2` cuts each marked sentence out of the same text it writes,
+so a sentence cannot drift from its document. Edit the source and rebuild; do not edit
+`documents/` or `sidecars/` by hand. The syntax is described at the top of `build.ts`.
+
+**What it is not.** A model wrote these, the same kind of model the eval measures, and wrote the
+clauses the way a model expects them to read. The hiding is real but mild. Every planted sentence
+is a complete sentence under a plain heading. Real contracts bury them in definitions, exhibits and
+cross-references. A high number here says the product can read this kind of clause, not that it
+will find one in a stranger's lease. Replace these with redacted real contracts when you can get
+them.
+
 ## Clause type mapping
 
-The gold set has seven clause types. This product has six standard types plus red lines
+The instructor's gold set has seven clause types; gold set 2 adds the five below.
+
+| Gold set 2 type | Product type that counts as the right one | In scope? |
+|---|---|---|
+| `personal-guarantee` | `personal-guarantee` | Yes |
+| `unilateral-termination` | `unilateral-termination` | Yes |
+| `fee-escalator` | `liability-cap-fee-escalator` | Yes |
+| `ip-assignment` | none | **No**, `PRD.md` lists IP assignment as not evaluated |
+| `data-privacy-overreach` | none | **No**, `PRD.md` lists data and privacy overreach as not evaluated |
+
+`fee-escalator` is a price rise at the provider's discretion, kept separate from the instructor's
+`fee-escalators-and-late-fees` so late charges do not muddy it. The instructor's seven are below.
+
+The instructor's gold set has seven clause types. This product has six standard types plus red lines
 (`lib/analysis/types.ts`).
 
 | Gold-set type | Product type that counts as the right one | In scope? |

@@ -1,0 +1,50 @@
+{
+  "document": "it-services-agreement.txt",
+  "title": "MASTER SERVICES AGREEMENT",
+  "kind": "Master services agreement, managed IT provider's form",
+  "sourceKind": "pasted",
+  "plantedClauses": [
+    {
+      "id": "P-01",
+      "clauseType": "fee-escalator",
+      "sourceSentence": "Provider may increase its hourly rates and monthly fees at any time by updating its published rate card, and the new rates apply to all Services performed after the update.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-02",
+      "clauseType": "auto-renewal",
+      "sourceSentence": "This Agreement renews automatically for successive twelve (12) month terms unless Customer gives written notice of non-renewal no later than ten (10) days before the end of the then-current term.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-03",
+      "clauseType": "unilateral-termination",
+      "sourceSentence": "Provider may suspend or terminate the Services at any time, for any reason or no reason, effective on delivery of notice, and Customer may terminate only for Provider’s uncured material breach.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-04",
+      "clauseType": "limitation-of-liability",
+      "sourceSentence": "Provider’s total liability for all claims arising out of this Agreement is limited to the fees paid for the one (1) month of Services immediately preceding the claim, including claims for lost or corrupted data.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-05",
+      "clauseType": "indemnification",
+      "sourceSentence": "Customer will defend and indemnify Provider against any and all claims arising out of Customer’s use of the Services or the Deliverables, and this obligation is not subject to any cap or exclusion.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-06",
+      "clauseType": "arbitration-and-class-action-waiver",
+      "sourceSentence": "All disputes will be resolved by binding arbitration in Provider's home county under rules Provider selects, and Customer waives any right to a jury trial or to join or bring a class action.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    }
+  ]
+}

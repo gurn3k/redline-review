@@ -1,0 +1,50 @@
+{
+  "document": "business-internet-service.txt",
+  "title": "BUSINESS SERVICE AGREEMENT",
+  "kind": "Business internet and phone service agreement",
+  "sourceKind": "pasted",
+  "plantedClauses": [
+    {
+      "id": "P-01",
+      "clauseType": "fee-escalator",
+      "sourceSentence": "Provider may change rates, surcharges and regulatory recovery fees at any time without prior notice, and the new amount appears on the next invoice.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-02",
+      "clauseType": "auto-renewal",
+      "sourceSentence": "After the initial term the Service continues month to month at Provider's then-current rates, which Provider is not required to tell Customer in advance, until Customer cancels in writing.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-03",
+      "clauseType": "limitation-of-liability",
+      "sourceSentence": "Provider's liability for any interruption of the Service is limited to a credit of one-thirtieth of the monthly charge for each full day of outage,  and that credit is Customer's sole remedy.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-04",
+      "clauseType": "unilateral-termination",
+      "sourceSentence": "Provider may suspend or terminate the Service at any time without notice if it believes Customer's usage is excessive, while Customer remains liable for the early termination charge equal to all remaining monthly charges.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-05",
+      "clauseType": "indemnification",
+      "sourceSentence": "Customer will indemnify Provider against any and all third-party claims arising from Customer's use of the Service, including claims relating to content transmitted over it.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-06",
+      "clauseType": "arbitration-and-class-action-waiver",
+      "sourceSentence": "Customer and Provider agree that any dispute will be decided by a single arbitrator, on an individual basis only, and Customer waives any right to a jury trial or to participate in a class proceeding.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    }
+  ]
+}

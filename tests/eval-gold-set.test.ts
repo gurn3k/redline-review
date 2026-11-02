@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { findSentenceProblems, loadGoldSet } from "../eval/corpus";
+import { CORPUS_DIRS, findSentenceProblems, loadGoldSet } from "../eval/corpus";
 import { formatRate, quoteOverlaps, scoreDocument, summarize, TYPE_MAP } from "../eval/metrics";
 
 // No model, no network. These guard the gold set itself: a sentence that has
@@ -10,15 +10,27 @@ describe("eval gold set", () => {
     expect(loadGoldSet().map((d) => d.id)).toHaveLength(9);
   });
 
-  it("has every planted, exit, harmless and question sentence in its document exactly once", () => {
-    expect(findSentenceProblems()).toEqual([]);
-  });
+  for (const [name, dir] of Object.entries(CORPUS_DIRS)) {
+    it(`has every planted, exit, harmless and question sentence in its document exactly once (${name})`, () => {
+      expect(findSentenceProblems(dir)).toEqual([]);
+    });
 
-  it("only uses clause types the type mapping knows", () => {
-    const known = new Set(TYPE_MAP.map((m) => m.goldType));
-    for (const doc of loadGoldSet()) {
-      for (const p of doc.plantedClauses) expect(known.has(p.clauseType)).toBe(true);
+    it(`only uses clause types the type mapping knows (${name})`, () => {
+      const known = new Set(TYPE_MAP.map((m) => m.goldType));
+      for (const doc of loadGoldSet(dir)) {
+        for (const p of doc.plantedClauses) expect(known.has(p.clauseType)).toBe(true);
+      }
+    });
+  }
+
+  it("has the 20 business documents, 5 of them clean, every one with a planted clause of an in-scope type or none", () => {
+    const docs = loadGoldSet(CORPUS_DIRS.gold2);
+    expect(docs).toHaveLength(20);
+    expect(docs.filter((d) => d.benign)).toHaveLength(5);
+    for (const d of docs.filter((d) => !d.benign)) {
+      expect(d.plantedClauses.some((p) => TYPE_MAP.find((m) => m.goldType === p.clauseType)?.inScope)).toBe(true);
     }
+    for (const d of docs.filter((d) => d.benign)) expect(d.plantedClauses).toHaveLength(0);
   });
 
   it("keeps the characters the sentences carry on purpose", () => {

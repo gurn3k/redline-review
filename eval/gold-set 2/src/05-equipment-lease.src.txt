@@ -1,0 +1,25 @@
+@kind: Commercial equipment lease (copier / production equipment)
+EQUIPMENT LEASE AGREEMENT
+Summit Equipment Finance Corp.
+
+This Equipment Lease Agreement (the “Lease”) is between Summit Equipment Finance Corp. (“Lessor”) and the business named on the Equipment Schedule (“Lessee”). Lessor leases to Lessee the equipment described on the Schedule (the “Equipment”).
+
+1. Rent and Payment
+Lessee pays the monthly rental shown on the Schedule for the initial term of sixty (60) months. «H»Lessee must keep the Equipment at the address on the Schedule and may not move it without giving Lessor notice.«/H»
+«P|fee-escalator|Unusual»Lessor may increase the monthly rental once in each lease year by up to ten percent (10%), effective on the date stated on the invoice.«/P»
+
+2. End of Term
+«P|auto-renewal|Unusual»At the end of the initial term this Lease renews for successive twelve (12) month terms at the then-current rental unless Lessee returns the Equipment by prepaid freight and gives written notice not more than ninety (90) and not less than sixty (60) days before the term ends.«/P»
+
+3. Risk of Loss
+Lessee bears all risk of loss, theft and damage from delivery until return. «H»Lessee must insure the Equipment for its full replacement value and name Lessor as loss payee.«/H»
+«P|indemnification|Dangerous»Lessee will indemnify Lessor against any and all claims, losses and expenses arising from the Equipment, its delivery, use, condition or return, including claims arising from Lessor’s own acts.«/P»
+«P|limitation-of-liability|Unusual»In no event will Lessor’s liability to Lessee for any cause — in contract, tort or otherwise — exceed the rental paid for the month in which the claim arose.«/P»
+
+4. Default
+«P|unilateral-termination|Dangerous»Lessor may declare Lessee in default and terminate this Lease if Lessor believes in good faith that its prospect of payment is impaired, without any cure period, and all remaining rentals then become due.«/P»
+
+5. Guaranty
+«P|personal-guarantee|Dangerous»Each person who signs the Guaranty at the end of this Lease personally and unconditionally guarantees all of Lessee’s present and future obligations to Lessor, including rent, late charges, collection costs and attorneys’ fees, and waives notice of any change to the Lease.«/P»
+
+Lessee and Guarantor(s) sign below.

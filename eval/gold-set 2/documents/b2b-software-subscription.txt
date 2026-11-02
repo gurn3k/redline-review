@@ -1,0 +1,29 @@
+CLOUDLEDGER SUBSCRIPTION AGREEMENT
+Order Form and Terms of Service
+
+This Subscription Agreement (the “Agreement”) is between CloudLedger Software, Inc. (“Provider”) and the business named on the Order Form (“Customer”). It covers Customer’s subscription to the CloudLedger accounting and invoicing platform (the “Service”).
+
+1. Subscription and Fees
+Customer may use the Service for the number of users on the Order Form for the Subscription Term. Fees are billed annually in advance. Provider will maintain a monthly uptime of 99.5 percent and will credit Customer a pro rata share of fees for any month in which it falls short.
+On each renewal Provider may increase the Subscription Fees by up to the greater of eight percent (8%) or the increase in the Consumer Price Index, and the renewal fee is stated only in the invoice Provider issues.
+
+2. Renewal
+Each Subscription Term renews automatically for a further term of the same length unless either party gives written notice of non-renewal at least sixty (60) days before the term ends, and Provider will email a reminder not less than ninety (90) days before the renewal date.
+
+3. Customer Data
+Customer owns Customer Data. Customer may export its data in standard formats at any time through the dashboard.
+Provider may use Customer Data in identifiable form to train its models and for any other business purpose, and may share it with its affiliates and partners.
+
+4. Suspension and Termination
+Provider may terminate the subscription immediately and without refund if Provider determines in its sole discretion that Customer’s use is inconsistent with the spirit of this Agreement.
+
+5. Limitation of Liability
+Provider’s aggregate liability under this Agreement will not exceed the fees Customer paid in the three (3) months before the claim, including liability for loss or corruption of Customer Data.
+
+6. Disputes
+Any dispute arising out of this Agreement will be settled by individual binding arbitration, and Customer waives any right to bring a claim as a plaintiff or class member in a class, collective or representative proceeding.
+
+7. General
+Neither party may assign this Agreement without the other’s consent, except to a successor to substantially all of its business.
+
+By signing the Order Form, Customer accepts this Agreement.
