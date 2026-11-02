@@ -1,0 +1,66 @@
+{
+  "labels": {
+    "1": {
+      "label": "PASS",
+      "note": "The auto renewal is something that needs to be flagged to the user's attention so they can take preventative action as necessary.",
+      "setAt": "2026-11-02T15:26:25.698Z",
+      "history": []
+    },
+    "2": {
+      "label": "PASS",
+      "note": "This is vital to flag to the reader because it could mean more incurred costs down the line.",
+      "setAt": "2026-11-02T15:54:10.112Z",
+      "history": []
+    },
+    "3": {
+      "label": "PASS",
+      "note": "arbitration may not be the preferred method of settlement to the reader, so flagging it is important to allow them to make a clearer decision before signing.",
+      "setAt": "2026-11-02T15:54:57.426Z",
+      "history": []
+    },
+    "4": {
+      "label": "PASS",
+      "note": "this non compete is important to flag to the reader because it would potentially affect future employment or business opportunities",
+      "setAt": "2026-11-02T15:55:34.949Z",
+      "history": []
+    },
+    "5": {
+      "label": "PASS",
+      "note": "the reader may not get what they believe is owed to them, and this type of clause leaves things up to the contract issuer's discretion",
+      "setAt": "2026-11-02T15:56:36.108Z",
+      "history": []
+    },
+    "6": {
+      "label": "PASS",
+      "note": "potential liability",
+      "setAt": "2026-11-02T15:57:28.437Z",
+      "history": []
+    },
+    "7": {
+      "label": "PASS",
+      "note": "potential liability to reader",
+      "setAt": "2026-11-02T15:58:58.471Z",
+      "history": []
+    },
+    "8": {
+      "label": "PASS",
+      "note": "leaves the reader without option to seek reparation",
+      "setAt": "2026-11-02T15:59:38.407Z",
+      "history": []
+    },
+    "9": {
+      "label": "PASS",
+      "note": "in addition to indemnification, the last part indicates the reader will also have to pay for their legal costs",
+      "setAt": "2026-11-02T16:00:11.472Z",
+      "history": []
+    },
+    "10": {
+      "label": "PASS",
+      "note": "again leaves the reader liable",
+      "setAt": "2026-11-02T16:01:00.550Z",
+      "history": []
+    }
+  },
+  "whatChanged": "I began looking at clauses that typically apply to individuals and thought they could also affect business owners in a similar context. ",
+  "savedAt": "2026-11-02T16:01:09.872Z"
+}
