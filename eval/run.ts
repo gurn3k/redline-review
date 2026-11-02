@@ -178,6 +178,11 @@ function renderReport(
   L.push("  By characters in the planted sentence:");
   for (const c of s.recallByCharacters) L.push(`    ${c.label.padEnd(44)} ${formatRate(c.recall)}`);
   L.push("");
+  L.push("PRECISION (flags that overlap an in-scope planted clause; flags landing only on out-of-scope clauses are left out)");
+  L.push(`  Flags shown to the reader:     ${formatRate(s.precision.shown)}`);
+  L.push(`  Everything the model returned: ${formatRate(s.precision.returned)}`);
+  L.push("  A flag on a sentence the answer key does not list counts against precision, even if it is a fair catch.");
+  L.push("");
   L.push("OUT OF SCOPE (never counted as misses)");
   for (const o of s.outOfScope) L.push(`  ${o.goldType}: ${o.planted} planted in scored documents. ${o.reason}`);
   L.push("");

@@ -157,6 +157,9 @@ every output.
   counted as misses. Recall is also split by whether the planted sentence contains a curly quote
   or apostrophe, a non-breaking space, an fi or fl ligature, an em dash, or two spaces in a row,
   because a model that retypes those characters loses its citation.
+- **Precision.** Of the flags that can be judged, how many overlap a planted clause of a type this
+  product flags. A flag on a sentence the answer key does not list counts against it, so this
+  measures agreement with the key, not whether the flag was wrong.
 - **Groundedness.** Of every flag the model returned, how many quote a sentence that appears in the
   document character for character? Flags that fail are dropped before a reader sees them, so
   this measures how often the model hands the product a quote it cannot use.

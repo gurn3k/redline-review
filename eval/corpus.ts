@@ -33,10 +33,10 @@ interface QuestionSet {
   grounded?: { question: string; expectedSourceSentence: string }[];
 }
 
-/** The sets `npm run eval -- --set <name>` can run. "gold" is the instructor's; "gold2" is the business set in eval/gold-set 2. */
+/** The sets `npm run eval -- --set <name>` can run. "gold" is the instructor's; "gold2" is the business set in eval/gold-set-2-user-created. */
 export const CORPUS_DIRS: Record<string, string> = {
   gold: path.join(process.cwd(), "eval", "gold-set", "corpus"),
-  gold2: path.join(process.cwd(), "eval", "gold-set 2"),
+  gold2: path.join(process.cwd(), "eval", "gold-set-2-user-created"),
 };
 
 export const DEFAULT_CORPUS_DIR = CORPUS_DIRS.gold;

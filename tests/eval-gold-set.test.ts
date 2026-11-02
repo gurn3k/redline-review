@@ -83,6 +83,20 @@ describe("eval scoring", () => {
     expect(summary.recall.of).toBeLessThan(noncompete.plantedClauses.length);
   });
 
+  it("scores precision on judgeable flags only", () => {
+    const hit = { category: "arbitration-class-action-waiver", citation: arbitration.sourceSentence, severity: "Unusual" };
+    const stray = { category: "auto-renewal", citation: "Support requests are answered in English only", severity: "Unusual" };
+    const invented = { category: "auto-renewal", citation: "Not in the document.", severity: "Unusual" };
+    const s = summarize([scoreDocument(doc, [hit, stray, invented], [hit, stray])], []);
+    expect(s.precision.shown).toEqual({ count: 1, of: 2 });
+    expect(s.precision.returned).toEqual({ count: 1, of: 3 });
+
+    const nc = noncompete.plantedClauses.find((p) => p.clauseType === "non-compete")!;
+    const outOfScopeFlag = { category: "indemnification", citation: nc.sourceSentence, severity: "Dangerous" };
+    const t = summarize([scoreDocument(noncompete, [outOfScopeFlag], [outOfScopeFlag])], []);
+    expect(t.precision.shown).toEqual({ count: 0, of: 0 });
+  });
+
   it("prints a rate as count/count and a percentage", () => {
     expect(formatRate({ count: 7, of: 12 })).toBe("7/12 (58.3%)");
     expect(formatRate({ count: 0, of: 0 })).toBe("0/0 (n/a)");

@@ -1,0 +1,105 @@
+Redline eval, set "gold", started 2026-11-02T15:15:46.924Z
+Model: z-ai/glm-5.3-flash
+
+These numbers are an upper bound. A model wrote the gold set, so they are not a promise to a reader.
+
+Documents scored: 9/9. Left out because the model call failed: 0.
+A document left out is removed from every denominator below. It is not a miss.
+
+RECALL (planted clauses of in-scope types that a shown flag overlaps)
+  Found:               18/30 (60.0%)
+  Found, right type:   18/18 (100.0%) of those found
+  By clause type (found / planted; right type / found):
+    arbitration-and-class-action-waiver    5/5 (100.0%)     right type 5/5 (100.0%)
+    auto-renewal                           3/6 (50.0%)      right type 3/3 (100.0%)
+    indemnification                        6/6 (100.0%)     right type 6/6 (100.0%)
+    limitation-of-liability                3/4 (75.0%)      right type 3/3 (100.0%)
+    fee-escalators-and-late-fees           1/9 (11.1%)      right type 1/1 (100.0%)
+  By characters in the planted sentence:
+    sentence carries at least one of the five    5/9 (55.6%)
+    sentence carries none of them                13/21 (61.9%)
+      curly quote or apostrophe                  2/3 (66.7%)
+      non-breaking space                         0/2 (0.0%)
+      fi or fl ligature                          3/4 (75.0%)
+      em dash                                    1/2 (50.0%)
+      two spaces in a row                        0/1 (0.0%)
+
+PRECISION (flags that overlap an in-scope planted clause; flags landing only on out-of-scope clauses are left out)
+  Flags shown to the reader:     18/19 (94.7%)
+  Everything the model returned: 18/21 (85.7%)
+  A flag on a sentence the answer key does not list counts against precision, even if it is a fair catch.
+
+OUT OF SCOPE (never counted as misses)
+  unilateral-modification: 6 planted in scored documents. PRD.md names unilateral termination and no-cause deactivation, not a right to rewrite the terms. The product has no type for it.
+  non-compete: 4 planted in scored documents. PRD.md: non-compete clauses are explicitly not evaluated in v1 (employment context, segment excluded).
+
+GROUNDEDNESS (quoted sentence appears in the document character for character)
+  Everything the model returned: 20/22 (90.9%)
+  Flags shown to the reader:     20/20 (100.0%) (the pipeline drops ungrounded flags, so this is 100% by construction)
+
+CLEAN DOCUMENTS
+  Came back Clear:        3/3 (100.0%)
+  Flags shown on them:    0
+  Flags the model returned on them, before the gates: 0
+
+SHOWN FLAGS ON THE DOCUMENTS WITH PLANTED CLAUSES
+  Total 20: 18 on an in-scope planted clause, 1 on an out-of-scope one, 0 on an unusual-but-harmless sentence, 1 on nothing listed.
+
+Type mapping used: arbitration-and-class-action-waiver -> arbitration-class-action-waiver; auto-renewal -> auto-renewal; indemnification -> indemnification; limitation-of-liability -> liability-cap-fee-escalator; fee-escalators-and-late-fees -> liability-cap-fee-escalator; personal-guarantee -> personal-guarantee; unilateral-termination -> unilateral-termination; fee-escalator -> liability-cap-fee-escalator; ip-assignment -> (out of scope); data-privacy-overreach -> (out of scope); unilateral-modification -> (out of scope); non-compete -> (out of scope)
+
+PER DOCUMENT
+  adhesion-contract: 5 returned, 4 shown, found 3/7
+  clean-document (clean): 0 returned, 0 shown
+  saas-subscription: 4 returned, 4 shown, found 4/7
+  offer-letter: 2 returned, 2 shown, found 2/2
+  storage-unit-rental: 3 returned, 3 shown, found 3/5
+  phone-plan-terms: 5 returned, 4 shown, found 4/6
+  internship-agreement: 3 returned, 3 shown, found 2/3
+  library-volunteer-agreement (clean): 0 returned, 0 shown
+  swim-lesson-registration (clean): 0 returned, 0 shown
+
+EVERY FLAG THE MODEL RETURNED
+  [adhesion-contract] auto-renewal / Dangerous / shown; grounded; matches P-01, right type
+      "At the end of the initial term, and at the end of each term thereafter, your membership renews automatically for a further twelve (12) month term at the then-current rate. To stop a renewal you must deliver written notice of cancellation to the Member Services desk no later than three (3) days before the renewal date."
+  [adhesion-contract] indemnification / Dangerous / shown; grounded; matches P-06, right type
+      "You will indemnify, defend and hold harmless Meridian and its ofﬁcers, employees, instructors and contractors against any claim, demand, loss, liability or expense, including reasonable legal fees, that is brought by a third party and arises out of your use of the facilities, your conduct on club premises, the conduct of a guest you bring, or any service you provide to another member."
+  [adhesion-contract] liability-cap-fee-escalator / Unusual / dropped by gates; NOT in document; matches no planted clause
+      "Meridian’s total liability to you for any claim arising out of or relating to this Agreement, your membership or your use of any facility — whether the claim is framed in contract, in negligence or otherwise — will not exceed the total dues and fees you paid to Meridian in the twelve (12) months immediately before the event giving rise to the claim."
+  [adhesion-contract] arbitration-class-action-waiver / Unusual / shown; grounded; matches P-09, right type
+      "Any dispute, claim or controversy between you and Meridian arising out of or relating to this Agreement, your membership or the Program will be resolved by ﬁnal and binding arbitration administered by a nationally recognised arbitration provider under its consumer arbitration rules, and you and Meridian each waive any right to a trial by jury and any right to bring or participate in a class, collective or representative action."
+  [adhesion-contract] red-line / Unusual / shown; grounded; matches P-08 (out of scope)
+      "For twelve (12) months after your Program candidacy ends for any reason, you will not teach, coach or deliver group ﬁtness instruction or personal training, whether as an employee, as a contractor or on your own account, at any facility within ﬁfteen (15) miles of a Meridian location at which you taught or trained."
+  [saas-subscription] indemnification / Dangerous / shown; grounded; matches P-07, right type
+      "You will indemnify and hold Northwind harmless from any claim brought by a third party that relates to content you uploaded, exported or published through the service, including a claim that the content infringes a copyright, a trade mark or a right of privacy, and you will pay our reasonable legal costs of defending such a claim."
+  [saas-subscription] auto-renewal / Unusual / shown; grounded; matches P-04, right type
+      "On an annual plan the deadline to cancel is the day that falls thirty (30) days before the anniversary of the date you first subscribed, and where no cancellation is received by that day the term extends by a further twelve (12) months at the annual fee then in effect."
+  [saas-subscription] liability-cap-fee-escalator / Unusual / shown; grounded; matches P-06, right type
+      "Northwind’s aggregate liability to you for every claim relating to the service, whether framed in contract, in tort, in warranty or otherwise — and including any claim arising from lost work, lost revenue or a failed export — will not exceed the amount you actually paid us under Section 2 for the Billing Period in which the claim arose."
+  [saas-subscription] arbitration-class-action-waiver / Unusual / shown; grounded; matches P-08, right type
+      "Any dispute between you and Northwind arising out of these terms or out of your use of the service will be settled by binding arbitration before a single arbitrator under the consumer rules of a recognised arbitration body, and you agree to bring any claim only in your individual capacity and not as a plaintiff or class member in any purported class, collective or representative proceeding."
+  [offer-letter] indemnification / Dangerous / shown; grounded; matches P-04, right type
+      "You will indemnify Ardent and hold it harmless against any claim, loss, liability or expense, including reasonable attorney fees, that arises out of a breach by you of Section 4 or Section 5 of this letter, or out of a claim by a former employer that your employment with Ardent breaches an obligation you owe to them."
+  [offer-letter] arbitration-class-action-waiver / Unusual / shown; grounded; matches P-05, right type
+      "You and Ardent each agree that any claim arising out of or relating to your employment, its terms, or its end, including any statutory claim, will be resolved by final and binding arbitration administered under the employment rules of a nationally recognised arbitration provider, on an individual basis only, and each of us waives any right to a jury trial and any right to participate in a class, collective or representative action."
+  [storage-unit-rental] indemnification / Dangerous / shown; grounded; matches P-05, right type
+      "The Occupant will indemnify, defend and hold the Operator harmless from every claim, demand, loss, cost and expense, including reasonable attorney fees, brought by any person and arising out of the Occupant's use of the unit or the premises, the property stored in the unit, or the acts of anyone the Occupant allows on to the premises."
+  [storage-unit-rental] liability-cap-fee-escalator / Unusual / shown; grounded; matches P-04, right type
+      "The Operator's total liability to the Occupant for any loss of or damage to stored property, however caused, including loss or damage caused by the Operator's own negligence, is limited to five thousand dollars ($5,000) unless the Occupant has declared a higher value on the Unit Schedule and paid the corresponding value protection fee."
+  [storage-unit-rental] auto-renewal / Unusual / shown; grounded; matches P-01, right type
+      "After the initial term this Agreement continues on a month to month basis, each month renewing on the first day of the month without notice from either party, until it is ended as Section 8 describes."
+  [phone-plan-terms] indemnification / Dangerous / shown; grounded; matches P-06, right type
+      "You will indemnify and hold Cascade harmless from any claim, loss or expense, including reasonable legal fees, arising out of your use of the service, out of anything sent from or stored on your device, out of the use of your line by anyone you allow to use it, and out of any charge incurred on your account."
+  [phone-plan-terms] auto-renewal / Unusual / dropped by gates; NOT in document; matches no planted clause
+      "Service on a twelve month promotional plan renews for a further twelve month term at the standard rate for the plan rather than at the promotional rate, unless you tell us to stop the renewal before the last day of the current term."
+  [phone-plan-terms] liability-cap-fee-escalator / Unusual / shown; grounded; matches P-05, right type
+      "Cascade’s entire liability to you for any claim relating to the service, a device, or this Agreement, whether the claim is made in contract, in negligence, in warranty or under any statute, is limited to the service charges applied to the affected line during the bill period in which the claim arose, and Cascade is not liable for lost profits, lost data, or any indirect or consequential loss."
+  [phone-plan-terms] arbitration-class-action-waiver / Unusual / shown; grounded; matches P-07, right type
+      "You and Cascade agree that any dispute arising out of or relating to this Agreement, the service or any device will be resolved by individual binding arbitration administered by a nationally recognised arbitration provider under its consumer rules, and both of us give up the right to a jury trial and the right to bring or join a class, collective or representative action."
+  [phone-plan-terms] liability-cap-fee-escalator / Unusual / shown; grounded; matches P-01, right type
+      "Your bill includes a Regulatory Cost Recovery Charge and an Administrative Charge, neither of which is a tax or a charge required by any government, and Cascade may introduce, increase or remove either charge on notice given with the bill in which the change ﬁrst appears."
+  [internship-agreement] unilateral-termination / Dangerous / shown; grounded; matches no planted clause
+      "The Firm may end the Programme early for any reason on one week written notice."
+  [internship-agreement] indemnification / Dangerous / shown; grounded; matches P-04, right type
+      "The Analyst will indemnify the Firm and hold it harmless against any claim, loss or expense, including reasonable legal costs, arising out of a breach by the Analyst of Section 4 or Section 5, or out of anything the Analyst publishes about the Firm or a client of the Firm."
+  [internship-agreement] arbitration-class-action-waiver / Unusual / shown; grounded; matches P-05, right type
+      "Any dispute between the Analyst and the Firm arising out of the Programme or out of this Agreement will be resolved by final and binding arbitration on an individual basis, administered under the employment rules of a nationally recognised provider, and the Analyst gives up any right to a jury trial and any right to bring or join a class or collective action."

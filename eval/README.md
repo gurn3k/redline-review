@@ -1,89 +1,106 @@
 # Eval
 
-There are two sets. `npm run eval` runs the instructor's (`eval/gold-set`, nine mostly consumer
-documents). `npm run eval -- --set gold2` runs ours (`eval/gold-set 2`, twenty business
-documents). See "Gold set 2" below.
+Two document sets feed this eval. They are described separately below and share only the harness
+that runs them.
 
-`npm run eval` runs every document in `eval/gold-set/corpus/manifest.json` through the same call
-`npm run smoke` uses (`analyzeDocument(text, [], client)` with the default OpenRouter client and
-the settings in `.env.local`), scores what comes back, and saves the run to `eval-runs/` as a
-`.txt` and a `.json` named for the time the run started.
-
-It needs `OPENROUTER_API_KEY` and `OPENROUTER_MODEL` in `.env.local`. It makes one model call per
-document and no other network calls. It changes no app code, prompt or model setting.
-
-Read `PRD.md`, "How we measure it", before reading a number. Every figure here is an upper bound:
-a model wrote the gold set, so none of it is a promise to a reader and none of it belongs in copy.
-
-## What is in this folder
-
-| Path | What it is |
-|---|---|
-| `gold-set 2/` | The twenty business documents: `src/` (edit these), `documents/`, `sidecars/`, `manifest.json` and `build.ts` (generated). |
-| `gold-set/corpus`, `gold-set/fixtures` | The instructor's gold set, copied byte for byte from `tests/corpus` and `tests/fixtures` of `github.com/ankitvirmani/redline`. Relative paths in `manifest.json` (`../fixtures/...`) work because both folders sit side by side. Its own README is `gold-set/corpus/README.md`. |
-| `corpus.ts` | Loads the manifest, the documents and the sidecars. Checks that every sentence is in its document exactly once. |
-| `metrics.ts` | The type mapping and all the scoring. No file or network access. |
-| `run.ts` | The `npm run eval` entry point. |
-| `../tests/eval-gold-set.test.ts` | Part of `npm test`. No network. Checks the sentences and the scoring. |
-| `../eval-runs/` | One `.txt` and one `.json` per run. |
-
-## Gold set 2: business documents
-
-`eval/gold-set 2` holds twenty documents written for a small business owner reviewing paper someone
-else presented, which is what `PRD.md` says the product is for. The instructor's set is mostly
-consumer and employment paper, which the PRD excludes, and it plants no personal guarantee and no
-unilateral termination.
-
-| Kind | Documents |
-|---|---|
-| With planted clauses (15, 90 planted) | retail lease, IT services MSA, B2B software subscription, merchant processing, equipment lease, franchise agreement, business loan and guaranty, business internet service, janitorial services, marketing agency, payroll/PEO, freight and logistics, supplier credit application and guaranty, construction subcontract, temporary staffing |
-| Clean (5, nothing planted) | mutual NDA, short-term office lease, one-time purchase order terms, event venue rental, bookkeeping engagement letter |
-
-Every loaded document plants three to seven clauses, hidden under ordinary headings. 84 of the 90
-are of types the product flags; 6 are out of scope on purpose (3 non-compete or no-hire, 2 data
-and privacy overreach, 1 IP assignment) so the harness proves it does not count them. Each
-document also carries one or two **unusual-but-harmless** sentences (an insurance requirement, a
-reporting deadline, a retainage hold) so over-flagging has something to show up against. The clean
-documents have real obligations on both sides, fixed terms and mutual notice, and no renewal.
-
-Each planted sentence has an expected severity (Dangerous or Unusual) taken from the PRD's rules:
-personal guarantee, broad indemnification and one-sided termination are Dangerous; auto-renewal is
-Unusual unless the cancellation window is under 14 days or the renewal price is set without
-telling the customer, which makes it Dangerous; arbitration, liability caps and fee escalators are
-Unusual. The run reports how often a found clause carried the expected severity.
-
-About a third of the planted sentences carry a curly quote or apostrophe, a non-breaking space, a
-ligature, an em dash or a double space, so the typography split has something to measure.
-
-**How it is built.** The documents are written in `src/*.src.txt` with the planted sentences marked
-in place. `npm run eval:build-gold-set-2` cuts each marked sentence out of the same text it writes,
-so a sentence cannot drift from its document. Edit the source and rebuild; do not edit
-`documents/` or `sidecars/` by hand. The syntax is described at the top of `build.ts`.
-
-**What it is not.** A model wrote these, the same kind of model the eval measures, and wrote the
-clauses the way a model expects them to read. The hiding is real but mild. Every planted sentence
-is a complete sentence under a plain heading. Real contracts bury them in definitions, exhibits and
-cross-references. A high number here says the product can read this kind of clause, not that it
-will find one in a stranger's lease. Replace these with redacted real contracts when you can get
-them.
-
-## Clause type mapping
-
-The instructor's gold set has seven clause types; gold set 2 adds the five below.
-
-| Gold set 2 type | Product type that counts as the right one | In scope? |
+| | Gold set 1 | Gold set 2 |
 |---|---|---|
-| `personal-guarantee` | `personal-guarantee` | Yes |
-| `unilateral-termination` | `unilateral-termination` | Yes |
-| `fee-escalator` | `liability-cap-fee-escalator` | Yes |
-| `ip-assignment` | none | **No**, `PRD.md` lists IP assignment as not evaluated |
-| `data-privacy-overreach` | none | **No**, `PRD.md` lists data and privacy overreach as not evaluated |
+| Where | `eval/gold-set/` | `eval/gold-set-2-user-created/` |
+| Command | `npm run eval` | `npm run eval -- --set gold2` |
+| Written by | The instructor | Us |
+| Documents | 9, mostly consumer and employment | 20, business |
 
-`fee-escalator` is a price rise at the provider's discretion, kept separate from the instructor's
-`fee-escalators-and-late-fees` so late charges do not muddy it. The instructor's seven are below.
+Read `PRD.md`, "How we measure it", before reading a number. Every figure is an upper bound: a
+model wrote each set, so none of it is a promise to a reader and none of it belongs in copy.
 
-The instructor's gold set has seven clause types. This product has six standard types plus red lines
-(`lib/analysis/types.ts`).
+---
+
+## The harness (both sets)
+
+`npm run eval` runs every document in a set's `manifest.json` through the same call `npm run
+smoke` uses (`analyzeDocument(text, [], client)` with the default OpenRouter client and the
+settings in `.env.local`), scores what comes back, and saves the run to `eval-runs/` as a `.txt`
+and a `.json` named for the time the run started. Runs of gold set 2 end in `-gold2`. It needs
+`OPENROUTER_API_KEY` and `OPENROUTER_MODEL` in `.env.local`, makes one model call per document, and
+changes no app code, prompt or model setting.
+
+Code: `corpus.ts` (loading, and the check that every sentence is in its document exactly once),
+`metrics.ts` (the type mapping and all scoring, no file or network access), `run.ts` (the
+command). Tests: `tests/eval-gold-set.test.ts`, part of `npm test`, no network.
+
+### What is measured
+
+- **Recall.** In-scope planted clauses found, out of in-scope planted clauses. A clause is found
+  when a *shown* flag quotes a sentence that shares at least one character with the planted
+  sentence in the document. Whether that flag also named the right type is reported separately.
+  Recall is also split by whether the planted sentence contains a curly quote or apostrophe, a
+  non-breaking space, an fi or fl ligature, an em dash, or two spaces in a row.
+- **Precision.** Of the flags that can be judged, how many overlap an in-scope planted clause. Two
+  versions are printed: flags shown to the reader, and everything the model returned. A flag that
+  lands only on an out-of-scope planted clause is left out of both counts. A flag on a sentence the
+  answer key does not list counts against precision even if it is a fair catch, so read precision
+  as agreement with the key, not as a verdict on the flag.
+- **Groundedness.** Of everything the model returned, how many flags quote a sentence that appears
+  in the document character for character. The pipeline drops the rest before a reader sees them,
+  so the same figure over shown flags is 100% by construction and is printed beside it.
+- **Clean documents.** How many of the documents marked benign came back Clear, and how many flags
+  came back on them, shown and before the gates.
+- **Severity**, only where a sidecar states what severity the product should give a clause.
+- **Left out.** If the model call for a document fails or does not answer within 240 seconds, the
+  document is removed from every count and listed with its error. A failed call is never a miss.
+  There are no retries.
+
+Every rate prints as count/count and as a percentage.
+
+### Harness decisions
+
+Each was a point where I would normally have asked. The reason is next to it.
+
+1. **No eval existed.** `package.json` had no `eval` script, there was no eval ticket and no folder
+   of run records. `.scratch/first-version/spec.md` says the PRD's "What good looks like" is
+   "written to become the eval suite", which is an intention, not an eval.
+2. **Branch from `main`.** The checkout was on `keepalive-more-queries`, which was left alone.
+   `add-eval-suite` was created from `main`.
+3. **Recall counts shown flags.** A flag the pipeline's gates drop never reaches a reader, so it is
+   not a catch. Groundedness is the opposite and counts everything returned, because that is the
+   only way it can be anything but 100%. To see the model's output before the gates without
+   touching app code, `run.ts` wraps the real model client and records the `flags` array it
+   returns. The call itself is unchanged.
+4. **An empty or missing quote counts as returned and not grounded.** The model sometimes returns
+   a `red-line` flag with an empty citation when no red lines were supplied.
+5. **Red lines are empty.** `smoke.ts` passes `[]`, so the eval does too.
+6. **No stub mode.** `smoke.ts` falls back to a stub built from the sidecars. A stub built from the
+   answer key would score itself, so `npm run eval` stops with a message when the key or the model
+   is not set.
+7. **The model name is written into the run files**, so a run can be compared with a later one. The
+   key is never read into any output.
+8. **Run records are committed.** They are small, they are the history the trend in `PRD.md`
+   needs, and they contain no secret.
+9. **`loadDotEnvLocal` is copied from `smoke.ts`.** `smoke.ts` runs `main()` when imported, so it
+   cannot be shared without editing it, and the task said to change no app code.
+10. **No dependency was added.** `tsx` was already a dev dependency.
+
+---
+
+## Gold set 1: the instructor's set
+
+**What it is.** Nine documents with a known clause inventory, copied byte for byte from `tests/corpus`
+and `tests/fixtures` of `github.com/ankitvirmani/redline` into `eval/gold-set/corpus` and
+`eval/gold-set/fixtures`. Relative paths in its `manifest.json` (`../fixtures/...`) work because the
+two folders sit side by side. Its own README is `eval/gold-set/corpus/README.md`.
+
+- Six documents carry 40 planted clauses: a gym membership, a software subscription terms of
+  service, an employment offer letter, a storage unit rental, a consumer phone plan and an
+  internship agreement. Three are benign: a garden plot licence, a library volunteer agreement and
+  a swimming lesson registration.
+- Most of it is consumer and employment paper, which the PRD excludes. It plants no personal
+  guarantee and no unilateral termination, so it cannot say anything about those two types.
+- Its sidecars give a severity *band* (critical, high, moderate), not a product severity, so the
+  severity line is not printed for this set.
+
+**Run it.** `npm run eval`
+
+### Clause type mapping
 
 | Gold-set type | Product type that counts as the right one | In scope? |
 |---|---|---|
@@ -95,88 +112,119 @@ The instructor's gold set has seven clause types. This product has six standard 
 | `unilateral-modification` | none | **No** |
 | `non-compete` | none | **No** |
 
-Product types with no gold-set counterpart: `personal-guarantee` and `unilateral-termination`. The
-gold set plants neither, so recall cannot say anything about them. A flag of either type is
-still scored: it counts as found if its quote overlaps a planted sentence, and is reported as the
-wrong type.
+Why the two are out of scope, and never counted as misses:
 
-Why the two types are out of scope:
+- **Non-compete** (4 planted). `PRD.md`, "My red lines": "Explicitly not evaluated in v1:
+  non-compete clauses (employment context, segment excluded)."
+- **Unilateral modification** (6 planted). `PRD.md` names unilateral *termination* and no-cause
+  deactivation. A right to rewrite the terms is a different clause, and the termination prompt
+  (`lib/analysis/categories/definitions/unilateral-termination.ts`) looks only for the right to end
+  the relationship.
 
-- **Non-compete.** `PRD.md`, "My red lines": "Explicitly not evaluated in v1: non-compete clauses
-  (employment context, segment excluded)." Four planted clauses, in the offer letter and the
-  internship agreement.
-- **Unilateral modification.** `PRD.md` names unilateral *termination* and no-cause deactivation.
-  A right to rewrite the terms is a different clause, and the termination prompt
-  (`lib/analysis/categories/definitions/unilateral-termination.ts`) looks only for the right to
-  end the relationship. Six planted clauses.
+### Decisions specific to gold set 1
 
-Out-of-scope clauses are listed in every run and never counted as misses. A flag that lands on
-one is reported separately and is not counted for or against recall.
-
-## Decisions made without asking
-
-Each of these was a point where I would normally have asked. The reason is next to it.
-
-1. **No eval existed, so I built one.** `package.json` had no `eval` script, there is no eval
-   ticket and no folder of run records. `.scratch/first-version/spec.md` says the PRD's "What good
-   looks like" is "written to become the eval suite", which is an intention, not an eval.
-2. **Branch from `main`.** The checkout was on `keepalive-more-queries`, which was left alone.
-   `add-eval-suite` was created from `main`.
-3. **The first clone converted line endings.** This machine has `core.autocrlf=true`, so the first
-   clone wrote CRLF into the corpus files. The gold set's documents are meant to be LF, one
-   paragraph per line. I deleted that copy, cloned again with `core.autocrlf=false`, copied again,
-   and compared every file against the clone by SHA-256: identical. `eval/gold-set/.gitattributes`
-   sets `* -text` so git never rewrites a byte of it on this or any machine, the same protection
-   the source repo gives its fixtures.
-4. **"Found" means the quote shares at least one character with the planted sentence in the
-   document.** The task said "overlaps". A quote can be shorter or longer than the planted
-   sentence and still count. A quote that is not in the document cannot be placed, so it matches
-   nothing.
-5. **Recall counts shown flags, not everything the model returned.** A flag the pipeline's gates
-   drop never reaches a reader, so it is not a catch. Groundedness is the opposite: it counts
-   everything the model returned, because that is the only way it can be anything but 100%. To see
-   the model's own output before the gates without touching app code, `run.ts` wraps the real
-   model client and records the `flags` array it returns. The call itself is unchanged. The
-   groundedness line for shown flags is printed as well and is 100% by construction.
-6. **An empty or missing quote counts as returned and not grounded.** The model sometimes returns a
-   `red-line` flag with an empty citation when no red lines were supplied. That is a flag the model
-   returned whose quote is not in the document.
-7. **Red lines are empty.** `smoke.ts` passes `[]`, so the eval does too.
-8. **Clean documents are the three the manifest marks `benign`.** The clean-document result is
-   reported as documents that came back Clear out of documents run, plus the number of flags shown
-   on them and the number the model returned before the gates.
-9. **Fee escalators and late fees stay in scope.** `PRD.md` lists "liability caps and fee
+1. **The first clone converted line endings.** This machine has `core.autocrlf=true`, so the first
+   clone wrote CRLF into the corpus files, and the documents are meant to be LF, one paragraph per
+   line. I deleted that copy, cloned again with `core.autocrlf=false`, copied again, and compared
+   every file against the clone by SHA-256: identical. `eval/gold-set/.gitattributes` sets `* -text`
+   so git never rewrites a byte of it on any machine.
+2. **Fee escalators and late fees stay in scope.** `PRD.md` lists "liability caps and fee
    escalators" as flagged generically, and the product's category is `liability-cap-fee-escalator`.
    Its prompt describes fees that escalate over time, which is narrower than late charges and
-   reactivation fees (about half of this gold-set row; the rest are price increases). I kept the row in scope rather than drop nine
-   clauses from the denominator on my own reading, and gave it its own line so a low number there
-   is visibly about that row. If you decide late fees are out of scope, move the row in
-   `TYPE_MAP` in `metrics.ts` and the numbers follow.
-10. **A failed model call leaves the document out of every denominator.** It is listed with its
-    error. A call that has not answered after 240 seconds counts as failed. There are no retries,
-    so a flaky run shows up as left-out documents instead of being quietly smoothed over. If every
-    document fails the run exits non-zero.
-11. **No stub mode.** `smoke.ts` falls back to a stub built from the sidecars. A stub built from
-    the answer key would score itself, so `npm run eval` stops with a message when the key or the
-    model is not set.
-12. **The model name is written into the run files.** A run record without it cannot be compared
-    with a later one. The key is never read into any output.
-13. **Run records are committed.** They are small, they are the history the trend in `PRD.md`
-    needs, and they contain no secret.
-14. **`loadDotEnvLocal` is copied from `smoke.ts`.** `smoke.ts` runs `main()` when imported, so it
-    cannot be shared without editing it, and the task said to change no app code.
-15. **No dependency was added.** `tsx` was already a dev dependency.
-16. **The gold set's README mentions `npm run verify:corpus`, `scripts/eval/corpus.ts` and
-    `tests/eval-corpus.test.ts`.** Those belong to the instructor's repo. Their equivalents here
-    are `eval/corpus.ts` and `tests/eval-gold-set.test.ts`. There is no `verify:corpus` script.
+   reactivation fees (about half of this row; the rest are price increases). I kept the row in scope
+   rather than drop nine clauses from the denominator on my own reading, and gave it its own line so
+   a low number there is visibly about that row. If late fees should be out of scope, move the row
+   in `TYPE_MAP` in `metrics.ts`.
+3. **The instructor's README mentions `npm run verify:corpus`, `scripts/eval/corpus.ts` and
+   `tests/eval-corpus.test.ts`.** Those belong to the instructor's repo. Their equivalents here are
+   `eval/corpus.ts` and `tests/eval-gold-set.test.ts`. There is no `verify:corpus` script.
+4. **Clean documents** are the three the manifest marks `benign`.
 
-## How to read a run
+### How to read it
 
-- **Recall** is in-scope planted clauses found, out of in-scope planted clauses, over the
-  documents that ran. "Right type" is out of the ones found and is a separate question.
 - Small rows move a lot. `limitation-of-liability` has four clauses, so one clause is 25 points.
   The counts are printed beside every rate for that reason.
-- The character split shows whether a model that retypes instead of copying loses flags. A flag
-  whose quote differs by one curly apostrophe is dropped by the citation gate and never shown.
-- **Groundedness** over everything returned is where retyped quotes show up.
-- **Clean documents** is three documents. A clean result on three is evidence, not proof.
+- The instructor's README says ten of its forty planted sentences carry the typography characters.
+  The character split shows whether retyping costs flags.
+- Three clean documents is evidence, not proof.
+
+---
+
+## Gold set 2: business documents
+
+**What it is.** Twenty documents written for a small business owner reviewing paper someone else
+presented, which is what `PRD.md` says the product is for. Written by us, in `eval/gold-set-2-user-created/`
+(the folder name has a space, as requested).
+
+| Kind | Documents |
+|---|---|
+| With planted clauses (15, 90 planted) | retail lease, IT services MSA, B2B software subscription, merchant processing, equipment lease, franchise agreement, business loan and guaranty, business internet service, janitorial services, marketing agency, payroll/PEO, freight and logistics, supplier credit application and guaranty, construction subcontract, temporary staffing |
+| Clean (5, nothing planted) | mutual NDA, short-term office lease, one-time purchase order terms, event venue rental, bookkeeping engagement letter |
+
+- Every loaded document plants three to seven clauses under ordinary headings. 84 of the 90 are of
+  types the product flags. 6 are out of scope on purpose, so the harness shows it does not count
+  them: 3 non-compete or no-hire, 2 data and privacy overreach, 1 IP assignment.
+- Each document carries one or two **unusual-but-harmless** sentences (an insurance requirement, a
+  reporting deadline, a retainage hold) so over-flagging has something to show up against.
+- The clean documents have real obligations on both sides, fixed terms and mutual notice, and no
+  renewal.
+- About a third of the planted sentences carry a curly quote or apostrophe, a non-breaking space,
+  a ligature, an em dash or a double space.
+- Each planted clause has an expected severity, Dangerous or Unusual, from the PRD's rules:
+  personal guarantee, broad indemnification and one-sided termination are Dangerous; auto-renewal
+  is Unusual unless the cancellation window is under 14 days or the renewal price is set without
+  telling the customer, which makes it Dangerous; arbitration, liability caps and fee escalators
+  are Unusual. The run reports how often a found clause carried the expected severity.
+
+**Run it.** `npm run eval -- --set gold2`
+
+**Rebuild it.** The documents are written in `src/*.src.txt` with the planted sentences marked in
+place. `npm run eval:build-gold-set-2` cuts each marked sentence out of the same text it writes, so
+a sentence cannot drift from its document. Edit the source and rebuild; do not edit `documents/` or
+`sidecars/` by hand. The syntax is described at the top of `build.ts`.
+
+### Clause type mapping
+
+| Gold set 2 type | Product type that counts as the right one | In scope? |
+|---|---|---|
+| `personal-guarantee` | `personal-guarantee` | Yes |
+| `unilateral-termination` | `unilateral-termination` | Yes |
+| `arbitration-and-class-action-waiver` | `arbitration-class-action-waiver` | Yes |
+| `auto-renewal` | `auto-renewal` | Yes |
+| `indemnification` | `indemnification` | Yes |
+| `limitation-of-liability` | `liability-cap-fee-escalator` | Yes |
+| `fee-escalator` | `liability-cap-fee-escalator` | Yes |
+| `non-compete` | none | **No** |
+| `ip-assignment` | none | **No** |
+| `data-privacy-overreach` | none | **No** |
+
+Out of scope, never counted as misses:
+
+- **Non-compete** (3 planted, here as no-hire and conversion-fee clauses). `PRD.md`: explicitly not
+  evaluated in v1.
+- **IP assignment** (1 planted). `PRD.md`: explicitly not evaluated in v1 (freelance context).
+- **Data and privacy overreach** (2 planted). `PRD.md`: explicitly not evaluated in v1.
+
+### Decisions specific to gold set 2
+
+1. **Documents are generated from marked-up sources**, so every planted sentence is an exact
+   substring of its document. `tests/eval-gold-set.test.ts` checks it on every commit.
+2. **`fee-escalator` is its own type.** It means a price rise at the provider's discretion, so late
+   charges do not muddy the row. The product type it maps to is the same one the instructor's
+   `fee-escalators-and-late-fees` maps to.
+3. **Expected severity comes from the PRD's rules**, not from what the product currently does. Where
+   the product's code decides severity (arbitration, liability cap and fee escalator are always
+   Unusual; unilateral termination and personal guarantee are always Dangerous), agreement with the
+   expectation is close to automatic. The informative rows are auto-renewal and indemnification.
+4. **The set key is `gold2`**, a short name so the command does not carry the folder name.
+5. **`.gitattributes` sets `* -text`** here too, so git keeps the non-breaking spaces and ligatures
+   byte for byte.
+
+### How to read it
+
+- A high number here says the product can read this kind of clause, not that it will find one in a
+  stranger's lease. A model wrote the set, the same kind of model the eval measures, and wrote the
+  clauses the way a model expects them to read. Every planted sentence is a complete sentence under
+  a plain heading. Real contracts bury them in definitions, exhibits and cross-references.
+- Five clean documents is evidence, not proof.
+- Replace these with redacted real contracts when you can get them.

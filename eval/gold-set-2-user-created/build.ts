@@ -13,7 +13,7 @@
 import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
-const ROOT = path.join(process.cwd(), "eval", "gold-set 2");
+const ROOT = path.join(process.cwd(), "eval", "gold-set-2-user-created");
 const SRC = path.join(ROOT, "src");
 const CLAUSE_TYPES = [
   "arbitration-and-class-action-waiver",

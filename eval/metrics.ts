@@ -286,6 +286,12 @@ export interface Summary {
   recallByType: { goldType: string; recall: Rate; rightType: Rate }[];
   recallByCharacters: { label: string; recall: Rate }[];
   outOfScope: { goldType: string; planted: number; reason: string }[];
+  /**
+   * Of the flags that could be judged, how many overlap an in-scope planted clause. A flag that lands only
+   * on an out-of-scope planted clause is neither right nor wrong and is left out of both counts. A flag on
+   * nothing the answer key lists counts against precision, even though the key may be incomplete.
+   */
+  precision: { shown: Rate; returned: Rate };
   groundedness: Rate;
   shownGroundedness: Rate;
   cleanDocuments: { documents: number; returnedClear: Rate; flagsShown: number; flagsRaw: number };
@@ -349,6 +355,8 @@ export function summarize(scores: DocumentScore[], leftOut: string[]): Summary {
     .filter((row) => row.planted > 0);
 
   const allFlags = scores.flatMap((s) => s.flags);
+  const judgeable = allFlags.filter((f) => !f.matchedOutOfScope);
+  const correctShown = judgeable.filter((f) => f.shown && f.matchedPlanted.length > 0).length;
   const clean = scores.filter((s) => s.benign);
   const loaded = scores.filter((s) => !s.benign).flatMap((s) => s.flags.filter((f) => f.shown));
 
@@ -361,6 +369,10 @@ export function summarize(scores: DocumentScore[], leftOut: string[]): Summary {
     recallByType,
     recallByCharacters,
     outOfScope,
+    precision: {
+      shown: rate(correctShown, judgeable.filter((f) => f.shown).length),
+      returned: rate(correctShown, judgeable.length),
+    },
     groundedness: rate(allFlags.filter((f) => f.grounded).length, allFlags.length),
     shownGroundedness: rate(
       allFlags.filter((f) => f.shown && f.grounded).length,

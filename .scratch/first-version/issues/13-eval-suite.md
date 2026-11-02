@@ -54,7 +54,7 @@ the prompt does describe, and those were missed too, so scope alone does not exp
 
 These are upper bounds, per `PRD.md`.
 
-Second set added: `eval/gold-set 2`, twenty business documents (15 with 90 planted clauses, 5
+Second set added: `eval/gold-set-2-user-created`, twenty business documents (15 with 90 planted clauses, 5
 clean), run with `npm run eval -- --set gold2`. First run, 2026-11-02, 20 of 20 scored:
 
 - Recall 63/84 (75.0%); all 63 named the right type. Personal guarantee 4/7, unilateral
