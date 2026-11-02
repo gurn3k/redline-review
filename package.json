@@ -11,7 +11,8 @@
     "test": "vitest run",
     "smoke": "tsx scripts/smoke.ts",
     "eval": "tsx eval/run.ts",
-    "eval:build-gold-set-2": "tsx eval/gold-set-2-user-created/build.ts"
+    "eval:build-gold-set-2": "tsx eval/gold-set-2-user-created/build.ts",
+    "label": "node eval/labels/server.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

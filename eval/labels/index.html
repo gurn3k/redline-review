@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Label ten flags</title>
+<style>
+  :root {
+    --bg: #f6f5f1;
+    --card: #ffffff;
+    --ink: #1c1b19;
+    --muted: #5f5c55;
+    --line: #dcd9d0;
+    --accent: #1f4e8c;
+    --accent-ink: #ffffff;
+    --pass: #1d6b3b;
+    --pass-bg: #e3f3e8;
+    --fail: #a3281f;
+    --fail-bg: #fbe6e3;
+    --mark: #ffe58a;
+    --mark-ink: #1c1b19;
+    --warn-bg: #fff1c9;
+    --warn-line: #d9a400;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17171a;
+      --card: #202024;
+      --ink: #ecebe6;
+      --muted: #a8a59c;
+      --line: #3a3a40;
+      --accent: #7fb0ee;
+      --accent-ink: #0d1a2b;
+      --pass: #6fd08e;
+      --pass-bg: #17321f;
+      --fail: #ff9188;
+      --fail-bg: #3a1c1a;
+      --mark: #8a6d00;
+      --mark-ink: #fff6d6;
+      --warn-bg: #3a2f0a;
+      --warn-line: #b88a00;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  main { max-width: 820px; margin: 0 auto; padding: 20px 16px 64px; }
+  h1 { font-size: 1.35rem; margin: 0 0 4px; }
+  h2 { font-size: 1.05rem; margin: 0 0 8px; }
+  .sub { color: var(--muted); margin: 0 0 16px; font-size: 0.95rem; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .banner {
+    background: var(--warn-bg);
+    border: 1px solid var(--warn-line);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+  }
+  .banner[hidden] { display: none; }
+  details.panel { margin-bottom: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
+  details.panel > summary {
+    cursor: pointer;
+    padding: 12px 16px;
+    font-weight: 600;
+    list-style: none;
+  }
+  details.panel > summary::-webkit-details-marker { display: none; }
+  details.panel > summary::before { content: "\25B8\00a0"; }
+  details.panel[open] > summary::before { content: "\25BE\00a0"; }
+  .panel-body { padding: 0 16px 16px; max-height: 55vh; overflow: auto; border-top: 1px solid var(--line); }
+  .panel-body h3 { font-size: 1rem; margin: 16px 0 6px; }
+  .panel-body p { margin: 0 0 10px; }
+  .panel-body ul { margin: 0 0 10px; padding-left: 20px; }
+  .panel-body li { margin-bottom: 6px; }
+  .rule {
+    border-left: 4px solid var(--accent);
+    background: var(--bg);
+    padding: 10px 12px;
+    margin-top: 16px;
+    border-radius: 0 6px 6px 0;
+  }
+  .rule b { font-weight: 700; }
+  .progress { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+  .count { font-weight: 600; }
+  .dots { display: flex; gap: 6px; flex-wrap: wrap; }
+  .dot {
+    min-width: 34px; height: 34px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--card);
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0 6px;
+  }
+  .dot[aria-current="true"] { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .dot.pass { background: var(--pass-bg); color: var(--pass); border-color: var(--pass); }
+  .dot.fail { background: var(--fail-bg); color: var(--fail); border-color: var(--fail); }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 14px; }
+  .tag {
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 0.9rem;
+    background: var(--bg);
+  }
+  .tag small { color: var(--muted); margin-right: 4px; }
+  .paragraph {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 1.02rem;
+  }
+  mark { background: var(--mark); color: var(--mark-ink); padding: 1px 2px; border-radius: 3px; }
+  .rule-line { color: var(--muted); font-size: 0.92rem; margin: 14px 0 10px; }
+  .buttons { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  button {
+    font: inherit;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    padding: 8px 16px;
+  }
+  button:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .choice { min-width: 110px; font-weight: 700; padding: 10px 18px; }
+  .choice.pass[aria-pressed="true"] { background: var(--pass); color: #fff; border-color: var(--pass); }
+  .choice.fail[aria-pressed="true"] { background: var(--fail); color: #fff; border-color: var(--fail); }
+  @media (prefers-color-scheme: dark) {
+    .choice.pass[aria-pressed="true"] { color: #0b1f12; }
+    .choice.fail[aria-pressed="true"] { color: #2a0a07; }
+  }
+  button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  label.field { display: block; font-weight: 600; margin: 10px 0 4px; }
+  textarea {
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 10px;
+    resize: vertical;
+  }
+  .nav { display: flex; justify-content: space-between; gap: 10px; margin-top: 14px; }
+  .hint { color: var(--muted); font-size: 0.9rem; }
+  .status { color: var(--muted); font-size: 0.9rem; margin-top: 6px; }
+  .summary-line {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin: 8px 0;
+    overflow-wrap: anywhere;
+  }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .error { color: var(--fail); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Label ten flags</h1>
+  <p class="sub">Your call on each one. Your labels save as you go and are still here when you come back.</p>
+
+  <div id="banner" class="banner" hidden role="alert">
+    <strong>The server has stopped.</strong>
+    Your labels are still saved in this browser. Start it again with <code>npm run label</code>, or copy them now.
+    <div style="margin-top:8px"><button type="button" id="bannerCopy" class="primary">Copy my labels</button> <span id="bannerCopied" class="hint"></span></div>
+  </div>
+
+  <details class="panel" id="panel" open>
+    <summary>What good looks like, and which clauses this product flags (from PRD.md)</summary>
+    <div class="panel-body" id="prd">Loading&hellip;</div>
+  </details>
+
+  <div class="progress">
+    <span class="count" id="count"></span>
+    <div class="dots" id="dots" role="group" aria-label="Flags"></div>
+  </div>
+
+  <div id="flagArea"></div>
+
+  <div class="card" id="finish">
+    <h2>When you have finished</h2>
+    <label class="field" for="whatChanged">What changed in how I judge</label>
+    <textarea id="whatChanged" rows="3" placeholder="Anything about how your judgement shifted while you went through them."></textarea>
+    <div id="summaryWrap" style="margin-top:12px"></div>
+    <div class="status" id="changes"></div>
+  </div>
+
+  <div class="row">
+    <button type="button" id="copyAll">Copy my labels</button>
+    <span class="hint" id="copyAllMsg"></span>
+  </div>
+  <p class="status" id="saveStatus"></p>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  var RULE = "PASS if the quoted sentence really is the kind of clause the flag names and really costs the reader something. Otherwise FAIL.";
+  var LOCAL_KEY = "redline-label-flags-v1";
+  var PANEL_KEY = "redline-label-panel-open";
+
+  var flags = [];
+  var state = { labels: {}, whatChanged: "", savedAt: null };
+  var index = 0;
+  var serverUp = true;
+  var saving = false;
+  var dirty = false;
+  var noteTimer = null;
+
+  function $(id) { return document.getElementById(id); }
+  function nowIso() { return new Date().toISOString(); }
+
+  // ---------- storage ----------
+  function readLocal() {
+    try {
+      var raw = window.localStorage.getItem(LOCAL_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) { return null; }
+  }
+  function writeLocal() {
+    try { window.localStorage.setItem(LOCAL_KEY, JSON.stringify(state)); } catch (e) { /* private mode: the server copy still works */ }
+  }
+
+  function entry(n) {
+    var key = String(n);
+    if (!state.labels[key]) state.labels[key] = { label: null, note: "", setAt: null, history: [] };
+    if (!state.labels[key].history) state.labels[key].history = [];
+    return state.labels[key];
+  }
+
+  function changeCount() {
+    var total = 0;
+    Object.keys(state.labels).forEach(function (k) {
+      total += (state.labels[k].history || []).length;
+    });
+    return total;
+  }
+
+  // ---------- saving ----------
+  function touch() {
+    state.savedAt = nowIso();
+    writeLocal();
+    pushToServer();
+    render();
+  }
+
+  function pushToServer() {
+    dirty = true;
+    if (saving) return;
+    saving = true;
+    dirty = false;
+    setStatus("Saving…");
+    fetch("/labels.json", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(state)
+    }).then(function (res) {
+      if (!res.ok) throw new Error("save failed");
+      serverUp = true;
+      setStatus("Saved to eval/labels/labels.json");
+    }).catch(function () {
+      serverUp = false;
+      setStatus("Not saved to the server. A copy is in this browser.");
+    }).then(function () {
+      saving = false;
+      showBanner();
+      if (dirty) pushToServer();
+    });
+  }
+
+  function setStatus(text) { $("saveStatus").textContent = text; }
+  function showBanner() { $("banner").hidden = serverUp; }
+
+  function ping() {
+    fetch("/api/ping", { cache: "no-store" }).then(function (res) {
+      if (!res.ok) throw new Error("down");
+      if (!serverUp) {
+        serverUp = true;
+        showBanner();
+        pushToServer();
+      }
+    }).catch(function () {
+      serverUp = false;
+      showBanner();
+    });
+  }
+
+  function copyText(text, msgEl) {
+    function done(ok) { if (msgEl) { msgEl.textContent = ok ? "Copied." : "Could not copy. Select the text and copy it by hand."; setTimeout(function () { msgEl.textContent = ""; }, 3000); } }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { fallbackCopy(text, done); });
+    } else {
+      fallbackCopy(text, done);
+    }
+  }
+  function fallbackCopy(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    done(ok);
+  }
+
+  // ---------- label logic ----------
+  function setLabel(n, label) {
+    var e = entry(n);
+    if (e.label === label) return;
+    var t = nowIso();
+    if (e.label) {
+      e.history.push({ label: e.label, note: e.note, setAt: e.setAt, replacedAt: t });
+    }
+    e.label = label;
+    e.setAt = t;
+    touch();
+  }
+
+  function setNote(n, note) {
+    var e = entry(n);
+    if (e.note === note) return;
+    e.note = note;
+    state.savedAt = nowIso();
+    writeLocal();
+    pushToServer();
+    renderProgress();
+    renderFinish();
+  }
+
+  // ---------- rendering ----------
+  function labelled() {
+    return flags.filter(function (f) { var e = state.labels[String(f.number)]; return e && e.label; }).length;
+  }
+  function complete() {
+    return flags.length > 0 && flags.every(function (f) {
+      var e = state.labels[String(f.number)];
+      return e && e.label && e.note.trim().length > 0;
+    });
+  }
+
+  function renderProgress() {
+    $("count").textContent = labelled() + " of " + flags.length + " labelled";
+    var dots = $("dots");
+    dots.textContent = "";
+    flags.forEach(function (f, i) {
+      var e = state.labels[String(f.number)];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "dot" + (e && e.label ? (e.label === "PASS" ? " pass" : " fail") : "");
+      b.textContent = String(f.number) + (e && e.label ? (e.label === "PASS" ? " ✓" : " ✕") : "");
+      b.setAttribute("aria-label", "Flag " + f.number + (e && e.label ? ", " + e.label : ", not labelled"));
+      if (i === index) b.setAttribute("aria-current", "true");
+      b.addEventListener("click", function () { goTo(i); });
+      dots.appendChild(b);
+    });
+  }
+
+  function renderFlag() {
+    var area = $("flagArea");
+    area.textContent = "";
+    if (flags.length === 0) {
+      var p = document.createElement("p");
+      p.className = "error";
+      p.textContent = "No flags loaded. Check that eval/labels/flags.json exists.";
+      area.appendChild(p);
+      return;
+    }
+    var f = flags[index];
+    var e = entry(f.number);
+
+    var card = document.createElement("div");
+    card.className = "card";
+
+    var h = document.createElement("h2");
+    h.textContent = "Flag " + f.number + " of " + flags.length;
+    card.appendChild(h);
+
+    var meta = document.createElement("div");
+    meta.className = "meta";
+    [["Document", f.document], ["Clause type", f.clauseType], ["Severity", f.severity]].forEach(function (pair) {
+      var t = document.createElement("span");
+      t.className = "tag";
+      var s = document.createElement("small");
+      s.textContent = pair[0];
+      t.appendChild(s);
+      t.appendChild(document.createTextNode(pair[1]));
+      meta.appendChild(t);
+    });
+    card.appendChild(meta);
+
+    var para = document.createElement("div");
+    para.className = "paragraph";
+    var at = f.paragraph.indexOf(f.quotedSentence);
+    if (at === -1) {
+      para.textContent = f.paragraph;
+      var note = document.createElement("p");
+      note.className = "hint";
+      note.textContent = "Quoted sentence: " + f.quotedSentence;
+      card.appendChild(para);
+      card.appendChild(note);
+    } else {
+      para.appendChild(document.createTextNode(f.paragraph.slice(0, at)));
+      var m = document.createElement("mark");
+      m.textContent = f.quotedSentence;
+      para.appendChild(m);
+      para.appendChild(document.createTextNode(f.paragraph.slice(at + f.quotedSentence.length)));
+      card.appendChild(para);
+    }
+
+    var rl = document.createElement("p");
+    rl.className = "rule-line";
+    rl.textContent = "Rule: " + RULE;
+    card.appendChild(rl);
+
+    var btns = document.createElement("div");
+    btns.className = "buttons";
+    ["PASS", "FAIL"].forEach(function (value) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "choice " + value.toLowerCase();
+      b.textContent = value;
+      b.setAttribute("aria-pressed", e.label === value ? "true" : "false");
+      b.addEventListener("click", function () { setLabel(f.number, value); });
+      btns.appendChild(b);
+    });
+    card.appendChild(btns);
+
+    var lab = document.createElement("label");
+    lab.className = "field";
+    lab.setAttribute("for", "note");
+    lab.textContent = "Why, in one sentence";
+    card.appendChild(lab);
+    var ta = document.createElement("textarea");
+    ta.id = "note";
+    ta.rows = 2;
+    ta.value = e.note;
+    ta.addEventListener("input", function () {
+      var n = f.number, v = ta.value;
+      if (noteTimer) clearTimeout(noteTimer);
+      noteTimer = setTimeout(function () { setNote(n, v); noteTimer = null; }, 300);
+    });
+    ta.addEventListener("blur", function () {
+      if (noteTimer) { clearTimeout(noteTimer); noteTimer = null; }
+      setNote(f.number, ta.value);
+    });
+    ta.addEventListener("keydown", function (ev) { if (ev.key === "Escape") ta.blur(); });
+    card.appendChild(ta);
+
+    var nav = document.createElement("div");
+    nav.className = "nav";
+    var prev = document.createElement("button");
+    prev.type = "button";
+    prev.textContent = "← Previous";
+    prev.disabled = index === 0;
+    prev.addEventListener("click", function () { goTo(index - 1); });
+    var next = document.createElement("button");
+    next.type = "button";
+    next.textContent = "Next →";
+    next.disabled = index === flags.length - 1;
+    next.addEventListener("click", function () { goTo(index + 1); });
+    nav.appendChild(prev);
+    nav.appendChild(next);
+    card.appendChild(nav);
+
+    var hint = document.createElement("p");
+    hint.className = "hint";
+    hint.textContent = "Left and right arrow keys move between flags when you are not typing in a box. Escape leaves the box.";
+    card.appendChild(hint);
+
+    area.appendChild(card);
+  }
+
+  function summaryLine() {
+    var pass = 0, fail = 0;
+    flags.forEach(function (f) {
+      var e = state.labels[String(f.number)];
+      if (e && e.label === "PASS") pass++;
+      if (e && e.label === "FAIL") fail++;
+    });
+    var c = changeCount();
+    var mind = c === 0 ? "did not change my mind" : c === 1 ? "changed my mind once" : "changed my mind " + c + " times";
+    return pass + " PASS, " + fail + " FAIL, " + mind;
+  }
+
+  function renderFinish() {
+    var wrap = $("summaryWrap");
+    wrap.textContent = "";
+    if (complete()) {
+      var line = summaryLine();
+      var p = document.createElement("div");
+      p.className = "summary-line";
+      p.textContent = line;
+      wrap.appendChild(p);
+      var row = document.createElement("div");
+      row.className = "row";
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "primary";
+      b.textContent = "Copy this line";
+      var msg = document.createElement("span");
+      msg.className = "hint";
+      b.addEventListener("click", function () { copyText(line, msg); });
+      row.appendChild(b);
+      row.appendChild(msg);
+      wrap.appendChild(row);
+    } else {
+      var q = document.createElement("p");
+      q.className = "hint";
+      q.textContent = "Give all ten a label and a note and a line to copy into the chat appears here.";
+      wrap.appendChild(q);
+    }
+    var c = changeCount();
+    $("changes").textContent = "Changes of mind so far: " + c;
+  }
+
+  function render() {
+    renderProgress();
+    renderFlag();
+    renderFinish();
+  }
+
+  function goTo(i) {
+    if (i < 0 || i >= flags.length) return;
+    var active = document.activeElement;
+    if (active && active.id === "note") active.blur();
+    index = i;
+    try { window.localStorage.setItem(LOCAL_KEY + "-index", String(i)); } catch (e) {}
+    render();
+  }
+
+  // ---------- PRD panel ----------
+  function inline(parent, text) {
+    var parts = text.split(/(\*\*[^*]+\*\*)/);
+    parts.forEach(function (part) {
+      if (!part) return;
+      if (part.slice(0, 2) === "**" && part.slice(-2) === "**") {
+        var s = document.createElement("strong");
+        s.textContent = part.slice(2, -2);
+        parent.appendChild(s);
+      } else {
+        parent.appendChild(document.createTextNode(part));
+      }
+    });
+  }
+
+  function renderPrd(sections) {
+    var box = $("prd");
+    box.textContent = "";
+    sections.forEach(function (section) {
+      var lines = section.split("\n");
+      var h = document.createElement("h3");
+      h.textContent = lines[0].replace(/^##\s*/, "");
+      box.appendChild(h);
+      var list = null, para = null, lastItem = null;
+      lines.slice(1).forEach(function (line) {
+        if (line.trim() === "") { list = null; para = null; lastItem = null; return; }
+        var bullet = line.match(/^- (.*)$/);
+        if (bullet) {
+          if (!list) { list = document.createElement("ul"); box.appendChild(list); }
+          lastItem = document.createElement("li");
+          inline(lastItem, bullet[1]);
+          list.appendChild(lastItem);
+          para = null;
+        } else if (lastItem && /^\s+/.test(line)) {
+          lastItem.appendChild(document.createTextNode(" "));
+          inline(lastItem, line.trim());
+        } else {
+          list = null; lastItem = null;
+          if (!para) { para = document.createElement("p"); box.appendChild(para); }
+          else para.appendChild(document.createTextNode(" "));
+          inline(para, line.trim());
+        }
+      });
+    });
+    var rule = document.createElement("div");
+    rule.className = "rule";
+    var b = document.createElement("b");
+    b.textContent = "The rule. ";
+    rule.appendChild(b);
+    rule.appendChild(document.createTextNode(RULE));
+    box.appendChild(rule);
+  }
+
+  // ---------- start up ----------
+  function later(a, b) {
+    if (!a) return b;
+    if (!b) return a;
+    return new Date(a).getTime() >= new Date(b).getTime() ? a : b;
+  }
+
+  function init() {
+    var panel = $("panel");
+    try { if (window.localStorage.getItem(PANEL_KEY) === "closed") panel.removeAttribute("open"); } catch (e) {}
+    panel.addEventListener("toggle", function () {
+      try { window.localStorage.setItem(PANEL_KEY, panel.open ? "open" : "closed"); } catch (e) {}
+    });
+
+    var wc = $("whatChanged");
+    wc.addEventListener("input", function () {
+      state.whatChanged = wc.value;
+      state.savedAt = nowIso();
+      writeLocal();
+      pushToServer();
+    });
+
+    $("copyAll").addEventListener("click", function () { copyText(JSON.stringify(state, null, 2), $("copyAllMsg")); });
+    $("bannerCopy").addEventListener("click", function () { copyText(JSON.stringify(state, null, 2), $("bannerCopied")); });
+
+    document.addEventListener("keydown", function (ev) {
+      if (ev.altKey || ev.ctrlKey || ev.metaKey || ev.shiftKey) return;
+      var t = ev.target;
+      if (t && (t.tagName === "TEXTAREA" || t.tagName === "INPUT")) return;
+      if (ev.key === "ArrowRight") { ev.preventDefault(); goTo(index + 1); }
+      else if (ev.key === "ArrowLeft") { ev.preventDefault(); goTo(index - 1); }
+    });
+
+    fetch("/api/prd").then(function (r) { return r.json(); }).then(function (d) { renderPrd(d.sections || []); })
+      .catch(function () { $("prd").textContent = "Could not load PRD.md from the server."; });
+
+    var local = readLocal();
+    Promise.all([
+      fetch("/flags.json", { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error(); return r.json(); }),
+      fetch("/labels.json", { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error(); return r.json(); }).catch(function () { return null; })
+    ]).then(function (results) {
+      flags = results[0];
+      var server = results[1];
+      serverUp = server !== null;
+      var pushLocal = false;
+      if (server && local) {
+        if (later(local.savedAt, server.savedAt) === local.savedAt && local.savedAt !== server.savedAt) { state = local; pushLocal = true; }
+        else state = server;
+      } else if (server) {
+        state = server;
+      } else if (local) {
+        state = local;
+      }
+      if (!state.labels) state.labels = {};
+      if (typeof state.whatChanged !== "string") state.whatChanged = "";
+      wc.value = state.whatChanged;
+      try {
+        var saved = parseInt(window.localStorage.getItem(LOCAL_KEY + "-index"), 10);
+        if (saved >= 0 && saved < flags.length) index = saved;
+      } catch (e) {}
+      if (pushLocal) pushToServer();
+      showBanner();
+      render();
+    }).catch(function () {
+      var local2 = readLocal();
+      if (local2) { state = local2; wc.value = state.whatChanged || ""; }
+      serverUp = false;
+      showBanner();
+      $("flagArea").textContent = "";
+      var p = document.createElement("p");
+      p.className = "error";
+      p.textContent = "Could not load the flags. The server may have stopped.";
+      $("flagArea").appendChild(p);
+      renderProgress();
+      renderFinish();
+    });
+
+    setInterval(ping, 4000);
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
