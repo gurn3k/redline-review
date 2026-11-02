@@ -19,10 +19,17 @@
       "history": []
     },
     "4": {
-      "label": "PASS",
-      "note": "this non compete is important to flag to the reader because it would potentially affect future employment or business opportunities",
-      "setAt": "2026-11-02T15:55:34.949Z",
-      "history": []
+      "label": "FAIL",
+      "note": "",
+      "setAt": "2026-11-02T16:23:09.587Z",
+      "history": [
+        {
+          "label": "PASS",
+          "note": "this non compete is important to flag to the reader because it would potentially affect future employment or business opportunities",
+          "setAt": "2026-11-02T15:55:34.949Z",
+          "replacedAt": "2026-11-02T16:23:09.587Z"
+        }
+      ]
     },
     "5": {
       "label": "PASS",
@@ -61,6 +68,6 @@
       "history": []
     }
   },
-  "whatChanged": "I began looking at clauses that typically apply to individuals and thought they could also affect business owners in a similar context. ",
-  "savedAt": "2026-11-02T16:01:09.872Z"
+  "whatChanged": "On second review, the one flag i changed was because i saw that it was referring to a non compete clause following a term of employment.",
+  "savedAt": "2026-11-02T16:24:09.451Z"
 }
