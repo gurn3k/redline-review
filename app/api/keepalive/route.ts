@@ -7,8 +7,10 @@ import { NextResponse, type NextRequest } from "next/server";
  *
  * Vercel sends `Authorization: Bearer $CRON_SECRET` on cron invocations;
  * anything else is turned away so the route can't be used to hammer the DB.
- * The query runs as anon, so RLS returns no rows — the request reaching the
- * database is all that matters.
+ * The queries run as anon, so RLS returns no rows — the requests reaching the
+ * database are all that matter. Supabase says "a few user requests to the
+ * database each day" is typically enough, and Hobby crons only fire daily,
+ * so each ping makes several reads.
  */
 export async function GET(request: NextRequest) {
   const cronSecret = process.env.CRON_SECRET;
@@ -23,9 +25,11 @@ export async function GET(request: NextRequest) {
   }
 
   const supabase = createClient(supabaseUrl, supabaseAnonKey);
-  const { error } = await supabase.from("documents").select("id").limit(1);
-  if (error) {
-    return NextResponse.json({ ok: false, error: error.message }, { status: 502 });
+  for (const table of ["documents", "red_lines", "documents", "red_lines"]) {
+    const { error } = await supabase.from(table).select("id").limit(1);
+    if (error) {
+      return NextResponse.json({ ok: false, error: error.message }, { status: 502 });
+    }
   }
 
   return NextResponse.json({ ok: true });
