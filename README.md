@@ -1,4 +1,5 @@
 # Redline
+[![Tests](https://github.com/gurn3k/redline-review/actions/workflows/tests.yml/badge.svg)](https://github.com/gurn3k/redline-review/actions/workflows/tests.yml)
 
 **Read it before you sign it.** Redline reviews a contract someone hands a small business owner, before they sign it. It returns a plain-English summary, risk flags ranked Dangerous or Unusual, a drafted counter-offer for each flag, and a Q&A box that answers only from the uploaded document.
 
