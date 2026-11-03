@@ -7,7 +7,6 @@ that runs them.
 |---|---|---|
 | Where | `eval/gold-set/` | `eval/gold-set-2-user-created/` |
 | Command | `npm run eval` | `npm run eval -- --set gold2` |
-| Written by | The instructor | Us |
 | Documents | 9, mostly consumer and employment | 20, business |
 
 Read `PRD.md`, "How we measure it", before reading a number. Every figure is an upper bound: a
@@ -82,10 +81,9 @@ Each was a point where I would normally have asked. The reason is next to it.
 
 ---
 
-## Gold set 1: the instructor's set
+## Gold set 1: consumer and employment documents
 
-**What it is.** Nine documents with a known clause inventory, copied byte for byte from `tests/corpus`
-and `tests/fixtures` of `github.com/ankitvirmani/redline` into `eval/gold-set/corpus` and
+**What it is.** Nine documents with a known clause inventory, in `eval/gold-set/corpus` and
 `eval/gold-set/fixtures`. Relative paths in its `manifest.json` (`../fixtures/...`) work because the
 two folders sit side by side. Its own README is `eval/gold-set/corpus/README.md`.
 
@@ -135,8 +133,8 @@ Why the two are out of scope, and never counted as misses:
    rather than drop nine clauses from the denominator on my own reading, and gave it its own line so
    a low number there is visibly about that row. If late fees should be out of scope, move the row
    in `TYPE_MAP` in `metrics.ts`.
-3. **The instructor's README mentions `npm run verify:corpus`, `scripts/eval/corpus.ts` and
-   `tests/eval-corpus.test.ts`.** Those belong to the instructor's repo. Their equivalents here are
+3. **The set's own README mentions `npm run verify:corpus`, `scripts/eval/corpus.ts` and
+   `tests/eval-corpus.test.ts`.** Those scripts are not part of this repo. Their equivalents here are
    `eval/corpus.ts` and `tests/eval-gold-set.test.ts`. There is no `verify:corpus` script.
 4. **Clean documents** are the three the manifest marks `benign`.
 
@@ -144,7 +142,7 @@ Why the two are out of scope, and never counted as misses:
 
 - Small rows move a lot. `limitation-of-liability` has four clauses, so one clause is 25 points.
   The counts are printed beside every rate for that reason.
-- The instructor's README says ten of its forty planted sentences carry the typography characters.
+- The set's own README says ten of its forty planted sentences carry the typography characters.
   The character split shows whether retyping costs flags.
 - Three clean documents is evidence, not proof.
 
@@ -210,7 +208,7 @@ Out of scope, never counted as misses:
 1. **Documents are generated from marked-up sources**, so every planted sentence is an exact
    substring of its document. `tests/eval-gold-set.test.ts` checks it on every commit.
 2. **`fee-escalator` is its own type.** It means a price rise at the provider's discretion, so late
-   charges do not muddy the row. The product type it maps to is the same one the instructor's
+   charges do not muddy the row. The product type it maps to is the same one gold set 1's
    `fee-escalators-and-late-fees` maps to.
 3. **Expected severity comes from the PRD's rules**, not from what the product currently does. Where
    the product's code decides severity (arbitration, liability cap and fee escalator are always

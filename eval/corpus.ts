@@ -8,7 +8,7 @@ export interface PlantedClause {
   clauseType: string;
   sourceSentence: string;
   exit?: { text: string; sourceSentence: string } | null;
-  /** "Dangerous" or "Unusual" when the sidecar says what the product should call it. The instructor's gold set has bands instead. */
+  /** "Dangerous" or "Unusual" when the sidecar says what the product should call it. Gold set 1 has bands instead. */
   expectedSeverity?: string;
 }
 
@@ -33,7 +33,7 @@ interface QuestionSet {
   grounded?: { question: string; expectedSourceSentence: string }[];
 }
 
-/** The sets `npm run eval -- --set <name>` can run. "gold" is the instructor's; "gold2" is the business set in eval/gold-set-2-user-created. */
+/** The sets `npm run eval -- --set <name>` can run. "gold" is gold set 1; "gold2" is the business set in eval/gold-set-2-user-created. */
 export const CORPUS_DIRS: Record<string, string> = {
   gold: path.join(process.cwd(), "eval", "gold-set", "corpus"),
   gold2: path.join(process.cwd(), "eval", "gold-set-2-user-created"),

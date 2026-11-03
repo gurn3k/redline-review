@@ -31,8 +31,7 @@ it". It changes no app code, prompt or model setting. The decisions behind it ar
 
 ## Comments
 
-No eval existed before this ticket. The gold set is the instructor's, copied unchanged from
-`github.com/ankitvirmani/redline` (`tests/corpus` and `tests/fixtures`). The first clone converted
+No eval existed before this ticket. Gold set 1 was copied in unchanged. The first copy converted
 line endings on this machine, so it was redone with conversion off and compared byte for byte.
 
 `eval/run.ts` wraps the real model client to record the model's flags before the pipeline's gates.

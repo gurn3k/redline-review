@@ -32,7 +32,7 @@ planted clauses are known, and scored what came back. The run I am reporting is
 `eval-runs/2026-11-02T15-15-46Z.txt`, started 2026-11-02, model `z-ai/glm-5.3-flash`. All 9
 documents ran and none were left out because of a failed model call.
 
-The documents are the instructor's gold set (`eval/gold-set/`). There are nine. Six carry 40
+The documents are gold set 1 (`eval/gold-set/`). There are nine. Six carry 40
 planted clauses in total: a gym membership, a software subscription, an employment offer letter, a
 storage unit rental, a consumer phone plan and an internship agreement. Three have no planted clause
 and should come back clean: a garden plot licence, a library volunteer agreement and a swimming
