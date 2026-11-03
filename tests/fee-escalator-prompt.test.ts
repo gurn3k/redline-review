@@ -4,7 +4,7 @@ import { liabilityCapFeeEscalatorCategory } from "@/lib/analysis/categories/defi
 import type { ModelClient } from "@/lib/model/client";
 
 /**
- * The eval (eval-runs/2026-11-02T15-15-46Z) found 1 of 9 fee clauses in the
+ * The eval (eval/runs/2026-11-02T15-15-46Z) found 1 of 9 fee clauses in the
  * gold set. The prompt only asked for fees that escalate "without clear
  * notice or an exit", so the model skipped price rises the company can make
  * at its own discretion, late-payment charges, interest and repayment terms.

@@ -41,7 +41,7 @@ function readBody(req) {
 
 // The two PRD sections, cut out of PRD.md as written. Nothing is retyped.
 async function prdSections() {
-  const text = (await readFile(path.join(ROOT, "PRD.md"), "utf-8")).replace(/\r\n/g, "\n");
+  const text = (await readFile(path.join(ROOT, "docs", "PRD.md"), "utf-8")).replace(/\r\n/g, "\n");
   const lines = text.split("\n");
   const grab = (heading) => {
     const start = lines.findIndex((l) => l.trim() === heading);

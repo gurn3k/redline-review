@@ -126,7 +126,7 @@ into `CATEGORY_REGISTRY` is picked up automatically by
 severity-resolution step (via `computeSeverity`) — no other file needs to
 change. `computeSeverity` receives the raw `CandidateFlag` (the model's own
 severity is in `candidate.severity` if you need to inspect it, though the
-four fixed-mapping categories per `BUILD-REPORT.md` will ignore it and
+four fixed-mapping categories per `docs/BUILD-REPORT.md` will ignore it and
 return a constant). The severity your `computeSeverity` returns is still
 run through the same `"Dangerous"`/`"Unusual"` validation and the same two
 hard gates as every other candidate — you don't need to re-check those

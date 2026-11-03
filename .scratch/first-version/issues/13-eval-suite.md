@@ -2,7 +2,7 @@
 
 **What to build:** `npm run eval` runs a gold set of documents with known planted clauses through
 the same pipeline `npm run smoke` uses, with the OpenRouter settings in `.env.local`, and reports
-recall, groundedness and clean-document results as described in `PRD.md` under "How we measure
+recall, groundedness and clean-document results as described in `docs/PRD.md` under "How we measure
 it". It changes no app code, prompt or model setting. The decisions behind it are in
 `eval/README.md`.
 
@@ -22,12 +22,12 @@ it". It changes no app code, prompt or model setting. The decisions behind it ar
 - [x] Recall is split by whether the planted sentence contains a curly quote or apostrophe, a
       non-breaking space, an fi or fl ligature, an em dash, or two spaces in a row.
 - [x] Every rate prints as count/count and as a percentage.
-- [x] Each run is saved to `eval-runs/` as a `.txt` and a `.json` named for the time it started,
+- [x] Each run is saved to `eval/runs/` as a `.txt` and a `.json` named for the time it started,
       with every flag's document, clause type, severity, quoted sentence, and whether it matched a
       planted clause.
 - [x] `npm test` includes a test with no network that checks every gold-set sentence appears
       exactly once in its document.
-- [x] `PRD.md` has a "How we measure it" section.
+- [x] `docs/PRD.md` has a "How we measure it" section.
 
 ## Comments
 
@@ -51,7 +51,7 @@ scope (see `eval/README.md`, decision 9). About half of its planted clauses are 
 reactivation charges, which the product's prompt does not describe. The rest are price increases
 the prompt does describe, and those were missed too, so scope alone does not explain the row.
 
-These are upper bounds, per `PRD.md`.
+These are upper bounds, per `docs/PRD.md`.
 
 Second set added: `eval/gold-set-2-user-created`, twenty business documents (15 with 90 planted clauses, 5
 clean), run with `npm run eval -- --set gold2`. First run, 2026-11-02, 20 of 20 scored:

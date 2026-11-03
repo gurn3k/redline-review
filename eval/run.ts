@@ -22,7 +22,7 @@ import {
 
 loadDotEnvLocal();
 
-const RUNS_DIR = path.join(process.cwd(), "eval-runs");
+const RUNS_DIR = path.join(process.cwd(), "eval", "runs");
 const CALL_TIMEOUT_MS = 240_000;
 
 async function main() {
@@ -112,7 +112,7 @@ async function main() {
       2,
     ) + "\n",
   );
-  console.log(`\nSaved eval-runs/${stamp}.txt and eval-runs/${stamp}.json`);
+  console.log(`\nSaved eval/runs/${stamp}.txt and eval/runs/${stamp}.json`);
 
   if (scores.length === 0) process.exitCode = 1;
 }

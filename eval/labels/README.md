@@ -4,7 +4,7 @@ A page for labelling ten flags from an eval run. The labels are yours. Nothing h
 
 ## Which run
 
-`eval-runs/2026-11-02T15-15-46Z.json`, the newest run of gold set 1 (started 2026-11-02 at
+`eval/runs/2026-11-02T15-15-46Z.json`, the newest run of gold set 1 (started 2026-11-02 at
 15:15:46 UTC). Newer records exist for gold set 2, which is on hold, so they were not used.
 
 ## How the ten were picked
@@ -32,8 +32,8 @@ document.
 PASS if the quoted sentence really is the kind of clause the flag names and really costs the reader
 something. Otherwise FAIL.
 
-The page shows the "What good looks like" and "My red lines" sections of `PRD.md` word for word. The
-server cuts them out of `PRD.md` each time the page loads.
+The page shows the "What good looks like" and "My red lines" sections of `docs/PRD.md` word for word. The
+server cuts them out of `docs/PRD.md` each time the page loads.
 
 ## What the page does
 

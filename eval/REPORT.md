@@ -10,9 +10,9 @@ whether to sign it. The owner uploads the document and gets back a plain-English
 risk flags ranked Dangerous or Unusual, and a drafted counter-offer for each flagged clause. Every
 flag has to quote the exact sentence it is based on. There is also a question box that answers only
 from the uploaded document, and a list of the owner's own red lines that the analysis also checks.
-When nothing is flagged, Redline says what it checked instead of staying silent. (`PRD.md`)
+When nothing is flagged, Redline says what it checked instead of staying silent. (`docs/PRD.md`)
 
-The clauses it promises to flag, from the "My red lines" section of `PRD.md`:
+The clauses it promises to flag, from the "My red lines" section of `docs/PRD.md`:
 
 - **Personal guarantee**, Dangerous.
 - **Indemnification**, Dangerous.
@@ -29,7 +29,7 @@ and data and privacy overreach.
 
 I ran Redline's real analysis, with the real model through OpenRouter, over a set of documents whose
 planted clauses are known, and scored what came back. The run I am reporting is
-`eval-runs/2026-11-02T15-15-46Z.txt`, started 2026-11-02, model `z-ai/glm-5.3-flash`. All 9
+`eval/runs/2026-11-02T15-15-46Z.txt`, started 2026-11-02, model `z-ai/glm-5.3-flash`. All 9
 documents ran and none were left out because of a failed model call.
 
 The documents are gold set 1 (`eval/gold-set/`). There are nine. Six carry 40
@@ -50,7 +50,7 @@ planted sentence. (`eval/README.md`)
 
 ## The numbers
 
-All from `eval-runs/2026-11-02T15-15-46Z.txt`.
+All from `eval/runs/2026-11-02T15-15-46Z.txt`.
 
 - **Recall:** 18/30 (60.0%) of the in-scope planted clauses were found. Of those 18, 18/18 named
   the right clause type.

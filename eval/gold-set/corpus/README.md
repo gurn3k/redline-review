@@ -13,7 +13,7 @@ A recall figure over documents written by the same kind of model being measured 
 weaker than one over contracts real people were handed, in two specific ways:
 
 1. **The clauses are hidden the way the author knew how to hide them.** Section 5 of
-   `PRD.md` says how these clauses hide in real documents, and the seven documents here
+   `docs/PRD.md` says how these clauses hide in real documents, and the seven documents here
    follow it: a liability cap expressed as a cross-reference rather than a number, a
    non-compete filed under Post-Termination Obligations, a cancellation deadline stated
    as date arithmetic, a late charge deferred to a fee schedule the document does not
@@ -28,7 +28,7 @@ So the figures are worth having and they are not a calibration. They tell the ow
 which clause types the analysis is weak on, whether the weakness tracks the evidence
 split `ADR 0004` predicts, and how often a citation fails to verify. They do not tell
 anyone what recall this product achieves on a real contract, and no number from a run
-over this corpus belongs in copy a reader sees. `PRD.md` section 4 forbids that
+over this corpus belongs in copy a reader sees. `docs/PRD.md` section 4 forbids that
 independently.
 
 ## What is in it
@@ -61,7 +61,7 @@ Forty planted clauses, spread across the seven types:
 a recall of 0.75 over four instances is one clause away from 1.0 and one clause away
 from 0.5. The run prints the count beside every rate for that reason. Treat those two
 rows as a direction rather than a figure, and note that `limitation-of-liability` is one
-of the three types `PRD.md` says rests on weaker evidence, so it is the row where a
+of the three types `docs/PRD.md` says rests on weaker evidence, so it is the row where a
 small count and a weak baseline land on the same number.
 
 Non-compete is hard to reach a higher count on honestly, because it appears in offer
@@ -69,7 +69,7 @@ letters and training agreements and almost nowhere else in the segment `ADR 0002
 Adding a fifth by planting one in a gym membership would make the count look better and
 the corpus less like the world.
 
-**Three documents are benign.** `PRD.md` section 4 tests that clean documents stay
+**Three documents are benign.** `docs/PRD.md` section 4 tests that clean documents stay
 clean, and a corpus of nothing but loaded contracts cannot measure it. The three carry
 real obligations on both sides, a fixed end date rather than a renewal, and no clause of
 any of the seven types. Any flag on one of them is an over-flag, which `ADR 0004`

@@ -4,7 +4,7 @@ import { DocumentIntakeCard } from "@/app/(app)/home/document-intake-card";
 
 // A render-without-crashing smoke test. It does not simulate a file upload
 // (that needs a real browser and pdf.js's worker, exercised manually via
-// `next dev` instead — see BUILD-REPORT.md) but it does catch the class of
+// `next dev` instead — see docs/BUILD-REPORT.md) but it does catch the class of
 // bug where the component throws during render before a user ever gets a
 // chance to interact with it.
 describe("DocumentIntakeCard", () => {
