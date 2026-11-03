@@ -9,7 +9,7 @@ that runs them.
 | Command | `npm run eval` | `npm run eval -- --set gold2` |
 | Documents | 9, mostly consumer and employment | 20, business |
 
-Read `PRD.md`, "How we measure it", before reading a number. Every figure is an upper bound: a
+Read `docs/PRD.md`, "How we measure it", before reading a number. Every figure is an upper bound: a
 model wrote each set, so none of it is a promise to a reader and none of it belongs in copy.
 
 ---
@@ -18,7 +18,7 @@ model wrote each set, so none of it is a promise to a reader and none of it belo
 
 `npm run eval` runs every document in a set's `manifest.json` through the same call `npm run
 smoke` uses (`analyzeDocument(text, [], client)` with the default OpenRouter client and the
-settings in `.env.local`), scores what comes back, and saves the run to `eval-runs/` as a `.txt`
+settings in `.env.local`), scores what comes back, and saves the run to `eval/runs/` as a `.txt`
 and a `.json` named for the time the run started. Runs of gold set 2 end in `-gold2`. It needs
 `OPENROUTER_API_KEY` and `OPENROUTER_MODEL` in `.env.local`, makes one model call per document, and
 changes no app code, prompt or model setting.
@@ -73,7 +73,7 @@ Each was a point where I would normally have asked. The reason is next to it.
    is not set.
 7. **The model name is written into the run files**, so a run can be compared with a later one. The
    key is never read into any output.
-8. **Run records are committed.** They are small, they are the history the trend in `PRD.md`
+8. **Run records are committed.** They are small, they are the history the trend in `docs/PRD.md`
    needs, and they contain no secret.
 9. **`loadDotEnvLocal` is copied from `smoke.ts`.** `smoke.ts` runs `main()` when imported, so it
    cannot be shared without editing it, and the task said to change no app code.
@@ -112,9 +112,9 @@ two folders sit side by side. Its own README is `eval/gold-set/corpus/README.md`
 
 Why the two are out of scope, and never counted as misses:
 
-- **Non-compete** (4 planted). `PRD.md`, "My red lines": "Explicitly not evaluated in v1:
+- **Non-compete** (4 planted). `docs/PRD.md`, "My red lines": "Explicitly not evaluated in v1:
   non-compete clauses (employment context, segment excluded)."
-- **Unilateral modification** (6 planted). `PRD.md` names unilateral *termination* and no-cause
+- **Unilateral modification** (6 planted). `docs/PRD.md` names unilateral *termination* and no-cause
   deactivation. A right to rewrite the terms is a different clause, and the termination prompt
   (`lib/analysis/categories/definitions/unilateral-termination.ts`) looks only for the right to end
   the relationship.
@@ -126,7 +126,7 @@ Why the two are out of scope, and never counted as misses:
    line. I deleted that copy, cloned again with `core.autocrlf=false`, copied again, and compared
    every file against the clone by SHA-256: identical. `eval/gold-set/.gitattributes` sets `* -text`
    so git never rewrites a byte of it on any machine.
-2. **Fee escalators and late fees stay in scope.** `PRD.md` lists "liability caps and fee
+2. **Fee escalators and late fees stay in scope.** `docs/PRD.md` lists "liability caps and fee
    escalators" as flagged generically, and the product's category is `liability-cap-fee-escalator`.
    Its prompt describes fees that escalate over time, which is narrower than late charges and
    reactivation fees (about half of this row; the rest are price increases). I kept the row in scope
@@ -151,7 +151,7 @@ Why the two are out of scope, and never counted as misses:
 ## Gold set 2: business documents
 
 **What it is.** Twenty documents written for a small business owner reviewing paper someone else
-presented, which is what `PRD.md` says the product is for. Written by us, in `eval/gold-set-2-user-created/`
+presented, which is what `docs/PRD.md` says the product is for. Written by us, in `eval/gold-set-2-user-created/`
 (the folder name has a space, as requested).
 
 | Kind | Documents |
@@ -198,10 +198,10 @@ a sentence cannot drift from its document. Edit the source and rebuild; do not e
 
 Out of scope, never counted as misses:
 
-- **Non-compete** (3 planted, here as no-hire and conversion-fee clauses). `PRD.md`: explicitly not
+- **Non-compete** (3 planted, here as no-hire and conversion-fee clauses). `docs/PRD.md`: explicitly not
   evaluated in v1.
-- **IP assignment** (1 planted). `PRD.md`: explicitly not evaluated in v1 (freelance context).
-- **Data and privacy overreach** (2 planted). `PRD.md`: explicitly not evaluated in v1.
+- **IP assignment** (1 planted). `docs/PRD.md`: explicitly not evaluated in v1 (freelance context).
+- **Data and privacy overreach** (2 planted). `docs/PRD.md`: explicitly not evaluated in v1.
 
 ### Decisions specific to gold set 2
 

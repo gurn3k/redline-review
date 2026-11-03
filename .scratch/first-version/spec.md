@@ -143,8 +143,8 @@ on internal prompt structure or model-call details.
     must be caught and classified Dangerous.
   - Zero false positives on a curated "clean" fixture set of ordinary,
     unremarkable contracts — must return Clear on all of them, per the
-    "what good looks like" bar in `PRD.md`. No recall percentage is
-    asserted; `PRD.md` deliberately does not set one.
+    "what good looks like" bar in `docs/PRD.md`. No recall percentage is
+    asserted; `docs/PRD.md` deliberately does not set one.
   - Clear-state specificity: when Clear is returned, the result must name
     what was checked (standard clause set plus the red lines passed in for
     that test case), not a generic message.
@@ -177,13 +177,13 @@ on internal prompt structure or model-call details.
 - Payments/billing, OCR, and cross-user document sharing — out of scope
   per `CLAUDE.md`.
 - A hard numeric recall target for `analyzeDocument` — deliberately not
-  set; see `PRD.md`.
+  set; see `docs/PRD.md`.
 
 ## Further Notes
 
 - This spec covers the entire first version as one unit, by explicit
   choice, rather than being broken into per-feature specs.
-- `PRD.md`'s "What good looks like" section is the source for the testing
+- `docs/PRD.md`'s "What good looks like" section is the source for the testing
   bar above; it's written to become the eval suite these tests should
   build toward.
 - Read `CONTEXT.md` (User, Incoming/Outgoing paper, Dangerous/Unusual,

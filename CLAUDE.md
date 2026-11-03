@@ -50,9 +50,9 @@ flag.
 
 ## Where to look
 
-- `research/summary.md` — user research findings; read before deciding what
+- `docs/research/summary.md` — user research findings; read before deciding what
   the product should do.
-- `PRD.md` (once it exists) — the brief; read before building anything.
+- `docs/PRD.md` — the brief; read before building anything.
 
 ## Agent skills
 

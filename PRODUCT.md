@@ -78,7 +78,7 @@ Voice: confident and unhedged in flag language, gated at generation rather than 
 
 ## Evidence on Hand
 
-Research base: four research-agent reports (`research/agent1–4*.md`) and a synthesis (`research/summary.md`) on who has this pain, what goes wrong, existing tools, and who would pay — sourced from CA State Bar's 2024 Justice Gap Study, FTC enforcement actions, and scattered first-person accounts.
+Research base: four research-agent reports (`research/agent1–4*.md`) and a synthesis (`docs/research/summary.md`) on who has this pain, what goes wrong, existing tools, and who would pay — sourced from CA State Bar's 2024 Justice Gap Study, FTC enforcement actions, and scattered first-person accounts.
 
 Explicit absences future work must not fabricate:
 - No verified first-person "I didn't understand what I signed" account exists from the actual target segment (small business owner, pre-signing). The two verified quotes in the research are a lease co-signer and an employee signing a non-compete — both outside the target segment.
