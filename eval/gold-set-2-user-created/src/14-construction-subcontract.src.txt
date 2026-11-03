@@ -1,0 +1,27 @@
+@kind: Construction subcontract, general contractor's form
+SUBCONTRACT AGREEMENT
+Cornerstone General Contracting, Inc.
+
+This Subcontract Agreement (the "Subcontract") is between Cornerstone General Contracting, Inc. ("Contractor") and the business named on the cover page ("Subcontractor"). Subcontractor will perform the electrical work described in Exhibit A on the Elm Street Medical Office project.
+
+1. Payment
+Contractor will pay Subcontractor monthly for work in place, less retainage. «H»Contractor will hold ten percent (10%) retainage until substantial completion of Subcontractor's work and release it within thirty (30) days after.«/H»
+
+2. Schedule and Delay
+Subcontractor must meet the schedule Contractor issues and must adjust to schedule changes.
+«P|limitation-of-liability|Unusual»Contractor's liability for delay, disruption or acceleration is limited to an extension of time,{2sp}and Subcontractor waives any claim for money damages arising from them.«/P»
+
+3. Termination
+«P|unilateral-termination|Dangerous»Contractor may terminate this Subcontract for its convenience at any time and for any reason, in which case Subcontractor is paid only for work in place and receives nothing for materials ordered, demobilization or lost profit.«/P»
+
+4. Risk
+«P|indemnification|Dangerous»Subcontractor will indemnify and hold harmless Contractor, the Owner and their agents from any and all claims, damages and expenses arising out of the Work, even where caused in part by the negligence of the indemnified parties.«/P»
+«H»Subcontractor must submit a daily report of labor and materials on site by 9:00 a.m. the following working day.«/H»
+
+5. Disputes
+«P|arbitration-and-class-action-waiver|Unusual»Any dispute under this Subcontract will be decided by binding arbitration in the county of Contractor's principal office, and Subcontractor waives any right to join its claim with those of other parties or to bring a class or representative claim.«/P»
+
+6. Sureties
+«P|personal-guarantee|Dangerous»The principals of Subcontractor who sign this Subcontract below also sign as individual sureties and are personally liable, without limit, for the completion of the Work and for every claim Contractor makes under this Subcontract.«/P»
+
+Signed by Contractor, Subcontractor and each individual surety.

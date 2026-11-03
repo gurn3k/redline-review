@@ -1,0 +1,25 @@
+@kind: Marketing / advertising agency services agreement
+MARKETING SERVICES AGREEMENT
+Beacon & Fable Creative Agency
+
+This Marketing Services Agreement (the "Agreement") is between Beacon & Fable Creative Agency, Inc. ("Agency") and the business named on the Statement of Work ("Client"). Agency will provide strategy, creative and paid-media management services.
+
+1. Fees
+Client pays the monthly retainer in the Statement of Work and reimburses Agency's approved out-of-pocket costs. «H»Agency will send Client a written performance report by the tenth (10th) day of each month.«/H»
+«P|fee-escalator|Unusual»Agency may increase the monthly retainer and its media management fee at any time on notice by email, and the increase applies to the next billing period.«/P»
+
+2. Term
+The initial term is six (6) months from the Statement of Work date.
+«P|auto-renewal|Unusual»After the initial term this Agreement renews for successive six (6) month terms unless Client gives written notice of non-renewal at least thirty (30) days before the end of the term.«/P»
+
+3. Termination
+«P|unilateral-termination|Dangerous»Agency may terminate this Agreement or pause all work at any time in its discretion, and Client remains obligated to pay the full retainer for the remainder of the term.«/P»
+
+4. Ownership of Work
+«P|ip-assignment|n/a»All work product created under this Agreement — including any of Client's own pre-existing materials that Agency incorporates into it — is owned exclusively by Agency, and Client receives only a revocable license to use it.«/P»
+
+5. Risk
+«P|indemnification|Dangerous»Client will indemnify, defend and hold Agency harmless from any and all claims arising from advertising Agency produces or places at Client's direction, including claims that the advertising is false, misleading or infringing, even where Agency wrote the advertising.«/P»
+«P|limitation-of-liability|Unusual»Agency's total liability to Client for any claim is limited to the retainer paid for the single month in which the claim arose, and Agency is not liable for lost sales or lost profits.«/P»
+
+Signed by Client and Agency.

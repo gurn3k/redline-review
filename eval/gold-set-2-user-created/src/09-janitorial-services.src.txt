@@ -1,0 +1,26 @@
+@kind: Commercial cleaning (janitorial) services agreement
+JANITORIAL SERVICES AGREEMENT
+SparkLine Facility Services, LLC
+
+This Janitorial Services Agreement (the “Agreement”) is between SparkLine Facility Services, LLC (“Contractor”) and the business named on the Service Schedule (“Customer”). Contractor will clean Customer’s premises on the schedule and to the specification attached.
+
+1. Services and Fees
+Contractor provides all labor, supplies and equipment. «H»Customer will give Contractor’s staff access to the premises during the agreed service hours and keep a supply closet available.«/H» The monthly fee is stated on the Service Schedule.
+«P|fee-escalator|Unusual»Contractor may increase the monthly fee by up to twelve percent (12%) in any year by adding the increase to the next invoice.«/P»
+
+2. Term
+The initial term is one (1) year.
+«P|auto-renewal|Unusual»This Agreement renews automatically for successive one (1) year terms unless Customer gives written notice by certified mail at least ninety (90) days before the end of the term.«/P»
+
+3. Termination
+«P|unilateral-termination|Dangerous»Contractor may terminate this Agreement for convenience on seven (7) days’ notice, but Customer may terminate only for cause, and only after giving Contractor sixty (60) days to cure.«/P»
+
+4. Damage and Claims
+«P|limitation-of-liability|Unusual»Contractor’s liability for damage to Customer’s property or for any other claim is limited to $500{nbsp}per incident.«/P»
+«P|indemnification|Dangerous»Customer will indemnify and hold Contractor harmless from any and all claims by Contractor’s employees or subcontractors arising at Customer’s premises, including claims arising from Contractor’s own negligence.«/P»
+
+5. Staff
+«P|non-compete|n/a»During the term and for twelve (12) months afterwards, Customer will not hire any person who has worked at Customer’s premises for Contractor, unless it first pays Contractor a placement fee of $15,000 for each person.«/P»
+Contractor is responsible for the wages, taxes and insurance of its own employees.
+
+Signed by Customer and Contractor.

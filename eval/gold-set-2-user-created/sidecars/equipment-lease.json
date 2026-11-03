@@ -1,0 +1,50 @@
+{
+  "document": "equipment-lease.txt",
+  "title": "EQUIPMENT LEASE AGREEMENT",
+  "kind": "Commercial equipment lease (copier / production equipment)",
+  "sourceKind": "pasted",
+  "plantedClauses": [
+    {
+      "id": "P-01",
+      "clauseType": "fee-escalator",
+      "sourceSentence": "Lessor may increase the monthly rental once in each lease year by up to ten percent (10%), effective on the date stated on the invoice.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-02",
+      "clauseType": "auto-renewal",
+      "sourceSentence": "At the end of the initial term this Lease renews for successive twelve (12) month terms at the then-current rental unless Lessee returns the Equipment by prepaid freight and gives written notice not more than ninety (90) and not less than sixty (60) days before the term ends.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-03",
+      "clauseType": "indemnification",
+      "sourceSentence": "Lessee will indemnify Lessor against any and all claims, losses and expenses arising from the Equipment, its delivery, use, condition or return, including claims arising from Lessor’s own acts.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-04",
+      "clauseType": "limitation-of-liability",
+      "sourceSentence": "In no event will Lessor’s liability to Lessee for any cause — in contract, tort or otherwise — exceed the rental paid for the month in which the claim arose.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-05",
+      "clauseType": "unilateral-termination",
+      "sourceSentence": "Lessor may declare Lessee in default and terminate this Lease if Lessor believes in good faith that its prospect of payment is impaired, without any cure period, and all remaining rentals then become due.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-06",
+      "clauseType": "personal-guarantee",
+      "sourceSentence": "Each person who signs the Guaranty at the end of this Lease personally and unconditionally guarantees all of Lessee’s present and future obligations to Lessor, including rent, late charges, collection costs and attorneys’ fees, and waives notice of any change to the Lease.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "document": "marketing-agency-agreement.txt",
+  "title": "MARKETING SERVICES AGREEMENT",
+  "kind": "Marketing / advertising agency services agreement",
+  "sourceKind": "pasted",
+  "plantedClauses": [
+    {
+      "id": "P-01",
+      "clauseType": "fee-escalator",
+      "sourceSentence": "Agency may increase the monthly retainer and its media management fee at any time on notice by email, and the increase applies to the next billing period.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-02",
+      "clauseType": "auto-renewal",
+      "sourceSentence": "After the initial term this Agreement renews for successive six (6) month terms unless Client gives written notice of non-renewal at least thirty (30) days before the end of the term.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-03",
+      "clauseType": "unilateral-termination",
+      "sourceSentence": "Agency may terminate this Agreement or pause all work at any time in its discretion, and Client remains obligated to pay the full retainer for the remainder of the term.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-04",
+      "clauseType": "ip-assignment",
+      "sourceSentence": "All work product created under this Agreement — including any of Client's own pre-existing materials that Agency incorporates into it — is owned exclusively by Agency, and Client receives only a revocable license to use it.",
+      "expectedSeverity": "n/a",
+      "exit": null
+    },
+    {
+      "id": "P-05",
+      "clauseType": "indemnification",
+      "sourceSentence": "Client will indemnify, defend and hold Agency harmless from any and all claims arising from advertising Agency produces or places at Client's direction, including claims that the advertising is false, misleading or infringing, even where Agency wrote the advertising.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-06",
+      "clauseType": "limitation-of-liability",
+      "sourceSentence": "Agency's total liability to Client for any claim is limited to the retainer paid for the single month in which the claim arose, and Agency is not liable for lost sales or lost profits.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    }
+  ]
+}

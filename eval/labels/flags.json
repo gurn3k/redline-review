@@ -1,0 +1,82 @@
+[
+  {
+    "number": 1,
+    "document": "adhesion-contract",
+    "clauseType": "auto-renewal",
+    "severity": "Dangerous",
+    "quotedSentence": "At the end of the initial term, and at the end of each term thereafter, your membership renews automatically for a further twelve (12) month term at the then-current rate. To stop a renewal you must deliver written notice of cancellation to the Member Services desk no later than three (3) days before the renewal date.",
+    "paragraph": "Your initial membership term is twelve (12) months, beginning on the Commencement Date shown on your enrolment form. At the end of the initial term, and at the end of each term thereafter, your membership renews automatically for a further twelve (12) month term at the then-current rate. To stop a renewal you must deliver written notice of cancellation to the Member Services desk no later than three (3) days before the renewal date. Notice delivered after that day takes effect at the end of the term that follows, and the dues for the intervening term remain payable in full. A membership that has been suspended, frozen or placed on medical hold continues to renew on its original schedule."
+  },
+  {
+    "number": 2,
+    "document": "adhesion-contract",
+    "clauseType": "indemnification",
+    "severity": "Dangerous",
+    "quotedSentence": "You will indemnify, defend and hold harmless Meridian and its ofﬁcers, employees, instructors and contractors against any claim, demand, loss, liability or expense, including reasonable legal fees, that is brought by a third party and arises out of your use of the facilities, your conduct on club premises, the conduct of a guest you bring, or any service you provide to another member.",
+    "paragraph": "You will indemnify, defend and hold harmless Meridian and its ofﬁcers, employees, instructors and contractors against any claim, demand, loss, liability or expense, including reasonable legal fees, that is brought by a third party and arises out of your use of the facilities, your conduct on club premises, the conduct of a guest you bring, or any service you provide to another member. Meridian will select counsel, and you will not settle a claim covered by this Section without Meridian’s written consent."
+  },
+  {
+    "number": 3,
+    "document": "adhesion-contract",
+    "clauseType": "arbitration-class-action-waiver",
+    "severity": "Unusual",
+    "quotedSentence": "Any dispute, claim or controversy between you and Meridian arising out of or relating to this Agreement, your membership or the Program will be resolved by ﬁnal and binding arbitration administered by a nationally recognised arbitration provider under its consumer arbitration rules, and you and Meridian each waive any right to a trial by jury and any right to bring or participate in a class, collective or representative action.",
+    "paragraph": "Any dispute, claim or controversy between you and Meridian arising out of or relating to this Agreement, your membership or the Program will be resolved by ﬁnal and binding arbitration administered by a nationally recognised arbitration provider under its consumer arbitration rules, and you and Meridian each waive any right to a trial by jury and any right to bring or participate in a class, collective or representative action. You may opt out of this Section 12 by delivering written notice to the address in Section 11 within thirty (30) days after you ﬁrst accept this Agreement, and opting out will not affect your membership or your standing in the Program. Arbitration is conducted by a single arbitrator, the arbitrator decides the scope of this Section, and the award is ﬁnal and may be entered as a judgment."
+  },
+  {
+    "number": 4,
+    "document": "adhesion-contract",
+    "clauseType": "red-line",
+    "severity": "Unusual",
+    "quotedSentence": "For twelve (12) months after your Program candidacy ends for any reason, you will not teach, coach or deliver group ﬁtness instruction or personal training, whether as an employee, as a contractor or on your own account, at any facility within ﬁfteen (15) miles of a Meridian location at which you taught or trained.",
+    "paragraph": "For twelve (12) months after your Program candidacy ends for any reason, you will not teach, coach or deliver group ﬁtness instruction or personal training, whether as an employee, as a contractor or on your own account, at any facility within ﬁfteen (15) miles of a Meridian location at which you taught or trained. You will not, during that period, solicit any Meridian member or candidate for instruction outside a Meridian location. You will return the coaching manual and any Meridian teaching materials in your possession within fourteen (14) days of the end of your candidacy."
+  },
+  {
+    "number": 5,
+    "document": "internship-agreement",
+    "clauseType": "unilateral-termination",
+    "severity": "Dangerous",
+    "quotedSentence": "The Firm may end the Programme early for any reason on one week written notice.",
+    "paragraph": "The Programme is a fixed term engagement and carries no offer or promise of further employment. The Firm may end the Programme early for any reason on one week written notice."
+  },
+  {
+    "number": 6,
+    "document": "internship-agreement",
+    "clauseType": "indemnification",
+    "severity": "Dangerous",
+    "quotedSentence": "The Analyst will indemnify the Firm and hold it harmless against any claim, loss or expense, including reasonable legal costs, arising out of a breach by the Analyst of Section 4 or Section 5, or out of anything the Analyst publishes about the Firm or a client of the Firm.",
+    "paragraph": "The Analyst will indemnify the Firm and hold it harmless against any claim, loss or expense, including reasonable legal costs, arising out of a breach by the Analyst of Section 4 or Section 5, or out of anything the Analyst publishes about the Firm or a client of the Firm."
+  },
+  {
+    "number": 7,
+    "document": "offer-letter",
+    "clauseType": "indemnification",
+    "severity": "Dangerous",
+    "quotedSentence": "You will indemnify Ardent and hold it harmless against any claim, loss, liability or expense, including reasonable attorney fees, that arises out of a breach by you of Section 4 or Section 5 of this letter, or out of a claim by a former employer that your employment with Ardent breaches an obligation you owe to them.",
+    "paragraph": "You will indemnify Ardent and hold it harmless against any claim, loss, liability or expense, including reasonable attorney fees, that arises out of a breach by you of Section 4 or Section 5 of this letter, or out of a claim by a former employer that your employment with Ardent breaches an obligation you owe to them."
+  },
+  {
+    "number": 8,
+    "document": "phone-plan-terms",
+    "clauseType": "indemnification",
+    "severity": "Dangerous",
+    "quotedSentence": "You will indemnify and hold Cascade harmless from any claim, loss or expense, including reasonable legal fees, arising out of your use of the service, out of anything sent from or stored on your device, out of the use of your line by anyone you allow to use it, and out of any charge incurred on your account.",
+    "paragraph": "You will indemnify and hold Cascade harmless from any claim, loss or expense, including reasonable legal fees, arising out of your use of the service, out of anything sent from or stored on your device, out of the use of your line by anyone you allow to use it, and out of any charge incurred on your account."
+  },
+  {
+    "number": 9,
+    "document": "saas-subscription",
+    "clauseType": "indemnification",
+    "severity": "Dangerous",
+    "quotedSentence": "You will indemnify and hold Northwind harmless from any claim brought by a third party that relates to content you uploaded, exported or published through the service, including a claim that the content infringes a copyright, a trade mark or a right of privacy, and you will pay our reasonable legal costs of defending such a claim.",
+    "paragraph": "You will indemnify and hold Northwind harmless from any claim brought by a third party that relates to content you uploaded, exported or published through the service, including a claim that the content infringes a copyright, a trade mark or a right of privacy, and you will pay our reasonable legal costs of defending such a claim."
+  },
+  {
+    "number": 10,
+    "document": "storage-unit-rental",
+    "clauseType": "indemnification",
+    "severity": "Dangerous",
+    "quotedSentence": "The Occupant will indemnify, defend and hold the Operator harmless from every claim, demand, loss, cost and expense, including reasonable attorney fees, brought by any person and arising out of the Occupant's use of the unit or the premises, the property stored in the unit, or the acts of anyone the Occupant allows on to the premises.",
+    "paragraph": "The Occupant will indemnify, defend and hold the Operator harmless from every claim, demand, loss, cost and expense, including reasonable attorney fees, brought by any person and arising out of the Occupant's use of the unit or the premises, the property stored in the unit, or the acts of anyone the Occupant allows on to the premises."
+  }
+]

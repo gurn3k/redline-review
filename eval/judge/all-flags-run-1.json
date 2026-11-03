@@ -1,0 +1,270 @@
+{
+  "judgedAt": "2026-11-02T16:28:05.186Z",
+  "runRecord": "eval-runs/2026-11-02T15-15-46Z.json",
+  "flagsJudged": "every flag the reader was shown in that run (quoted sentence in its document character for character), sorted by document and numbered 1 to 20",
+  "rubric": "# Judge rubric\n\nYou are judging flags raised by a contract-review tool. The reader is a small business owner who has\nbeen handed a contract by someone else and is deciding whether to sign it. For each flag you are\ngiven the document, the clause type the flag names, the sentence it quoted, and the paragraph\naround that sentence.\n\n## The rule\n\n**PASS** if the quoted sentence really is the kind of clause the flag names and really costs the\nreader something. Otherwise **FAIL**.\n\nBoth halves have to hold. A sentence that is not the kind of clause the flag names fails, however\nmuch it costs. A sentence that is the kind of clause named but costs the reader nothing fails too.\n\nNot part of this rule, so do not weigh them:\n\n- The severity label on the flag (Dangerous or Unusual).\n- Whether the quoted sentence appears in the document. Code has already checked that.\n\n## What each clause type means\n\nThese are the product's own words, from its PRD. The flag's clause type is one of these names.\n\n- **Personal guarantee** (`personal-guarantee`): \"Turns what the owner assumed was an LLC's\n  limited-liability shield into open-ended personal financial exposure, with no dollar ceiling.\"\n- **Indemnification** (`indemnification`): clauses, \"especially 'any and all claims' language\", that\n  create \"uncapped exposure that can outsize the business itself.\"\n- **Auto-renewal** (`auto-renewal`): auto-renewal and negative-option clauses, where the agreement\n  continues or renews unless the reader acts. The PRD's concern is \"deceptive lock-in\".\n- **Unilateral termination** (`unilateral-termination`): unilateral termination and no-cause\n  deactivation clauses, where the mechanism is \"losing a business relationship unilaterally, with no\n  recourse.\"\n- **Arbitration and class-action waiver** (`arbitration-class-action-waiver`): the PRD says it \"doesn't\n  cost money directly, but it removes the remedy for every other clause in the document.\"\n- **Liability cap and fee escalator** (`liability-cap-fee-escalator`): \"Liability caps and fee\n  escalators\", flagged generically.\n- **Red line** (`red-line`): a term the reader themselves said they cannot accept. Judge it by the\n  same rule.\n\nThe PRD says these are not evaluated in this version: \"non-compete clauses (employment context,\nsegment excluded), IP assignment clauses (freelance context, segment excluded), data/privacy\noverreach in ToS (consumer/platform context, segment excluded).\"\n\nFor background, the PRD's own test for whether a flag earns its place is: \"does removing this clause\nchange the user's real financial exposure ceiling, or their ability to keep this business\nrelationship without cause?\" The list below is wider than that test and is the one to apply.\n\n## What \"costs the reader something\" means\n\nThe reader gives up, risks, or loses something real by signing the sentence as written. Any one of\nthese is enough:\n\n- **Money.** The reader pays or may pay more than they would expect today, including costs that\n  arrive later or can grow.\n- **Liability.** The reader takes on exposure to claims or losses, including having to cover the other\n  side's costs.\n- **A lost remedy.** The reader gives up a way to get compensation or put something right.\n- **Dependence on the other side's discretion.** What the reader is owed, or receives, is left to the\n  other party to decide.\n- **A limit on future work or business.** The reader's later opportunities are restricted.\n- **A choice the reader would want to make before signing.** Knowing about the term lets the reader\n  decide differently, negotiate, or take action in advance.\n\nThe cost does not have to be certain or large. A real possibility of cost, or a lost option the\nreader might want, is enough. A sentence that places no cost, risk or lost option on the reader (it\nonly describes, or it only burdens the other party) does not meet this half of the rule.\n\n## Edge cases\n\n- **Clauses written for individuals.** A clause worded for an individual (a consumer, an employee,\n  a member) still counts if the same cost would reach a small business owner in a similar position.\n- **Conditional and potential costs.** A cost that depends on something happening still counts if\n  that thing could realistically happen. Do not require the cost to be certain.\n\n## How to answer\n\nFor each flag, give its number, a verdict of exactly `PASS` or `FAIL`, and one sentence saying why.\nUse only this rubric and what is written in the flag. Do not guess at what anyone else decided.\n",
+  "flags": [
+    {
+      "number": 1,
+      "document": "adhesion-contract",
+      "clauseType": "auto-renewal",
+      "severity": "Dangerous",
+      "quotedSentence": "At the end of the initial term, and at the end of each term thereafter, your membership renews automatically for a further twelve (12) month term at the then-current rate. To stop a renewal you must deliver written notice of cancellation to the Member Services desk no later than three (3) days before the renewal date.",
+      "paragraph": "Your initial membership term is twelve (12) months, beginning on the Commencement Date shown on your enrolment form. At the end of the initial term, and at the end of each term thereafter, your membership renews automatically for a further twelve (12) month term at the then-current rate. To stop a renewal you must deliver written notice of cancellation to the Member Services desk no later than three (3) days before the renewal date. Notice delivered after that day takes effect at the end of the term that follows, and the dues for the intervening term remain payable in full. A membership that has been suspended, frozen or placed on medical hold continues to renew on its original schedule."
+    },
+    {
+      "number": 2,
+      "document": "adhesion-contract",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "You will indemnify, defend and hold harmless Meridian and its ofﬁcers, employees, instructors and contractors against any claim, demand, loss, liability or expense, including reasonable legal fees, that is brought by a third party and arises out of your use of the facilities, your conduct on club premises, the conduct of a guest you bring, or any service you provide to another member.",
+      "paragraph": "You will indemnify, defend and hold harmless Meridian and its ofﬁcers, employees, instructors and contractors against any claim, demand, loss, liability or expense, including reasonable legal fees, that is brought by a third party and arises out of your use of the facilities, your conduct on club premises, the conduct of a guest you bring, or any service you provide to another member. Meridian will select counsel, and you will not settle a claim covered by this Section without Meridian’s written consent."
+    },
+    {
+      "number": 3,
+      "document": "adhesion-contract",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "Any dispute, claim or controversy between you and Meridian arising out of or relating to this Agreement, your membership or the Program will be resolved by ﬁnal and binding arbitration administered by a nationally recognised arbitration provider under its consumer arbitration rules, and you and Meridian each waive any right to a trial by jury and any right to bring or participate in a class, collective or representative action.",
+      "paragraph": "Any dispute, claim or controversy between you and Meridian arising out of or relating to this Agreement, your membership or the Program will be resolved by ﬁnal and binding arbitration administered by a nationally recognised arbitration provider under its consumer arbitration rules, and you and Meridian each waive any right to a trial by jury and any right to bring or participate in a class, collective or representative action. You may opt out of this Section 12 by delivering written notice to the address in Section 11 within thirty (30) days after you ﬁrst accept this Agreement, and opting out will not affect your membership or your standing in the Program. Arbitration is conducted by a single arbitrator, the arbitrator decides the scope of this Section, and the award is ﬁnal and may be entered as a judgment."
+    },
+    {
+      "number": 4,
+      "document": "adhesion-contract",
+      "clauseType": "red-line",
+      "severity": "Unusual",
+      "quotedSentence": "For twelve (12) months after your Program candidacy ends for any reason, you will not teach, coach or deliver group ﬁtness instruction or personal training, whether as an employee, as a contractor or on your own account, at any facility within ﬁfteen (15) miles of a Meridian location at which you taught or trained.",
+      "paragraph": "For twelve (12) months after your Program candidacy ends for any reason, you will not teach, coach or deliver group ﬁtness instruction or personal training, whether as an employee, as a contractor or on your own account, at any facility within ﬁfteen (15) miles of a Meridian location at which you taught or trained. You will not, during that period, solicit any Meridian member or candidate for instruction outside a Meridian location. You will return the coaching manual and any Meridian teaching materials in your possession within fourteen (14) days of the end of your candidacy."
+    },
+    {
+      "number": 5,
+      "document": "internship-agreement",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "The Firm may end the Programme early for any reason on one week written notice.",
+      "paragraph": "The Programme is a fixed term engagement and carries no offer or promise of further employment. The Firm may end the Programme early for any reason on one week written notice."
+    },
+    {
+      "number": 6,
+      "document": "internship-agreement",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "The Analyst will indemnify the Firm and hold it harmless against any claim, loss or expense, including reasonable legal costs, arising out of a breach by the Analyst of Section 4 or Section 5, or out of anything the Analyst publishes about the Firm or a client of the Firm.",
+      "paragraph": "The Analyst will indemnify the Firm and hold it harmless against any claim, loss or expense, including reasonable legal costs, arising out of a breach by the Analyst of Section 4 or Section 5, or out of anything the Analyst publishes about the Firm or a client of the Firm."
+    },
+    {
+      "number": 7,
+      "document": "internship-agreement",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "Any dispute between the Analyst and the Firm arising out of the Programme or out of this Agreement will be resolved by final and binding arbitration on an individual basis, administered under the employment rules of a nationally recognised provider, and the Analyst gives up any right to a jury trial and any right to bring or join a class or collective action.",
+      "paragraph": "Any dispute between the Analyst and the Firm arising out of the Programme or out of this Agreement will be resolved by final and binding arbitration on an individual basis, administered under the employment rules of a nationally recognised provider, and the Analyst gives up any right to a jury trial and any right to bring or join a class or collective action."
+    },
+    {
+      "number": 8,
+      "document": "offer-letter",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "You will indemnify Ardent and hold it harmless against any claim, loss, liability or expense, including reasonable attorney fees, that arises out of a breach by you of Section 4 or Section 5 of this letter, or out of a claim by a former employer that your employment with Ardent breaches an obligation you owe to them.",
+      "paragraph": "You will indemnify Ardent and hold it harmless against any claim, loss, liability or expense, including reasonable attorney fees, that arises out of a breach by you of Section 4 or Section 5 of this letter, or out of a claim by a former employer that your employment with Ardent breaches an obligation you owe to them."
+    },
+    {
+      "number": 9,
+      "document": "offer-letter",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "You and Ardent each agree that any claim arising out of or relating to your employment, its terms, or its end, including any statutory claim, will be resolved by final and binding arbitration administered under the employment rules of a nationally recognised arbitration provider, on an individual basis only, and each of us waives any right to a jury trial and any right to participate in a class, collective or representative action.",
+      "paragraph": "You and Ardent each agree that any claim arising out of or relating to your employment, its terms, or its end, including any statutory claim, will be resolved by final and binding arbitration administered under the employment rules of a nationally recognised arbitration provider, on an individual basis only, and each of us waives any right to a jury trial and any right to participate in a class, collective or representative action."
+    },
+    {
+      "number": 10,
+      "document": "phone-plan-terms",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "You will indemnify and hold Cascade harmless from any claim, loss or expense, including reasonable legal fees, arising out of your use of the service, out of anything sent from or stored on your device, out of the use of your line by anyone you allow to use it, and out of any charge incurred on your account.",
+      "paragraph": "You will indemnify and hold Cascade harmless from any claim, loss or expense, including reasonable legal fees, arising out of your use of the service, out of anything sent from or stored on your device, out of the use of your line by anyone you allow to use it, and out of any charge incurred on your account."
+    },
+    {
+      "number": 11,
+      "document": "phone-plan-terms",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Cascade’s entire liability to you for any claim relating to the service, a device, or this Agreement, whether the claim is made in contract, in negligence, in warranty or under any statute, is limited to the service charges applied to the affected line during the bill period in which the claim arose, and Cascade is not liable for lost profits, lost data, or any indirect or consequential loss.",
+      "paragraph": "Cascade’s entire liability to you for any claim relating to the service, a device, or this Agreement, whether the claim is made in contract, in negligence, in warranty or under any statute, is limited to the service charges applied to the affected line during the bill period in which the claim arose, and Cascade is not liable for lost profits, lost data, or any indirect or consequential loss."
+    },
+    {
+      "number": 12,
+      "document": "phone-plan-terms",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "You and Cascade agree that any dispute arising out of or relating to this Agreement, the service or any device will be resolved by individual binding arbitration administered by a nationally recognised arbitration provider under its consumer rules, and both of us give up the right to a jury trial and the right to bring or join a class, collective or representative action.",
+      "paragraph": "You and Cascade agree that any dispute arising out of or relating to this Agreement, the service or any device will be resolved by individual binding arbitration administered by a nationally recognised arbitration provider under its consumer rules, and both of us give up the right to a jury trial and the right to bring or join a class, collective or representative action."
+    },
+    {
+      "number": 13,
+      "document": "phone-plan-terms",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Your bill includes a Regulatory Cost Recovery Charge and an Administrative Charge, neither of which is a tax or a charge required by any government, and Cascade may introduce, increase or remove either charge on notice given with the bill in which the change ﬁrst appears.",
+      "paragraph": "Your bill includes a Regulatory Cost Recovery Charge and an Administrative Charge, neither of which is a tax or a charge required by any government, and Cascade may introduce, increase or remove either charge on notice given with the bill in which the change ﬁrst appears."
+    },
+    {
+      "number": 14,
+      "document": "saas-subscription",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "You will indemnify and hold Northwind harmless from any claim brought by a third party that relates to content you uploaded, exported or published through the service, including a claim that the content infringes a copyright, a trade mark or a right of privacy, and you will pay our reasonable legal costs of defending such a claim.",
+      "paragraph": "You will indemnify and hold Northwind harmless from any claim brought by a third party that relates to content you uploaded, exported or published through the service, including a claim that the content infringes a copyright, a trade mark or a right of privacy, and you will pay our reasonable legal costs of defending such a claim."
+    },
+    {
+      "number": 15,
+      "document": "saas-subscription",
+      "clauseType": "auto-renewal",
+      "severity": "Unusual",
+      "quotedSentence": "On an annual plan the deadline to cancel is the day that falls thirty (30) days before the anniversary of the date you first subscribed, and where no cancellation is received by that day the term extends by a further twelve (12) months at the annual fee then in effect.",
+      "paragraph": "On an annual plan the deadline to cancel is the day that falls thirty (30) days before the anniversary of the date you first subscribed, and where no cancellation is received by that day the term extends by a further twelve (12) months at the annual fee then in effect."
+    },
+    {
+      "number": 16,
+      "document": "saas-subscription",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Northwind’s aggregate liability to you for every claim relating to the service, whether framed in contract, in tort, in warranty or otherwise — and including any claim arising from lost work, lost revenue or a failed export — will not exceed the amount you actually paid us under Section 2 for the Billing Period in which the claim arose.",
+      "paragraph": "Northwind’s aggregate liability to you for every claim relating to the service, whether framed in contract, in tort, in warranty or otherwise — and including any claim arising from lost work, lost revenue or a failed export — will not exceed the amount you actually paid us under Section 2 for the Billing Period in which the claim arose."
+    },
+    {
+      "number": 17,
+      "document": "saas-subscription",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "Any dispute between you and Northwind arising out of these terms or out of your use of the service will be settled by binding arbitration before a single arbitrator under the consumer rules of a recognised arbitration body, and you agree to bring any claim only in your individual capacity and not as a plaintiff or class member in any purported class, collective or representative proceeding.",
+      "paragraph": "Any dispute between you and Northwind arising out of these terms or out of your use of the service will be settled by binding arbitration before a single arbitrator under the consumer rules of a recognised arbitration body, and you agree to bring any claim only in your individual capacity and not as a plaintiff or class member in any purported class, collective or representative proceeding."
+    },
+    {
+      "number": 18,
+      "document": "storage-unit-rental",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "The Occupant will indemnify, defend and hold the Operator harmless from every claim, demand, loss, cost and expense, including reasonable attorney fees, brought by any person and arising out of the Occupant's use of the unit or the premises, the property stored in the unit, or the acts of anyone the Occupant allows on to the premises.",
+      "paragraph": "The Occupant will indemnify, defend and hold the Operator harmless from every claim, demand, loss, cost and expense, including reasonable attorney fees, brought by any person and arising out of the Occupant's use of the unit or the premises, the property stored in the unit, or the acts of anyone the Occupant allows on to the premises."
+    },
+    {
+      "number": 19,
+      "document": "storage-unit-rental",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "The Operator's total liability to the Occupant for any loss of or damage to stored property, however caused, including loss or damage caused by the Operator's own negligence, is limited to five thousand dollars ($5,000) unless the Occupant has declared a higher value on the Unit Schedule and paid the corresponding value protection fee.",
+      "paragraph": "The Operator's total liability to the Occupant for any loss of or damage to stored property, however caused, including loss or damage caused by the Operator's own negligence, is limited to five thousand dollars ($5,000) unless the Occupant has declared a higher value on the Unit Schedule and paid the corresponding value protection fee."
+    },
+    {
+      "number": 20,
+      "document": "storage-unit-rental",
+      "clauseType": "auto-renewal",
+      "severity": "Unusual",
+      "quotedSentence": "After the initial term this Agreement continues on a month to month basis, each month renewing on the first day of the month without notice from either party, until it is ended as Section 8 describes.",
+      "paragraph": "After the initial term this Agreement continues on a month to month basis, each month renewing on the first day of the month without notice from either party, until it is ended as Section 8 describes."
+    }
+  ],
+  "verdicts": [
+    {
+      "number": 1,
+      "verdict": "PASS",
+      "reason": "This is an auto-renewal clause with a short 3-day cancellation window that locks the reader into another 12 months of dues."
+    },
+    {
+      "number": 2,
+      "verdict": "PASS",
+      "reason": "A broad indemnity covering third-party claims and legal fees with no cap exposes the reader to open-ended liability."
+    },
+    {
+      "number": 3,
+      "verdict": "PASS",
+      "reason": "Binding arbitration with a class-action and jury waiver removes the reader's court remedies, though the opt-out softens it."
+    },
+    {
+      "number": 4,
+      "verdict": "FAIL",
+      "reason": "This is a post-term non-compete, not a red-line clause, and the rubric says non-competes are not evaluated in this version."
+    },
+    {
+      "number": 5,
+      "verdict": "PASS",
+      "reason": "Termination for any reason on one week's notice is a unilateral termination that leaves the reader's engagement to the Firm's discretion."
+    },
+    {
+      "number": 6,
+      "verdict": "PASS",
+      "reason": "The indemnity covers breaches and anything the Analyst publishes, with legal costs and no cap, creating real liability."
+    },
+    {
+      "number": 7,
+      "verdict": "PASS",
+      "reason": "Mandatory individual arbitration with a jury and class waiver takes away the reader's court remedies."
+    },
+    {
+      "number": 8,
+      "verdict": "PASS",
+      "reason": "The indemnity includes uncapped losses and attorney fees, including third-party claims from a former employer, which is real liability."
+    },
+    {
+      "number": 9,
+      "verdict": "PASS",
+      "reason": "Binding arbitration covering statutory claims with a class and jury waiver removes the reader's remedies."
+    },
+    {
+      "number": 10,
+      "verdict": "PASS",
+      "reason": "A broad indemnity for use of the service, stored content, other users and any account charge exposes the reader to uncapped liability."
+    },
+    {
+      "number": 11,
+      "verdict": "PASS",
+      "reason": "This limits Cascade's liability to one bill period of charges and excludes lost profits, so the reader loses recovery for real harm."
+    },
+    {
+      "number": 12,
+      "verdict": "PASS",
+      "reason": "Individual binding arbitration with a jury and class waiver costs the reader the usual court remedies."
+    },
+    {
+      "number": 13,
+      "verdict": "PASS",
+      "reason": "Cascade may introduce or raise non-governmental fees on notice with the bill, which is a fee escalator that can raise the reader's costs."
+    },
+    {
+      "number": 14,
+      "verdict": "PASS",
+      "reason": "The indemnity for third-party claims over uploaded content, plus Northwind's legal costs, creates uncapped liability for the reader."
+    },
+    {
+      "number": 15,
+      "verdict": "PASS",
+      "reason": "The annual plan auto-extends 12 months at the then-current fee unless the reader cancels 30 days before the anniversary, which is lock-in with a cost."
+    },
+    {
+      "number": 16,
+      "verdict": "PASS",
+      "reason": "Capping Northwind's liability at fees paid for one billing period, even for lost work and failed exports, leaves the reader without recovery for larger losses."
+    },
+    {
+      "number": 17,
+      "verdict": "PASS",
+      "reason": "Binding single-arbitrator arbitration with an individual-only requirement removes the reader's court and class remedies."
+    },
+    {
+      "number": 18,
+      "verdict": "PASS",
+      "reason": "A broad indemnity covering any person's claims and attorney fees, including those from guests' acts, exposes the reader to uncapped liability."
+    },
+    {
+      "number": 19,
+      "verdict": "PASS",
+      "reason": "The $5,000 cap on the operator's liability, even for its own negligence, costs the reader recovery for more valuable stored property."
+    },
+    {
+      "number": 20,
+      "verdict": "PASS",
+      "reason": "Month-to-month renewal without notice is an auto-renewal that continues the reader's charges until the reader acts to end it."
+    }
+  ]
+}

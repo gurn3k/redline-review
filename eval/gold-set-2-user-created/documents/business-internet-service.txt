@@ -1,0 +1,26 @@
+BUSINESS SERVICE AGREEMENT
+Meridian Business Communications
+
+This Business Service Agreement (the "Agreement") is between Meridian Business Communications ("Provider") and the business named on the Service Order ("Customer"). It covers dedicated internet access and business voice service at the Customer location (the "Service").
+
+1. Installation and Charges
+Provider will install the Service within fifteen (15) business days of the Service Order. Customer is responsible for its own router and firewall settings after installation.
+Provider may change rates, surcharges and regulatory recovery fees at any time without prior notice, and the new amount appears on the next invoice.
+
+2. Term and Renewal
+The initial term is thirty-six (36) months.
+After the initial term the Service continues month to month at Provider's then-current rates, which Provider is not required to tell Customer in advance, until Customer cancels in writing.
+
+3. Interruptions
+Provider's liability for any interruption of the Service is limited to a credit of one-thirtieth of the monthly charge for each full day of outage,  and that credit is Customer's sole remedy.
+
+4. Suspension and Termination
+Provider may suspend or terminate the Service at any time without notice if it believes Customer's usage is excessive, while Customer remains liable for the early termination charge equal to all remaining monthly charges.
+
+5. Claims
+Customer will indemnify Provider against any and all third-party claims arising from Customer's use of the Service, including claims relating to content transmitted over it.
+
+6. Disputes
+Customer and Provider agree that any dispute will be decided by a single arbitrator, on an individual basis only, and Customer waives any right to a jury trial or to participate in a class proceeding.
+
+Accepted by Customer on the Service Order date.

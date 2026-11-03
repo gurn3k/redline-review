@@ -1,0 +1,50 @@
+{
+  "document": "retail-lease.txt",
+  "title": "RETAIL LEASE AGREEMENT",
+  "kind": "Commercial lease, landlord's form",
+  "sourceKind": "pasted",
+  "plantedClauses": [
+    {
+      "id": "P-01",
+      "clauseType": "fee-escalator",
+      "sourceSentence": "Landlord may adjust the Common Area Maintenance charge and the Administrative Fee at any time, and an adjusted amount is payable from the date stated on Landlord’s next invoice.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-02",
+      "clauseType": "auto-renewal",
+      "sourceSentence": "Unless Tenant delivers written notice of non-renewal at least ten (10) days before the term ends, this Lease renews for a further five (5) year term at a Base Rent set by Landlord, which Landlord need not announce before the renewal begins.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-03",
+      "clauseType": "indemnification",
+      "sourceSentence": "Tenant will indemnify, defend and hold Landlord harmless from any and all claims, damages, losses and expenses of every kind arising out of or connected with the Premises or Tenant’s use of them, including claims caused in whole or in part by Landlord’s own negligence.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-04",
+      "clauseType": "limitation-of-liability",
+      "sourceSentence": "Landlord’s liability under this Lease is limited to Landlord’s interest in the Plaza, and no member, ofﬁcer or affiliate of Landlord has any personal liability.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-05",
+      "clauseType": "unilateral-termination",
+      "sourceSentence": "Landlord may terminate this Lease at any time on sixty (60) days written notice if Landlord decides to redevelop or sell the Plaza, and Tenant has no right to terminate this Lease before the end of the term except for Landlord’s uncured default.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-06",
+      "clauseType": "personal-guarantee",
+      "sourceSentence": "The individuals who sign this Lease below under the heading “Guarantor” each guarantee, jointly and severally, the full and punctual payment of all rent and other sums due under this Lease and the performance of every Tenant obligation, for the entire term and any renewal, without limit as to amount.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    }
+  ]
+}

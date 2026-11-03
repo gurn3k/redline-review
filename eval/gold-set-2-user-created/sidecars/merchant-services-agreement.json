@@ -1,0 +1,57 @@
+{
+  "document": "merchant-services-agreement.txt",
+  "title": "MERCHANT PROCESSING AGREEMENT",
+  "kind": "Merchant services (card processing) agreement",
+  "sourceKind": "pasted",
+  "plantedClauses": [
+    {
+      "id": "P-01",
+      "clauseType": "fee-escalator",
+      "sourceSentence": "Processor may change any fee, add new fees and adjust interchange markups on thirty (30) days notice posted on its website, and Customer's continued processing is acceptance of the change.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-02",
+      "clauseType": "auto-renewal",
+      "sourceSentence": "After the initial term this Agreement renews for successive one (1) year terms unless Customer gives written notice at least ninety (90) days but not more than one hundred twenty (120) days before the term ends.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-03",
+      "clauseType": "unilateral-termination",
+      "sourceSentence": "Processor may terminate this Agreement or hold Customer's settlement funds at any time, for any reason, without prior notice, while Customer remains liable for the early termination fee of $495 plus the minimum monthly fees for the rest of the term.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-04",
+      "clauseType": "indemnification",
+      "sourceSentence": "Customer will indemnify Processor for any and all losses, chargebacks, fines and assessments of every kind imposed by any card network or bank, without limit and whether or not Customer caused them.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-05",
+      "clauseType": "limitation-of-liability",
+      "sourceSentence": "Processor's liability is limited to the fees Customer paid in the three (3) months before the event, and Processor is not liable for lost profits regardless of cause.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-06",
+      "clauseType": "personal-guarantee",
+      "sourceSentence": "The individual owners who sign this Application each personally guarantee all of Customer's obligations to Processor under this Agreement, including chargebacks, fees, fines and early termination charges, whether they arise before or after the Agreement ends.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-07",
+      "clauseType": "arbitration-and-class-action-waiver",
+      "sourceSentence": "Any claim relating to this Agreement must be brought in individual arbitration, and Customer gives up the right to participate in any class or representative action.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    }
+  ]
+}

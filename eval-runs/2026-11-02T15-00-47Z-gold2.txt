@@ -1,0 +1,244 @@
+Redline eval, set "gold2", started 2026-11-02T15:00:47.911Z
+Model: z-ai/glm-5.3-flash
+
+These numbers are an upper bound. A model wrote the gold set, so they are not a promise to a reader.
+
+Documents scored: 20/20. Left out because the model call failed: 0.
+A document left out is removed from every denominator below. It is not a miss.
+
+RECALL (planted clauses of in-scope types that a shown flag overlaps)
+  Found:               63/84 (75.0%)
+  Found, right type:   63/63 (100.0%) of those found
+  Severity as expected: 51/63 (81.0%) of those found with the right type
+    expected Dangerous: 29/30 (96.7%)   expected Unusual: 22/33 (66.7%)
+  By clause type (found / planted; right type / found):
+    arbitration-and-class-action-waiver    10/10 (100.0%)   right type 10/10 (100.0%)
+    auto-renewal                           10/12 (83.3%)    right type 10/10 (100.0%)
+    indemnification                        10/13 (76.9%)    right type 10/10 (100.0%)
+    limitation-of-liability                6/13 (46.2%)     right type 6/6 (100.0%)
+    personal-guarantee                     4/7 (57.1%)      right type 4/4 (100.0%)
+    unilateral-termination                 12/15 (80.0%)    right type 12/12 (100.0%)
+    fee-escalator                          11/14 (78.6%)    right type 11/11 (100.0%)
+  By characters in the planted sentence:
+    sentence carries at least one of the five    10/31 (32.3%)
+    sentence carries none of them                53/53 (100.0%)
+      curly quote or apostrophe                  8/24 (33.3%)
+      non-breaking space                         0/8 (0.0%)
+      fi or fl ligature                          1/2 (50.0%)
+      em dash                                    0/1 (0.0%)
+      two spaces in a row                        1/3 (33.3%)
+
+OUT OF SCOPE (never counted as misses)
+  ip-assignment: 1 planted in scored documents. PRD.md: IP assignment clauses are explicitly not evaluated in v1 (freelance context, segment excluded).
+  data-privacy-overreach: 2 planted in scored documents. PRD.md: data and privacy overreach in terms of service is explicitly not evaluated in v1.
+  non-compete: 3 planted in scored documents. PRD.md: non-compete clauses are explicitly not evaluated in v1 (employment context, segment excluded).
+
+GROUNDEDNESS (quoted sentence appears in the document character for character)
+  Everything the model returned: 64/86 (74.4%)
+  Flags shown to the reader:     64/64 (100.0%) (the pipeline drops ungrounded flags, so this is 100% by construction)
+
+CLEAN DOCUMENTS
+  Came back Clear:        5/5 (100.0%)
+  Flags shown on them:    0
+  Flags the model returned on them, before the gates: 0
+
+SHOWN FLAGS ON THE DOCUMENTS WITH PLANTED CLAUSES
+  Total 64: 64 on an in-scope planted clause, 0 on an out-of-scope one, 0 on an unusual-but-harmless sentence, 0 on nothing listed.
+
+Type mapping used: arbitration-and-class-action-waiver -> arbitration-class-action-waiver; auto-renewal -> auto-renewal; indemnification -> indemnification; limitation-of-liability -> liability-cap-fee-escalator; fee-escalators-and-late-fees -> liability-cap-fee-escalator; personal-guarantee -> personal-guarantee; unilateral-termination -> unilateral-termination; fee-escalator -> liability-cap-fee-escalator; ip-assignment -> (out of scope); data-privacy-overreach -> (out of scope); unilateral-modification -> (out of scope); non-compete -> (out of scope)
+
+PER DOCUMENT
+  retail-lease: 6 returned, 1 shown, found 1/6
+  it-services-agreement: 6 returned, 5 shown, found 5/6
+  b2b-software-subscription: 6 returned, 4 shown, found 4/5
+  merchant-services-agreement: 7 returned, 6 shown, found 6/7
+  equipment-lease: 6 returned, 3 shown, found 3/6
+  franchise-agreement: 5 returned, 5 shown, found 5/5
+  business-loan-and-guaranty: 6 returned, 6 shown, found 6/6
+  business-internet-service: 7 returned, 6 shown, found 5/6
+  janitorial-services: 5 returned, 2 shown, found 2/5
+  marketing-agency-agreement: 5 returned, 5 shown, found 5/5
+  payroll-peo-services: 6 returned, 6 shown, found 6/6
+  freight-logistics-agreement: 6 returned, 5 shown, found 5/6
+  wholesale-credit-application: 5 returned, 4 shown, found 4/5
+  construction-subcontract: 5 returned, 4 shown, found 4/5
+  temporary-staffing-agreement: 5 returned, 2 shown, found 2/5
+  mutual-nda (clean): 0 returned, 0 shown
+  short-term-office-lease (clean): 0 returned, 0 shown
+  purchase-order-terms (clean): 0 returned, 0 shown
+  event-venue-rental (clean): 0 returned, 0 shown
+  bookkeeping-engagement-letter (clean): 0 returned, 0 shown
+
+EVERY FLAG THE MODEL RETURNED
+  [retail-lease] auto-renewal / Dangerous / shown; grounded; matches P-02, right type
+      "Unless Tenant delivers written notice of non-renewal at least ten (10) days before the term ends, this Lease renews for a further five (5) year term at a Base Rent set by Landlord, which Landlord need not announce before the renewal begins."
+  [retail-lease] indemnification / Dangerous / dropped by gates; NOT in document; matches no planted clause
+      "Tenant will indemnify, defend and hold Landlord harmless from any and all claims, damages, losses and expenses of every kind arising out of or connected with the Premises or Tenant's use of them, including claims caused in whole or in part by Landlord's own negligence."
+  [retail-lease] unilateral-termination / Dangerous / dropped by gates; NOT in document; matches no planted clause
+      "Landlord may terminate this Lease at any time on sixty (60) days written notice if Landlord decides to redevelop or sell the Plaza, and Tenant has no right to terminate this Lease before the end of the term except for Landlord's uncured default."
+  [retail-lease] personal-guarantee / Dangerous / dropped by gates; NOT in document; matches no planted clause
+      "The individuals who sign this Lease below under the heading "Guarantor" each guarantee, jointly and severally, the full and punctual payment of all rent and other sums due under this Lease and the performance of every Tenant obligation, for the entire term and any renewal, without limit as to amount."
+  [retail-lease] liability-cap-fee-escalator / Dangerous / dropped by gates; NOT in document; matches no planted clause
+      "Landlord may adjust the Common Area Maintenance charge and the Administrative Fee at any time, and an adjusted amount is payable from the date stated on Landlord's next invoice."
+  [retail-lease] liability-cap-fee-escalator / Unusual / dropped by gates; NOT in document; matches no planted clause
+      "Landlord's liability under this Lease is limited to Landlord's interest in the Plaza, and no member, ofﬁcer or affiliate of Landlord has any personal liability."
+  [it-services-agreement] unilateral-termination / Dangerous / shown; grounded; matches P-03, right type
+      "Provider may suspend or terminate the Services at any time, for any reason or no reason, effective on delivery of notice, and Customer may terminate only for Provider’s uncured material breach."
+  [it-services-agreement] indemnification / Dangerous / shown; grounded; matches P-05, right type
+      "Customer will defend and indemnify Provider against any and all claims arising out of Customer’s use of the Services or the Deliverables, and this obligation is not subject to any cap or exclusion."
+  [it-services-agreement] liability-cap-fee-escalator / Dangerous / shown; grounded; matches P-04, right type
+      "Provider’s total liability for all claims arising out of this Agreement is limited to the fees paid for the one (1) month of Services immediately preceding the claim, including claims for lost or corrupted data."
+  [it-services-agreement] liability-cap-fee-escalator / Dangerous / shown; grounded; matches P-01, right type
+      "Provider may increase its hourly rates and monthly fees at any time by updating its published rate card, and the new rates apply to all Services performed after the update."
+  [it-services-agreement] auto-renewal / Dangerous / dropped by gates; NOT in document; matches no planted clause
+      "This Agreement renews automatically for successive twelve (12) month terms unless Customer gives written notice of non-renewal no later than ten (10) days before the end of the then-current term."
+  [it-services-agreement] arbitration-class-action-waiver / Unusual / shown; grounded; matches P-06, right type
+      "All disputes will be resolved by binding arbitration in Provider's home county under rules Provider selects, and Customer waives any right to a jury trial or to join or bring a class action."
+  [b2b-software-subscription] unilateral-termination / Dangerous / shown; grounded; matches P-04, right type
+      "Provider may terminate the subscription immediately and without refund if Provider determines in its sole discretion that Customer’s use is inconsistent with the spirit of this Agreement."
+  [b2b-software-subscription] liability-cap-fee-escalator / Unusual / dropped by gates; NOT in document; matches no planted clause
+      "Provider’s aggregate liability under this Agreement will not exceed the fees Customer paid in the three (3) months before the claim, including liability for loss or corruption of Customer Data."
+  [b2b-software-subscription] auto-renewal / Unusual / shown; grounded; matches P-02, right type
+      "Each Subscription Term renews automatically for a further term of the same length unless either party gives written notice of non-renewal at least sixty (60) days before the term ends, and Provider will email a reminder not less than ninety (90) days before the renewal date."
+  [b2b-software-subscription] liability-cap-fee-escalator / Unusual / shown; grounded; matches P-01, right type
+      "On each renewal Provider may increase the Subscription Fees by up to the greater of eight percent (8%) or the increase in the Consumer Price Index, and the renewal fee is stated only in the invoice Provider issues."
+  [b2b-software-subscription] arbitration-class-action-waiver / Unusual / shown; grounded; matches P-06, right type
+      "Any dispute arising out of this Agreement will be settled by individual binding arbitration, and Customer waives any right to bring a claim as a plaintiff or class member in a class, collective or representative proceeding."
+  [b2b-software-subscription] red-line / Unusual / dropped by gates; NOT in document; matches no planted clause
+      ""
+  [merchant-services-agreement] indemnification / Dangerous / shown; grounded; matches P-04, right type
+      "Customer will indemnify Processor for any and all losses, chargebacks, fines and assessments of every kind imposed by any card network or bank, without limit and whether or not Customer caused them."
+  [merchant-services-agreement] personal-guarantee / Dangerous / shown; grounded; matches P-06, right type
+      "The individual owners who sign this Application each personally guarantee all of Customer's obligations to Processor under this Agreement, including chargebacks, fees, fines and early termination charges, whether they arise before or after the Agreement ends."
+  [merchant-services-agreement] auto-renewal / Unusual / shown; grounded; matches P-02, right type
+      "After the initial term this Agreement renews for successive one (1) year terms unless Customer gives written notice at least ninety (90) days but not more than one hundred twenty (120) days before the term ends."
+  [merchant-services-agreement] unilateral-termination / Dangerous / shown; grounded; matches P-03, right type
+      "Processor may terminate this Agreement or hold Customer's settlement funds at any time, for any reason, without prior notice, while Customer remains liable for the early termination fee of $495 plus the minimum monthly fees for the rest of the term."
+  [merchant-services-agreement] liability-cap-fee-escalator / Dangerous / shown; grounded; matches P-05, right type
+      "Processor's liability is limited to the fees Customer paid in the three (3) months before the event, and Processor is not liable for lost profits regardless of cause."
+  [merchant-services-agreement] arbitration-class-action-waiver / Unusual / shown; grounded; matches P-07, right type
+      "Any claim relating to this Agreement must be brought in individual arbitration, and Customer gives up the right to participate in any class or representative action."
+  [merchant-services-agreement] liability-cap-fee-escalator / Dangerous / dropped by gates; NOT in document; matches no planted clause
+      "Processor may change any fee, add new fees and adjust interchange markups on thirty (30) days notice posted on its website, and Customer's continued processing is acceptance of the change."
+  [equipment-lease] indemnification / Dangerous / dropped by gates; NOT in document; matches no planted clause
+      "Lessee will indemnify Lessor against any and all claims, losses and expenses arising from the Equipment, its delivery, use, condition or return, including claims arising from Lessor's own acts."
+  [equipment-lease] unilateral-termination / Dangerous / shown; grounded; matches P-05, right type
+      "Lessor may declare Lessee in default and terminate this Lease if Lessor believes in good faith that its prospect of payment is impaired, without any cure period, and all remaining rentals then become due."
+  [equipment-lease] personal-guarantee / Dangerous / dropped by gates; NOT in document; matches no planted clause
+      "Each person who signs the Guaranty at the end of this Lease personally and unconditionally guarantees all of Lessee's present and future obligations to Lessor, including rent, late charges, collection costs and attorneys' fees, and waives notice of any change to the Lease."
+  [equipment-lease] auto-renewal / Unusual / shown; grounded; matches P-02, right type
+      "At the end of the initial term this Lease renews for successive twelve (12) month terms at the then-current rental unless Lessee returns the Equipment by prepaid freight and gives written notice not more than ninety (90) and not less than sixty (60) days before the term ends."
+  [equipment-lease] liability-cap-fee-escalator / Unusual / shown; grounded; matches P-01, right type
+      "Lessor may increase the monthly rental once in each lease year by up to ten percent (10%), effective on the date stated on the invoice."
+  [equipment-lease] liability-cap-fee-escalator / Unusual / dropped by gates; NOT in document; matches no planted clause
+      "In no event will Lessor's liability to Lessee for any cause — in contract, tort or otherwise — exceed the rental paid for the month in which the claim arose."
+  [franchise-agreement] unilateral-termination / Dangerous / shown; grounded; matches P-02, right type
+      "Franchisor may terminate this Agreement immediately on notice for any default, whether or not it can be cured, including a failure to meet any sales quota Franchisor sets from time to time, and Franchisee has no right to terminate before the term ends."
+  [franchise-agreement] indemnification / Dangerous / shown; grounded; matches P-04, right type
+      "Franchisee will indemnify and hold Franchisor and its affiliates harmless from any and all claims, losses and expenses of every kind arising out of the operation of the bakery, including claims alleging that Franchisor was negligent in its training or supervision."
+  [franchise-agreement] personal-guarantee / Dangerous / shown; grounded; matches P-06, right type
+      "Each owner of Franchisee must sign the Guaranty and, by doing so, becomes personally liable for every payment and performance obligation of Franchisee under this Agreement, without limit and for as long as any obligation remains outstanding."
+  [franchise-agreement] arbitration-class-action-waiver / Unusual / shown; grounded; matches P-05, right type
+      "Franchisee must bring any claim against Franchisor only in binding arbitration in Franchisor's home city and only on an individual basis, and waives any right to a jury trial or to participate in a class action."
+  [franchise-agreement] liability-cap-fee-escalator / Dangerous / shown; grounded; matches P-01, right type
+      "Franchisor may increase the Royalty and the Brand Fund Contribution at any time by amending the Operations Manual, and the increase applies from the date stated in the amendment."
+  [business-loan-and-guaranty] personal-guarantee / Dangerous / shown; grounded; matches P-04, right type
+      "Each Guarantor unconditionally and personally guarantees payment of the Loan and all other amounts owed under the Loan Documents, and Lender may collect from any Guarantor first,  without suing Borrower or enforcing its collateral."
+  [business-loan-and-guaranty] indemnification / Dangerous / shown; grounded; matches P-05, right type
+      "Borrower and each Guarantor will indemnify Lender against any and all claims, losses and expenses, including attorneys’ fees, arising from the Loan, the Collateral or the use of the proceeds."
+  [business-loan-and-guaranty] unilateral-termination / Dangerous / shown; grounded; matches P-03, right type
+      "Lender may cancel any unused commitment and demand payment in full at any time, with or without a default, and no cure period applies."
+  [business-loan-and-guaranty] auto-renewal / Dangerous / shown; grounded; matches P-02, right type
+      "The line of credit renews automatically each year unless Lender receives written notice of non-renewal at least five (5) days before the anniversary date, and an annual renewal fee of one percent (1%) of the commitment is added to the balance."
+  [business-loan-and-guaranty] liability-cap-fee-escalator / Dangerous / shown; grounded; matches P-01, right type
+      "Lender may change the Margin and the fees described in the Fee Schedule at any time on notice mailed to Borrower’s address of record, and the change applies to the unpaid balance from the date of the notice."
+  [business-loan-and-guaranty] arbitration-class-action-waiver / Unusual / shown; grounded; matches P-06, right type
+      "Borrower and each Guarantor agree to resolve any dispute with Lender through binding arbitration on an individual basis and waive the right to bring or join a class, collective or representative action."
+  [business-internet-service] unilateral-termination / Dangerous / shown; grounded; matches P-04, right type
+      "Provider may suspend or terminate the Service at any time without notice if it believes Customer's usage is excessive, while Customer remains liable for the early termination charge equal to all remaining monthly charges."
+  [business-internet-service] liability-cap-fee-escalator / Dangerous / shown; grounded; matches P-01, right type
+      "Provider may change rates, surcharges and regulatory recovery fees at any time without prior notice, and the new amount appears on the next invoice."
+  [business-internet-service] liability-cap-fee-escalator / Unusual / dropped by gates; NOT in document; matches no planted clause
+      "Provider's liability for any interruption of the Service is limited to a credit of one-thirtieth of the monthly charge for each full day of outage, and that credit is Customer's sole remedy."
+  [business-internet-service] indemnification / Dangerous / shown; grounded; matches P-05, right type
+      "Customer will indemnify Provider against any and all third-party claims arising from Customer's use of the Service, including claims relating to content transmitted over it."
+  [business-internet-service] arbitration-class-action-waiver / Unusual / shown; grounded; matches P-06, right type
+      "Customer and Provider agree that any dispute will be decided by a single arbitrator, on an individual basis only, and Customer waives any right to a jury trial or to participate in a class proceeding."
+  [business-internet-service] auto-renewal / Dangerous / shown; grounded; matches P-02, right type
+      "After the initial term the Service continues month to month at Provider's then-current rates, which Provider is not required to tell Customer in advance, until Customer cancels in writing."
+  [business-internet-service] liability-cap-fee-escalator / Dangerous / shown; grounded; matches P-04, wrong type
+      "Provider may suspend or terminate the Service at any time without notice if it believes Customer's usage is excessive, while Customer remains liable for the early termination charge equal to all remaining monthly charges."
+  [janitorial-services] unilateral-termination / Dangerous / dropped by gates; NOT in document; matches no planted clause
+      "Contractor may terminate this Agreement for convenience on seven (7) days' notice, but Customer may terminate only for cause, and only after giving Contractor sixty (60) days to cure."
+  [janitorial-services] indemnification / Dangerous / dropped by gates; NOT in document; matches no planted clause
+      "Customer will indemnify and hold Contractor harmless from any and all claims by Contractor's employees or subcontractors arising at Customer's premises, including claims arising from Contractor's own negligence."
+  [janitorial-services] liability-cap-fee-escalator / Unusual / shown; grounded; matches P-01, right type
+      "Contractor may increase the monthly fee by up to twelve percent (12%) in any year by adding the increase to the next invoice."
+  [janitorial-services] liability-cap-fee-escalator / Unusual / dropped by gates; NOT in document; matches no planted clause
+      "Contractor's liability for damage to Customer's property or for any other claim is limited to $500 per incident."
+  [janitorial-services] auto-renewal / Unusual / shown; grounded; matches P-02, right type
+      "This Agreement renews automatically for successive one (1) year terms unless Customer gives written notice by certified mail at least ninety (90) days before the end of the term."
+  [marketing-agency-agreement] unilateral-termination / Dangerous / shown; grounded; matches P-03, right type
+      "Agency may terminate this Agreement or pause all work at any time in its discretion, and Client remains obligated to pay the full retainer for the remainder of the term."
+  [marketing-agency-agreement] indemnification / Dangerous / shown; grounded; matches P-05, right type
+      "Client will indemnify, defend and hold Agency harmless from any and all claims arising from advertising Agency produces or places at Client's direction, including claims that the advertising is false, misleading or infringing, even where Agency wrote the advertising."
+  [marketing-agency-agreement] liability-cap-fee-escalator / Dangerous / shown; grounded; matches P-01, right type
+      "Agency may increase the monthly retainer and its media management fee at any time on notice by email, and the increase applies to the next billing period."
+  [marketing-agency-agreement] liability-cap-fee-escalator / Unusual / shown; grounded; matches P-06, right type
+      "Agency's total liability to Client for any claim is limited to the retainer paid for the single month in which the claim arose, and Agency is not liable for lost sales or lost profits."
+  [marketing-agency-agreement] auto-renewal / Unusual / shown; grounded; matches P-02, right type
+      "After the initial term this Agreement renews for successive six (6) month terms unless Client gives written notice of non-renewal at least thirty (30) days before the end of the term."
+  [payroll-peo-services] unilateral-termination / Dangerous / shown; grounded; matches P-03, right type
+      "PayRight may terminate this Agreement or stop processing payroll at any time, immediately and without cause, and Client remains responsible for all fees through the end of the then-current term."
+  [payroll-peo-services] indemnification / Dangerous / shown; grounded; matches P-04, right type
+      "Client will indemnify PayRight against any and all employment claims, tax liabilities, penalties and interest, whether or not caused by PayRight, and without any limit on amount."
+  [payroll-peo-services] liability-cap-fee-escalator / Dangerous / shown; grounded; matches P-05, right type
+      "PayRight’s total liability for any claim, including penalties from late or incorrect tax filings made by PayRight, is limited to the fees Client paid for the one (1) month before the claim."
+  [payroll-peo-services] liability-cap-fee-escalator / Dangerous / shown; grounded; matches P-01, right type
+      "PayRight may increase its processing fees, add new service fees and change its percentage charge at any time by posting the change in the client portal, effective on the date of the posting."
+  [payroll-peo-services] auto-renewal / Unusual / shown; grounded; matches P-02, right type
+      "This Agreement renews automatically for successive twelve (12) month terms unless Client delivers written notice of non-renewal at least five (5) business days before the anniversary of the Effective Date."
+  [payroll-peo-services] arbitration-class-action-waiver / Unusual / shown; grounded; matches P-07, right type
+      "All disputes will be resolved by conﬁdential binding arbitration, and Client waives any right to bring or take part in a class or representative action against PayRight."
+  [freight-logistics-agreement] unilateral-termination / Dangerous / shown; grounded; matches P-05, right type
+      "Carrier may terminate this Agreement and refuse any shipment at any time, for any reason, without notice, and Shipper must pay for all freight already in transit and all charges accrued."
+  [freight-logistics-agreement] indemnification / Dangerous / shown; grounded; matches P-04, right type
+      "Shipper will indemnify and hold Carrier harmless from any and all claims, fines and expenses arising from the freight or its handling, including claims that arise from Carrier's own negligence or the acts of its drivers."
+  [freight-logistics-agreement] liability-cap-fee-escalator / Dangerous / shown; grounded; matches P-01, right type
+      "Carrier may adjust the fuel surcharge and its accessorial charges at any time without notice to Shipper, and the adjusted charge applies to every shipment tendered after the adjustment."
+  [freight-logistics-agreement] liability-cap-fee-escalator / Unusual / shown; grounded; matches P-03, right type
+      "Carrier's liability for loss of or damage to cargo is limited to fifty cents ($0.50) per pound per package, regardless of the value of the goods or the cause of the loss."
+  [freight-logistics-agreement] auto-renewal / Unusual / dropped by gates; NOT in document; matches no planted clause
+      "At the end of the initial term this Agreement renews for successive one (1) year terms unless Shipper gives written notice of non-renewal at least sixty (60) days before the term ends."
+  [freight-logistics-agreement] arbitration-class-action-waiver / Unusual / shown; grounded; matches P-06, right type
+      "Any dispute between Shipper and Carrier will be settled by binding arbitration in the county where Carrier has its headquarters, on an individual basis, with no right to proceed as a class."
+  [wholesale-credit-application] personal-guarantee / Dangerous / dropped by gates; NOT in document; matches no planted clause
+      "The undersigned, individually, personally guarantees payment of all present and future purchases by the Company on credit, including interest, collection costs and attorneys’ fees, and this guaranty continues until Seller receives written notice of revocation and then still applies to every purchase made before that notice."
+  [wholesale-credit-application] unilateral-termination / Dangerous / shown; grounded; matches P-02, right type
+      "Seller may withdraw credit, change terms or cancel any open order at any time without notice, and all open balances then become immediately due."
+  [wholesale-credit-application] arbitration-class-action-waiver / Unusual / shown; grounded; matches P-05, right type
+      "The Company and each guarantor agree to resolve any dispute with Seller by binding arbitration on an individual basis, and waive any right to a jury trial or to participate in a class action."
+  [wholesale-credit-application] liability-cap-fee-escalator / Unusual / shown; grounded; matches P-03, right type
+      "Seller’s liability for any claim relating to goods sold, whatever the cause, is limited to the purchase price of the specific goods in dispute, and Seller is not liable for resulting losses."
+  [wholesale-credit-application] liability-cap-fee-escalator / Dangerous / shown; grounded; matches P-01, right type
+      "Unpaid balances bear a service charge of two percent (2%) per month, and Seller may change the service charge rate or add other charges at any time by printing the change on an invoice."
+  [construction-subcontract] personal-guarantee / Dangerous / shown; grounded; matches P-05, right type
+      "The principals of Subcontractor who sign this Subcontract below also sign as individual sureties and are personally liable, without limit, for the completion of the Work and for every claim Contractor makes under this Subcontract."
+  [construction-subcontract] indemnification / Dangerous / shown; grounded; matches P-03, right type
+      "Subcontractor will indemnify and hold harmless Contractor, the Owner and their agents from any and all claims, damages and expenses arising out of the Work, even where caused in part by the negligence of the indemnified parties."
+  [construction-subcontract] unilateral-termination / Dangerous / shown; grounded; matches P-02, right type
+      "Contractor may terminate this Subcontract for its convenience at any time and for any reason, in which case Subcontractor is paid only for work in place and receives nothing for materials ordered, demobilization or lost profit."
+  [construction-subcontract] arbitration-class-action-waiver / Unusual / shown; grounded; matches P-04, right type
+      "Any dispute under this Subcontract will be decided by binding arbitration in the county of Contractor's principal office, and Subcontractor waives any right to join its claim with those of other parties or to bring a class or representative claim."
+  [construction-subcontract] liability-cap-fee-escalator / Unusual / dropped by gates; NOT in document; matches no planted clause
+      "Contractor's liability for delay, disruption or acceleration is limited to an extension of time, and Subcontractor waives any claim for money damages arising from them."
+  [temporary-staffing-agreement] indemnification / Dangerous / shown; grounded; matches P-04, right type
+      "Client will indemnify, defend and hold Agency harmless from any and all claims by Associates, including claims for wages, overtime, discrimination and injury, whether or not caused by Client and without regard to who was at fault."
+  [temporary-staffing-agreement] liability-cap-fee-escalator / Dangerous / dropped by gates; NOT in document; matches no planted clause
+      "Agency's total liability to Client, including liability for an Associate's theft, damage or errors, is limited to the fees Client paid for that Associate in the week of the event."
+  [temporary-staffing-agreement] liability-cap-fee-escalator / Dangerous / dropped by gates; NOT in document; matches no planted clause
+      "Agency may increase the bill rate for any Associate at any time by notice to Client's supervisor, and the increase applies to all hours worked after the date of the notice."
+  [temporary-staffing-agreement] unilateral-termination / Dangerous / dropped by gates; NOT in document; matches no planted clause
+      "Agency may end this Agreement or withdraw any Associate at any time without notice or cause, while Client may end an assignment only on fourteen (14) days' notice and remains liable for all hours through the end of that notice period."
+  [temporary-staffing-agreement] auto-renewal / Unusual / shown; grounded; matches P-02, right type
+      "This Agreement renews for successive one (1) year terms unless Client gives Agency written notice of non-renewal at least forty-five (45) days before the term ends."

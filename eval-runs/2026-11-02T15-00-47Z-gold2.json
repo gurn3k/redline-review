@@ -1,0 +1,2607 @@
+{
+  "set": "gold2",
+  "startedAt": "2026-11-02T15:00:47.911Z",
+  "model": "z-ai/glm-5.3-flash",
+  "documentsInManifest": 20,
+  "documentsLeftOut": [],
+  "summary": {
+    "documentsScored": 20,
+    "documentsLeftOut": [],
+    "recall": {
+      "count": 63,
+      "of": 84
+    },
+    "recallRightType": {
+      "count": 63,
+      "of": 63
+    },
+    "severity": {
+      "overall": {
+        "count": 51,
+        "of": 63
+      },
+      "expectedDangerous": {
+        "count": 29,
+        "of": 30
+      },
+      "expectedUnusual": {
+        "count": 22,
+        "of": 33
+      }
+    },
+    "recallByType": [
+      {
+        "goldType": "arbitration-and-class-action-waiver",
+        "recall": {
+          "count": 10,
+          "of": 10
+        },
+        "rightType": {
+          "count": 10,
+          "of": 10
+        }
+      },
+      {
+        "goldType": "auto-renewal",
+        "recall": {
+          "count": 10,
+          "of": 12
+        },
+        "rightType": {
+          "count": 10,
+          "of": 10
+        }
+      },
+      {
+        "goldType": "indemnification",
+        "recall": {
+          "count": 10,
+          "of": 13
+        },
+        "rightType": {
+          "count": 10,
+          "of": 10
+        }
+      },
+      {
+        "goldType": "limitation-of-liability",
+        "recall": {
+          "count": 6,
+          "of": 13
+        },
+        "rightType": {
+          "count": 6,
+          "of": 6
+        }
+      },
+      {
+        "goldType": "personal-guarantee",
+        "recall": {
+          "count": 4,
+          "of": 7
+        },
+        "rightType": {
+          "count": 4,
+          "of": 4
+        }
+      },
+      {
+        "goldType": "unilateral-termination",
+        "recall": {
+          "count": 12,
+          "of": 15
+        },
+        "rightType": {
+          "count": 12,
+          "of": 12
+        }
+      },
+      {
+        "goldType": "fee-escalator",
+        "recall": {
+          "count": 11,
+          "of": 14
+        },
+        "rightType": {
+          "count": 11,
+          "of": 11
+        }
+      }
+    ],
+    "recallByCharacters": [
+      {
+        "label": "sentence carries at least one of the five",
+        "recall": {
+          "count": 10,
+          "of": 31
+        }
+      },
+      {
+        "label": "sentence carries none of them",
+        "recall": {
+          "count": 53,
+          "of": 53
+        }
+      },
+      {
+        "label": "  curly quote or apostrophe",
+        "recall": {
+          "count": 8,
+          "of": 24
+        }
+      },
+      {
+        "label": "  non-breaking space",
+        "recall": {
+          "count": 0,
+          "of": 8
+        }
+      },
+      {
+        "label": "  fi or fl ligature",
+        "recall": {
+          "count": 1,
+          "of": 2
+        }
+      },
+      {
+        "label": "  em dash",
+        "recall": {
+          "count": 0,
+          "of": 1
+        }
+      },
+      {
+        "label": "  two spaces in a row",
+        "recall": {
+          "count": 1,
+          "of": 3
+        }
+      }
+    ],
+    "outOfScope": [
+      {
+        "goldType": "ip-assignment",
+        "planted": 1,
+        "reason": "PRD.md: IP assignment clauses are explicitly not evaluated in v1 (freelance context, segment excluded)."
+      },
+      {
+        "goldType": "data-privacy-overreach",
+        "planted": 2,
+        "reason": "PRD.md: data and privacy overreach in terms of service is explicitly not evaluated in v1."
+      },
+      {
+        "goldType": "non-compete",
+        "planted": 3,
+        "reason": "PRD.md: non-compete clauses are explicitly not evaluated in v1 (employment context, segment excluded)."
+      }
+    ],
+    "groundedness": {
+      "count": 64,
+      "of": 86
+    },
+    "shownGroundedness": {
+      "count": 64,
+      "of": 64
+    },
+    "cleanDocuments": {
+      "documents": 5,
+      "returnedClear": {
+        "count": 5,
+        "of": 5
+      },
+      "flagsShown": 0,
+      "flagsRaw": 0
+    },
+    "flagsOnLoadedDocuments": {
+      "total": 64,
+      "onInScopePlanted": 64,
+      "onOutOfScopePlanted": 0,
+      "onUnusualButHarmless": 0,
+      "onNothingPlanted": 0
+    }
+  },
+  "flags": [
+    {
+      "document": "retail-lease",
+      "clauseType": "auto-renewal",
+      "severity": "Dangerous",
+      "quotedSentence": "Unless Tenant delivers written notice of non-renewal at least ten (10) days before the term ends, this Lease renews for a further five (5) year term at a Base Rent set by Landlord, which Landlord need not announce before the renewal begins.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "retail-lease",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "Tenant will indemnify, defend and hold Landlord harmless from any and all claims, damages, losses and expenses of every kind arising out of or connected with the Premises or Tenant's use of them, including claims caused in whole or in part by Landlord's own negligence.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "retail-lease",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "Landlord may terminate this Lease at any time on sixty (60) days written notice if Landlord decides to redevelop or sell the Plaza, and Tenant has no right to terminate this Lease before the end of the term except for Landlord's uncured default.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "retail-lease",
+      "clauseType": "personal-guarantee",
+      "severity": "Dangerous",
+      "quotedSentence": "The individuals who sign this Lease below under the heading \"Guarantor\" each guarantee, jointly and severally, the full and punctual payment of all rent and other sums due under this Lease and the performance of every Tenant obligation, for the entire term and any renewal, without limit as to amount.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "retail-lease",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "Landlord may adjust the Common Area Maintenance charge and the Administrative Fee at any time, and an adjusted amount is payable from the date stated on Landlord's next invoice.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "retail-lease",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Landlord's liability under this Lease is limited to Landlord's interest in the Plaza, and no member, ofﬁcer or affiliate of Landlord has any personal liability.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "it-services-agreement",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "Provider may suspend or terminate the Services at any time, for any reason or no reason, effective on delivery of notice, and Customer may terminate only for Provider’s uncured material breach.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-03"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "it-services-agreement",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "Customer will defend and indemnify Provider against any and all claims arising out of Customer’s use of the Services or the Deliverables, and this obligation is not subject to any cap or exclusion.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-05"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "it-services-agreement",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "Provider’s total liability for all claims arising out of this Agreement is limited to the fees paid for the one (1) month of Services immediately preceding the claim, including claims for lost or corrupted data.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-04"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "it-services-agreement",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "Provider may increase its hourly rates and monthly fees at any time by updating its published rate card, and the new rates apply to all Services performed after the update.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-01"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "it-services-agreement",
+      "clauseType": "auto-renewal",
+      "severity": "Dangerous",
+      "quotedSentence": "This Agreement renews automatically for successive twelve (12) month terms unless Customer gives written notice of non-renewal no later than ten (10) days before the end of the then-current term.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "it-services-agreement",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "All disputes will be resolved by binding arbitration in Provider's home county under rules Provider selects, and Customer waives any right to a jury trial or to join or bring a class action.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-06"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "b2b-software-subscription",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "Provider may terminate the subscription immediately and without refund if Provider determines in its sole discretion that Customer’s use is inconsistent with the spirit of this Agreement.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-04"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "b2b-software-subscription",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Provider’s aggregate liability under this Agreement will not exceed the fees Customer paid in the three (3) months before the claim, including liability for loss or corruption of Customer Data.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "b2b-software-subscription",
+      "clauseType": "auto-renewal",
+      "severity": "Unusual",
+      "quotedSentence": "Each Subscription Term renews automatically for a further term of the same length unless either party gives written notice of non-renewal at least sixty (60) days before the term ends, and Provider will email a reminder not less than ninety (90) days before the renewal date.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "b2b-software-subscription",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "On each renewal Provider may increase the Subscription Fees by up to the greater of eight percent (8%) or the increase in the Consumer Price Index, and the renewal fee is stated only in the invoice Provider issues.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-01"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "b2b-software-subscription",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "Any dispute arising out of this Agreement will be settled by individual binding arbitration, and Customer waives any right to bring a claim as a plaintiff or class member in a class, collective or representative proceeding.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-06"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "b2b-software-subscription",
+      "clauseType": "red-line",
+      "severity": "Unusual",
+      "quotedSentence": "",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "merchant-services-agreement",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "Customer will indemnify Processor for any and all losses, chargebacks, fines and assessments of every kind imposed by any card network or bank, without limit and whether or not Customer caused them.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-04"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "merchant-services-agreement",
+      "clauseType": "personal-guarantee",
+      "severity": "Dangerous",
+      "quotedSentence": "The individual owners who sign this Application each personally guarantee all of Customer's obligations to Processor under this Agreement, including chargebacks, fees, fines and early termination charges, whether they arise before or after the Agreement ends.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-06"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "merchant-services-agreement",
+      "clauseType": "auto-renewal",
+      "severity": "Unusual",
+      "quotedSentence": "After the initial term this Agreement renews for successive one (1) year terms unless Customer gives written notice at least ninety (90) days but not more than one hundred twenty (120) days before the term ends.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "merchant-services-agreement",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "Processor may terminate this Agreement or hold Customer's settlement funds at any time, for any reason, without prior notice, while Customer remains liable for the early termination fee of $495 plus the minimum monthly fees for the rest of the term.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-03"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "merchant-services-agreement",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "Processor's liability is limited to the fees Customer paid in the three (3) months before the event, and Processor is not liable for lost profits regardless of cause.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-05"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "merchant-services-agreement",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "Any claim relating to this Agreement must be brought in individual arbitration, and Customer gives up the right to participate in any class or representative action.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-07"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "merchant-services-agreement",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "Processor may change any fee, add new fees and adjust interchange markups on thirty (30) days notice posted on its website, and Customer's continued processing is acceptance of the change.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "equipment-lease",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "Lessee will indemnify Lessor against any and all claims, losses and expenses arising from the Equipment, its delivery, use, condition or return, including claims arising from Lessor's own acts.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "equipment-lease",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "Lessor may declare Lessee in default and terminate this Lease if Lessor believes in good faith that its prospect of payment is impaired, without any cure period, and all remaining rentals then become due.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-05"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "equipment-lease",
+      "clauseType": "personal-guarantee",
+      "severity": "Dangerous",
+      "quotedSentence": "Each person who signs the Guaranty at the end of this Lease personally and unconditionally guarantees all of Lessee's present and future obligations to Lessor, including rent, late charges, collection costs and attorneys' fees, and waives notice of any change to the Lease.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "equipment-lease",
+      "clauseType": "auto-renewal",
+      "severity": "Unusual",
+      "quotedSentence": "At the end of the initial term this Lease renews for successive twelve (12) month terms at the then-current rental unless Lessee returns the Equipment by prepaid freight and gives written notice not more than ninety (90) and not less than sixty (60) days before the term ends.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "equipment-lease",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Lessor may increase the monthly rental once in each lease year by up to ten percent (10%), effective on the date stated on the invoice.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-01"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "equipment-lease",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "In no event will Lessor's liability to Lessee for any cause — in contract, tort or otherwise — exceed the rental paid for the month in which the claim arose.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "franchise-agreement",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "Franchisor may terminate this Agreement immediately on notice for any default, whether or not it can be cured, including a failure to meet any sales quota Franchisor sets from time to time, and Franchisee has no right to terminate before the term ends.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "franchise-agreement",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "Franchisee will indemnify and hold Franchisor and its affiliates harmless from any and all claims, losses and expenses of every kind arising out of the operation of the bakery, including claims alleging that Franchisor was negligent in its training or supervision.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-04"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "franchise-agreement",
+      "clauseType": "personal-guarantee",
+      "severity": "Dangerous",
+      "quotedSentence": "Each owner of Franchisee must sign the Guaranty and, by doing so, becomes personally liable for every payment and performance obligation of Franchisee under this Agreement, without limit and for as long as any obligation remains outstanding.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-06"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "franchise-agreement",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "Franchisee must bring any claim against Franchisor only in binding arbitration in Franchisor's home city and only on an individual basis, and waives any right to a jury trial or to participate in a class action.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-05"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "franchise-agreement",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "Franchisor may increase the Royalty and the Brand Fund Contribution at any time by amending the Operations Manual, and the increase applies from the date stated in the amendment.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-01"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "business-loan-and-guaranty",
+      "clauseType": "personal-guarantee",
+      "severity": "Dangerous",
+      "quotedSentence": "Each Guarantor unconditionally and personally guarantees payment of the Loan and all other amounts owed under the Loan Documents, and Lender may collect from any Guarantor first,  without suing Borrower or enforcing its collateral.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-04"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "business-loan-and-guaranty",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "Borrower and each Guarantor will indemnify Lender against any and all claims, losses and expenses, including attorneys’ fees, arising from the Loan, the Collateral or the use of the proceeds.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-05"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "business-loan-and-guaranty",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "Lender may cancel any unused commitment and demand payment in full at any time, with or without a default, and no cure period applies.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-03"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "business-loan-and-guaranty",
+      "clauseType": "auto-renewal",
+      "severity": "Dangerous",
+      "quotedSentence": "The line of credit renews automatically each year unless Lender receives written notice of non-renewal at least five (5) days before the anniversary date, and an annual renewal fee of one percent (1%) of the commitment is added to the balance.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "business-loan-and-guaranty",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "Lender may change the Margin and the fees described in the Fee Schedule at any time on notice mailed to Borrower’s address of record, and the change applies to the unpaid balance from the date of the notice.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-01"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "business-loan-and-guaranty",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "Borrower and each Guarantor agree to resolve any dispute with Lender through binding arbitration on an individual basis and waive the right to bring or join a class, collective or representative action.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-06"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "business-internet-service",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "Provider may suspend or terminate the Service at any time without notice if it believes Customer's usage is excessive, while Customer remains liable for the early termination charge equal to all remaining monthly charges.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-04"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "business-internet-service",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "Provider may change rates, surcharges and regulatory recovery fees at any time without prior notice, and the new amount appears on the next invoice.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-01"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "business-internet-service",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Provider's liability for any interruption of the Service is limited to a credit of one-thirtieth of the monthly charge for each full day of outage, and that credit is Customer's sole remedy.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "business-internet-service",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "Customer will indemnify Provider against any and all third-party claims arising from Customer's use of the Service, including claims relating to content transmitted over it.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-05"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "business-internet-service",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "Customer and Provider agree that any dispute will be decided by a single arbitrator, on an individual basis only, and Customer waives any right to a jury trial or to participate in a class proceeding.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-06"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "business-internet-service",
+      "clauseType": "auto-renewal",
+      "severity": "Dangerous",
+      "quotedSentence": "After the initial term the Service continues month to month at Provider's then-current rates, which Provider is not required to tell Customer in advance, until Customer cancels in writing.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "business-internet-service",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "Provider may suspend or terminate the Service at any time without notice if it believes Customer's usage is excessive, while Customer remains liable for the early termination charge equal to all remaining monthly charges.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-04"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": false
+    },
+    {
+      "document": "janitorial-services",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "Contractor may terminate this Agreement for convenience on seven (7) days' notice, but Customer may terminate only for cause, and only after giving Contractor sixty (60) days to cure.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "janitorial-services",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "Customer will indemnify and hold Contractor harmless from any and all claims by Contractor's employees or subcontractors arising at Customer's premises, including claims arising from Contractor's own negligence.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "janitorial-services",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Contractor may increase the monthly fee by up to twelve percent (12%) in any year by adding the increase to the next invoice.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-01"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "janitorial-services",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Contractor's liability for damage to Customer's property or for any other claim is limited to $500 per incident.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "janitorial-services",
+      "clauseType": "auto-renewal",
+      "severity": "Unusual",
+      "quotedSentence": "This Agreement renews automatically for successive one (1) year terms unless Customer gives written notice by certified mail at least ninety (90) days before the end of the term.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "marketing-agency-agreement",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "Agency may terminate this Agreement or pause all work at any time in its discretion, and Client remains obligated to pay the full retainer for the remainder of the term.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-03"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "marketing-agency-agreement",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "Client will indemnify, defend and hold Agency harmless from any and all claims arising from advertising Agency produces or places at Client's direction, including claims that the advertising is false, misleading or infringing, even where Agency wrote the advertising.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-05"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "marketing-agency-agreement",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "Agency may increase the monthly retainer and its media management fee at any time on notice by email, and the increase applies to the next billing period.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-01"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "marketing-agency-agreement",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Agency's total liability to Client for any claim is limited to the retainer paid for the single month in which the claim arose, and Agency is not liable for lost sales or lost profits.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-06"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "marketing-agency-agreement",
+      "clauseType": "auto-renewal",
+      "severity": "Unusual",
+      "quotedSentence": "After the initial term this Agreement renews for successive six (6) month terms unless Client gives written notice of non-renewal at least thirty (30) days before the end of the term.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "payroll-peo-services",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "PayRight may terminate this Agreement or stop processing payroll at any time, immediately and without cause, and Client remains responsible for all fees through the end of the then-current term.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-03"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "payroll-peo-services",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "Client will indemnify PayRight against any and all employment claims, tax liabilities, penalties and interest, whether or not caused by PayRight, and without any limit on amount.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-04"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "payroll-peo-services",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "PayRight’s total liability for any claim, including penalties from late or incorrect tax filings made by PayRight, is limited to the fees Client paid for the one (1) month before the claim.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-05"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "payroll-peo-services",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "PayRight may increase its processing fees, add new service fees and change its percentage charge at any time by posting the change in the client portal, effective on the date of the posting.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-01"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "payroll-peo-services",
+      "clauseType": "auto-renewal",
+      "severity": "Unusual",
+      "quotedSentence": "This Agreement renews automatically for successive twelve (12) month terms unless Client delivers written notice of non-renewal at least five (5) business days before the anniversary of the Effective Date.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "payroll-peo-services",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "All disputes will be resolved by conﬁdential binding arbitration, and Client waives any right to bring or take part in a class or representative action against PayRight.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-07"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "freight-logistics-agreement",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "Carrier may terminate this Agreement and refuse any shipment at any time, for any reason, without notice, and Shipper must pay for all freight already in transit and all charges accrued.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-05"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "freight-logistics-agreement",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "Shipper will indemnify and hold Carrier harmless from any and all claims, fines and expenses arising from the freight or its handling, including claims that arise from Carrier's own negligence or the acts of its drivers.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-04"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "freight-logistics-agreement",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "Carrier may adjust the fuel surcharge and its accessorial charges at any time without notice to Shipper, and the adjusted charge applies to every shipment tendered after the adjustment.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-01"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "freight-logistics-agreement",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Carrier's liability for loss of or damage to cargo is limited to fifty cents ($0.50) per pound per package, regardless of the value of the goods or the cause of the loss.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-03"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "freight-logistics-agreement",
+      "clauseType": "auto-renewal",
+      "severity": "Unusual",
+      "quotedSentence": "At the end of the initial term this Agreement renews for successive one (1) year terms unless Shipper gives written notice of non-renewal at least sixty (60) days before the term ends.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "freight-logistics-agreement",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "Any dispute between Shipper and Carrier will be settled by binding arbitration in the county where Carrier has its headquarters, on an individual basis, with no right to proceed as a class.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-06"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "wholesale-credit-application",
+      "clauseType": "personal-guarantee",
+      "severity": "Dangerous",
+      "quotedSentence": "The undersigned, individually, personally guarantees payment of all present and future purchases by the Company on credit, including interest, collection costs and attorneys’ fees, and this guaranty continues until Seller receives written notice of revocation and then still applies to every purchase made before that notice.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "wholesale-credit-application",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "Seller may withdraw credit, change terms or cancel any open order at any time without notice, and all open balances then become immediately due.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "wholesale-credit-application",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "The Company and each guarantor agree to resolve any dispute with Seller by binding arbitration on an individual basis, and waive any right to a jury trial or to participate in a class action.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-05"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "wholesale-credit-application",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Seller’s liability for any claim relating to goods sold, whatever the cause, is limited to the purchase price of the specific goods in dispute, and Seller is not liable for resulting losses.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-03"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "wholesale-credit-application",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "Unpaid balances bear a service charge of two percent (2%) per month, and Seller may change the service charge rate or add other charges at any time by printing the change on an invoice.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-01"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "construction-subcontract",
+      "clauseType": "personal-guarantee",
+      "severity": "Dangerous",
+      "quotedSentence": "The principals of Subcontractor who sign this Subcontract below also sign as individual sureties and are personally liable, without limit, for the completion of the Work and for every claim Contractor makes under this Subcontract.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-05"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "construction-subcontract",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "Subcontractor will indemnify and hold harmless Contractor, the Owner and their agents from any and all claims, damages and expenses arising out of the Work, even where caused in part by the negligence of the indemnified parties.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-03"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "construction-subcontract",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "Contractor may terminate this Subcontract for its convenience at any time and for any reason, in which case Subcontractor is paid only for work in place and receives nothing for materials ordered, demobilization or lost profit.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "construction-subcontract",
+      "clauseType": "arbitration-class-action-waiver",
+      "severity": "Unusual",
+      "quotedSentence": "Any dispute under this Subcontract will be decided by binding arbitration in the county of Contractor's principal office, and Subcontractor waives any right to join its claim with those of other parties or to bring a class or representative claim.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-04"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "construction-subcontract",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Unusual",
+      "quotedSentence": "Contractor's liability for delay, disruption or acceleration is limited to an extension of time, and Subcontractor waives any claim for money damages arising from them.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "temporary-staffing-agreement",
+      "clauseType": "indemnification",
+      "severity": "Dangerous",
+      "quotedSentence": "Client will indemnify, defend and hold Agency harmless from any and all claims by Associates, including claims for wages, overtime, discrimination and injury, whether or not caused by Client and without regard to who was at fault.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-04"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    },
+    {
+      "document": "temporary-staffing-agreement",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "Agency's total liability to Client, including liability for an Associate's theft, damage or errors, is limited to the fees Client paid for that Associate in the week of the event.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "temporary-staffing-agreement",
+      "clauseType": "liability-cap-fee-escalator",
+      "severity": "Dangerous",
+      "quotedSentence": "Agency may increase the bill rate for any Associate at any time by notice to Client's supervisor, and the increase applies to all hours worked after the date of the notice.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "temporary-staffing-agreement",
+      "clauseType": "unilateral-termination",
+      "severity": "Dangerous",
+      "quotedSentence": "Agency may end this Agreement or withdraw any Associate at any time without notice or cause, while Client may end an assignment only on fourteen (14) days' notice and remains liable for all hours through the end of that notice period.",
+      "groundedInDocument": false,
+      "shownToReader": false,
+      "matchedPlantedClause": false,
+      "matchedPlantedIds": [],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": null
+    },
+    {
+      "document": "temporary-staffing-agreement",
+      "clauseType": "auto-renewal",
+      "severity": "Unusual",
+      "quotedSentence": "This Agreement renews for successive one (1) year terms unless Client gives Agency written notice of non-renewal at least forty-five (45) days before the term ends.",
+      "groundedInDocument": true,
+      "shownToReader": true,
+      "matchedPlantedClause": true,
+      "matchedPlantedIds": [
+        "P-02"
+      ],
+      "matchedOutOfScopeType": false,
+      "matchedUnusualButHarmless": false,
+      "namedRightType": true
+    }
+  ],
+  "plantedClauses": [
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": null,
+      "document": "retail-lease",
+      "id": "P-01",
+      "goldType": "fee-escalator",
+      "inScope": true,
+      "sentence": "Landlord may adjust the Common Area Maintenance charge and the Administrative Fee at any time, and an adjusted amount is payable from the date stated on Landlord’s next invoice.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "retail-lease",
+      "id": "P-02",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "Unless Tenant delivers written notice of non-renewal at least ten (10) days before the term ends, this Lease renews for a further five (5) year term at a Base Rent set by Landlord, which Landlord need not announce before the renewal begins.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": null,
+      "document": "retail-lease",
+      "id": "P-03",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "Tenant will indemnify, defend and hold Landlord harmless from any and all claims, damages, losses and expenses of every kind arising out of or connected with the Premises or Tenant’s use of them, including claims caused in whole or in part by Landlord’s own negligence.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": null,
+      "document": "retail-lease",
+      "id": "P-04",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "Landlord’s liability under this Lease is limited to Landlord’s interest in the Plaza, and no member, ofﬁcer or affiliate of Landlord has any personal liability.",
+      "characterClasses": [
+        "curly quote or apostrophe",
+        "fi or fl ligature"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": null,
+      "document": "retail-lease",
+      "id": "P-05",
+      "goldType": "unilateral-termination",
+      "inScope": true,
+      "sentence": "Landlord may terminate this Lease at any time on sixty (60) days written notice if Landlord decides to redevelop or sell the Plaza, and Tenant has no right to terminate this Lease before the end of the term except for Landlord’s uncured default.",
+      "characterClasses": [
+        "curly quote or apostrophe",
+        "non-breaking space"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": null,
+      "document": "retail-lease",
+      "id": "P-06",
+      "goldType": "personal-guarantee",
+      "inScope": true,
+      "sentence": "The individuals who sign this Lease below under the heading “Guarantor” each guarantee, jointly and severally, the full and punctual payment of all rent and other sums due under this Lease and the performance of every Tenant obligation, for the entire term and any renewal, without limit as to amount.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": false,
+      "document": "it-services-agreement",
+      "id": "P-01",
+      "goldType": "fee-escalator",
+      "inScope": true,
+      "sentence": "Provider may increase its hourly rates and monthly fees at any time by updating its published rate card, and the new rates apply to all Services performed after the update.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": null,
+      "document": "it-services-agreement",
+      "id": "P-02",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "This Agreement renews automatically for successive twelve (12) month terms unless Customer gives written notice of non-renewal no later than ten (10) days before the end of the then-current term.",
+      "characterClasses": [
+        "non-breaking space"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "it-services-agreement",
+      "id": "P-03",
+      "goldType": "unilateral-termination",
+      "inScope": true,
+      "sentence": "Provider may suspend or terminate the Services at any time, for any reason or no reason, effective on delivery of notice, and Customer may terminate only for Provider’s uncured material breach.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": false,
+      "document": "it-services-agreement",
+      "id": "P-04",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "Provider’s total liability for all claims arising out of this Agreement is limited to the fees paid for the one (1) month of Services immediately preceding the claim, including claims for lost or corrupted data.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "it-services-agreement",
+      "id": "P-05",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "Customer will defend and indemnify Provider against any and all claims arising out of Customer’s use of the Services or the Deliverables, and this obligation is not subject to any cap or exclusion.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "it-services-agreement",
+      "id": "P-06",
+      "goldType": "arbitration-and-class-action-waiver",
+      "inScope": true,
+      "sentence": "All disputes will be resolved by binding arbitration in Provider's home county under rules Provider selects, and Customer waives any right to a jury trial or to join or bring a class action.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "b2b-software-subscription",
+      "id": "P-01",
+      "goldType": "fee-escalator",
+      "inScope": true,
+      "sentence": "On each renewal Provider may increase the Subscription Fees by up to the greater of eight percent (8%) or the increase in the Consumer Price Index, and the renewal fee is stated only in the invoice Provider issues.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "b2b-software-subscription",
+      "id": "P-02",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "Each Subscription Term renews automatically for a further term of the same length unless either party gives written notice of non-renewal at least sixty (60) days before the term ends, and Provider will email a reminder not less than ninety (90) days before the renewal date.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "b2b-software-subscription",
+      "id": "P-03",
+      "goldType": "data-privacy-overreach",
+      "inScope": false,
+      "sentence": "Provider may use Customer Data in identifiable form to train its models and for any other business purpose, and may share it with its affiliates and partners.",
+      "characterClasses": [],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "b2b-software-subscription",
+      "id": "P-04",
+      "goldType": "unilateral-termination",
+      "inScope": true,
+      "sentence": "Provider may terminate the subscription immediately and without refund if Provider determines in its sole discretion that Customer’s use is inconsistent with the spirit of this Agreement.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": null,
+      "document": "b2b-software-subscription",
+      "id": "P-05",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "Provider’s aggregate liability under this Agreement will not exceed the fees Customer paid in the three (3) months before the claim, including liability for loss or corruption of Customer Data.",
+      "characterClasses": [
+        "curly quote or apostrophe",
+        "non-breaking space"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "b2b-software-subscription",
+      "id": "P-06",
+      "goldType": "arbitration-and-class-action-waiver",
+      "inScope": true,
+      "sentence": "Any dispute arising out of this Agreement will be settled by individual binding arbitration, and Customer waives any right to bring a claim as a plaintiff or class member in a class, collective or representative proceeding.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": null,
+      "document": "merchant-services-agreement",
+      "id": "P-01",
+      "goldType": "fee-escalator",
+      "inScope": true,
+      "sentence": "Processor may change any fee, add new fees and adjust interchange markups on thirty (30) days notice posted on its website, and Customer's continued processing is acceptance of the change.",
+      "characterClasses": [
+        "non-breaking space"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "merchant-services-agreement",
+      "id": "P-02",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "After the initial term this Agreement renews for successive one (1) year terms unless Customer gives written notice at least ninety (90) days but not more than one hundred twenty (120) days before the term ends.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "merchant-services-agreement",
+      "id": "P-03",
+      "goldType": "unilateral-termination",
+      "inScope": true,
+      "sentence": "Processor may terminate this Agreement or hold Customer's settlement funds at any time, for any reason, without prior notice, while Customer remains liable for the early termination fee of $495 plus the minimum monthly fees for the rest of the term.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "merchant-services-agreement",
+      "id": "P-04",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "Customer will indemnify Processor for any and all losses, chargebacks, fines and assessments of every kind imposed by any card network or bank, without limit and whether or not Customer caused them.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": false,
+      "document": "merchant-services-agreement",
+      "id": "P-05",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "Processor's liability is limited to the fees Customer paid in the three (3) months before the event, and Processor is not liable for lost profits regardless of cause.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "merchant-services-agreement",
+      "id": "P-06",
+      "goldType": "personal-guarantee",
+      "inScope": true,
+      "sentence": "The individual owners who sign this Application each personally guarantee all of Customer's obligations to Processor under this Agreement, including chargebacks, fees, fines and early termination charges, whether they arise before or after the Agreement ends.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "merchant-services-agreement",
+      "id": "P-07",
+      "goldType": "arbitration-and-class-action-waiver",
+      "inScope": true,
+      "sentence": "Any claim relating to this Agreement must be brought in individual arbitration, and Customer gives up the right to participate in any class or representative action.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "equipment-lease",
+      "id": "P-01",
+      "goldType": "fee-escalator",
+      "inScope": true,
+      "sentence": "Lessor may increase the monthly rental once in each lease year by up to ten percent (10%), effective on the date stated on the invoice.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "equipment-lease",
+      "id": "P-02",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "At the end of the initial term this Lease renews for successive twelve (12) month terms at the then-current rental unless Lessee returns the Equipment by prepaid freight and gives written notice not more than ninety (90) and not less than sixty (60) days before the term ends.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": null,
+      "document": "equipment-lease",
+      "id": "P-03",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "Lessee will indemnify Lessor against any and all claims, losses and expenses arising from the Equipment, its delivery, use, condition or return, including claims arising from Lessor’s own acts.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": null,
+      "document": "equipment-lease",
+      "id": "P-04",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "In no event will Lessor’s liability to Lessee for any cause — in contract, tort or otherwise — exceed the rental paid for the month in which the claim arose.",
+      "characterClasses": [
+        "curly quote or apostrophe",
+        "em dash"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "equipment-lease",
+      "id": "P-05",
+      "goldType": "unilateral-termination",
+      "inScope": true,
+      "sentence": "Lessor may declare Lessee in default and terminate this Lease if Lessor believes in good faith that its prospect of payment is impaired, without any cure period, and all remaining rentals then become due.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": null,
+      "document": "equipment-lease",
+      "id": "P-06",
+      "goldType": "personal-guarantee",
+      "inScope": true,
+      "sentence": "Each person who signs the Guaranty at the end of this Lease personally and unconditionally guarantees all of Lessee’s present and future obligations to Lessor, including rent, late charges, collection costs and attorneys’ fees, and waives notice of any change to the Lease.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": false,
+      "document": "franchise-agreement",
+      "id": "P-01",
+      "goldType": "fee-escalator",
+      "inScope": true,
+      "sentence": "Franchisor may increase the Royalty and the Brand Fund Contribution at any time by amending the Operations Manual, and the increase applies from the date stated in the amendment.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "franchise-agreement",
+      "id": "P-02",
+      "goldType": "unilateral-termination",
+      "inScope": true,
+      "sentence": "Franchisor may terminate this Agreement immediately on notice for any default, whether or not it can be cured, including a failure to meet any sales quota Franchisor sets from time to time, and Franchisee has no right to terminate before the term ends.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "franchise-agreement",
+      "id": "P-03",
+      "goldType": "non-compete",
+      "inScope": false,
+      "sentence": "For two (2) years after this Agreement ends, Franchisee and each Guarantor will not own, operate or work for any business that sells baked goods within twenty-five (25) miles of any Golden Crust bakery.",
+      "characterClasses": [
+        "non-breaking space"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "franchise-agreement",
+      "id": "P-04",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "Franchisee will indemnify and hold Franchisor and its affiliates harmless from any and all claims, losses and expenses of every kind arising out of the operation of the bakery, including claims alleging that Franchisor was negligent in its training or supervision.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "franchise-agreement",
+      "id": "P-05",
+      "goldType": "arbitration-and-class-action-waiver",
+      "inScope": true,
+      "sentence": "Franchisee must bring any claim against Franchisor only in binding arbitration in Franchisor's home city and only on an individual basis, and waives any right to a jury trial or to participate in a class action.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "franchise-agreement",
+      "id": "P-06",
+      "goldType": "personal-guarantee",
+      "inScope": true,
+      "sentence": "Each owner of Franchisee must sign the Guaranty and, by doing so, becomes personally liable for every payment and performance obligation of Franchisee under this Agreement, without limit and for as long as any obligation remains outstanding.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": false,
+      "document": "business-loan-and-guaranty",
+      "id": "P-01",
+      "goldType": "fee-escalator",
+      "inScope": true,
+      "sentence": "Lender may change the Margin and the fees described in the Fee Schedule at any time on notice mailed to Borrower’s address of record, and the change applies to the unpaid balance from the date of the notice.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "business-loan-and-guaranty",
+      "id": "P-02",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "The line of credit renews automatically each year unless Lender receives written notice of non-renewal at least five (5) days before the anniversary date, and an annual renewal fee of one percent (1%) of the commitment is added to the balance.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "business-loan-and-guaranty",
+      "id": "P-03",
+      "goldType": "unilateral-termination",
+      "inScope": true,
+      "sentence": "Lender may cancel any unused commitment and demand payment in full at any time, with or without a default, and no cure period applies.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "business-loan-and-guaranty",
+      "id": "P-04",
+      "goldType": "personal-guarantee",
+      "inScope": true,
+      "sentence": "Each Guarantor unconditionally and personally guarantees payment of the Loan and all other amounts owed under the Loan Documents, and Lender may collect from any Guarantor first,  without suing Borrower or enforcing its collateral.",
+      "characterClasses": [
+        "two spaces in a row"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "business-loan-and-guaranty",
+      "id": "P-05",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "Borrower and each Guarantor will indemnify Lender against any and all claims, losses and expenses, including attorneys’ fees, arising from the Loan, the Collateral or the use of the proceeds.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "business-loan-and-guaranty",
+      "id": "P-06",
+      "goldType": "arbitration-and-class-action-waiver",
+      "inScope": true,
+      "sentence": "Borrower and each Guarantor agree to resolve any dispute with Lender through binding arbitration on an individual basis and waive the right to bring or join a class, collective or representative action.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": false,
+      "document": "business-internet-service",
+      "id": "P-01",
+      "goldType": "fee-escalator",
+      "inScope": true,
+      "sentence": "Provider may change rates, surcharges and regulatory recovery fees at any time without prior notice, and the new amount appears on the next invoice.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "business-internet-service",
+      "id": "P-02",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "After the initial term the Service continues month to month at Provider's then-current rates, which Provider is not required to tell Customer in advance, until Customer cancels in writing.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": null,
+      "document": "business-internet-service",
+      "id": "P-03",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "Provider's liability for any interruption of the Service is limited to a credit of one-thirtieth of the monthly charge for each full day of outage,  and that credit is Customer's sole remedy.",
+      "characterClasses": [
+        "two spaces in a row"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "business-internet-service",
+      "id": "P-04",
+      "goldType": "unilateral-termination",
+      "inScope": true,
+      "sentence": "Provider may suspend or terminate the Service at any time without notice if it believes Customer's usage is excessive, while Customer remains liable for the early termination charge equal to all remaining monthly charges.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "business-internet-service",
+      "id": "P-05",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "Customer will indemnify Provider against any and all third-party claims arising from Customer's use of the Service, including claims relating to content transmitted over it.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "business-internet-service",
+      "id": "P-06",
+      "goldType": "arbitration-and-class-action-waiver",
+      "inScope": true,
+      "sentence": "Customer and Provider agree that any dispute will be decided by a single arbitrator, on an individual basis only, and Customer waives any right to a jury trial or to participate in a class proceeding.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "janitorial-services",
+      "id": "P-01",
+      "goldType": "fee-escalator",
+      "inScope": true,
+      "sentence": "Contractor may increase the monthly fee by up to twelve percent (12%) in any year by adding the increase to the next invoice.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "janitorial-services",
+      "id": "P-02",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "This Agreement renews automatically for successive one (1) year terms unless Customer gives written notice by certified mail at least ninety (90) days before the end of the term.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": null,
+      "document": "janitorial-services",
+      "id": "P-03",
+      "goldType": "unilateral-termination",
+      "inScope": true,
+      "sentence": "Contractor may terminate this Agreement for convenience on seven (7) days’ notice, but Customer may terminate only for cause, and only after giving Contractor sixty (60) days to cure.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": null,
+      "document": "janitorial-services",
+      "id": "P-04",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "Contractor’s liability for damage to Customer’s property or for any other claim is limited to $500 per incident.",
+      "characterClasses": [
+        "curly quote or apostrophe",
+        "non-breaking space"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": null,
+      "document": "janitorial-services",
+      "id": "P-05",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "Customer will indemnify and hold Contractor harmless from any and all claims by Contractor’s employees or subcontractors arising at Customer’s premises, including claims arising from Contractor’s own negligence.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "severityAgrees": null,
+      "document": "janitorial-services",
+      "id": "P-06",
+      "goldType": "non-compete",
+      "inScope": false,
+      "sentence": "During the term and for twelve (12) months afterwards, Customer will not hire any person who has worked at Customer’s premises for Contractor, unless it first pays Contractor a placement fee of $15,000 for each person.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": false,
+      "document": "marketing-agency-agreement",
+      "id": "P-01",
+      "goldType": "fee-escalator",
+      "inScope": true,
+      "sentence": "Agency may increase the monthly retainer and its media management fee at any time on notice by email, and the increase applies to the next billing period.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "marketing-agency-agreement",
+      "id": "P-02",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "After the initial term this Agreement renews for successive six (6) month terms unless Client gives written notice of non-renewal at least thirty (30) days before the end of the term.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "marketing-agency-agreement",
+      "id": "P-03",
+      "goldType": "unilateral-termination",
+      "inScope": true,
+      "sentence": "Agency may terminate this Agreement or pause all work at any time in its discretion, and Client remains obligated to pay the full retainer for the remainder of the term.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "marketing-agency-agreement",
+      "id": "P-04",
+      "goldType": "ip-assignment",
+      "inScope": false,
+      "sentence": "All work product created under this Agreement — including any of Client's own pre-existing materials that Agency incorporates into it — is owned exclusively by Agency, and Client receives only a revocable license to use it.",
+      "characterClasses": [
+        "em dash"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "marketing-agency-agreement",
+      "id": "P-05",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "Client will indemnify, defend and hold Agency harmless from any and all claims arising from advertising Agency produces or places at Client's direction, including claims that the advertising is false, misleading or infringing, even where Agency wrote the advertising.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "marketing-agency-agreement",
+      "id": "P-06",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "Agency's total liability to Client for any claim is limited to the retainer paid for the single month in which the claim arose, and Agency is not liable for lost sales or lost profits.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": false,
+      "document": "payroll-peo-services",
+      "id": "P-01",
+      "goldType": "fee-escalator",
+      "inScope": true,
+      "sentence": "PayRight may increase its processing fees, add new service fees and change its percentage charge at any time by posting the change in the client portal, effective on the date of the posting.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": false,
+      "document": "payroll-peo-services",
+      "id": "P-02",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "This Agreement renews automatically for successive twelve (12) month terms unless Client delivers written notice of non-renewal at least five (5) business days before the anniversary of the Effective Date.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "payroll-peo-services",
+      "id": "P-03",
+      "goldType": "unilateral-termination",
+      "inScope": true,
+      "sentence": "PayRight may terminate this Agreement or stop processing payroll at any time, immediately and without cause, and Client remains responsible for all fees through the end of the then-current term.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "payroll-peo-services",
+      "id": "P-04",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "Client will indemnify PayRight against any and all employment claims, tax liabilities, penalties and interest, whether or not caused by PayRight, and without any limit on amount.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": false,
+      "document": "payroll-peo-services",
+      "id": "P-05",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "PayRight’s total liability for any claim, including penalties from late or incorrect tax filings made by PayRight, is limited to the fees Client paid for the one (1) month before the claim.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "payroll-peo-services",
+      "id": "P-06",
+      "goldType": "data-privacy-overreach",
+      "inScope": false,
+      "sentence": "PayRight may use, sell and disclose Client’s employee data, including Social Security numbers and bank details, to third parties for marketing and analytics purposes.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "payroll-peo-services",
+      "id": "P-07",
+      "goldType": "arbitration-and-class-action-waiver",
+      "inScope": true,
+      "sentence": "All disputes will be resolved by conﬁdential binding arbitration, and Client waives any right to bring or take part in a class or representative action against PayRight.",
+      "characterClasses": [
+        "fi or fl ligature"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": false,
+      "document": "freight-logistics-agreement",
+      "id": "P-01",
+      "goldType": "fee-escalator",
+      "inScope": true,
+      "sentence": "Carrier may adjust the fuel surcharge and its accessorial charges at any time without notice to Shipper, and the adjusted charge applies to every shipment tendered after the adjustment.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": null,
+      "document": "freight-logistics-agreement",
+      "id": "P-02",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "At the end of the initial term this Agreement renews for successive one (1) year terms unless Shipper gives written notice of non-renewal at least sixty (60) days before the term ends.",
+      "characterClasses": [
+        "non-breaking space"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "freight-logistics-agreement",
+      "id": "P-03",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "Carrier's liability for loss of or damage to cargo is limited to fifty cents ($0.50) per pound per package, regardless of the value of the goods or the cause of the loss.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "freight-logistics-agreement",
+      "id": "P-04",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "Shipper will indemnify and hold Carrier harmless from any and all claims, fines and expenses arising from the freight or its handling, including claims that arise from Carrier's own negligence or the acts of its drivers.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "freight-logistics-agreement",
+      "id": "P-05",
+      "goldType": "unilateral-termination",
+      "inScope": true,
+      "sentence": "Carrier may terminate this Agreement and refuse any shipment at any time, for any reason, without notice, and Shipper must pay for all freight already in transit and all charges accrued.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "freight-logistics-agreement",
+      "id": "P-06",
+      "goldType": "arbitration-and-class-action-waiver",
+      "inScope": true,
+      "sentence": "Any dispute between Shipper and Carrier will be settled by binding arbitration in the county where Carrier has its headquarters, on an individual basis, with no right to proceed as a class.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": false,
+      "document": "wholesale-credit-application",
+      "id": "P-01",
+      "goldType": "fee-escalator",
+      "inScope": true,
+      "sentence": "Unpaid balances bear a service charge of two percent (2%) per month, and Seller may change the service charge rate or add other charges at any time by printing the change on an invoice.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "wholesale-credit-application",
+      "id": "P-02",
+      "goldType": "unilateral-termination",
+      "inScope": true,
+      "sentence": "Seller may withdraw credit, change terms or cancel any open order at any time without notice, and all open balances then become immediately due.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "wholesale-credit-application",
+      "id": "P-03",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "Seller’s liability for any claim relating to goods sold, whatever the cause, is limited to the purchase price of the specific goods in dispute, and Seller is not liable for resulting losses.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": null,
+      "document": "wholesale-credit-application",
+      "id": "P-04",
+      "goldType": "personal-guarantee",
+      "inScope": true,
+      "sentence": "The undersigned, individually, personally guarantees payment of all present and future purchases by the Company on credit, including interest, collection costs and attorneys’ fees, and this guaranty continues until Seller receives written notice of revocation and then still applies to every purchase made before that notice.",
+      "characterClasses": [
+        "curly quote or apostrophe",
+        "non-breaking space"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "wholesale-credit-application",
+      "id": "P-05",
+      "goldType": "arbitration-and-class-action-waiver",
+      "inScope": true,
+      "sentence": "The Company and each guarantor agree to resolve any dispute with Seller by binding arbitration on an individual basis, and waive any right to a jury trial or to participate in a class action.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": null,
+      "document": "construction-subcontract",
+      "id": "P-01",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "Contractor's liability for delay, disruption or acceleration is limited to an extension of time,  and Subcontractor waives any claim for money damages arising from them.",
+      "characterClasses": [
+        "two spaces in a row"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "construction-subcontract",
+      "id": "P-02",
+      "goldType": "unilateral-termination",
+      "inScope": true,
+      "sentence": "Contractor may terminate this Subcontract for its convenience at any time and for any reason, in which case Subcontractor is paid only for work in place and receives nothing for materials ordered, demobilization or lost profit.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "construction-subcontract",
+      "id": "P-03",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "Subcontractor will indemnify and hold harmless Contractor, the Owner and their agents from any and all claims, damages and expenses arising out of the Work, even where caused in part by the negligence of the indemnified parties.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "construction-subcontract",
+      "id": "P-04",
+      "goldType": "arbitration-and-class-action-waiver",
+      "inScope": true,
+      "sentence": "Any dispute under this Subcontract will be decided by binding arbitration in the county of Contractor's principal office, and Subcontractor waives any right to join its claim with those of other parties or to bring a class or representative claim.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "construction-subcontract",
+      "id": "P-05",
+      "goldType": "personal-guarantee",
+      "inScope": true,
+      "sentence": "The principals of Subcontractor who sign this Subcontract below also sign as individual sureties and are personally liable, without limit, for the completion of the Work and for every claim Contractor makes under this Subcontract.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": null,
+      "document": "temporary-staffing-agreement",
+      "id": "P-01",
+      "goldType": "fee-escalator",
+      "inScope": true,
+      "sentence": "Agency may increase the bill rate for any Associate at any time by notice to Client’s supervisor, and the increase applies to all hours worked after the date of the notice.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": true,
+      "document": "temporary-staffing-agreement",
+      "id": "P-02",
+      "goldType": "auto-renewal",
+      "inScope": true,
+      "sentence": "This Agreement renews for successive one (1) year terms unless Client gives Agency written notice of non-renewal at least forty-five (45) days before the term ends.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "severityAgrees": null,
+      "document": "temporary-staffing-agreement",
+      "id": "P-03",
+      "goldType": "non-compete",
+      "inScope": false,
+      "sentence": "If Client hires an Associate, or engages one through another agency, during the term or within twelve (12) months afterwards, Client will pay Agency a conversion fee of thirty percent (30%) of the Associate’s first-year compensation.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": true,
+      "document": "temporary-staffing-agreement",
+      "id": "P-04",
+      "goldType": "indemnification",
+      "inScope": true,
+      "sentence": "Client will indemnify, defend and hold Agency harmless from any and all claims by Associates, including claims for wages, overtime, discrimination and injury, whether or not caused by Client and without regard to who was at fault.",
+      "characterClasses": [],
+      "found": true,
+      "foundWithRightType": true
+    },
+    {
+      "expectedSeverity": "Unusual",
+      "severityAgrees": null,
+      "document": "temporary-staffing-agreement",
+      "id": "P-05",
+      "goldType": "limitation-of-liability",
+      "inScope": true,
+      "sentence": "Agency’s total liability to Client, including liability for an Associate’s theft, damage or errors, is limited to the fees Client paid for that Associate in the week of the event.",
+      "characterClasses": [
+        "curly quote or apostrophe",
+        "non-breaking space"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    },
+    {
+      "expectedSeverity": "Dangerous",
+      "severityAgrees": null,
+      "document": "temporary-staffing-agreement",
+      "id": "P-06",
+      "goldType": "unilateral-termination",
+      "inScope": true,
+      "sentence": "Agency may end this Agreement or withdraw any Associate at any time without notice or cause, while Client may end an assignment only on fourteen (14) days’ notice and remains liable for all hours through the end of that notice period.",
+      "characterClasses": [
+        "curly quote or apostrophe"
+      ],
+      "found": false,
+      "foundWithRightType": false
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "document": "janitorial-services.txt",
+  "title": "JANITORIAL SERVICES AGREEMENT",
+  "kind": "Commercial cleaning (janitorial) services agreement",
+  "sourceKind": "pasted",
+  "plantedClauses": [
+    {
+      "id": "P-01",
+      "clauseType": "fee-escalator",
+      "sourceSentence": "Contractor may increase the monthly fee by up to twelve percent (12%) in any year by adding the increase to the next invoice.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-02",
+      "clauseType": "auto-renewal",
+      "sourceSentence": "This Agreement renews automatically for successive one (1) year terms unless Customer gives written notice by certified mail at least ninety (90) days before the end of the term.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-03",
+      "clauseType": "unilateral-termination",
+      "sourceSentence": "Contractor may terminate this Agreement for convenience on seven (7) days’ notice, but Customer may terminate only for cause, and only after giving Contractor sixty (60) days to cure.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-04",
+      "clauseType": "limitation-of-liability",
+      "sourceSentence": "Contractor’s liability for damage to Customer’s property or for any other claim is limited to $500 per incident.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-05",
+      "clauseType": "indemnification",
+      "sourceSentence": "Customer will indemnify and hold Contractor harmless from any and all claims by Contractor’s employees or subcontractors arising at Customer’s premises, including claims arising from Contractor’s own negligence.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-06",
+      "clauseType": "non-compete",
+      "sourceSentence": "During the term and for twelve (12) months afterwards, Customer will not hire any person who has worked at Customer’s premises for Contractor, unless it first pays Contractor a placement fee of $15,000 for each person.",
+      "expectedSeverity": "n/a",
+      "exit": null
+    }
+  ]
+}

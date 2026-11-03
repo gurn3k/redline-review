@@ -1,0 +1,50 @@
+{
+  "document": "b2b-software-subscription.txt",
+  "title": "CLOUDLEDGER SUBSCRIPTION AGREEMENT",
+  "kind": "B2B software subscription, order form and terms",
+  "sourceKind": "pasted",
+  "plantedClauses": [
+    {
+      "id": "P-01",
+      "clauseType": "fee-escalator",
+      "sourceSentence": "On each renewal Provider may increase the Subscription Fees by up to the greater of eight percent (8%) or the increase in the Consumer Price Index, and the renewal fee is stated only in the invoice Provider issues.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-02",
+      "clauseType": "auto-renewal",
+      "sourceSentence": "Each Subscription Term renews automatically for a further term of the same length unless either party gives written notice of non-renewal at least sixty (60) days before the term ends, and Provider will email a reminder not less than ninety (90) days before the renewal date.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-03",
+      "clauseType": "data-privacy-overreach",
+      "sourceSentence": "Provider may use Customer Data in identifiable form to train its models and for any other business purpose, and may share it with its affiliates and partners.",
+      "expectedSeverity": "n/a",
+      "exit": null
+    },
+    {
+      "id": "P-04",
+      "clauseType": "unilateral-termination",
+      "sourceSentence": "Provider may terminate the subscription immediately and without refund if Provider determines in its sole discretion that Customer’s use is inconsistent with the spirit of this Agreement.",
+      "expectedSeverity": "Dangerous",
+      "exit": null
+    },
+    {
+      "id": "P-05",
+      "clauseType": "limitation-of-liability",
+      "sourceSentence": "Provider’s aggregate liability under this Agreement will not exceed the fees Customer paid in the three (3) months before the claim, including liability for loss or corruption of Customer Data.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    },
+    {
+      "id": "P-06",
+      "clauseType": "arbitration-and-class-action-waiver",
+      "sourceSentence": "Any dispute arising out of this Agreement will be settled by individual binding arbitration, and Customer waives any right to bring a claim as a plaintiff or class member in a class, collective or representative proceeding.",
+      "expectedSeverity": "Unusual",
+      "exit": null
+    }
+  ]
+}

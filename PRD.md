@@ -142,6 +142,47 @@ Nothing beyond this list. See "What we are not building" for the boundary.
   segment excluded), data/privacy overreach in ToS (consumer/platform
   context, segment excluded).
 
+## How we measure it
+
+`npm run eval` runs a set of documents with known planted clauses through the real analysis,
+using the real model, and prints four things. It sits next to the "What good looks like" bar
+above and adds numbers to it. It does not replace the hard citation check, which still runs on
+every output.
+
+- **Recall.** Of the planted clauses whose type this product flags (the types under "My red
+  lines"), how many did a flag find? A flag finds a planted clause when the sentence it quotes
+  overlaps the planted sentence. Whether the flag also named the right type is reported next to
+  it, not folded into it. Types this product leaves out (non-compete, and a right to rewrite the
+  terms, which is not the termination clause we flag) are listed as out of scope and are never
+  counted as misses. Recall is also split by whether the planted sentence contains a curly quote
+  or apostrophe, a non-breaking space, an fi or fl ligature, an em dash, or two spaces in a row,
+  because a model that retypes those characters loses its citation.
+- **Precision.** Of the flags that can be judged, how many overlap a planted clause of a type this
+  product flags. A flag on a sentence the answer key does not list counts against it, so this
+  measures agreement with the key, not whether the flag was wrong.
+- **Groundedness.** Of every flag the model returned, how many quote a sentence that appears in the
+  document character for character? Flags that fail are dropped before a reader sees them, so
+  this measures how often the model hands the product a quote it cannot use.
+- **Clean documents.** How many flags come back on the documents that should come back clean, and
+  how many of those documents came back Clear.
+- **Left-out documents.** If the model call for a document fails, that document is removed from
+  every count above and the number removed is printed. A failed call is never a miss.
+
+Every rate is printed as a count over a count and as a percentage, and every run is saved with
+every flag in it. Where the planted sentences say what severity the product should give them, the
+run also reports how often a found clause carried that severity.
+
+Two document sets feed these numbers. One is an outside set of mostly consumer documents. The
+other is twenty business documents (leases, service and software agreements, loans with a
+personal guarantee, and five clean contracts) written for the segment this product serves. Only
+the second can say anything about personal guarantees and one-sided termination.
+
+**The limit.** A model wrote the gold set, and it wrote the clauses the way a model expects them
+to read. The numbers are therefore an upper bound on what the product catches in real contracts,
+and they are never a promise to a reader. This section sets no recall target, for the same
+reason "What good looks like" sets none. Use the numbers as a trend, and to see which clause
+types are weak.
+
 ## The calls I made and what I gave up
 
 1. **Segment: small business owners** — chosen against freelancers,
